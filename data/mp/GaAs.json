@@ -1,0 +1,161 @@
+{
+ "id": "GaAs",
+ "formula": "GaAs",
+ "material_id": "mp-2534",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "F-43m",
+ "space_group_number": 216,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     0.0,
+     2.875091,
+     2.875091
+    ],
+    [
+     2.875091,
+     0.0,
+     2.875091
+    ],
+    [
+     2.875091,
+     2.875091,
+     0.0
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 4.065992685256824,
+   "b": 4.065992685256824,
+   "c": 4.065992685256824,
+   "alpha": 59.99999999999999,
+   "beta": 59.99999999999999,
+   "gamma": 59.99999999999999,
+   "volume": 47.531856924098754
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ga",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ga",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "As",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.75,
+     0.75
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "As",
+    "xyz": [
+     4.3126365,
+     4.3126365,
+     4.3126365
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 5.750182,
+  "b": 5.750182,
+  "c": 5.750182,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 23.765928462049377
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 60.742,
+  "K_voigt_GPa": 60.742,
+  "K_reuss_GPa": 60.742,
+  "G_vrh_GPa": 40.715,
+  "C_ieee_GPa": [
+   [
+    99.0,
+    42.0,
+    42.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    42.0,
+    99.0,
+    42.0,
+    0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    42.0,
+    42.0,
+    99.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    51.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    51.0,
+    0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    51.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-2534"
+}

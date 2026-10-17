@@ -1,0 +1,205 @@
+{
+ "id": "hBN",
+ "formula": "BN",
+ "material_id": "mp-984",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "P6_3/mmc",
+ "space_group_number": 194,
+ "energy_above_hull_eV": 0.005704095000000464,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     1.256214,
+     -2.175827,
+     0.0
+    ],
+    [
+     1.256214,
+     2.175827,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     7.707265
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.5124284562400976,
+   "b": 2.5124284562400976,
+   "c": 7.707265,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 120.00001201411364,
+   "volume": 42.13260173230655
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "B",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.25
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "B",
+    "xyz": [
+     1.256214,
+     0.7252771172179999,
+     1.92681625
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "B",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.75
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "B",
+    "xyz": [
+     1.256214,
+     -0.7252771172179999,
+     5.78044875
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.75
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "N",
+    "xyz": [
+     1.256214,
+     0.7252771172179999,
+     5.78044875
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.25
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "N",
+    "xyz": [
+     1.256214,
+     -0.7252771172179999,
+     1.92681625
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 2.512428228120049,
+  "b": 2.512428228120049,
+  "c": 7.707265,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 119.99999999999999,
+  "volume_per_atom": 10.533150433076637
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 102.457,
+  "K_voigt_GPa": 200.265,
+  "K_reuss_GPa": 4.649,
+  "G_vrh_GPa": 73.485,
+  "C_ieee_GPa": [
+   [
+    735.0,
+    163.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    163.0,
+    735.0,
+    0.0,
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    5.0,
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    1.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    286.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-984"
+}

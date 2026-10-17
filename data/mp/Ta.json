@@ -1,0 +1,139 @@
+{
+ "id": "Ta",
+ "formula": "Ta",
+ "material_id": "mp-50",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "energy_above_hull_eV": 0.009149912666664761,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     -1.661144,
+     1.661144,
+     1.661144
+    ],
+    [
+     1.661144,
+     -1.661144,
+     1.661144
+    ],
+    [
+     1.661144,
+     1.661144,
+     -1.661144
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.8771858066881952,
+   "b": 2.8771858066881952,
+   "c": 2.8771858066881952,
+   "alpha": 109.47122063449069,
+   "beta": 109.47122063449069,
+   "gamma": 109.47122063449069,
+   "volume": 18.335038952809896
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ta",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Ta",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.322288,
+  "b": 3.322288,
+  "c": 3.322288,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 18.335038952809896
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 194.527,
+  "K_voigt_GPa": 194.527,
+  "K_reuss_GPa": 194.527,
+  "G_vrh_GPa": 64.83,
+  "C_ieee_GPa": [
+   [
+    268.0,
+    158.0,
+    158.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    158.0,
+    268.0,
+    158.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    158.0,
+    158.0,
+    268.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    72.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    72.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    72.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-50"
+}

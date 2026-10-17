@@ -1,0 +1,161 @@
+{
+ "id": "InP",
+ "formula": "InP",
+ "material_id": "mp-20351",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "F-43m",
+ "space_group_number": 216,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     -2.978363,
+     -2.978363,
+     0.0
+    ],
+    [
+     -2.978363,
+     0.0,
+     -2.978363
+    ],
+    [
+     0.0,
+     -2.978363,
+     -2.978363
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 4.212041348270218,
+   "b": 4.212041348270218,
+   "c": 4.212041348270218,
+   "alpha": 59.99999999999999,
+   "beta": 59.99999999999999,
+   "gamma": 59.99999999999999,
+   "volume": 52.840008616696146
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "In",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "In",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "P",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.75,
+     0.75
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "P",
+    "xyz": [
+     -4.4675445,
+     -4.4675445,
+     -4.4675445
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 5.956726,
+  "b": 5.956726,
+  "c": 5.956726,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 26.420004308348073
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 59.35,
+  "K_voigt_GPa": 59.35,
+  "K_reuss_GPa": 59.35,
+  "G_vrh_GPa": 31.656,
+  "C_ieee_GPa": [
+   [
+    87.0,
+    46.0,
+    46.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    46.0,
+    87.0,
+    46.0,
+    0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    46.0,
+    46.0,
+    87.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    42.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    42.0,
+    0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    42.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-20351"
+}

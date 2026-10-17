@@ -1,0 +1,161 @@
+{
+ "id": "Si",
+ "formula": "Si",
+ "material_id": "mp-149",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Fd-3m",
+ "space_group_number": 227,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     -2.734364,
+     -2.734364,
+     0.0
+    ],
+    [
+     -2.734364,
+     0.0,
+     -2.734364
+    ],
+    [
+     0.0,
+     -2.734364,
+     -2.734364
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 3.8669746532647453,
+   "b": 3.8669746532647453,
+   "c": 3.8669746532647453,
+   "alpha": 59.99999999999999,
+   "beta": 59.99999999999999,
+   "gamma": 59.99999999999999,
+   "volume": 40.88829284866483
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.75,
+     0.75
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     -4.101546,
+     -4.101546,
+     -4.101546
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 5.468728,
+  "b": 5.468728,
+  "c": 5.468728,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 20.444146424332416
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 88.916,
+  "K_voigt_GPa": 88.916,
+  "K_reuss_GPa": 88.916,
+  "G_vrh_GPa": 62.445,
+  "C_ieee_GPa": [
+   [
+    153.0,
+    57.0,
+    57.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    57.0,
+    153.0,
+    57.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    57.0,
+    57.0,
+    153.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    74.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    74.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    74.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-149"
+}

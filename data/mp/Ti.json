@@ -1,0 +1,161 @@
+{
+ "id": "Ti",
+ "formula": "Ti",
+ "material_id": "mp-46",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "P6_3/mmc",
+ "space_group_number": 194,
+ "energy_above_hull_eV": 0.015169603333331949,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     1.466907,
+     -2.540757,
+     0.0
+    ],
+    [
+     1.466907,
+     2.540757,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     4.657009
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.933813606843148,
+   "b": 2.933813606843148,
+   "c": 4.657009,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 119.99999113404871,
+   "volume": 34.713850172147204
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ti",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.25
+    ],
+    "properties": {
+     "magmom": -0.009
+    },
+    "label": "Ti",
+    "xyz": [
+     1.466907,
+     0.8469206938380001,
+     1.16425225
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ti",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.75
+    ],
+    "properties": {
+     "magmom": 0.009
+    },
+    "label": "Ti",
+    "xyz": [
+     1.466907,
+     -0.8469206938380002,
+     3.4927567500000003
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 2.933813803421574,
+  "b": 2.933813803421574,
+  "c": 4.657009,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.00000000000001,
+  "volume_per_atom": 17.356925086073602
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 112.944,
+  "K_voigt_GPa": 112.979,
+  "K_reuss_GPa": 112.908,
+  "G_vrh_GPa": 48.257,
+  "C_ieee_GPa": [
+   [
+    180.0,
+    80.0,
+    75.0,
+    0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    80.0,
+    180.0,
+    75.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    75.0,
+    75.0,
+    196.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    -0.0,
+    42.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    42.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    50.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-46"
+}

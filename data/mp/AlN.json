@@ -1,0 +1,205 @@
+{
+ "id": "AlN",
+ "formula": "AlN",
+ "material_id": "mp-661",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "P6_3mc",
+ "space_group_number": 186,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     1.564294,
+     -2.709437,
+     0.0
+    ],
+    [
+     1.564294,
+     2.709437,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     5.016955
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 3.128588271953502,
+   "b": 3.128588271953502,
+   "c": 5.016955,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 120.00000575093205,
+   "volume": 42.52728307818043
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Al",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.499287
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Al",
+    "xyz": [
+     1.564294,
+     -0.903147472958,
+     2.504900411085
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Al",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.999287
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Al",
+    "xyz": [
+     1.564294,
+     0.903147472958,
+     5.0133779110850005
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.880713
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "N",
+    "xyz": [
+     1.564294,
+     -0.903147472958,
+     4.418497488915
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.380713
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "N",
+    "xyz": [
+     1.564294,
+     0.903147472958,
+     1.9100199889150002
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.1285881359767513,
+  "b": 3.1285881359767513,
+  "c": 5.016955,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 119.99999999999999,
+  "volume_per_atom": 10.631820769545108
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 194.62,
+  "K_voigt_GPa": 195.038,
+  "K_reuss_GPa": 194.202,
+  "G_vrh_GPa": 122.306,
+  "C_ieee_GPa": [
+   [
+    379.0,
+    128.0,
+    96.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    128.0,
+    379.0,
+    96.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    96.0,
+    96.0,
+    355.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    112.0,
+    0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    112.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    125.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-661"
+}

@@ -1,0 +1,69 @@
+# ChipFF Bench settings. Everything that affects a number lives here.
+#
+# PRE-REGISTERED THRESHOLDS: fixed on 2026-10-17, before any model result was
+# compared with a reference value. They define the trust map's colours and are
+# not to be tuned after seeing results. Errors are absolute percentage errors.
+thresholds:
+  lattice:            {good: 1.0,  okay: 3.0}    # effective linear error, (V/V_ref)^(1/3) - 1
+  bulk_modulus:       {good: 10.0, okay: 25.0}
+  thermal_expansion:  {good: 20.0, okay: 40.0}   # volumetric coefficient vs experiment
+
+models: [mace-mpa-0, orb-v3, mattersim-5m, uma-s-1p2]
+
+relax:
+  fmax_eV_per_A: 0.001      # as in kUPS's example configs
+  max_steps: 2000
+  optimizer: L-BFGS (kUPS scale_by_ase_lbfgs, memory 100, alpha 70, max step 0.2 Å)
+
+elastic:
+  strains: [-0.01, -0.005, 0.005, 0.01]   # each of the 6 Voigt components (Materials Project's set)
+  ions: relaxed at fixed strained cell
+
+eos:
+  volume_range: [0.94, 1.06]
+  n_volumes: 9
+  form: birch_murnaghan
+  cell_shape: fixed (cross-check only for non-cubic)
+
+thermal:
+  min_supercell_width_A: 10.0
+  # Rule as first written was T >= Debye T. Amended on 2026-10-17, before any MD was
+  # run, to T >= 0.75 Debye T: at 0.75 Debye T the classical heat capacity is already
+  # ~93% of its high-T limit, and the strict form left no window for Al, Al2O3, Si3N4.
+  temperature_rule: "T >= max(300 K, 0.75 x Debye T); T <= melting/2; T <= (first solid-state transition - 50 K); 3 evenly spaced temperatures; window must span >= 150 K"
+  # Materials without a single Debye or melting temperature get fixed temperatures, with the reason.
+  overrides:
+    graphite:
+      temperatures: [600, 900, 1200]
+      reason: "no single Debye temperature (in-plane ~2500 K, out-of-plane ~1000 K) and it sublimes; the c-axis expansion dominates the volume change and is the quantity compared. Classical MD cannot reproduce the quantum, negative in-plane alpha_a, so alpha_a is reported but not graded."
+    MoS2:
+      temperatures: [400, 650, 900]
+      reason: "Debye 260-320 K and melting 1853-1895 K are ranges, not single values; window is above the Debye range and below half the lower melting value. No sourced experimental alpha, so results are model-to-model only."
+    TaN:
+      temperatures: [400, 650, 900]
+      reason: "no measured Debye temperature or decomposition temperature for epsilon-TaN; window matches the only experimental expansion data (HT-XRD, 313-928 K)."
+    NiSi:
+      temperatures: [350, 475, 600]
+      reason: "no sourced Debye temperature; window kept below half the 1275 K melting point, inside the range of the experimental (range-averaged) expansion data."
+    WSi2:
+      temperatures: [500, 850, 1200]
+      reason: "Debye temperature unverified (~625 K reported, source not opened); window starts above 0.75 x 625 K and stays below half the 2433 K melting point."
+    TiSi2:
+      temperatures: [500, 700, 900]
+      reason: "no sourced melting point, so the Tm/2 cap can't be applied; window starts above 0.75 x 664 K (Debye) and is capped at 900 K, far below the 1603 K transition."
+  time_step_fs: {default: 2.0, light_elements: 1.0}   # light = H, Li, Be, B, C, N, O, F
+  thermostat_tau_fs: 100
+  barostat_tau_fs: 1000
+  langevin_friction_per_fs: 0.01
+  pressure_GPa: 0.0
+  integrator: {cubic: csvr_npt, other: baoab_npt_langevin}
+  compressibility: 1 / K_Reuss of the same model
+  start_strain_per_K: 1.0e-5   # initial cell pre-expanded by this linear strain x T
+  equilibration_ps: 10
+  production_ps: {min: 20, max: 100, check_every: 5}
+  stop_when_volume_sem_below: 0.0002   # relative standard error of mean volume (10-block averaging)
+  sample_every_fs: 10
+  spot_checks:
+    nve_drift_max_meV_per_atom_per_ps: 1.0
+    bigger_supercell_width_A: 14.0
+    halved_time_step: true

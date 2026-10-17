@@ -1,0 +1,161 @@
+{
+ "id": "Ru",
+ "formula": "Ru",
+ "material_id": "mp-33",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "P6_3/mmc",
+ "space_group_number": 194,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     -1.366465,
+     -2.366787,
+     0.0
+    ],
+    [
+     -1.366465,
+     2.366787,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     -4.313923
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.732930167346762,
+   "b": 2.732930167346762,
+   "c": 4.313923,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 120.00000405117287,
+   "volume": 27.903589370889655
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ru",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.25
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ru",
+    "xyz": [
+     -1.366465,
+     0.788930577858,
+     -1.07848075
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ru",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.75
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ru",
+    "xyz": [
+     -1.366465,
+     -0.7889305778580001,
+     -3.23544225
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 2.7329300836733808,
+  "b": 2.7329300836733808,
+  "c": 4.313923,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.00000000000001,
+  "volume_per_atom": 13.951794685444828
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 310.062,
+  "K_voigt_GPa": 310.48,
+  "K_reuss_GPa": 309.645,
+  "G_vrh_GPa": 193.869,
+  "C_ieee_GPa": [
+   [
+    561.0,
+    172.0,
+    175.0,
+    0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    172.0,
+    561.0,
+    175.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    175.0,
+    175.0,
+    627.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    -0.0,
+    184.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    184.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    194.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-33"
+}

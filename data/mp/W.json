@@ -1,0 +1,139 @@
+{
+ "id": "W",
+ "formula": "W",
+ "material_id": "mp-91",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     1.593707,
+     1.593707,
+     1.593707
+    ],
+    [
+     1.593707,
+     -1.593707,
+     -1.593707
+    ],
+    [
+     -1.593707,
+     1.593707,
+     -1.593707
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.7603814963781725,
+   "b": 2.7603814963781725,
+   "c": 2.7603814963781725,
+   "alpha": 109.47122063449069,
+   "beta": 109.47122063449069,
+   "gamma": 109.47122063449069,
+   "volume": 16.191438398643058
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "W",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "W",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.187414,
+  "b": 3.187414,
+  "c": 3.187414,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 16.191438398643058
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 302.264,
+  "K_voigt_GPa": 302.264,
+  "K_reuss_GPa": 302.264,
+  "G_vrh_GPa": 148.152,
+  "C_ieee_GPa": [
+   [
+    521.0,
+    193.0,
+    193.0,
+    0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    193.0,
+    521.0,
+    193.0,
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    193.0,
+    193.0,
+    521.0,
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    138.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    138.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    138.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-91"
+}

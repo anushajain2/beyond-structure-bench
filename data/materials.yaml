@@ -1,0 +1,51 @@
+# ChipFF Bench material set: 33 chip materials in 5 classes.
+# Each entry names the intended crystal form by formula + space group number.
+# `mp_hint` is the Materials Project ID we expect; scripts/fetch_mp.py verifies
+# formula and space group against Materials Project and records the ID it used
+# in data/mp/<id>.json. If the hint doesn't match, it picks the lowest-energy
+# entry with the right formula and space group and says so.
+#
+# role: why the material is in a chip. tags: "layered" marks van der Waals solids.
+
+semiconductors:
+  - {id: Si,      formula: Si,    spg: 227, phase: diamond,            mp_hint: mp-149,   role: "channel / substrate"}
+  - {id: Ge,      formula: Ge,    spg: 227, phase: diamond,            mp_hint: mp-32,    role: "SiGe channels, photodetectors"}
+  - {id: SiC,     formula: SiC,   spg: 216, phase: 3C zincblende,      mp_hint: mp-8062,  role: "power devices"}
+  - {id: GaAs,    formula: GaAs,  spg: 216, phase: zincblende,         mp_hint: mp-2534,  role: "RF and optoelectronics"}
+  - {id: GaN,     formula: GaN,   spg: 186, phase: wurtzite,           mp_hint: mp-804,   role: "power and RF transistors, LEDs"}
+  - {id: InP,     formula: InP,   spg: 216, phase: zincblende,         mp_hint: mp-20351, role: "photonics, high-speed electronics"}
+  - {id: AlN,     formula: AlN,   spg: 186, phase: wurtzite,           mp_hint: mp-661,   role: "GaN buffer layers, piezo MEMS"}
+
+dielectrics:
+  - {id: SiO2_quartz, formula: SiO2,  spg: 154, phase: alpha-quartz,   mp_hint: mp-6930,  role: "reference oxide (gate oxides are amorphous SiO2)"}
+  - {id: Si3N4_beta,  formula: Si3N4, spg: 176, phase: beta,           mp_hint: mp-988,   role: "spacers, etch stops, passivation"}
+  - {id: Al2O3,       formula: Al2O3, spg: 167, phase: corundum,       mp_hint: mp-1143,  role: "high-k dielectric, ALD barrier"}
+  - {id: HfO2,        formula: HfO2,  spg: 14,  phase: monoclinic,     mp_hint: mp-352,   role: "high-k gate dielectric, ferroelectric memory"}
+  - {id: ZrO2,        formula: ZrO2,  spg: 14,  phase: monoclinic,     mp_hint: mp-2858,  role: "DRAM capacitor dielectric"}
+  - {id: Y2O3,        formula: Y2O3,  spg: 206, phase: bixbyite,       mp_hint: mp-2652,  role: "high-k, chamber coatings"}
+  - {id: TiO2_rutile, formula: TiO2,  spg: 136, phase: rutile,         mp_hint: mp-2657,  role: "high-k capacitors"}
+  - {id: MgO,         formula: MgO,   spg: 225, phase: rocksalt,       mp_hint: mp-1265,  role: "MRAM tunnel barrier"}
+  - {id: SrTiO3,      formula: SrTiO3, spg: 221, phase: cubic perovskite, mp_hint: mp-5229, role: "high-k, oxide-electronics substrate"}
+
+metals:
+  - {id: Cu, formula: Cu, spg: 225, phase: fcc, mp_hint: mp-30,  role: "interconnect"}
+  - {id: Al, formula: Al, spg: 225, phase: fcc, mp_hint: mp-134, role: "interconnect, bond pads"}
+  - {id: W,  formula: W,  spg: 229, phase: bcc, mp_hint: mp-91,  role: "contacts, vias"}
+  - {id: Co, formula: Co, spg: 194, phase: hcp, mp_hint: mp-54,  role: "local interconnect, liners"}
+  - {id: Ru, formula: Ru, spg: 194, phase: hcp, mp_hint: mp-33,  role: "post-Cu interconnect candidate"}
+  - {id: Mo, formula: Mo, spg: 229, phase: bcc, mp_hint: mp-129, role: "post-Cu interconnect candidate, gate metal"}
+  - {id: Ti, formula: Ti, spg: 194, phase: hcp, mp_hint: mp-46,  role: "contact / adhesion layer"}
+  - {id: Ta, formula: Ta, spg: 229, phase: bcc, mp_hint: mp-50,  role: "Cu barrier/liner"}
+
+barriers_silicides:
+  - {id: TiN,   formula: TiN,   spg: 225, phase: rocksalt,         mp_hint: mp-492,  role: "barrier, gate metal, hard mask"}
+  - {id: TaN,   formula: TaN,   spg: 189, phase: hexagonal (epsilon), mp_hint: null, role: "Cu diffusion barrier (films are often cubic delta-TaN, which is metastable in bulk and lacks bulk data)"}
+  - {id: CoSi2, formula: CoSi2, spg: 225, phase: fluorite,         mp_hint: mp-2379, role: "contact silicide"}
+  - {id: NiSi,  formula: NiSi,  spg: 62,  phase: MnP-type,         mp_hint: mp-351,  role: "contact silicide"}
+  - {id: TiSi2, formula: TiSi2, spg: 70,  phase: C54,              mp_hint: null,    role: "contact silicide"}
+  - {id: WSi2,  formula: WSi2,  spg: 139, phase: C11b,             mp_hint: mp-1620, role: "gate / contact silicide"}
+
+layered:
+  - {id: MoS2,     formula: MoS2, spg: 194, phase: 2H,              mp_hint: mp-2815, role: "2D channel candidate", tags: [layered]}
+  - {id: hBN,      formula: BN,   spg: 194, phase: hexagonal (AA'), mp_hint: mp-984,  role: "2D dielectric / encapsulation", tags: [layered]}
+  - {id: graphite, formula: C,    spg: 194, phase: Bernal (AB),     mp_hint: mp-48,   role: "graphene-based interconnects, reference vdW solid", tags: [layered]}

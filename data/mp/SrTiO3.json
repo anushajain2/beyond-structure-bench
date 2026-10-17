@@ -1,0 +1,227 @@
+{
+ "id": "SrTiO3",
+ "formula": "SrTiO3",
+ "material_id": "mp-5229",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Pm-3m",
+ "space_group_number": 221,
+ "energy_above_hull_eV": 0.00047005399999910935,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     3.94513,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     3.94513,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     3.94513
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 3.94513,
+   "b": 3.94513,
+   "c": 3.94513,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 90.0,
+   "volume": 61.40220340476369
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Sr",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Sr",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ti",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Ti",
+    "xyz": [
+     1.972565,
+     1.972565,
+     1.972565
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "O",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.5,
+     0.0,
+     0.5
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "O",
+    "xyz": [
+     1.972565,
+     0.0,
+     1.972565
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "O",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.5,
+     0.5,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "O",
+    "xyz": [
+     1.972565,
+     1.972565,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "O",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.5,
+     0.5
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "O",
+    "xyz": [
+     0.0,
+     1.972565,
+     1.972565
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.9451300000000002,
+  "b": 3.9451300000000002,
+  "c": 3.9451300000000002,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 12.280440680952738
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 170.929,
+  "K_voigt_GPa": 170.929,
+  "K_reuss_GPa": 170.929,
+  "G_vrh_GPa": 108.497,
+  "C_ieee_GPa": [
+   [
+    315.0,
+    99.0,
+    99.0,
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    99.0,
+    315.0,
+    99.0,
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    99.0,
+    99.0,
+    315.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    -0.0,
+    109.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    109.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    109.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-5229"
+}

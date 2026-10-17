@@ -1,0 +1,161 @@
+{
+ "id": "Co",
+ "formula": "Co",
+ "material_id": "mp-54",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "P6_3/mmc",
+ "space_group_number": 194,
+ "energy_above_hull_eV": 0.025098924999999994,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     1.250392,
+     -2.165742,
+     0.0
+    ],
+    [
+     1.250392,
+     2.165742,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     4.033331
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.500783590042929,
+   "b": 2.500783590042929,
+   "c": 4.033331,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 119.99998915438252,
+   "volume": 21.844734227512735
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Co",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.25
+    ],
+    "properties": {
+     "magmom": 1.629
+    },
+    "label": "Co",
+    "xyz": [
+     1.250392,
+     0.721915443828,
+     1.00833275
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Co",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.75
+    ],
+    "properties": {
+     "magmom": 1.629
+    },
+    "label": "Co",
+    "xyz": [
+     1.250392,
+     -0.7219154438279999,
+     3.0249982500000003
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 2.500783795021464,
+  "b": 2.500783795021464,
+  "c": 4.033331,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.00000000000001,
+  "volume_per_atom": 10.922367113756367
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": -1127.579,
+  "K_voigt_GPa": -1127.575,
+  "K_reuss_GPa": -1127.582,
+  "G_vrh_GPa": 88.882,
+  "C_ieee_GPa": [
+   [
+    -972.0,
+    -1186.0,
+    -1223.0,
+    0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    -1186.0,
+    -972.0,
+    -1223.0,
+    0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    -1223.0,
+    -1223.0,
+    -940.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    -0.0,
+    58.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    0.0,
+    -0.0,
+    58.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    107.0
+   ]
+  ],
+  "state": "failed"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-54"
+}

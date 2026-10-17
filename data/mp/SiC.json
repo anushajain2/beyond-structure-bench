@@ -1,0 +1,161 @@
+{
+ "id": "SiC",
+ "formula": "SiC",
+ "material_id": "mp-8062",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "F-43m",
+ "space_group_number": 216,
+ "energy_above_hull_eV": 0.00016855236842161503,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     0.0,
+     2.18978,
+     2.18978
+    ],
+    [
+     2.18978,
+     0.0,
+     2.18978
+    ],
+    [
+     2.18978,
+     2.18978,
+     0.0
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 3.096816574613356,
+   "b": 3.096816574613356,
+   "c": 3.096816574613356,
+   "alpha": 60.00000000000001,
+   "beta": 60.00000000000001,
+   "gamma": 60.00000000000001,
+   "volume": 21.0005877839547
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     1.09489,
+     1.09489,
+     1.09489
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "C",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "C",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 4.37956,
+  "b": 4.37956,
+  "c": 4.37956,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 10.50029389197735
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 212.682,
+  "K_voigt_GPa": 212.682,
+  "K_reuss_GPa": 212.682,
+  "G_vrh_GPa": 187.246,
+  "C_ieee_GPa": [
+   [
+    384.0,
+    127.0,
+    127.0,
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    127.0,
+    384.0,
+    127.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    127.0,
+    127.0,
+    384.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    241.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    241.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    241.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-8062"
+}

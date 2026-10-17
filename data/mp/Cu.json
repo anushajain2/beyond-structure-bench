@@ -1,0 +1,139 @@
+{
+ "id": "Cu",
+ "formula": "Cu",
+ "material_id": "mp-30",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     0.0,
+     1.810631,
+     1.810631
+    ],
+    [
+     1.810631,
+     0.0,
+     1.810631
+    ],
+    [
+     1.810631,
+     1.810631,
+     0.0
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.56061891665316,
+   "b": 2.56061891665316,
+   "c": 2.56061891665316,
+   "alpha": 60.00000000000001,
+   "beta": 60.00000000000001,
+   "gamma": 60.00000000000001,
+   "volume": 11.871889639130941
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Cu",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.001
+    },
+    "label": "Cu",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.621262,
+  "b": 3.621262,
+  "c": 3.621262,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 11.871889639130941
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 151.394,
+  "K_voigt_GPa": 151.394,
+  "K_reuss_GPa": 151.394,
+  "G_vrh_GPa": 49.843,
+  "C_ieee_GPa": [
+   [
+    186.0,
+    134.0,
+    134.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    134.0,
+    186.0,
+    134.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    134.0,
+    134.0,
+    186.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    77.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    77.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    77.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-30"
+}

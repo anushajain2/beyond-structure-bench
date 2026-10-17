@@ -1,0 +1,161 @@
+{
+ "id": "Ge",
+ "formula": "Ge",
+ "material_id": "mp-32",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Fd-3m",
+ "space_group_number": 227,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     0.0,
+     2.881431,
+     2.881431
+    ],
+    [
+     2.881431,
+     0.0,
+     2.881431
+    ],
+    [
+     2.881431,
+     2.881431,
+     0.0
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 4.074958799242269,
+   "b": 4.074958799242269,
+   "c": 4.074958799242269,
+   "alpha": 59.99999999999999,
+   "beta": 59.99999999999999,
+   "gamma": 59.99999999999999,
+   "volume": 47.84699510957077
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ge",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ge",
+    "xyz": [
+     2.881431,
+     2.881431,
+     2.881431
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ge",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.75,
+     0.75
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ge",
+    "xyz": [
+     4.322146500000001,
+     4.322146500000001,
+     4.322146500000001
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 5.762862000000001,
+  "b": 5.762862000000001,
+  "c": 5.762862000000001,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 23.923497554785385
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 57.916,
+  "K_voigt_GPa": 57.916,
+  "K_reuss_GPa": 57.916,
+  "G_vrh_GPa": 45.07,
+  "C_ieee_GPa": [
+   [
+    102.0,
+    36.0,
+    36.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    36.0,
+    102.0,
+    36.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    36.0,
+    36.0,
+    102.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    56.0,
+    0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    56.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    56.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-32"
+}

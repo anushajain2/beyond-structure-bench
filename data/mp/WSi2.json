@@ -1,0 +1,183 @@
+{
+ "id": "WSi2",
+ "formula": "WSi2",
+ "material_id": "mp-1620",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "I4/mmm",
+ "space_group_number": 139,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     -1.616778,
+     1.616778,
+     3.933739
+    ],
+    [
+     1.616778,
+     -1.616778,
+     3.933739
+    ],
+    [
+     1.616778,
+     1.616778,
+     -3.933739
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 4.549971947461764,
+   "b": 4.549971947461764,
+   "c": 4.549971947461764,
+   "alpha": 138.37167609132885,
+   "beta": 138.37167609132885,
+   "gamma": 60.33423371631999,
+   "volume": 41.130720263975284
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.334929,
+     0.334929,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     -1.6316872191168852e-18,
+     1.6316872191168852e-18,
+     2.635046539062
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.665071,
+     0.665071,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     -8.811752084625368e-17,
+     8.811752084625368e-17,
+     5.232431460938
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "W",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "W",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.233556,
+  "b": 3.233556,
+  "c": 7.867478,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 13.710240087991762
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 219.443,
+  "K_voigt_GPa": 220.031,
+  "K_reuss_GPa": 218.855,
+  "G_vrh_GPa": 189.139,
+  "C_ieee_GPa": [
+   [
+    421.0,
+    115.0,
+    98.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    115.0,
+    421.0,
+    98.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    98.0,
+    98.0,
+    517.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    201.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    201.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    201.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-1620"
+}

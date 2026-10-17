@@ -1,0 +1,557 @@
+{
+  "class": "barriers_silicides",
+  "compiled": "2026-10-17",
+  "materials": [
+    {
+      "id": "TiN",
+      "formula": "TiN",
+      "phase": "rocksalt (B1, delta-TiN)",
+      "space_group": "Fm-3m",
+      "lattice": {
+        "a": 4.2454,
+        "b": null,
+        "c": null,
+        "T_K": null,
+        "source": "https://doi.org/10.1029/2020JB020074",
+        "citation": "K. Daviau, R.A. Fischer, M.C. Brennan, J. Dong, T.-A. Suer, S. Couper, Y. Meng, V.B. Prakapenka, 'Equation of State of TiN at High Pressures and Temperatures: A Possible Host for Nitrogen in Planetary Mantles', J. Geophys. Res. Solid Earth (2020)",
+        "quote": "for a fixed V0 = 76.516 (30) Å3 (based on experimental measurements)"
+      },
+      "bulk_modulus": {
+        "value_GPa": 274,
+        "T_K": null,
+        "method": "Isothermal EOS fit (Birch-Murnaghan-type thermal EOS) to synchrotron XRD P-V-T data, laser-heated diamond anvil cell to ~70 GPa / ~2500 K; K0' = 3.9(2), V0 fixed; polycrystalline sample; K0 refers to ambient (room-temperature) reference state",
+        "source": "https://doi.org/10.1029/2020JB020074",
+        "citation": "Daviau et al., J. Geophys. Res. Solid Earth (2020), doi:10.1029/2020JB020074",
+        "quote": "It has K0 = 274 (4) GPa, K0′ = 3.9 (2)"
+      },
+      "thermal_expansion": {
+        "source": "https://www.hzdr.de/publications/Publ-29211",
+        "citation": "C. Saringer, C. Kickinger, F. Munnik, C. Mitterer, N. Schalk, M. Tkadletz, 'Thermal expansion of magnetron sputtered TiCxN1-x coatings studied by high-temperature X-ray diffraction', Thin Solid Films 688, 137307 (2019), doi:10.1016/j.tsf.2019.05.026",
+        "quote": "TiN has the highest CTE of 8.12 × 10-6 K-1 … up to 11.1 × 10-6 K-1 at 1000 °C",
+        "formula": null,
+        "sample": "thin film",
+        "values": [
+          {
+            "T_K": 298.15,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.12
+          },
+          {
+            "T_K": 1273.15,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.1
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 920,
+        "kind": "DERIVED (elastic, from single-crystal Cij)",
+        "source": "https://arxiv.org/pdf/1111.2737",
+        "quote": "TiN … A: 575 e: 625 g … A: 130 e: 165 g … A: 163 e: 163 g … g Ref. 46, exp."
+      },
+      "melting_point_K": {
+        "value": 3220,
+        "kind": "melting",
+        "source": "https://janaf.nist.gov/tables/N-016.txt",
+        "quote": "3220.000 72.513 157.018 103.819 171.301 CRYSTAL <--> LIQUID"
+      },
+      "phase_transitions": [],
+      "notes": "LATTICE: a = V0^(1/3) = 76.516^(1/3) = 4.2454(6) Å, my conversion from the conventional-cell V0 quoted in the Daviau et al. abstract (ambient conditions; exact T not stated in the abstract, so T_K = null). The abstract was read via the OpenAlex record https://api.openalex.org/works/doi:10.1029/2020jb020074 because the AGU and OSTI pages were not reachable; the full text was not inspected. Cross-checks: Kickinger (Leoben MSc thesis, https://pure.unileoben.ac.at/portal/en/publications/thermal-expansion-of-sputterdeposited-ticn-determined-by-high-temperature-xray-diffraction(3e1e91ed-1540-4f57-9f25-604bb7ff94e5).html) gives 4.246 Å at 25 °C and 4.286 Å at 1000 °C for powder from sputtered TiN. COD entries for older studies give 4.238–4.244 Å (e.g. COD 1100036, Schoenberg 1954: 4.238; COD 1100034, Bannister 1941: 4.244). Holec et al. (arXiv:1111.2737, Table III) list an experimental a of 4.241 Å. TiN is non-stoichiometric (TiNx), and a depends on x. BULK MODULUS: the alternative single-crystal value comes from Kim et al., J. Appl. Phys. 72, 1805 (1992), measured by SAW acoustic microscopy on epitaxial single-crystal films on MgO(001). The C11 = 625, C12 = 165, C44 = 163 GPa values were read from Holec et al., arXiv:1111.2737, Table IV ('e' = experimental, ref. 46), not from the original paper. For cubic symmetry this gives B = (C11+2C12)/3 = 318 GPa (my calculation). The DAC value (274 GPa) and the film elastic-constant value (318 GPa) differ by about 15%. Users should treat B(TiN) as uncertain at roughly ±20 GPa. THERMAL EXPANSION: the sample is substrate-free powder scraped from non-reactively sputtered TiN coatings and measured by HT-XRD from 25 to 1000 °C, so it is coating-derived but stress-free; it is labelled 'thin film' because it is not bulk-synthesised TiN. The paper fits a second-order polynomial for a(T). The coefficients are in the paywalled full text and were not accessed, so only the two values stated in the abstract are recorded. Temperature conversion: 25 °C = 298.15 K, 1000 °C = 1273.15 K. The thesis abstract gives consistent values: 8.1e-6 /°C at 25 °C and 11e-6 /°C at 1000 °C. Aigner et al., J. Alloys Compd. 215, 121 (1994) (bulk HT-XRD, 298–1473 K) is the preferred bulk source but was not accessible. DEBYE TEMPERATURE: no directly measured value could be verified. Daviau et al. fix θ0 = 579 K in their thermal EOS, but this is an adopted input, not a measurement, so it is not recorded. MELTING: NIST-JANAF table N-016 (TiN cr,l) lists the crystal-liquid transition at 3220 K. JANAF is an evaluated compilation, and the melting refers to the congruent-melting nitride. PHASE TRANSITIONS: no solid-state transition at ambient pressure is reported in the sources consulted. Daviau et al. report that TiN 'maintains the cubic B1 (NaCl-type) crystal structure' to ~70 GPa and ~2500 K. Zhao et al., arXiv:cond-mat/0503281, suggest a possible isostructural transition near 7 GPa at room temperature. That is a high-pressure effect, so it is not listed. DEBYE TEMPERATURE (added in follow-up): value 920 K is DERIVED, not measured. Inputs: experimental single-crystal C11 = 625, C12 = 165, C44 = 163 GPa (Kim et al., J. Appl. Phys. 72, 1805 (1992), SAW on epitaxial films, as tabulated in Holec et al. arXiv:1111.2737 Table IV), and the volume V0 = 76.516 Å3 per 8-atom cell from Daviau et al. (2020), giving an X-ray density of 5.371 g/cm3 (M(TiN) = 61.874 g/mol). Method: Voigt–Reuss–Hill averages B = 318.3 GPa and G = 187.1 GPa (G_V = 189.8, G_R = 184.5), v_t = 5.90 km/s, v_l = 10.28 km/s, mean velocity v_m = [(2/v_t^3 + 1/v_l^3)/3]^(-1/3) = 6.56 km/s, and θD = (h/k_B)(3/(4π V_atom))^(1/3) v_m = 919.6 K. Using Holec's ρexp = 5.40 g/cm3 instead gives 917 K. Caveat: this is the elastic (low-temperature-limit) Debye temperature from film elastic constants and is much higher than the θ0 = 579 K that Daviau et al. adopt as a fixed input in their thermal EOS. Calorimetric values were not verified. For a θD-based temperature rule, the choice between about 580 K and about 920 K matters, so this is flagged as uncertain."
+    },
+    {
+      "id": "TaN",
+      "formula": "TaN",
+      "phase": "hexagonal epsilon-TaN (thermodynamically stable bulk phase; CoSn-type)",
+      "space_group": "P-62m",
+      "lattice": {
+        "a": 5.196,
+        "b": null,
+        "c": 2.911,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/2106407.cif",
+        "citation": "A. Nørlund Christensen, B. Lebech, 'A reinvestigation of the structure of epsilon-tantalum nitride', Acta Cryst. B 34, 261-263 (1978), doi:10.1107/S0567740878002733 (data via COD 2106407)",
+        "quote": "_cell_length_a 5.196 … _cell_length_c 2.911 … _symmetry_space_group_name_H-M 'P -6 2 m'"
+      },
+      "bulk_modulus": {
+        "value_GPa": 288,
+        "T_K": null,
+        "method": "Third-order Birch-Murnaghan EOS (F-f analysis) fit to monochromatic synchrotron XRD P-V data in a diamond anvil cell at room temperature; K0' = 4.7(0.5)",
+        "source": "https://doi.org/10.1103/PhysRevB.75.014104",
+        "citation": "E. Soignard, O. Shebanova, P.F. McMillan, 'Compressibility measurements and phonon spectra of hexagonal transition-metal nitrides at high pressure: epsilon-TaN, delta-MoN, and Cr2N', Phys. Rev. B 75, 014104 (2007)",
+        "quote": "The bulk modulus values measured for ε-TaN, Cr2N, and δ-MoN are K0=288(6) GPa, 275(23) GPa, and 345(9) GPa, respectively."
+      },
+      "thermal_expansion": {
+        "source": "https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/BUWWQB",
+        "citation": "M.K. Lenox, C.H. Skidmore, A. Salanova et al. (Ihlefeld group, Univ. of Virginia), 'Temperature Dependent Lattice Parameters and Coefficient of Thermal Expansion for Tantalum Nitride', UVA Dataverse dataset, doi:10.18130/V3/BUWWQB (deposited 2024-08-22)",
+        "quote": "Isotropic coefficient of thermal expansion values were calculated from the incremental volume change with temperature.",
+        "formula": null,
+        "sample": "bulk",
+        "values": [
+          {
+            "T_K": 348,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 4.7703
+          },
+          {
+            "T_K": 398,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.032
+          },
+          {
+            "T_K": 498,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.3521
+          },
+          {
+            "T_K": 598,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.7921
+          },
+          {
+            "T_K": 698,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.8457
+          },
+          {
+            "T_K": 798,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 6.1654
+          },
+          {
+            "T_K": 838,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 6.3113
+          },
+          {
+            "T_K": null,
+            "T_range_K": [
+              313,
+              928
+            ],
+            "axis": "a",
+            "alpha_1e-6_per_K": 5.0
+          },
+          {
+            "T_K": null,
+            "T_range_K": [
+              313,
+              928
+            ],
+            "axis": "c",
+            "alpha_1e-6_per_K": 6.4
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": null,
+        "source": null,
+        "quote": null
+      },
+      "melting_point_K": {
+        "value": null,
+        "kind": "decomposition",
+        "source": null,
+        "quote": null
+      },
+      "phase_transitions": [],
+      "notes": "PHASE CHOICE: hexagonal epsilon-TaN is the main entry because it has the better experimental data: a crystallographic refinement (Christensen & Lebech 1978) and a DAC equation of state (Soignard et al. 2007). Cubic delta-TaN (entry TaN_cubic) has only a lattice parameter from a 1975 high-pressure-synthesis conference abstract. LATTICE: the values come from the COD transcription of the 1978 Acta Cryst. B paper. The CIF gives no measurement temperature, so the value is presumably ambient (T_K = null). The original IUCr page was not reachable. BULK MODULUS: the quote comes from the PRB abstract as returned by the OpenAlex API (https://api.openalex.org/works/doi:10.1103/physrevb.75.014104), with LaTeX markup stripped. The abstract also reports structural disordering above 20 GPa. THERMAL EXPANSION, DEBYE TEMPERATURE, DECOMPOSITION: no sourced experimental value for bulk epsilon-TaN was found, so all are null. TaN decomposes/loses nitrogen rather than melting congruently at 1 bar, but no verifiable T was found. Wikipedia's 'Tantalum nitride' page lists a melting point of 3090 °C without a primary citation, so it was not used.  FOLLOW-UP (thermal expansion): data from a public HT-XRD dataset. It is a dataset, not a peer-reviewed paper. The sample is commercial hexagonal TaN powder (Thermo Scientific, CAS 12033-62-4), measured from 313 to 928 K in an Anton Paar furnace under N2 with Rietveld (GSAS-II) refinement. The data files were read from https://dataverse.lib.virginia.edu/api/access/datafile/80397 (CTE table) and /80395 (lattice parameters). The refined cell (a = 5.1903, c = 2.9084 Å, V = 67.854 Å3 at 313 K) matches the epsilon-TaN cell of Christensen & Lebech (a = 5.196, c = 2.911 Å), which confirms the phase. The 'iso' values are copied from the dataset's 'CTE (x10-6 K-1)' column (linear α = ΔV/(3V0ΔT) over 50 K windows). Example row: '598 68.13795518 1.40E-03 5.79E-06 5.7921'. The dataset's point-to-point scatter is about ±0.3e-6/K, and its first window (318 K: 3.84) is noisy, so it was skipped. The per-axis entries (a: 5.0, c: 6.4 ×1e-6/K, mean over 313–928 K) are DERIVED by me from a linear least-squares fit of the dataset's 63 a(T) and c(T) points, normalised to the 313 K values. No data exist above 928 K; do not extrapolate α to 1500 K from this source. DEBYE TEMPERATURE: no experimental value for epsilon-TaN was found. A derived value is not possible because no experimental shear modulus or elastic constants for epsilon-TaN were found (only K0 from DAC). DECOMPOSITION: no source stating a decomposition temperature for bulk epsilon-TaN was found. The dataset shows the phase intact up to 928 K under N2, which is only a lower bound, so value = null."
+    },
+    {
+      "id": "TaN_cubic",
+      "formula": "TaN",
+      "phase": "cubic delta-TaN (rocksalt; metastable in bulk, typical of thin-film barriers)",
+      "space_group": "Fm-3m",
+      "lattice": {
+        "a": 4.358,
+        "b": null,
+        "c": null,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/2310957.cif",
+        "citation": "S.V. Popova, 'The crystal structures of new superconducting materials obtained by high pressure treatment', Acta Cryst. A 31, S99 (1975) (conference abstract; data via COD 2310957)",
+        "quote": "_cell_length_a 4.358"
+      },
+      "bulk_modulus": {
+        "value_GPa": null,
+        "T_K": null,
+        "method": null,
+        "source": null,
+        "citation": null,
+        "quote": null
+      },
+      "thermal_expansion": {
+        "source": null,
+        "citation": null,
+        "quote": null,
+        "formula": null,
+        "sample": null,
+        "values": []
+      },
+      "debye_temperature_K": {
+        "value": null,
+        "source": null,
+        "quote": null
+      },
+      "melting_point_K": {
+        "value": null,
+        "kind": "decomposition",
+        "source": null,
+        "quote": null
+      },
+      "phase_transitions": [],
+      "notes": "This is a bulk sample made by high-pressure treatment (Popova 1975). The source is only a conference abstract, the stoichiometry is uncertain, and T is not given. Holec et al. (arXiv:1111.2737, Table III) also list an experimental a of 4.358 Å for cubic TaN and note that it is metastable and prefers N-deficient configurations. Thin-film delta-TaN lattice parameters depend on N content and stress and are not bulk references. No experimental bulk modulus, thermal expansion or Debye temperature for bulk delta-TaN was found. Thin-film nanoindentation moduli were deliberately excluded."
+    },
+    {
+      "id": "CoSi2",
+      "formula": "CoSi2",
+      "phase": "fluorite (CaF2-type, C1)",
+      "space_group": "Fm-3m",
+      "lattice": {
+        "a": 5.365,
+        "b": null,
+        "c": null,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/1008148.cif",
+        "citation": "F. Bertaut, P. Blum, 'Structure de disiliciure de cobalt', C. R. Hebd. Séances Acad. Sci. 231, 626-628 (1950) (data via COD 1008148)",
+        "quote": "_cell_length_a 5.365"
+      },
+      "bulk_modulus": {
+        "value_GPa": null,
+        "T_K": null,
+        "method": null,
+        "source": null,
+        "citation": null,
+        "quote": null
+      },
+      "thermal_expansion": {
+        "source": "https://doi.org/10.35848/1347-4065/ac9abf",
+        "citation": "M. Imai, T. Hiroto, 'Thermal expansion coefficient and bulk modulus of silicides', Jpn. J. Appl. Phys. 62, SD1001 (2023; online 2022)",
+        "quote": "the α V of CoSi2 at 300 K is determined to be 3.1 × 10−5 K−1 using powder X-ray diffraction",
+        "formula": null,
+        "sample": "bulk",
+        "values": [
+          {
+            "T_K": 300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.3
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 489,
+        "kind": "DERIVED (from measured low-T specific-heat coefficient β of undoped CoSi2)",
+        "range_K": [
+          460,
+          490
+        ],
+        "source": "https://doi.org/10.71548/25385",
+        "quote": "undoped reference parameters γ = 3.02×10−2 J/kg K2 and β = 0.4.33×10−4 J/kg K4"
+      },
+      "melting_point_K": {
+        "value": 1597,
+        "kind": "melting",
+        "source": "https://czasopisma.pan.pl//Content/131873/PDF/9_METALLURGY_47_3_2002_Zabdyr_Calculation.pdf",
+        "quote": "8 L = w-CoSi2 66.7 1597 congruent p."
+      },
+      "phase_transitions": [],
+      "notes": "LATTICE: the only value I could open is the 1950 Bertaut & Blum value via COD (T not stated). Wikipedia gives a = 0.5353 nm, citing Wittmann et al. 1961, which differs by 0.2%. Kulkarni's 2026 McMaster thesis abstract gives a = 5.36359 Å, but for Cu-doped CoSi2. Treat a(CoSi2) as uncertain at about ±0.01 Å until a modern bulk refinement with stated T is checked. BULK MODULUS: left null on purpose. The ultrasonic single-crystal study (Guénin, Ignat, Thomas, J. Appl. Phys. 68, 6515 (1990)) exists, but its numbers were not accessible. Bai, Nicolet & Vreeland, J. Appl. Phys. 69, 6451 (1991) (abstract via OpenAlex) extracted C11 = 277, C12 = 222, C44 = 100 GPa from 110-nm mesotaxial films using XRD mismatch and wafer curvature. That gives B = (C11+2C12)/3 = 240 GPa (my calculation). It is a thin-film, model-dependent value, not recommended as the bulk reference. Imai & Hiroto report B0 for TrSi2 'ranging from 148.9 to 243 GPa' without a CoSi2-specific value in the abstract. THERMAL EXPANSION: Imai & Hiroto give the volumetric coefficient αV = 3.1e-5 /K at 300 K from powder XRD over 300–835 K. Linear α = αV/3 = 10.3e-6 /K is my conversion, valid because CoSi2 is cubic. Only the 300 K value is in the abstract; the full text (IOP, bot-protected) was not accessed. Thin-film alternative: Bai et al. (1991) give a linear α of 9.5e-6 /°C from rocking curves to ~500 °C on mesotaxial films, assuming T-independent elastic constants. DEBYE TEMPERATURE: Kulkarni & Niewczas, Materials & Design 265, 115873 (2026) (abstract via OpenAlex) give a 460–490 K range from specific heat for their CoSi2(Cu) series (x = 0–0.025, including undoped). The value for pure CoSi2 alone is not separable from the abstract, so value = null and the range is given. MELTING: no primary or assessed source could be opened. Wikipedia lists 1326 °C (1599 K), citing the CRC Handbook rather than a primary study, so it is not used per the sourcing rules. FOLLOW-UP (Debye temperature): value 489 K is DERIVED from the undoped-CoSi2 low-T specific-heat β in the abstract of K.S. Kulkarni's McMaster thesis ('Effects of Doping on Functional Properties of CoSi2', 2026, doi:10.71548/25385). The abstract was read via https://api.openalex.org/works/doi:10.71548/25385 because MacSphere has a bot check. The abstract prints 'β = 0.4.33×10−4 J/kg K4' (a typo). I read it as 4.33e-4 J/(kg K^4). Conversion: β_molar = 4.33e-4 × 0.115103 kg/mol = 4.984e-5 J/(mol K^4), and θD = (12π^4 n R / (5 β_molar))^(1/3) with n = 3 atoms/f.u., giving 489 K. The alternative reading 0.433e-4 would give 1054 K, which is inconsistent with the published range, so it was rejected. Supporting range (kept in range_K): Kulkarni & Niewczas, Materials & Design 265, 115873 (2026), 'Specific heat measurements yield Debye temperatures (460–490 K)' for their x = 0–0.025 Cu series. MELTING (follow-up): 1597 K is the congruent melting point of CoSi2 from the CALPHAD Co–Si description of Zabdyr et al. as tabulated in L. Zabdyr, Archives of Metallurgy 47(3) (2002), Table 2 ('Calculated invariant reactions with liquid phase involved in Co-Si system'). It is a calculated (assessed) value fitted to experimental phase-diagram data, not a direct measurement. It agrees within 2 K with the 1326 °C = 1599 K (CRC Handbook via Wikipedia) value noted above. The same table gives the CoSi–CoSi2 eutectic at 1588.9 K and the CoSi2–(Si) eutectic at 1530.8 K."
+    },
+    {
+      "id": "NiSi",
+      "formula": "NiSi",
+      "phase": "orthorhombic MnP-type (B31)",
+      "space_group": "Pnma",
+      "lattice": {
+        "a": 5.1752,
+        "b": 3.3321,
+        "c": 5.6094,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/1532040.cif",
+        "citation": "M.Kh. Rabadanov, M.B. Ataev, 'Atomic structure and enormous anisotropy of thermal expansion in NiSi single crystals. I. Refinement of structure models', Kristallografiya 47, 40-45 (2002) (single-crystal XRD; data via COD 1532040)",
+        "quote": "_cell_length_a 5.1752 _cell_length_b 3.3321 _cell_length_c 5.6094"
+      },
+      "bulk_modulus": {
+        "value_GPa": 165,
+        "T_K": null,
+        "method": "Third-order Birch-Murnaghan EOS fit (K0' fixed at 4, V0 fixed at 12.1499 Å3/atom from neutron data) to synchrotron XRD P-V data of quenched (room-temperature) laser-heated DAC samples",
+        "source": "https://research-information.bris.ac.uk/ws/files/48236742/Lord_et_al_J_App_Cryst_2012_GREEN.pdf",
+        "citation": "O.T. Lord, L. Vočadlo, I.G. Wood, D.P. Dobson, S.M. Clark, M.J. Walter, 'High-pressure phase transitions and equations of state in NiSi. II. Experimental results', J. Appl. Cryst. 45, 726-737 (2012), doi:10.1107/S0021889812016809 (accepted manuscript)",
+        "quote": "For the MnP (B31) structure this yields K0 = 165±3 GPa with K0′ fixed at 4 and V0 fixed at 12.1499 Å3 atom-1"
+      },
+      "thermal_expansion": {
+        "source": "https://biblio.ugent.be/publication/5673786/file/5673788.pdf",
+        "citation": "F.A. Geenen, W. Knaepen, F. Moens, L. Brondeel, A. Leenaers, S. Van den Berghe, C. Detavernier, 'Anisotropic thermal expansion of Ni, Pt and Pd germanide and silicide powders' (conference poster, Ghent University, 2014); peer-reviewed version: J. Phys. D 49, 275307 (2016)",
+        "quote": "NiSi 25.6 98.1 -30.0 94.4 31.5 97.9",
+        "formula": "a(T) = a0(1 + α (T - T0)), T0 = room temperature (linear fit per axis over RT to ~1073 K; constant mean α)",
+        "sample": "bulk",
+        "values": [
+          {
+            "T_K": null,
+            "T_range_K": [
+              298,
+              1073
+            ],
+            "axis": "a",
+            "alpha_1e-6_per_K": 25.6
+          },
+          {
+            "T_K": null,
+            "T_range_K": [
+              298,
+              1073
+            ],
+            "axis": "b",
+            "alpha_1e-6_per_K": -30.0
+          },
+          {
+            "T_K": null,
+            "T_range_K": [
+              298,
+              1073
+            ],
+            "axis": "c",
+            "alpha_1e-6_per_K": 31.5
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": null,
+        "source": null,
+        "quote": null
+      },
+      "melting_point_K": {
+        "value": 1275,
+        "kind": "melting",
+        "source": "https://eprints.whiterose.ac.uk/79386/1/Lord_NiSi_melting.pdf",
+        "quote": "At ambient pressure, NiSi melts congruently from the MnP (B31) structure … MnP (B31) 1275a,b … b (Massalski et al. 1990)"
+      },
+      "phase_transitions": [],
+      "notes": "LATTICE: the COD CIF of the Rabadanov & Ataev single-crystal study does not state T, so T_K = null. Their study covers 295 K and higher temperatures, so this is presumably room temperature, but I could not verify it because the ECM18 abstract page returned 503. Cross-checks: the Geenen poster lists room-temperature powder values a = 5.169, b = 3.328, c = 5.600 Å. COD 2300558 (Lord et al. 2015, J. Appl. Cryst. 48, 1914) gives a = 5.1731(5), b = 3.3381(5), c = 5.6049(7) Å. Detavernier et al. (J. Appl. Phys. 93, 2510 (2003)) state that JCPDS NiSi cell values are faulty because they come from stressed thin films. Use bulk/single-crystal values only. BULK MODULUS: the accepted-manuscript text was used. Only a few B31 P-V points were measured, so K0' had to be fixed. An alternative fit with K0' = 4.47 gives K0 = 161(3) GPa (Table 2 of the same manuscript). THERMAL EXPANSION: per-axis mean linear coefficients in ppm/°C (= 1e-6/K) are from the Geenen et al. poster table. The poster gives the R² of the linear fits as 98.1% (a), 94.4% (b) and 97.9% (c). The samples were arc-melted powders annealed 2 days at 700 °C and measured by in situ XRD every 50 °C. The poster says the anneals ran 'from room temperature to 650-950°C, depending on the crystal phase', and the NiSi plot spans 0–800 °C. The NiSi upper limit is therefore uncertain: T_range_K [298, 1073] is my reading of the plot axis, and the values are mean coefficients, not instantaneous ones (T_K = null). Caveat: the poster is not peer-reviewed. The peer-reviewed J. Phys. D 49, 275307 (2016) (powder XRD 300–1225 K) and Perrin et al., J. Appl. Phys. 101, 073512 (2007) (HT-XRD 298–1073 K) are paywalled and were not checked. Goel et al., Front. Chem. 6, 331 (2018) quote an 'experimental thermal expansion coefficient α b' of −16.1e-6 /K for NiSi with no stated temperature, roughly half the poster's −30.0. The magnitude of α_b is therefore uncertain by about a factor of two. Treat these values as provisional and verify against the 2016 paper before use as a benchmark target. MELTING: 1275 K is the ambient-pressure melting point the Lord et al. (2014, Phys. Earth Planet. Inter. 233, 13) melting-curve paper takes from Massalski et al. (1990) and holds fixed in its fits (accepted manuscript, White Rose). PHASE TRANSITIONS: none at ambient pressure below melting in the sources consulted. At high pressure, B31 -> B20 (epsilon-FeSi type) occurs at about 12.5±4.5 GPa and 1550±150 K (Lord et al. 2014, citing Lord et al. 2012). It is not listed because it is not an ambient-pressure transition. DEBYE TEMPERATURE: no experimental value was found. FOLLOW-UP (Debye temperature): still null. No measured value could be opened. Meyer et al., 'Intrinsic properties of NiSi', J. Alloys Compd. 262-263, 235 (1997) (single-crystal specific heat, cited by Dahal et al. arXiv:1602.05840 for γ = 1.73 mJ/(mol K2)) is paywalled and its abstract is not indexed. Connétable & Thomas (PRB 79, 094101, 2009) compute θD, but the HAL copy was access-blocked, and theirs is a calculated value anyway. A derived elastic θD is not possible because only the bulk modulus (Lord 2012) is experimental; no experimental shear modulus or Cij was found."
+    },
+    {
+      "id": "TiSi2",
+      "formula": "TiSi2",
+      "phase": "C54 orthorhombic (alpha-TiSi2)",
+      "space_group": "Fddd",
+      "lattice": {
+        "a": 8.268,
+        "b": 4.8002,
+        "c": 8.5521,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/1532210.cif",
+        "citation": "K. Tanaka, K. Nawata, M. Koiwa, M. Yamaguchi, H. Inui, 'Refinement of crystallographic parameters in refractory metal disilicides', MRS Symp. Proc. 646, N4.3.1 (2001) (data via COD 1532210)",
+        "quote": "_cell_length_a 8.268 _cell_length_b 4.8002 _cell_length_c 8.5521"
+      },
+      "bulk_modulus": {
+        "value_GPa": 148.9,
+        "T_K": null,
+        "method": "Hill (VRH) average of single-crystal elastic constants measured by M. Nakamura (Metall. Mater. Trans. A 25, 331 (1994)); Reuss 146.8 / Voigt 150.9 GPa; tabulated by Ravindran et al.",
+        "source": "https://ims.ut.ee/images/4/40/J-Appl-Phys_1998_84_4891_Eriksson_DFT-elastic-TiSi2.pdf",
+        "citation": "P. Ravindran, L. Fast, P.A. Korzhavyi, B. Johansson, J. Wills, O. Eriksson, 'Density functional theory for calculation of elastic properties of orthorhombic crystals: Application to TiSi2', J. Appl. Phys. 84, 4891 (1998), Table III (experimental row from Nakamura's single-crystal constants)",
+        "quote": "Expa 1.468 1.509 1.489 … Calculated from the single crystal elastic constants of M. Nakamura"
+      },
+      "thermal_expansion": {
+        "source": "https://ntrs.nasa.gov/api/citations/20140008660/downloads/20140008660.pdf",
+        "citation": "S.V. Raj, 'Comparison of the Thermal Expansion Behavior of Several Intermetallic Silicide Alloys Between 293 and 1523 K', NASA/TM-2014-216678 (2014); journal version J. Mater. Eng. Perform. 24, 1199 (2015), doi:10.1007/s11665-015-1390-8",
+        "quote": "(ΔL/L0)thermal = A(T-293)3 + B(T-293)2 + C(T-293) + D … TiSi2 … 641 … 1.8×10–10 –1.7×10–7 1.2×10–3 –2.0×10–2 0.999",
+        "formula": "(ΔL/L0)[%] = A(T-293)^3 + B(T-293)^2 + C(T-293) + D, T in K, valid 293-1523 K; A = 1.8e-10, B = -1.7e-7, C = 1.2e-3, D = -2.0e-2 (Table III, run 641, first heat-up to third cool-down, R² = 0.999). alpha(T) = (3A(T-293)^2 + 2B(T-293) + C)/100 per K",
+        "sample": "bulk",
+        "values": [
+          {
+            "T_K": 300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.98
+          },
+          {
+            "T_K": 400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.7
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.53
+          },
+          {
+            "T_K": 600,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.47
+          },
+          {
+            "T_K": 700,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.51
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.66
+          },
+          {
+            "T_K": 900,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.93
+          },
+          {
+            "T_K": 1000,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 12.3
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 12.77
+          },
+          {
+            "T_K": 1200,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 13.36
+          },
+          {
+            "T_K": 1300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 14.05
+          },
+          {
+            "T_K": 1400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 14.85
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 15.76
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 664,
+        "source": "https://ims.ut.ee/images/4/40/J-Appl-Phys_1998_84_4891_Eriksson_DFT-elastic-TiSi2.pdf",
+        "quote": "Exp.b ¯ ¯ ¯ ¯ ¯ 664 … Specific heat measurements by Affronte et al. (see Ref. 34)"
+      },
+      "melting_point_K": {
+        "value": null,
+        "kind": "melting",
+        "source": null,
+        "quote": null
+      },
+      "phase_transitions": [
+        {
+          "T_K": 1603,
+          "description": "alpha-TiSi2 (C54, Fddd) is the stable form from room temperature to 1603 K, above which a high-temperature beta-TiSi2 modification of unestablished structure is reported (Murray's Ti-Si assessment as summarized by Chandrasekharaiah, Margrave & O'Hare, J. Phys. Chem. Ref. Data 22, 1459 (1993)). Quote: 'is the stable reference state from room temperature to T = 1603 K'",
+          "source": "https://srd.nist.gov/jpcrdreprint/1.555922.pdf"
+        }
+      ],
+      "notes": "LATTICE: the COD CIF does not state T (presumably ambient). Cross-checks: JPCRD 22, 1459 (1993) gives a = 0.8252, b = 0.4783, c = 0.8540 nm, and Ravindran et al. (Table I, from Rosenkranz & Frommeyer) give 8.27, 4.80, 8.55 Å. The spread is about 0.2–0.4%. BULK MODULUS: Ravindran Table III lists BR/BV/BH = 1.468/1.509/1.489 Mbar from Nakamura's single-crystal constants. I converted to GPa (1 Mbar = 100 GPa) → BH = 148.9 GPa. Nakamura's Cij (Table II of the same paper, in Mbar) are c11 3.175, c22 3.204, c33 4.132, c44 1.125, c55 0.758, c66 1.175, c12 0.293, c13 0.384, c23 0.860. Nakamura's original paper was not opened; the Cij are taken as tabulated by Ravindran. A polycrystalline measurement (Rosenkranz & Frommeyer) in the same table gives BH = 1.26 Mbar = 126 GPa. Imai & Hiroto (JJAP 2023) also quote 148.9 GPa as the lower end of the TrSi2 range. THERMAL EXPANSION: push-rod dilatometry (NETZSCH DIL 402C, He atmosphere) on a hot-pressed polycrystalline TiSi2 cylinder with some grain-boundary porosity. The specimen is described as 'TiSi2'; the C54 phase is assumed, not stated. Units interpretation: ΔL/L0 is in %, since D is given in % and C = 1.2e-3 implies 12e-6 /K. The tabulated 'u' in the extracted PDF text is the × sign. The alpha values are my analytic derivatives of the published cubic fit, divided by 100. Because the coefficients are given to only 2 significant figures, the derived α carries roughly ±3–5% uncertainty, larger near 1500 K. α is relative to the room-temperature length L0, which is a <2% difference from the instantaneous definition. These are isotropic polycrystal averages; no per-axis data were accessible. Engström & Lönnberg, J. Appl. Phys. 63, 4476 (1988) (XRD per-axis, RT–1500 K) is paywalled. DEBYE TEMPERATURE: 664 K is from low-T specific heat (Affronte et al.), as cited in Ravindran et al. Table VI. Other values in that paper: 700 K from Nakamura's elastic constants; 560–588 K from resistivity (Hirao & Kaise); 535±10 K from a Bloch–Grüneisen fit (Thomas et al.); 510 K from 100–500 K specific heat. MELTING: no verifiable source was found. Wikipedia lists 1470 °C without a primary citation (not used). PHASE TRANSITIONS: the 1603 K alpha→beta transition comes from the JPCRD summary of Murray's assessment. The structure of beta is unknown, and it is recorded as reported. The C49→C54 transformation seen in thin films is a metastable-to-stable transformation during silicidation, not a bulk equilibrium transition, so it is not listed."
+    },
+    {
+      "id": "WSi2",
+      "formula": "WSi2",
+      "phase": "tetragonal C11b (MoSi2-type)",
+      "space_group": "I4/mmm",
+      "lattice": {
+        "a": 3.2138,
+        "b": null,
+        "c": 7.8299,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/1532195.cif",
+        "citation": "K. Tanaka, M. Yamaguchi, K. Nawata, H. Inui et al., 'Refinement of crystallographic parameters in refractory metal disilicides', MRS Symp. Proc. 646, N4.3.1 (2001) (data via COD 1532195)",
+        "quote": "_cell_length_a 3.2138 _cell_length_b 3.2138 _cell_length_c 7.8299"
+      },
+      "bulk_modulus": {
+        "value_GPa": null,
+        "T_K": null,
+        "method": null,
+        "source": null,
+        "citation": null,
+        "quote": null
+      },
+      "thermal_expansion": {
+        "source": "https://ntrs.nasa.gov/api/citations/20140008660/downloads/20140008660.pdf",
+        "citation": "S.V. Raj, 'Comparison of the Thermal Expansion Behavior of Several Intermetallic Silicide Alloys Between 293 and 1523 K', NASA/TM-2014-216678 (2014); journal version J. Mater. Eng. Perform. 24, 1199 (2015), doi:10.1007/s11665-015-1390-8",
+        "quote": "(ΔL/L0)thermal = A(T-293)3 + B(T-293)2 + C(T-293) + D … WSi2 … 622 … 1.2×10–10 –1.2×10–7 8.3×10–4 –8.0×10–2 0.999",
+        "formula": "(ΔL/L0)[%] = A(T-293)^3 + B(T-293)^2 + C(T-293) + D, T in K, valid 293-1523 K; A = 1.2e-10, B = -1.2e-7, C = 8.3e-4, D = -8.0e-2 (Table IV, run 622, first cool-down to third cool-down, R² = 0.999). alpha(T) = (3A(T-293)^2 + 2B(T-293) + C)/100 per K",
+        "sample": "bulk",
+        "values": [
+          {
+            "T_K": 300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.28
+          },
+          {
+            "T_K": 400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.08
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.96
+          },
+          {
+            "T_K": 600,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.9
+          },
+          {
+            "T_K": 700,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.92
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.01
+          },
+          {
+            "T_K": 900,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.17
+          },
+          {
+            "T_K": 1000,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.4
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.71
+          },
+          {
+            "T_K": 1200,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.08
+          },
+          {
+            "T_K": 1300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.53
+          },
+          {
+            "T_K": 1400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.05
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.65
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": null,
+        "source": null,
+        "quote": null
+      },
+      "melting_point_K": {
+        "value": 2433,
+        "kind": "melting",
+        "source": "https://srd.nist.gov/jpcrdreprint/1.555922.pdf",
+        "quote": "showed WSi2 to be a congruently-melting intermediate phase … melting temperature 2433 ± 4 K"
+      },
+      "phase_transitions": [],
+      "notes": "LATTICE: the COD CIF does not state T (presumably ambient). JPCRD 22, 1459 (1993), quoting the Nagender Naidu et al. W-Si assessment, gives a = 0.3211 nm and c = 0.7868 nm, and Zachariasen 1927 (COD 1010283) gives a = 3.212, c = 7.88 Å. The c-axis values therefore disagree by about 0.5% (7.830 vs 7.868–7.88 Å). This is unresolved; check against a modern powder or single-crystal refinement with stated T. BULK MODULUS: left null. The single-crystal pulse-echo study (Nakamura, Matsumoto, Hirano, J. Mater. Sci. 25, 3309 (1990)) exists, but its values (and its reported Debye temperature) were not accessible; Springer was blocked and there is no OA copy. THERMAL EXPANSION: push-rod dilatometry on a hot-pressed polycrystalline WSi2 cylinder (grain-boundary porosity noted). The first heat-up cycle was excluded because of residual processing strain. The alpha values are my analytic derivatives of the published cubic fit, divided by 100 (units as for TiSi2: ΔL/L0 in %). Coefficients have 2 significant figures, giving roughly ±3–5% uncertainty, larger at high T. These are isotropic polycrystal averages; per-axis values (Engström & Lönnberg 1988) were not accessible. Raj reports reasonable agreement with Touloukian's 'recommended' polycrystalline WSi2 values, which are slightly higher. MELTING: 2433 ± 4 K is the congruent melting point from the Nagender Naidu et al. assessment as quoted in JPCRD 22, 1459 (1993). PHASE TRANSITIONS: none for bulk C11b WSi2 below melting in the sources consulted. A hexagonal C40 WSi2 form is metastable and appears only in thin films; it is not listed. FOLLOW-UP (Debye temperature): still null. A web-search snippet attributes '625 K for WSi2' to Nakamura, Matsumoto & Hirano, J. Mater. Sci. 25, 3309 (1990), estimated from polycrystalline elastic-wave velocities. I could NOT open that abstract (Springer blocked, not in Crossref or OpenAlex), so the number is UNVERIFIED and not entered. A derived value is impossible without accessible experimental elastic constants or moduli."
+    }
+  ]
+}

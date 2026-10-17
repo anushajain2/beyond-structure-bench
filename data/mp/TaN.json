@@ -1,0 +1,249 @@
+{
+ "id": "TaN",
+ "formula": "TaN",
+ "material_id": "mp-1279",
+ "selection": "lowest energy above hull with this formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "P-62m",
+ "space_group_number": 189,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     2.616741,
+     -4.532328,
+     0.0
+    ],
+    [
+     2.616741,
+     4.532328,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     2.925503
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 5.23348168628352,
+   "b": 5.23348168628352,
+   "c": 2.925503,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 119.9999960341286,
+   "volume": 69.39251283090486
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ta",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ta",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ta",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.333333,
+     0.666667,
+     0.5
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Ta",
+    "xyz": [
+     2.616741,
+     1.510779021552,
+     1.4627515
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ta",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.666667,
+     0.333333,
+     0.5
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Ta",
+    "xyz": [
+     2.616741,
+     -1.5107790215519998,
+     1.4627515
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.392555,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "N",
+    "xyz": [
+     1.027214763255,
+     -1.77918801804,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.607445,
+     0.607445,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "N",
+    "xyz": [
+     3.1790524734900005,
+     -1.1277828718903038e-16,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.392555,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "N",
+    "xyz": [
+     1.027214763255,
+     1.77918801804,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 5.23348168628352,
+  "b": 5.23348168628352,
+  "c": 2.925503,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 119.99999999999999,
+  "volume_per_atom": 11.565418805150811
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 306.305,
+  "K_voigt_GPa": 306.824,
+  "K_reuss_GPa": 305.785,
+  "G_vrh_GPa": 181.327,
+  "C_ieee_GPa": [
+   [
+    523.0,
+    207.0,
+    164.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    207.0,
+    523.0,
+    164.0,
+    0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    164.0,
+    164.0,
+    647.0,
+    0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    0.0,
+    185.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    185.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    158.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-1279"
+}

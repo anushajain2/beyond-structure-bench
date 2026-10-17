@@ -1,0 +1,487 @@
+{
+  "class": "layered",
+  "compiled": "2026-10-17",
+  "materials": [
+    {
+      "id": "MoS2",
+      "formula": "MoS2",
+      "phase": "2H",
+      "space_group": "P6_3/mmc",
+      "lattice": {
+        "a": 3.1604,
+        "c": 12.295,
+        "T_K": 299.15,
+        "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v5.pdf",
+        "citation": "H. E. Swanson, N. T. Gilfrich, G. M. Ugrinic, NBS Circular 539, Vol. 5, Standard X-ray Diffraction Powder Patterns, p. 47 (1955), Molybdenum Disulfide (molybdenite)",
+        "quote": "1955-- Swanson, Gilfrich, and Ugrinic 3.1604 12.295 at 26° C",
+        "quote_context": "lattice-constants table row; columns a (A), c (A); OCR spacing normalised"
+      },
+      "bulk_modulus": {
+        "value_GPa": 53.4,
+        "uncertainty_GPa": 1.0,
+        "B_prime": 9.2,
+        "B_prime_uncertainty": 0.4,
+        "T_K": null,
+        "T_note": "room temperature (not given numerically in the paper)",
+        "method": "Synchrotron energy-dispersive XRD in diamond anvil cell (methanol-ethanol 4:1 medium) to 38.8 GPa; 3rd-order Birch-Murnaghan fit to P-V data below 20.5 GPa",
+        "source": "https://cdac.carnegiescience.edu/images/stories/Aksoy%20JPCS%202006.pdf",
+        "citation": "R. Aksoy, Y. Ma, E. Selvi, M. C. Chyu, A. Ertas, A. White, 'X-ray diffraction study of molybdenum disulfide to 38.8 GPa', J. Phys. Chem. Solids 67, 1914-1917 (2006), doi:10.1016/j.jpcs.2006.05.058",
+        "quote": "the bulk modulus was obtained as K0T = 53.4±1 GPa and its pressure derivative as K'0T = 9.2±0.4",
+        "anisotropy": {
+          "c_axis_linear_compressibility_per_GPa": null,
+          "C33_GPa": null,
+          "qualitative": "c-axis compression about 3x the a-axis compression below 10 GPa, falling to ~2x above 28.9 GPa",
+          "quote": "the c-axis compression ratio is about three times larger than a-axis at pressures below 10 GPa",
+          "source": "https://cdac.carnegiescience.edu/images/stories/Aksoy%20JPCS%202006.pdf"
+        }
+      },
+      "thermal_expansion": {
+        "source": null,
+        "citation": null,
+        "quote": null,
+        "formula": null,
+        "values": [],
+        "secondary_reported_unverified": [
+          {
+            "alpha_a_1e-6_per_K": 1.9,
+            "alpha_c_1e-6_per_K": 8.65,
+            "T_K": null,
+            "T_range_K": [
+              293,
+              1073
+            ],
+            "primary": "S. H. El-Mahalawy, B. L. Evans, J. Appl. Cryst. 9, 403-406 (1976), doi:10.1107/S0021889876011709 (NOT opened: paywalled / Cloudflare-blocked)",
+            "source": "https://arxiv.org/pdf/1608.08315",
+            "citation": "C. K. Gan, Y. Y. F. Liu, 'Direct calculation of the linear thermal expansion coefficients of MoS2 via symmetry-preserving deformations', arXiv:1608.08315 (2016)",
+            "quote": "El-Mahalawy and Evans21 measured the linear TECs of 2H-MoS2 between 293 and 1073 K and reported αa = 1.9×10−6 K−1 and αc = 8.65×10−6 K−1",
+            "why_not_in_values": "Secondary citation by a theory paper; the temperature (or averaging range) these coefficients refer to is not stated, so they cannot be assigned a T."
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": null,
+        "range_K": [
+          260,
+          320
+        ],
+        "source": "https://arxiv.org/pdf/1508.03435",
+        "citation": "B. Peng et al., 'Towards intrinsic phonon transport in single-layer MoS2', arXiv:1508.03435, citing Touloukian & Buyco (eds.), TPRC Data Series Vol. 5, Specific Heat - Nonmetallic Solids (1970)",
+        "quote": "260-320 K for MoS2 estimated from specific-heat measurement",
+        "note": "Secondary citation of a specific-heat-derived range; polytype and anisotropy not stated. No single value given, so value is null."
+      },
+      "melting_point_K": {
+        "value": null,
+        "range_K": [
+          1853,
+          1895
+        ],
+        "kind": "melting",
+        "pressure": "1 bar He",
+        "source": "https://arxiv.org/pdf/1412.1939",
+        "citation": "S. K. Singh, M. Neek-Amal, S. Costamagna, F. M. Peeters, 'Rippling, buckling and melting of single- and multi-layer MoS2', Phys. Rev. B 91, 014101 (2015); citing I. G. Vasilyeva, R. E. Nikolaev, J. Alloys Compd. 452, 89-93 (2008) (primary not opened, closed access)",
+        "quote": "presence of helium gas at 1 bar pressure that the melting of bulk MoS2 occurred around 1853-1895 K depending on the rate of heating",
+        "note": "Same source says MoS2 begins to decompose (to MoS3 + S gas, or Mo2S3 + Mo at slow heating); melting is incongruent/heating-rate dependent."
+      },
+      "phase_transitions": [
+        {
+          "T_K": null,
+          "P_GPa": "20.5-28.9",
+          "description": "Room-temperature compression: discontinuity in c-axis reduction between 20.5 and 28.9 GPa, possibly a phase transformation (pressure-induced, not thermal). No ambient-pressure solid-state transition sourced.",
+          "source": "https://cdac.carnegiescience.edu/images/stories/Aksoy%20JPCS%202006.pdf",
+          "quote": "The reduction of c-axis with pressure displayed a discontinuity between 20.5 and 28.9 GPa. This may result from a phase transformation."
+        }
+      ],
+      "notes": "Lattice: NBS 1955 powder value at 26 °C, converted to K by +273.15 (299.15 K). Other sources seen: P. A. Young, J. Phys. D 1, 936 (1968) abstract gives a0 = 3.1475 Å at 293 K for thin single crystals (https://api.openalex.org/works/doi:10.1088/0022-3727/1/7/416) - this disagrees with the NBS 3.1604 Å by 0.4% and is not used; Gan & Liu (arXiv:1608.08315) quote a = 3.160, c = 12.294 Å (Böker et al. 2001), consistent with NBS. Bulk modulus: the PDF text layer renders the values as 'K0T ¼ 53.471 GPa ... 9.270.4' (font-encoding garbling of '=' and '±'); the OSTI abstract renders it as K0T=53.4±1 GPa, K'=9.2±0.4. Aksoy used a methanol-ethanol medium (hydrostatic to ~10 GPa); no C33 or numeric axial compressibility was extracted. Thermal expansion: NO primary 300-1200 K values could be opened. El-Mahalawy & Evans (1976, the standard 20-800 °C XRD study) and Murray & Evans (1979, 10-320 K) are both closed-access and blocked; the only numbers seen are a secondary quote (see secondary_reported_unverified) with no assigned temperature. Gan & Liu also quote Murray & Evans (10-320 K) as αa = 4.922e-6, αc = 18.580e-6 /K, again without a stated T. TPRC Vol. 13 (Touloukian et al. 1977) lists only Young (1968) for MoS2 (a-axis, 78-374 K) under 'Miscellaneous Sulfides', without recommended values. A 2018 helium-diffraction study (Anemone et al., 2D Mater. 5, 035015) reports the surface in-plane lattice constant constant within error from 90-522 K (abstract), i.e. small alpha_a, but gives no coefficient. Debye temperature and melting point are secondary citations (primary sources closed); both are given as ranges with value=null."
+    },
+    {
+      "id": "hBN",
+      "formula": "BN",
+      "phase": "h-BN (AA' stacking)",
+      "space_group": "P6_3/mmc",
+      "lattice": {
+        "a": 2.504,
+        "c": 6.6612,
+        "T_K": 297,
+        "source": "http://www.ioffe.ru/SVA/NSM/Semicond/BN/basic.html",
+        "citation": "Ioffe Institute NSM database, BN basic parameters, hexagonal column, citing R. W. Lynch & H. G. Drickamer, J. Chem. Phys. 44, 181 (1966)",
+        "quote": "Lattice constant, a | 2.5040 A | 297 K | Lynch et al. (1966) | Lattice constant, c | 6.6612 A | 297 K",
+        "quote_context": "table cells of the hexagonal-BN column"
+      },
+      "bulk_modulus": {
+        "value_GPa": 27.4,
+        "uncertainty_GPa": 0.9,
+        "B_prime": 11.4,
+        "B_prime_uncertainty": 0.8,
+        "V0_A3": 36.18,
+        "T_K": null,
+        "T_note": "room temperature",
+        "method": "Synchrotron powder XRD in DAC with helium (hydrostatic) pressure medium, 0-9.5 GPa, 3rd-order Birch-Murnaghan fit (EoSFit)",
+        "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11079860/fullTextXML",
+        "citation": "H. Muhammad, M. Mezouar, G. Garbarino, T. Poręba, G. Confalonieri, M. Ceppatelli, M. Serrano-Ruiz, M. Peruzzini, F. Datchi, 'Anisotropic thermo-mechanical response of layered hexagonal boron nitride and black phosphorus...', Nanoscale 16, 9096-9107 (2024), doi:10.1039/d4nr00093e (PMC11079860; arXiv:2307.07533)",
+        "quote": "This work 0–9.5 36.18 ± 0.06 27.4 ± 0.9 11.4 ± 0.8 Powder XRD 3rd order BM",
+        "quote_context": "Table 3 row; columns P range (GPa), V0 (Å3), K0 (GPa), K'0, technique, EOS type",
+        "anisotropy": {
+          "C33_GPa": 27.0,
+          "C11_GPa": 811,
+          "C12_GPa": 169,
+          "C13_GPa": 0,
+          "C44_GPa": 7.7,
+          "Cij_source": "https://api.openalex.org/works/doi:10.1103/PhysRevB.73.041402",
+          "Cij_citation": "A. Bosak, J. Serrano, M. Krisch, K. Watanabe, T. Taniguchi, H. Kanda, 'Elasticity of hexagonal boron nitride: Inelastic x-ray scattering measurements', Phys. Rev. B 73, 041402(R) (2006)",
+          "Cij_quote": "At room temperature the elastic moduli are in units of GPa C11=811, C12=169, C13=0, C33=27.0, and C44=7.7.",
+          "reuss_bulk_modulus_from_Cij_GPa": 25.6,
+          "linear_compressibility_a_per_GPa": 0.000323,
+          "linear_compressibility_c_per_GPa": 0.00426,
+          "linear_compressibility_source": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11079860/fullTextXML",
+          "linear_compressibility_quote": "a axis 0–9.5 2.504[9] −0.00081[2] 0.000012[2] ... c axis 0–9.5 6.661[5] −0.0284[3] 0.0025[1] 0.000107[6]  [Table 4 polynomial coefficients A, B, C, D]"
+        }
+      },
+      "thermal_expansion": {
+        "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11079860/fullTextXML",
+        "citation": "H. Muhammad et al., Nanoscale 16, 9096-9107 (2024), doi:10.1039/d4nr00093e; equations read from arXiv:2307.07533v1 (https://arxiv.org/pdf/2307.07533v1, Eqs. 1-2, rendered page images)",
+        "quote": "This work 298–1280 −4.63(17) 3.07(23) −7.0(10) 42.3(1) 39.6(1) Powder XRD",
+        "quote_context": "Table 1 row; columns T range (K), αa (1e-6/K), α'a (1e-9/K2), α''a (1e-13/K3), αc (1e-6/K), αV (1e-6/K)",
+        "formula": "a(T) = a0[1 + αa(T−300) + α'a(T²−300²) + α''a(T³−300³)], a0 = 2.5069(2) Å, αa = −4.63e-6 K^-1, α'a = 3.07e-9 K^-2, α''a = −7.0e-13 K^-3; c(T) = c0[1 + αc(T−300)], c0 = 6.6706(7) Å, αc = 4.23e-5 K^-1; valid 298-1280 K, ambient pressure, synchrotron powder XRD (ESRF ID27, Paris-Edinburgh press heater)",
+        "values": [
+          {
+            "T_K": 300,
+            "axis": "a",
+            "alpha_1e-6_per_K": -2.98,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 300,
+            "axis": "c",
+            "alpha_1e-6_per_K": 42.3,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 400,
+            "axis": "a",
+            "alpha_1e-6_per_K": -2.51,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 42.12,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 500,
+            "axis": "a",
+            "alpha_1e-6_per_K": -2.09,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 500,
+            "axis": "c",
+            "alpha_1e-6_per_K": 41.95,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 600,
+            "axis": "a",
+            "alpha_1e-6_per_K": -1.7,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 600,
+            "axis": "c",
+            "alpha_1e-6_per_K": 41.77,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 700,
+            "axis": "a",
+            "alpha_1e-6_per_K": -1.36,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 700,
+            "axis": "c",
+            "alpha_1e-6_per_K": 41.6,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 800,
+            "axis": "a",
+            "alpha_1e-6_per_K": -1.06,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 800,
+            "axis": "c",
+            "alpha_1e-6_per_K": 41.42,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 900,
+            "axis": "a",
+            "alpha_1e-6_per_K": -0.81,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 900,
+            "axis": "c",
+            "alpha_1e-6_per_K": 41.25,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1000,
+            "axis": "a",
+            "alpha_1e-6_per_K": -0.59,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1000,
+            "axis": "c",
+            "alpha_1e-6_per_K": 41.08,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1100,
+            "axis": "a",
+            "alpha_1e-6_per_K": -0.42,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1100,
+            "axis": "c",
+            "alpha_1e-6_per_K": 40.92,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1200,
+            "axis": "a",
+            "alpha_1e-6_per_K": -0.29,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1200,
+            "axis": "c",
+            "alpha_1e-6_per_K": 40.75,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1280,
+            "axis": "a",
+            "alpha_1e-6_per_K": -0.21,
+            "evaluated_from_formula": true
+          },
+          {
+            "T_K": 1280,
+            "axis": "c",
+            "alpha_1e-6_per_K": 40.62,
+            "evaluated_from_formula": true
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 400,
+        "source": "http://www.ioffe.ru/SVA/NSM/Semicond/BN/basic.html",
+        "quote": "Debye temperature | 400 K",
+        "quote_context": "hexagonal BN column of the basic-parameters table; that block of the table cites Madelung (1991) and Rumyantsev et al. (2001)",
+        "note": "Compilation value; method (calorimetric vs elastic) and anisotropy not stated by the source."
+      },
+      "melting_point_K": {
+        "value": 2600,
+        "uncertainty_K": 100,
+        "kind": "decomposition",
+        "source": "http://www.ioffe.ru/SVA/NSM/Semicond/BN/basic.html",
+        "quote": "Decomposition temperature, Tdec | 2600(100) K | Janaf Thermochemical Tables (1965)",
+        "note": "Pressure not stated (presumably ambient). Melting under pressure: 4251±150 K at 3.4 GPa and 4531±200 K at 4.3 GPa (see notes)."
+      },
+      "phase_transitions": [],
+      "notes": "Lattice: compilation (Ioffe) citing Lynch & Drickamer 1966 at 297 K; consistent with Ouyang et al. arXiv:1912.06187 Table 2 which lists Pease (1952) a = 2.50399(5), c = 6.6612(5) Å (https://arxiv.org/pdf/1912.06187). Muhammad et al. 2024 give 300 K values from the heating run of a0 = 2.5069(2), c0 = 6.6706(7) Å (Eqs. 1-2), about 0.1% larger than the consensus, and 2.504 / 6.661 Å as zero-pressure intercepts of their DAC run (Table 4); the formula block above uses their own a0/c0 so that relative expansion stays self-consistent. Thermal expansion: alpha values listed are instantaneous (1/L)(dL/dT) that I evaluated from the published fits (dividing by L/L0), so they are NOT the tabulated coefficients. Note in particular that the tabulated αa = −4.63e-6 is the linear coefficient of a cubic polynomial in T (not T−300), so the true αa at 300 K from the fit is −2.98e-6 /K. The c-axis fit is linear, so αc ≈ 42.3e-6 /K, decreasing slightly to 40.6e-6 /K at 1280 K only because of normalisation to c(T). Literature compared in Muhammad Table 1: Pease 273-1073 K αc = 40.5, αa = −2.9 (1e-6/K); Yates et al. (interferometry, 80-780 K) αc = 38.0, αa = −2.76; Zhao et al. 300-1280 K αc = 51.6 (outlier). Bulk modulus: literature values scatter widely (Muhammad Table 3): Solozhenko et al. 36.7±0.5 (K' 5.6, Murnaghan), Zhao et al. 17.6±0.8 (K' 19.5), Le Godec et al. 27.6±0.5 (K' 10.5); the helium-medium value 27.4 GPa is used. The Reuss (uniform-stress) bulk modulus 25.6 GPa is my calculation from the Bosak Cij: K_R = [(C11+C12)C33 − 2C13²]/(C11+C12+2C33−4C13). Linear compressibilities are my evaluation of −(1/x0)dx/dP at P = 0 from the Table 4 polynomials (B/A). Melting: Zhang, Guo, Xiao, He, Chinese J. High Pressure Phys. 38(6), 063401 (2024), doi:10.11858/gywlxb.20240813 (https://gywlxb.cn/cn/article/doi/10.11858/gywlxb.20240813): 'the melting points of h-BN under 3.4 and 4.3 GPa are (4251±150) K and (4531±200) K, respectively'. No sourced solid-state phase transition at ambient pressure; the h-BN to w-BN/c-BN conversions at high P/T were not sourced here. The TPRC Vol. 13 'recommended' BN expansion (Table 313R) applies to cubic BN specimens, so it is not used."
+    },
+    {
+      "id": "graphite",
+      "formula": "C",
+      "phase": "hexagonal (Bernal AB)",
+      "space_group": "P6_3/mmc",
+      "lattice": {
+        "a": 2.4612,
+        "c": 6.7078,
+        "T_K": 287.75,
+        "source": "https://api.openalex.org/works/doi:10.1088/0959-5309/57/6/303",
+        "citation": "J. B. Nelson, D. P. Riley, 'The thermal expansion of graphite from 15°c. to 800°c.: part I. Experimental', Proc. Phys. Soc. 57, 477-486 (1945), doi:10.1088/0959-5309/57/6/303 (abstract)",
+        "quote": "At 14°·6c., a =2.4562±0.0001 kx. c =6.6943±0.0007 kx."
+      },
+      "bulk_modulus": {
+        "value_GPa": 33.8,
+        "uncertainty_GPa": 0.3,
+        "B_prime": 8.9,
+        "B_prime_uncertainty": 0.1,
+        "T_K": 300,
+        "method": "X-ray diffraction (lattice parameters) under hydrostatic pressure up to the ~14 GPa transition, EOS fit; value taken from a secondary table (primary paper closed access)",
+        "source": "https://arxiv.org/pdf/1912.06187",
+        "citation": "M. Hanfland, H. Beister, K. Syassen, 'Graphite under pressure: Equation of state and first-order Raman modes', Phys. Rev. B 39, 12598 (1989), as tabulated in W. Ouyang et al., arXiv:1912.06187, Table 1 (Ref. 30)",
+        "quote": "X-ray diffraction, Ref. 30 33.8±0.3 8.9±0.1",
+        "quote_context": "Table 1 Experiment row; columns B0V (GPa), B'V; Ref. 30 = Hanfland, Beister, Syassen, PRB 39, 12598 (1989)",
+        "anisotropy": {
+          "C11_GPa": 1109,
+          "C12_GPa": 139,
+          "C13_GPa": 0,
+          "C33_GPa": 38.7,
+          "C44_GPa": 4.95,
+          "Cij_T_K": null,
+          "Cij_T_note": "room temperature",
+          "Cij_source": "https://api.openalex.org/works/doi:10.1103/PhysRevB.75.153408",
+          "Cij_citation": "A. Bosak, M. Krisch, M. Mohr, J. Maultzsch, C. Thomsen, 'Elasticity of single-crystalline graphite: Inelastic x-ray scattering study', Phys. Rev. B 75, 153408 (2007)",
+          "Cij_quote": "At room temperature the elastic moduli are, in units of GPa, C11=1109, C12=139, C13=0, C33=38.7, and C44=4.95.",
+          "reuss_bulk_modulus_from_Cij_GPa": 36.4,
+          "c_axis_linear_modulus_K0c_GPa": 12.0,
+          "a_axis_linear_modulus_K0a_GPa": 442,
+          "linear_moduli_source": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC3400081/fullTextXML",
+          "linear_moduli_citation": "Y. Wang, J. E. Panzik, B. Kiefer, K. K. M. Lee, 'Crystal structure of graphite under room-temperature compression and decompression', Sci. Rep. 2, 520 (2012), Table 1",
+          "linear_moduli_quote": "H-graphite | 2.462 (0.001) | 442 (6) | | | 6.721 (0.002) | 12.0 (0.1)",
+          "linear_moduli_quote_context": "Table 1 row; columns a0 (Å), K0a (GPa), b0, K0b, c0 (Å), K0c (GPa); K0x' fixed at 4"
+        }
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/download/DTIC_ADA129116/DTIC_ADA129116.pdf",
+        "citation": "Y. S. Touloukian, R. K. Kirby, R. E. Taylor, T. Y. R. Lee, Thermophysical Properties of Matter, TPRC Data Series Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum 1977; DTIC ADA129116), Figure and Table 19R 'Provisional values for thermal linear expansion of pyrolytic graphite', p. 79 (PDF page 167)",
+        "quote": "The provisional values are considered accurate to within ± 10% and are represented approximately by the following equations",
+        "formula": "dL/L0 (%) relative to 293 K. Perpendicular to plane of deposition (≈ c axis): -0.650 + 2.122e-3 T + 3.431e-7 T^2 - 4.327e-11 T^3 (293-3300 K). Parallel to plane of deposition (≈ a axis): 0.038 - 1.623e-4 T + 1.731e-7 T^2 - 1.547e-11 T^3 (293-3300 K). Tabulated alpha are derivatives of these equations (±10%).",
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "a",
+            "alpha_1e-6_per_K": -0.6,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 293,
+            "axis": "c",
+            "alpha_1e-6_per_K": 23.1,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 400,
+            "axis": "a",
+            "alpha_1e-6_per_K": -0.3,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 23.8,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 600,
+            "axis": "a",
+            "alpha_1e-6_per_K": 0.3,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 600,
+            "axis": "c",
+            "alpha_1e-6_per_K": 24.9,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 800,
+            "axis": "a",
+            "alpha_1e-6_per_K": 0.8,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 800,
+            "axis": "c",
+            "alpha_1e-6_per_K": 25.9,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 1000,
+            "axis": "a",
+            "alpha_1e-6_per_K": 1.4,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 1000,
+            "axis": "c",
+            "alpha_1e-6_per_K": 26.8,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 1200,
+            "axis": "a",
+            "alpha_1e-6_per_K": 1.9,
+            "evaluated_from_formula": false
+          },
+          {
+            "T_K": 1200,
+            "axis": "c",
+            "alpha_1e-6_per_K": 27.6,
+            "evaluated_from_formula": false
+          }
+        ],
+        "additional_values": {
+          "source": "https://pages.mtu.edu/~jaszczak/graphprop.html",
+          "citation": "J. A. Jaszczak, 'Graphite 2H Properties' (Michigan Tech), citing R. K. Kirby, T. A. Hahn, B. D. Rothrock, American Institute of Physics Handbook (1972), pp. 4-119 to 4-142",
+          "quote": "a-axis: -1.2 (at 293K); -0.7 (at 500K) ... c-axis: 25.9 (at 293K); 28.2 (at 500K)",
+          "values": [
+            {
+              "T_K": 293,
+              "axis": "a",
+              "alpha_1e-6_per_K": -1.2
+            },
+            {
+              "T_K": 500,
+              "axis": "a",
+              "alpha_1e-6_per_K": -0.7
+            },
+            {
+              "T_K": 293,
+              "axis": "c",
+              "alpha_1e-6_per_K": 25.9
+            },
+            {
+              "T_K": 500,
+              "axis": "c",
+              "alpha_1e-6_per_K": 28.2
+            }
+          ]
+        }
+      },
+      "debye_temperature_K": {
+        "value": null,
+        "in_plane_K_approx": 2500,
+        "out_of_plane_K_approx": 1000,
+        "source": "https://arxiv.org/pdf/2109.07378",
+        "quote": "one for the first set of modes (Θout D ∼ 1000 K) and another for the second (Θin D ∼ 2500 K)",
+        "note": "Herrero & Ramírez (2021) citing Krumhansl & Brooks, J. Chem. Phys. 21, 1663 (1953) and Nihira & Iwata, PRB 68, 134305 (2003): approximate, model-based. Bailey & Yates (J. Appl. Phys. 41, 5088, 1970; abstract at https://api.openalex.org/works/doi:10.1063/1.1658609) derive moment-dependent characteristic temperatures θ(n) 'between approximately 420° and 2270°K as n increases from −3 to +6'. No single Debye temperature is meaningful for graphite, so value is null."
+      },
+      "melting_point_K": {
+        "value": null,
+        "range_K": [
+          3000,
+          5000
+        ],
+        "kind": "sublimation",
+        "source": "https://arxiv.org/pdf/1901.07870",
+        "quote": "The experimental estimates of the gas–liquid–graphite triple point are from about 3000 to 5000 K and P = 0.016 GPa",
+        "note": "Yu. D. Fomin, V. V. Brazhkin, 'Comparative study of melting of graphite and graphene', arXiv:1901.07870. At ambient pressure graphite sublimes (triple-point pressure ≈ 0.016 GPa); same source: 'graphite starts to actively sublimate already at T = 3000 K'. Experimental values are highly discordant, so value is null."
+      },
+      "phase_transitions": [
+        {
+          "T_K": 300,
+          "P_GPa": 14,
+          "description": "Pressure-induced structural phase transition of hexagonal graphite near 14 GPa at room temperature (Hanfland et al. 1989)",
+          "source": "https://api.openalex.org/works/doi:10.1103/PhysRevB.39.12598",
+          "quote": "lattice parameters and Raman spectra of hexagonal graphite at pressures up to the structural phase transition near 14 GPa (T=300 K)"
+        },
+        {
+          "T_K": null,
+          "P_GPa": 11,
+          "description": "Phase transition observed at ~11 GPa in polycrystalline graphite (room-temperature XRD, Zhao & Spain 1989)",
+          "source": "https://api.openalex.org/works/doi:10.1103/PhysRevB.40.993",
+          "quote": "A phase transition is observed at ∼11 GPa, as evidenced by softening in the interlayer spacing and the observation of new diffraction lines."
+        }
+      ],
+      "notes": "Lattice: Nelson & Riley give a, c in kX units at 14.6 °C; converted with 1 kX = 1.00202 Å (factor stated in NBS Circular 539 Vol. 5 introduction: 'd-spacings in kX units, using the factor 1.00202', https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v5.pdf) -> a = 2.4612 Å, c = 6.7078 Å; T = 14.6 + 273.15 = 287.75 K (below the 295-300 K target; graphite c expands ~2.5e-5/K so c(298 K) is ~0.0017 Å larger). Cross-checks: Mohr et al. arXiv:0705.2418 (single-crystal flake XRD) a = 2.463, c = 6.712 Å (T not stated); Wang et al. 2012 a0 = 2.462(1), c0 = 6.721(2) Å from EOS fit; Ouyang Table 1 lists Lynch & Drickamer 2.4612 / 6.7078 Å. Bulk modulus: primary Hanfland paper is closed; value taken from Ouyang et al. Table 1 (that table misprints the Hanfland a0 as '2.603(4)'). Other experimental values in the same table: Lynch & Drickamer 32±2 (B' 12.3±0.7), Zhao & Spain 30.8±2. Wang et al. 2012 report K0 = 57.3(0.8) GPa but with K' fixed at 4, which is inappropriate for graphite (B' ~9), so not used; their K0a/K0c are Birch-Murnaghan-like fits to a^3 and c^3 (linear modulus ×3 convention), also with K' = 4. Reuss bulk modulus 36.4 GPa is my calculation from Bosak Cij: K_R = [(C11+C12)C33 − 2C13²]/(C11+C12+2C33−4C13); Voigt average (281.6 GPa) is meaningless for such anisotropy. Thermal expansion: TPRC values are for PYROLYTIC graphite (perpendicular / parallel to deposition plane), used as proxies for single-crystal c / a axes; they are 'provisional' (±10%) and alpha values are read directly from the TPRC table. Single-crystal reference values (Kirby et al. 1972 via Michigan Tech compilation) give a more negative αa (-1.2 vs -0.6 at 293 K) and higher αc (25.9 vs 23.1 at 293 K). Nelson & Riley 1945 abstract gives an average c-direction coefficient of 28.3e-6 over 15-800 °C (288-1073 K) (abstract text literally says 'for a', evidently a typo since a contracts) and states a contracts up to ~400 °C then expands slightly. Marsden et al. (Proc. R. Soc. A 2018, PMC6237503) quote a Nelson & Riley d-spacing fit, but as transcribed it does not reproduce c at room temperature, so it was not used."
+    }
+  ]
+}

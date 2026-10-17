@@ -1,0 +1,161 @@
+{
+ "id": "MgO",
+ "formula": "MgO",
+ "material_id": "mp-1265",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     -2.128242,
+     -2.128242,
+     0.0
+    ],
+    [
+     -2.128242,
+     0.0,
+     -2.128242
+    ],
+    [
+     0.0,
+     -2.128242,
+     -2.128242
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 3.0097887004120407,
+   "b": 3.0097887004120407,
+   "c": 3.0097887004120407,
+   "alpha": 59.99999999999999,
+   "beta": 59.99999999999999,
+   "gamma": 59.99999999999999,
+   "volume": 19.2793782653415
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Mg",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Mg",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "O",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "O",
+    "xyz": [
+     -2.128242,
+     -2.128242,
+     -2.128242
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 4.256484,
+  "b": 4.256484,
+  "c": 4.256484,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 9.63968913267075
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 151.45,
+  "K_voigt_GPa": 151.45,
+  "K_reuss_GPa": 151.45,
+  "G_vrh_GPa": 118.82,
+  "C_ieee_GPa": [
+   [
+    274.0,
+    90.0,
+    90.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    90.0,
+    274.0,
+    90.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    90.0,
+    90.0,
+    274.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    141.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    141.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    141.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-1265"
+}

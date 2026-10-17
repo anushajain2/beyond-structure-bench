@@ -1,0 +1,38 @@
+[project]
+name = "chipff-bench"
+version = "0.1.0"
+description = "ChipFF Bench: how reliable are ML force fields for semiconductor materials? Built on kUPS."
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { text = "MIT" }
+dependencies = [
+  "kups[hf]>=1.0.8",
+  "pymatgen>=2025.1.9",
+  "mp-api>=0.45",
+  "ase>=3.24",
+  "numpy",
+  "pandas",
+  "scipy",
+  "pyyaml",
+  "matplotlib",
+]
+
+[project.optional-dependencies]
+uma = ["kups[uma]>=1.0.8"]
+cuda = ["kups[cuda]>=1.0.8"]
+mcp = ["mcp>=1.2"]
+dev = ["pytest"]
+
+[project.scripts]
+chipff = "chipff.cli:main"
+chipff-mcp = "chipff.mcp_server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chipff"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

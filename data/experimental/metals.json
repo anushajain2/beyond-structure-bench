@@ -1,0 +1,712 @@
+{
+  "class": "metals",
+  "compiled": "2026-10-17",
+  "materials": [
+    {
+      "id": "Cu",
+      "formula": "Cu",
+      "phase": "fcc",
+      "space_group": "Fm-3m",
+      "lattice": {
+        "a": 3.615,
+        "c": null,
+        "T_K": 298.15,
+        "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
+        "citation": "H. E. Swanson & E. Tatge, Standard X-ray Diffraction Powder Patterns, NBS Circular 539, Vol. I (1953), Sec. 2.4 Copper, p. 15",
+        "quote": "Unit cell in angstroms at 25°C ... 1953 Swanson and Tatge 3.6150"
+      },
+      "bulk_modulus": {
+        "value_GPa": 137.6,
+        "T_K": 295,
+        "method": "Recommended single-crystal (ultrasonic) value at room temperature; recommended C11=169.1, C12=122.2, C44=75.42 GPa ((C11+2C12)/3 from these averages = 137.8 GPa). Polycrystal average in same table: 140.2 +/- 3.9 GPa",
+        "source": "https://srd.nist.gov/jpcrdreprint/1.3253150.pdf",
+        "citation": "H. M. Ledbetter & E. R. Naimon, 'Elastic Properties of Metals and Alloys. II. Copper', J. Phys. Chem. Ref. Data 3, 897 (1974), Table 10",
+        "quote": "Table 10. Summary of average values ... copper at room temperature ... units of 10^11 N/m^2 ... Single-crystal ... B = 1.376 ± 0.002"
+      },
+      "thermal_expansion": {
+        "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
+        "citation": "Kaye & Laby Tables of Physical and Chemical Constants (NPL online ed., v1.1 2010), Sec. 2.3.5 'Thermal expansion', table 'Coefficients of linear expansion of solids: Elements' (data after Touloukian et al. 1975, TPRC vols 12-13)",
+        "quote": "Copper | 10.3 | 15.2 | 16.5 | 18.3 | 20.3 | 23.7 | – (columns 100, 200, 293, 500, 800, 1100, 1500 K)",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 16.5
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 18.3
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 20.3
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 23.7
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 310,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... Cu ... (310K)"
+      },
+      "melting_point_K": {
+        "value": 1357.77,
+        "kind": "melting",
+        "source": "https://web.archive.org/web/20190519192637/http://www.kayelaby.npl.co.uk/chemistry/3_1/3_1_2.html",
+        "quote": "Copper | Cu | 29 | 63.546 ± 3r | 8 933 | 1084.62† | 2560"
+      },
+      "phase_transitions": [],
+      "notes": "Bulk-modulus T_K=295 is nominal: source says only 'room temperature'. Melting point converted 1084.62 °C + 273.15 = 1357.77 K (ITS-90 defining fixed point; K&L Sec. 3.10.1 also lists Tfus = 1357.77 K). Lattice: 25 °C -> 298.15 K; NBS 1953 values were converted from kX with the old factor 1.00202 (relative uncertainty ~1e-5). Thermal expansion is the instantaneous expansivity α=(1/L)dL/dT; K&L gives no value at 1500 K and the 293 K column is used for ~300 K. Debye temperature is the 298 K value tabulated by Ho, Powell & Liley (JPCRD 1974), NOT the low-temperature calorimetric limit θ0 (θ0 for Cu is usually quoted ~343-347 K; not separately sourced here). No solid-state phase transitions below melting (none flagged in the K&L expansion-table footnotes, which mark transitions for other elements). | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    },
+    {
+      "id": "Al",
+      "formula": "Al",
+      "phase": "fcc",
+      "space_group": "Fm-3m",
+      "lattice": {
+        "a": 4.0494,
+        "c": null,
+        "T_K": 298.15,
+        "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
+        "citation": "H. E. Swanson & E. Tatge, Standard X-ray Diffraction Powder Patterns, NBS Circular 539, Vol. I (1953), Sec. 2.2 Aluminum, p. 11",
+        "quote": "Unit cell, angstroms at 25°C ... 1953 Swanson and Tatge 4.0494"
+      },
+      "bulk_modulus": {
+        "value_GPa": 75.5,
+        "T_K": 293.15,
+        "method": "Polycrystalline value at 20 °C tabulated with E, G, ν (K&L footnote: Bradfield 1964); not a single-crystal VRH value",
+        "source": "https://web.archive.org/web/20190422003653/http://www.kayelaby.npl.co.uk/general_physics/2_2/2_2_2.html",
+        "citation": "Kaye & Laby (NPL online ed.), Sec. 2.2.2 'Elasticities and strengths', table 'Elasticities of metals and alloys' (20 C; values largely from Bradfield 1964)",
+        "quote": "Material 20 ºC | E | G | ν | K ... Aluminium . . . | 70.3 | 26.1 | 0.345 | 75.5"
+      },
+      "thermal_expansion": {
+        "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
+        "citation": "Kaye & Laby Tables of Physical and Chemical Constants (NPL online ed., v1.1 2010), Sec. 2.3.5 'Thermal expansion', table 'Coefficients of linear expansion of solids: Elements' (data after Touloukian et al. 1975, TPRC vols 12-13)",
+        "quote": "Aluminium | 12.2 | 20.3 | 23.1 | 26.4 | 34.0 | – | – (columns 100, 200, 293, 500, 800, 1100, 1500 K)",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 23.1
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 26.4
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 34.0
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 390,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... Al ... (390K)"
+      },
+      "melting_point_K": {
+        "value": 933.473,
+        "kind": "melting",
+        "source": "https://web.archive.org/web/20190519192637/http://www.kayelaby.npl.co.uk/chemistry/3_1/3_1_2.html",
+        "quote": "Aluminium | Al | 13 | 26.981 539 ± 5 | 2 698 | 660.323† | 2520"
+      },
+      "phase_transitions": [],
+      "notes": "Melting point converted 660.323 °C + 273.15 = 933.473 K (ITS-90 freezing point of Al). Lattice: 25 °C -> 298.15 K. Bulk modulus cross-check: single-crystal C11=107.3, C12=60.08, C44=28.3 GPa (Vallin et al., J. Appl. Phys. 35, 1825 (1964), as quoted in arXiv:1605.09237 Table 2; measurement temperature not stated there) give (C11+2C12)/3 = 75.8 GPa, consistent with 75.5 GPa. Thermal expansion: K&L gives no values at 1100/1500 K (above melting). The 800 K value (34.0) is close to melting and includes vacancy contributions. Debye temperature is the 298 K value (Ho, Powell, Liley 1974), not the calorimetric θ0 (~428 K commonly quoted; not separately sourced here). No solid-state transitions below melting. | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    },
+    {
+      "id": "W",
+      "formula": "W",
+      "phase": "bcc",
+      "space_group": "Im-3m",
+      "lattice": {
+        "a": 3.1648,
+        "c": null,
+        "T_K": 298.15,
+        "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
+        "citation": "H. E. Swanson & E. Tatge, Standard X-ray Diffraction Powder Patterns, NBS Circular 539, Vol. I (1953), Sec. 2.12 Tungsten, p. 29",
+        "quote": "Unit cell at 25°C in angstroms ... 1953 Swanson and Tatge 3.1648"
+      },
+      "bulk_modulus": {
+        "value_GPa": 310.8,
+        "T_K": 300,
+        "method": "Adiabatic B=(C11+2C12)/3 from ultrasonic single-crystal elastic constants at 300 K: C11=523.27, C12=204.53, C44=160.72 GPa (Table III, 300 K row)",
+        "source": "https://archive.org/details/DTIC_AD0480855",
+        "citation": "F. H. Featherston, 'The Elastic Constants of Tantalum, Tungsten and Molybdenum', PhD dissertation, US Naval Postgraduate School (1963), hdl 10945/7612 (DTIC AD0480855); published as Featherston & Neighbours, Phys. Rev. 130, 1324 (1963)",
+        "quote": "TABLE V. The reported room temperature values of the adiabatic elastic constants ... Tungsten ... 1.607 1.594 3.108 This Paper"
+      },
+      "thermal_expansion": {
+        "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
+        "citation": "Kaye & Laby Tables of Physical and Chemical Constants (NPL online ed., v1.1 2010), Sec. 2.3.5 'Thermal expansion', table 'Coefficients of linear expansion of solids: Elements' (data after Touloukian et al. 1975, TPRC vols 12-13)",
+        "quote": "Tungsten | 2.6 | 4.1 | 4.5 | 4.6 | 5.0 | 5.3 | 5.5 (columns 100, 200, 293, 500, 800, 1100, 1500 K)",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 4.5
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 4.6
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.0
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.3
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.5
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 312,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... W ... (312K)"
+      },
+      "melting_point_K": {
+        "value": 3695.15,
+        "kind": "melting",
+        "source": "https://web.archive.org/web/20190519192637/http://www.kayelaby.npl.co.uk/chemistry/3_1/3_1_2.html",
+        "quote": "Tungsten | W | 74 | 183.84 ± 1 | 19 254 | 3422† | 5550"
+      },
+      "phase_transitions": [],
+      "notes": "Units in Featherston are 10^12 dyn/cm^2 = 100 GPa (B = 3.108 -> 310.8 GPa). Same table lists Bolef & de Klerk B = 3.083 (308.3 GPa) and Bridgman 3.08. Melting point 3422 °C + 273.15 = 3695.15 K (K&L Sec 3.10.1 lists 3695 K). Lattice: 25 °C -> 298.15 K. Debye temperature given is the 298 K value (Ho, Powell, Liley 1974); for comparison Featherston (Table VII) gives θ0 = 384.3 K from 0 K elastic constants and lists calorimetric values 380 and 405 K. No solid-state transitions below melting. | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    },
+    {
+      "id": "Co",
+      "formula": "Co",
+      "phase": "hcp (alpha/epsilon)",
+      "space_group": "P6_3/mmc",
+      "lattice": {
+        "a": 2.5071,
+        "c": 4.07,
+        "T_K": 293.15,
+        "source": "https://en.wikipedia.org/wiki/Cobalt",
+        "citation": "Wikipedia 'Cobalt' infobox (LAST RESORT), citing J. W. Arblaster, Selected Values of the Crystallographic Properties of Elements, ASM International (2018), ISBN 978-1-62708-155-9",
+        "quote": "a = 250.71 pm c = 407.00 pm (at 20 °C) [ref: Arblaster 2018, Selected Values of the Crystallographic Properties of Elements]"
+      },
+      "bulk_modulus": {
+        "value_GPa": 190,
+        "T_K": 295,
+        "method": "From ambient single-crystal ultrasonic elastic constants (Landolt-Bornstein compilation): C11=306, C33=357, C12=165, C13=102, C44=75 GPa; K as given by the quoting paper (my VRH recomputation from these rounded Cij: K_V=189.7, K_R=189.6, K_VRH=189.6 GPa)",
+        "source": "https://arxiv.org/abs/cond-mat/9904431",
+        "citation": "G. Steinle-Neumann, L. Stixrude, R. E. Cohen, Phys. Rev. B 60, 791 (1999) (arXiv:cond-mat/9904431), Tables I-II, quoting H. R. Schober & H. Dederichs, Landolt-Bornstein New Series III/13a (1981)",
+        "quote": "For experimental values the bulk modulus is calculated from the elastic constants at ambient pressure ... Co exp13 74.9 190"
+      },
+      "thermal_expansion": {
+        "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
+        "citation": "Kaye & Laby Tables of Physical and Chemical Constants (NPL online ed., v1.1 2010), Sec. 2.3.5 'Thermal expansion', table 'Coefficients of linear expansion of solids: Elements' (data after Touloukian et al. 1975, TPRC vols 12-13)",
+        "quote": "Cobalt* | 6.8 | 11.5 | 13.0 | 15.0b | 15.2 | 17.0 ... b Phase change at 690 K",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 13.0
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 15.0
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 386,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... Co ... (386K)"
+      },
+      "melting_point_K": {
+        "value": 1768.15,
+        "kind": "melting",
+        "source": "https://web.archive.org/web/20190519192637/http://www.kayelaby.npl.co.uk/chemistry/3_1/3_1_2.html",
+        "quote": "Cobalt | Co | 27 | 58.933 20 ± 1 | 8 800 | 1495† | 2930"
+      },
+      "phase_transitions": [
+        {
+          "T_K": 690,
+          "description": "hcp (alpha/epsilon) -> fcc (beta/gamma) on heating; K&L footnote 'Phase change at 690 K'",
+          "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html"
+        }
+      ],
+      "notes": "Bulk-modulus T_K=295 is nominal (source says 'ambient'). LATTICE IS FROM WIKIPEDIA (citing Arblaster 2018 ASM compilation, which I could not open) - lowest-confidence lattice entry in this file; verify against Arblaster 2018 or Owen & Madoc Jones (1954) before publication. 20 °C -> 293.15 K. Thermal expansion: K&L values are polycrystalline averages (Co is anisotropic); per-axis α not found in an openable primary source (Wikipedia gives uncited per-axis values αa=10.9, αc=17.9 x1e-6/K at 20 °C - not used). K&L also lists 15.2 (800 K) and 17.0 (1100 K), but those are above the 690 K hcp->fcc transition, i.e. fcc Co, so they are excluded from 'values'. Transition T scatter: K&L 690 K; commonly quoted ~695-700 K; Wikipedia text gives an 'ideal' 723 K (450 °C). Transition is martensitic with hysteresis. Melting 1495 °C + 273.15 = 1768.15 K (K&L Sec. 3.10.1: 1768 K); melting is from the fcc phase. Bulk modulus is secondary (LB compilation via PRB 1999); original measurement is McSkimin-type ultrasonic data. Debye temperature is the 298 K value (Ho, Powell, Liley 1974), not θ0 (commonly ~445-460 K; not separately sourced). | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    },
+    {
+      "id": "Ru",
+      "formula": "Ru",
+      "phase": "hcp",
+      "space_group": "P6_3/mmc",
+      "lattice": {
+        "a": 2.7058,
+        "c": 4.2816,
+        "T_K": 293.15,
+        "source": "https://technology.matthey.com/content/journals/10.1595/147106713X665030",
+        "citation": "J. W. Arblaster, 'Crystallographic Properties of Ruthenium', Platinum Metals Rev. 57 (2), 127-136 (2013), doi:10.1595/147106713X665030, Table V",
+        "quote": "Selected values for the present paper are: a = 0.27058 ± 0.00002 and 0.42816 ± 0.00007 [nm, corrected to 293.15 K]"
+      },
+      "bulk_modulus": {
+        "value_GPa": 323,
+        "T_K": 300,
+        "method": "Isothermal K0 from 3rd-order Birch-Murnaghan fit (K0'=4.15, V0=27.122 Å^3) to 300 K angle-dispersive XRD in DAC, He medium; Vinet fit gives 319.1(9) GPa",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6783540/",
+        "citation": "S. Anzellini et al., 'Thermal equation of state of ruthenium characterized by resistively heated diamond anvil cell', Sci. Rep. 9, 14459 (2019)",
+        "quote": "K0 = 323(1) GPa, K0′ = 4.15(2) and V0 = 27.122(6) Å3"
+      },
+      "thermal_expansion": {
+        "source": "https://technology.matthey.com/content/journals/10.1595/147106713X665030",
+        "citation": "J. W. Arblaster, 'Crystallographic Properties of Ruthenium', Platinum Metals Rev. 57 (2), 127-136 (2013), doi:10.1595/147106713X665030, Table I and Eqs. (i)-(ii)",
+        "quote": "Table I High-Temperature Crystallographic Properties ... 300 5.79 8.83 6.80 ... 1500 10.02 15.26 11.76 (αa, αc, αavr in 10^-6 K^-1)",
+        "formula": "Valid 293.15-2606 K (Arblaster 2013): ΔL/L293.15 (a-axis) = -1.56642e-3 + 4.93471e-6 T + 1.34455e-9 T^2 + 1.69158e-13 T^3 (i); ΔL/L293.15 (c-axis) = -2.39045e-3 + 7.52727e-6 T + 2.06251e-9 T^2 + 2.61425e-13 T^3 (ii); T in K. Tabulated α are the thermodynamic expansivity α = α*/(1+ΔL/L293.15) where α* = d(ΔL/L293.15)/dT. 'iso' = α_avr = (2α_a+α_c)/3.",
+        "values": [
+          {
+            "T_K": 293.15,
+            "axis": "a",
+            "alpha_1e-6_per_K": 5.77
+          },
+          {
+            "T_K": 293.15,
+            "axis": "c",
+            "alpha_1e-6_per_K": 8.8
+          },
+          {
+            "T_K": 293.15,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 6.78
+          },
+          {
+            "T_K": 300,
+            "axis": "a",
+            "alpha_1e-6_per_K": 5.79
+          },
+          {
+            "T_K": 300,
+            "axis": "c",
+            "alpha_1e-6_per_K": 8.83
+          },
+          {
+            "T_K": 300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 6.8
+          },
+          {
+            "T_K": 400,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.09
+          },
+          {
+            "T_K": 400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 9.29
+          },
+          {
+            "T_K": 400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.16
+          },
+          {
+            "T_K": 500,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.4
+          },
+          {
+            "T_K": 500,
+            "axis": "c",
+            "alpha_1e-6_per_K": 9.77
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.52
+          },
+          {
+            "T_K": 600,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.72
+          },
+          {
+            "T_K": 600,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.25
+          },
+          {
+            "T_K": 600,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.9
+          },
+          {
+            "T_K": 700,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.05
+          },
+          {
+            "T_K": 700,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.76
+          },
+          {
+            "T_K": 700,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.28
+          },
+          {
+            "T_K": 800,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.39
+          },
+          {
+            "T_K": 800,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.27
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.68
+          },
+          {
+            "T_K": 900,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.73
+          },
+          {
+            "T_K": 900,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.8
+          },
+          {
+            "T_K": 900,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.09
+          },
+          {
+            "T_K": 1000,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.09
+          },
+          {
+            "T_K": 1000,
+            "axis": "c",
+            "alpha_1e-6_per_K": 12.34
+          },
+          {
+            "T_K": 1000,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.51
+          },
+          {
+            "T_K": 1100,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.46
+          },
+          {
+            "T_K": 1100,
+            "axis": "c",
+            "alpha_1e-6_per_K": 12.9
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.94
+          },
+          {
+            "T_K": 1200,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.83
+          },
+          {
+            "T_K": 1200,
+            "axis": "c",
+            "alpha_1e-6_per_K": 13.47
+          },
+          {
+            "T_K": 1200,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.38
+          },
+          {
+            "T_K": 1300,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.22
+          },
+          {
+            "T_K": 1300,
+            "axis": "c",
+            "alpha_1e-6_per_K": 14.05
+          },
+          {
+            "T_K": 1300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.83
+          },
+          {
+            "T_K": 1400,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.61
+          },
+          {
+            "T_K": 1400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 14.65
+          },
+          {
+            "T_K": 1400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.29
+          },
+          {
+            "T_K": 1500,
+            "axis": "a",
+            "alpha_1e-6_per_K": 10.02
+          },
+          {
+            "T_K": 1500,
+            "axis": "c",
+            "alpha_1e-6_per_K": 15.26
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.76
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 415,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... Ru ... (415K)"
+      },
+      "melting_point_K": {
+        "value": 2606,
+        "kind": "melting",
+        "source": "https://technology.matthey.com/content/journals/10.1595/147106713X665030",
+        "quote": "the melting point which is a secondary fixed point on ITS-90 at 2606 ± 10 K"
+      },
+      "phase_transitions": [],
+      "notes": "Arblaster: 'Ruthenium exists in a hexagonal close-packed (hcp) structure (Pearson symbol hP2) up to the melting point' - no solid-state transitions. Lattice cross-check: NBS Circular 539 Vol. IV (Swanson, Fuyat, Ugrinic 1955) a=2.7058, c=4.2819 Å at 27 °C. Arblaster notes disagreement between high- and low-T expansion data; above 293.15 K the selected curves are fits to Owen & Roberts and Ross & Hume-Rothery; Shirasu & Minato dilatometry trends ~0.10% low. Ru is not in the K&L expansion table. Bulk modulus is an isothermal XRD-EOS value (the other cited XRD value, Cynn et al., is 348(18) GPa); no openable ultrasonic/Cij value found (Fisher & Dever 1967 data exist but were not accessible). Melting: K&L Sec. 3.1.2 lists 2330 °C (=2603.15 K) and Sec. 3.10.1 lists 2600 K; Arblaster/ITS-90 2606 ± 10 K used. Debye temperature is the 298 K value (Ho, Powell, Liley 1974), not θ0. | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    },
+    {
+      "id": "Mo",
+      "formula": "Mo",
+      "phase": "bcc",
+      "space_group": "Im-3m",
+      "lattice": {
+        "a": 3.1472,
+        "c": null,
+        "T_K": 298.15,
+        "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
+        "citation": "H. E. Swanson & E. Tatge, Standard X-ray Diffraction Powder Patterns, NBS Circular 539, Vol. I (1953), Sec. 2.7 Molybdenum, pp. 20-21",
+        "quote": "Unit cell at 25°C in angstrom units ... 1953 Swanson and Tatge 3.1472"
+      },
+      "bulk_modulus": {
+        "value_GPa": 261.9,
+        "T_K": 300,
+        "method": "Adiabatic B=(C11+2C12)/3 from ultrasonic single-crystal elastic constants at 300 K: C11=440.77, C12=172.43, C44=121.65 GPa (Table IV, 300 K row)",
+        "source": "https://archive.org/details/DTIC_AD0480855",
+        "citation": "F. H. Featherston, 'The Elastic Constants of Tantalum, Tungsten and Molybdenum', PhD dissertation, US Naval Postgraduate School (1963), hdl 10945/7612 (DTIC AD0480855); published as Featherston & Neighbours, Phys. Rev. 130, 1324 (1963)",
+        "quote": "TABLE V. The reported room temperature values of the adiabatic elastic constants ... Molybdenum ... 1.216 1.342 2.619 This Paper"
+      },
+      "thermal_expansion": {
+        "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
+        "citation": "Kaye & Laby Tables of Physical and Chemical Constants (NPL online ed., v1.1 2010), Sec. 2.3.5 'Thermal expansion', table 'Coefficients of linear expansion of solids: Elements' (data after Touloukian et al. 1975, TPRC vols 12-13)",
+        "quote": "Molybdenum | 2.8 | 4.6 | 4.8 | 5.1 | 5.7 | 6.5 | 7.5 (columns 100, 200, 293, 500, 800, 1100, 1500 K)",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 4.8
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.1
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 5.7
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 6.5
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.5
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 377,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... Mo ... (377K)"
+      },
+      "melting_point_K": {
+        "value": 2896.15,
+        "kind": "melting",
+        "source": "https://web.archive.org/web/20190519192637/http://www.kayelaby.npl.co.uk/chemistry/3_1/3_1_2.html",
+        "quote": "Molybdenum | Mo | 42 | 95.94 ± 1 | 10 222 | 2623† | 4640"
+      },
+      "phase_transitions": [],
+      "notes": "CAUTION on bulk modulus: the same Table V lists Bolef & de Klerk B = 2.683 (268.3 GPa) and Druyvesteyn 2.73; Featherston notes his Mo sample had significantly higher gas content. Spread 262-268 GPa. K&L Sec. 2.2.2 lists K = 231.0 GPa for Mo (polycrystal, appears outdated; not used). Units 10^12 dyn/cm^2 = 100 GPa. Melting 2623 °C + 273.15 = 2896.15 K (K&L 3.10.1: 2896 K). Lattice 25 °C -> 298.15 K. Debye temperature is the 298 K value (Ho, Powell, Liley 1974); Featherston Table VII gives θ0 = 474.2 K (elastic) and calorimetric 470, 454, 445 K. No solid-state transitions below melting. | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    },
+    {
+      "id": "Ti",
+      "formula": "Ti",
+      "phase": "hcp (alpha)",
+      "space_group": "P6_3/mmc",
+      "lattice": {
+        "a": 2.95,
+        "c": 4.686,
+        "T_K": 298.15,
+        "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v3.pdf",
+        "citation": "H. E. Swanson, R. K. Fuyat & G. M. Ugrinic, Standard X-ray Diffraction Powder Patterns, NBS Circular 539, Vol. III (issued 1954), Titanium, p. 4 (NBS pattern credited to Swanson and Fuyat 1953)",
+        "quote": "Lattice constants in angstroms ... 1953 Swanson and Fuyat 2.950 4.686 at 25°C"
+      },
+      "bulk_modulus": {
+        "value_GPa": 107.7,
+        "T_K": 293.15,
+        "method": "Polycrystalline value at 20 °C tabulated with E, G, ν (K&L); not a single-crystal VRH value",
+        "source": "https://web.archive.org/web/20190422003653/http://www.kayelaby.npl.co.uk/general_physics/2_2/2_2_2.html",
+        "citation": "Kaye & Laby (NPL online ed.), Sec. 2.2.2 'Elasticities and strengths', table 'Elasticities of metals and alloys' (20 C; values largely from Bradfield 1964)",
+        "quote": "Material 20 ºC | E | G | ν | K ... Titanium . . . | 115.7 | 43.8 | 0.321 | 107.7"
+      },
+      "thermal_expansion": {
+        "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
+        "citation": "Kaye & Laby Tables of Physical and Chemical Constants (NPL online ed., v1.1 2010), Sec. 2.3.5 'Thermal expansion', table 'Coefficients of linear expansion of solids: Elements' (data after Touloukian et al. 1975, TPRC vols 12-13)",
+        "quote": "Titanium* | 4.5 | 7.4 | 8.6 | 9.9 | 11.1 | 11.7d | 12.9 ... d Phase change at 1 156 K",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.6
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.9
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.1
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.7
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 380,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... Ti ... (380K)"
+      },
+      "melting_point_K": {
+        "value": 1943.15,
+        "kind": "melting",
+        "source": "https://web.archive.org/web/20190519192637/http://www.kayelaby.npl.co.uk/chemistry/3_1/3_1_2.html",
+        "quote": "Titanium | Ti | 22 | 47.88 ± 3 | 4 508 | 1670 | 3290"
+      },
+      "phase_transitions": [
+        {
+          "T_K": 1156,
+          "description": "alpha (hcp) -> beta (bcc); K&L footnote 'Phase change at 1 156 K'",
+          "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html"
+        }
+      ],
+      "notes": "K&L 1500 K value (12.9) is for beta-Ti (above 1156 K) and is excluded from 'values'. Values are polycrystalline averages; per-axis α not found in an openable primary source (Wikipedia gives uncited per-axis αa=9.48, αc=10.06 x1e-6/K at 20 °C - not used). Lattice: NBS 1953 a given to only 4 significant figures; same NBS table lists Clark (1949) a=2.9504, c=4.6833 at 25 °C; Wikipedia (citing Arblaster 2018) gives a=2.9505, c=4.6833 Å at 20 °C. Interstitial O/N strongly affect Ti c. 25 °C -> 298.15 K. Melting: K&L 3.1.2 gives 1670 °C (+273.15 = 1943.15 K); K&L 3.10.1 gives 1940 K; Wikipedia gives 1941 K (1668 °C) - ~2 K spread; melting is from beta-Ti. Bulk modulus derived by K&L from E and G (K=EG/[3(3G-E)]), which amplifies errors; single-crystal VRH values are typically ~105-110 GPa (not sourced here). Debye temperature is the 298 K value (Ho, Powell, Liley 1974), not θ0 (commonly ~420 K; not separately sourced). | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    },
+    {
+      "id": "Ta",
+      "formula": "Ta",
+      "phase": "bcc",
+      "space_group": "Im-3m",
+      "lattice": {
+        "a": 3.3058,
+        "c": null,
+        "T_K": 298.15,
+        "source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
+        "citation": "H. E. Swanson & E. Tatge, Standard X-ray Diffraction Powder Patterns, NBS Circular 539, Vol. I (1953), Sec. 2.13 Tantalum, pp. 29-31",
+        "quote": "Unit cell in angstroms at 25°C ... 1953 Swanson and Tatge 3.3058"
+      },
+      "bulk_modulus": {
+        "value_GPa": 191.9,
+        "T_K": 300,
+        "method": "Adiabatic B=(C11+2C12)/3 from ultrasonic single-crystal elastic constants at 300 K: C11=260.91, C12=157.43, C44=81.82 GPa (Table II, 300 K row)",
+        "source": "https://archive.org/details/DTIC_AD0480855",
+        "citation": "F. H. Featherston, 'The Elastic Constants of Tantalum, Tungsten and Molybdenum', PhD dissertation, US Naval Postgraduate School (1963), hdl 10945/7612 (DTIC AD0480855); published as Featherston & Neighbours, Phys. Rev. 130, 1324 (1963)",
+        "quote": "TABLE V. The reported room temperature values of the adiabatic elastic constants ... Tantalum ... 0.818 0.518 1.919 This Paper"
+      },
+      "thermal_expansion": {
+        "source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
+        "citation": "Kaye & Laby Tables of Physical and Chemical Constants (NPL online ed., v1.1 2010), Sec. 2.3.5 'Thermal expansion', table 'Coefficients of linear expansion of solids: Elements' (data after Touloukian et al. 1975, TPRC vols 12-13)",
+        "quote": "Tantalum | 4.8 | 6.0 | 6.3 | 6.8 | 7.2 | 7.4 | 7.8 (columns 100, 200, 293, 500, 800, 1100, 1500 K)",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 6.3
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 6.8
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.2
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.4
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.8
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 225,
+        "source": "https://srd.nist.gov/JPCRD/jpcrdS1Vol3.pdf",
+        "quote": "5. Debye temperature at 298 K ... Ta ... (225K)"
+      },
+      "melting_point_K": {
+        "value": 3293.15,
+        "kind": "melting",
+        "source": "https://web.archive.org/web/20190519192637/http://www.kayelaby.npl.co.uk/chemistry/3_1/3_1_2.html",
+        "quote": "Tantalum | Ta | 73 | 180.947 9 ± 1 | 16 670 | 3020 | 5560"
+      },
+      "phase_transitions": [],
+      "notes": "CONFLICT on melting point: K&L Sec. 3.1.2 gives 3020 °C (+273.15 = 3293.15 K, used here) but K&L Sec. 3.10.1 lists Tfus = 3260 K; 3290 K is the commonly quoted modern value. Bulk modulus: same Table V lists Bolef B = 1.96 (196 GPa); K&L 2.2.2 polycrystal K = 196.3 GPa. Units 10^12 dyn/cm^2 = 100 GPa. Lattice 25 °C -> 298.15 K (the NBS 26 °C pattern average is 3.3057 Å). Debye temperature is the 298 K value (Ho, Powell, Liley 1974); Featherston Table VII gives θ0 = 261.9 K (elastic) and calorimetric 255, 246.5, 245, 231.0 K. No solid-state transitions below melting. | Common: Debye value read from the periodic table on p. I-10 of C. Y. Ho, R. W. Powell, P. E. Liley, 'Thermal Conductivity of the Elements: A Comprehensive Review', J. Phys. Chem. Ref. Data 3, Suppl. 1 (1974), periodic table on p. I-10 (legend '5. Debye temperature at 298 K'; values in parentheses are for 298 K unless marked). K&L expansion-table columns are 100, 200, 293, 500, 800, 1100, 1500 K; only T>=293 K kept; asterisked elements are 'Crystallographically anisotropic. Data are for isotropic polycrystalline bodies.' K&L Sec. 3.1.2 melting points are in deg C (dagger = ITS-90 fixed point) and were converted by +273.15."
+    }
+  ]
+}

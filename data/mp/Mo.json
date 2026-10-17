@@ -1,0 +1,139 @@
+{
+ "id": "Mo",
+ "formula": "Mo",
+ "material_id": "mp-129",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     1.583809,
+     1.583809,
+     1.583809
+    ],
+    [
+     1.583809,
+     -1.583809,
+     -1.583809
+    ],
+    [
+     -1.583809,
+     1.583809,
+     -1.583809
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 2.743237657484856,
+   "b": 2.743237657484856,
+   "c": 2.743237657484856,
+   "alpha": 109.47122063449069,
+   "beta": 109.47122063449069,
+   "gamma": 109.47122063449069,
+   "volume": 15.891628753050979
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Mo",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Mo",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.1676179999999996,
+  "b": 3.1676179999999996,
+  "c": 3.1676179999999996,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 15.891628753050979
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 262.529,
+  "K_voigt_GPa": 262.529,
+  "K_reuss_GPa": 262.529,
+  "G_vrh_GPa": 117.048,
+  "C_ieee_GPa": [
+   [
+    456.0,
+    166.0,
+    166.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    166.0,
+    456.0,
+    166.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    166.0,
+    166.0,
+    456.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    101.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    0.0,
+    0.0,
+    101.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    -0.0,
+    101.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-129"
+}

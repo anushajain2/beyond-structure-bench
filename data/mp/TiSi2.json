@@ -1,0 +1,249 @@
+{
+ "id": "TiSi2",
+ "formula": "TiSi2",
+ "material_id": "mp-2582",
+ "selection": "lowest energy above hull with this formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Fddd",
+ "space_group_number": 70,
+ "energy_above_hull_eV": 0.027358638333332408,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     0.0,
+     4.130245,
+     4.283591
+    ],
+    [
+     2.404253,
+     0.0,
+     4.283591
+    ],
+    [
+     2.404253,
+     4.130245,
+     0.0
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 5.950468520654992,
+   "b": 4.912187327788915,
+   "c": 4.779053907211552,
+   "alpha": 75.74538103684938,
+   "beta": 53.1392744824557,
+   "gamma": 51.11534448069492,
+   "volume": 85.07343602333114
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ti",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.25,
+     0.25,
+     0.25
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Ti",
+    "xyz": [
+     1.2021265,
+     2.0651225,
+     2.1417955
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ti",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Ti",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.913334,
+     0.586666,
+     0.913334
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     3.6063795000000005,
+     7.5445863736600005,
+     6.425386500000001
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.586666,
+     0.913334,
+     0.586666
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     3.6063795000000005,
+     4.846148626340001,
+     6.4253865
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.336666,
+     0.663334,
+     0.336666
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     2.404253,
+     2.7810261263400005,
+     4.283591
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.663334,
+     0.336666,
+     0.663334
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     2.404253,
+     5.47946387366,
+     4.283591
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 4.808506,
+  "b": 8.26049,
+  "c": 8.567182,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 14.178906003888523
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 142.135,
+  "K_voigt_GPa": 143.895,
+  "K_reuss_GPa": 140.374,
+  "G_vrh_GPa": 111.779,
+  "C_ieee_GPa": [
+   [
+    312.0,
+    28.0,
+    26.0,
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    28.0,
+    396.0,
+    83.0,
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    26.0,
+    83.0,
+    311.0,
+    0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    107.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    115.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    -0.0,
+    0.0,
+    67.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-2582"
+}

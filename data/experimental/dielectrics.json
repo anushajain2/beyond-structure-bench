@@ -1,0 +1,1375 @@
+{
+  "class": "dielectrics",
+  "compiled": "2026-10-17",
+  "materials": [
+    {
+      "id": "SiO2_quartz",
+      "formula": "SiO2",
+      "phase": "alpha-quartz",
+      "space_group": "P3_221",
+      "lattice": {
+        "a": 4.9137,
+        "b": null,
+        "c": 5.4047,
+        "beta_deg": null,
+        "T_K": 298,
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9348876/ (full text via Europe PMC); also https://arxiv.org/abs/1612.07049",
+        "citation": "Values of Kihara (1990) Eur. J. Mineral. 2, 63, as tabulated in Sutter, Pittard, Filik & Baron, J. Appl. Cryst. 55, 1011 (2022), Table 2",
+        "quote": "Table 2 Lattice parameters of α-quartz Symbol Meaning Value at 298 K a ... 4.9137 Å c ... 5.4047 Å"
+      },
+      "bulk_modulus": {
+        "value_GPa": 37.12,
+        "T_K": null,
+        "method": "Isothermal; 3rd-order Birch-Murnaghan EOS fit to single-crystal XRD unit-cell volumes to 8.9 GPa at room temperature; K'=5.99(4), V0=112.981(2) A^3",
+        "source": "https://doi.org/10.1107/s0021889897000861 (abstract via https://api.openalex.org/works/doi:10.1107/s0021889897000861)",
+        "citation": "Angel, Allan, Miletich & Finger, 'The use of quartz as an internal pressure standard in high-pressure crystallography', J. Appl. Cryst. 30, 461 (1997)",
+        "quote": "Birch–Murnaghan third-order equation of state with parameters V 0 = 112.981 (2) å3, K T0 = 37.12 (9) GPa and K′ = 5.99 (4)"
+      },
+      "thermal_expansion": {
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9348876/ (Table 10 and eq. 10)",
+        "citation": "Sutter, Pittard, Filik & Baron, J. Appl. Cryst. 55, 1011 (2022): fit of measured lattice parameters (Kihara 1990 for 298-838 K; Barron et al. 1982 below 298 K)",
+        "quote": "Value f 0 P Q n a 4.90137 Å 0.19290 Å 1.80380 0.49873 c 5.39806 Å 0.10774 Å 1.72837 0.56369",
+        "formula": "Lattice-parameter fit (not alpha directly): f(T) = f0 + P*exp(-Q/{ln[Tc/(Tc-T)]}^n), Tc = 846 K, valid 13-838 K. a: f0=4.90137 Å, P=0.19290 Å, Q=1.80380, n=0.49873; c: f0=5.39806 Å, P=0.10774 Å, Q=1.72837, n=0.56369. alpha_i = (1/f) df/dT evaluated numerically.",
+        "values": [
+          {
+            "T_K": 300,
+            "axis": "a",
+            "alpha_1e-6_per_K": 14.64
+          },
+          {
+            "T_K": 300,
+            "axis": "c",
+            "alpha_1e-6_per_K": 8.25
+          },
+          {
+            "T_K": 400,
+            "axis": "a",
+            "alpha_1e-6_per_K": 16.21
+          },
+          {
+            "T_K": 400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 9.47
+          },
+          {
+            "T_K": 500,
+            "axis": "a",
+            "alpha_1e-6_per_K": 17.86
+          },
+          {
+            "T_K": 500,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.59
+          },
+          {
+            "T_K": 600,
+            "axis": "a",
+            "alpha_1e-6_per_K": 20.52
+          },
+          {
+            "T_K": 600,
+            "axis": "c",
+            "alpha_1e-6_per_K": 12.2
+          },
+          {
+            "T_K": 700,
+            "axis": "a",
+            "alpha_1e-6_per_K": 26.43
+          },
+          {
+            "T_K": 700,
+            "axis": "c",
+            "alpha_1e-6_per_K": 15.59
+          },
+          {
+            "T_K": 800,
+            "axis": "a",
+            "alpha_1e-6_per_K": 53.09
+          },
+          {
+            "T_K": 800,
+            "axis": "c",
+            "alpha_1e-6_per_K": 30.62
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 470,
+        "source": "https://arxiv.org/abs/1612.07049",
+        "quote": "In the simple Debye model ... dependent on the crystal's Debye temperature, which according to Gray20 is 470 K for α quartz."
+      },
+      "melting_point_K": {
+        "value": 1996.15,
+        "kind": "melting",
+        "source": "https://arxiv.org/abs/1612.07049 (Sutter & Yavas, 'Material properties of alpha-quartz that are relevant for its potential use in X-ray monochromators and analyzers')",
+        "quote": "of α tridymite from there up to 1470◦C, and of cristobalite from there up to the melting point of 1723◦C"
+      },
+      "phase_transitions": [
+        {
+          "T_K": 846.15,
+          "description": "alpha-quartz -> beta-quartz (573 °C) at 1 atm",
+          "source": "https://arxiv.org/abs/1612.07049"
+        },
+        {
+          "T_K": 1140.15,
+          "description": "beta-quartz -> tridymite stability field (867 °C) at 1 atm",
+          "source": "https://arxiv.org/abs/1612.07049"
+        },
+        {
+          "T_K": 1743.15,
+          "description": "tridymite -> cristobalite stability field (1470 °C) at 1 atm",
+          "source": "https://arxiv.org/abs/1612.07049"
+        }
+      ],
+      "notes": "°C converted to K by +273.15. Lattice: Kihara (1990) values quoted from Sutter et al. 2022 Table 2 (and Sutter & Yavas 2016 arXiv review: 'Kihara's values at 298 K are 4.9137 Å and 5.4047 Å'); Angel et al. 1997 give room-T a=4.91300(11), c=5.40482(17) Å (EOS intercepts) - ~0.0007 Å different. Bulk modulus is isothermal (EOS); T not stated beyond 'room temperature' so T_K=null. Thermal expansion: values are DERIVED by me by numerically differentiating the Sutter et al. 2022 fit of a(T), c(T) (fitted to Kihara 1990 single-crystal XRD); alpha diverges approaching Tc=846 K, so values above ~800 K are omitted. Cross-checks: Kosinski et al. recommended values at 20 °C quoted in arXiv:1612.07049 are 13.55 (a) and 7.43 (c) x1e-6/K, i.e. ~7-10% lower than the fit-derivative at 300 K (14.6, 8.2); TPRC Vol.13 (p.350) gives a-axis dL/L0 = 0.150 % and c-axis 0.085 % between 293 and 400 K (mean alpha ~14.0 and ~7.9). Treat near-RT quartz alpha as uncertain at the ~10% level. Debye temperature 470 K is a secondary citation (Gray, via Sutter & Yavas). Melting point 1996 K is that of SiO2 (cristobalite) at 1 atm; quartz itself is not stable at its melting point (Bourova & Richet 1998, GRL, doi:10.1029/98gl01581, derive a metastable quartz melting temperature near 1673 K). Space group P3_121 or P3_221 depending on handedness."
+    },
+    {
+      "id": "Si3N4_beta",
+      "formula": "Si3N4",
+      "phase": "beta-Si3N4",
+      "space_group": "P6_3/m",
+      "lattice": {
+        "a": 7.6044,
+        "b": null,
+        "c": 2.9063,
+        "beta_deg": null,
+        "T_K": 295,
+        "source": "https://www.crystallography.net/cod/2102550.cif",
+        "citation": "du Boulay, Ishizawa, Atake, Streltsov, Furuya, 'Synchrotron X-ray and ab initio studies of beta-Si3N4', Acta Cryst. B 60, 388 (2004) (COD 2102550)",
+        "quote": "_cell_length_a 7.60440(10) ... _cell_length_c 2.90630(10) ... _cell_measurement_temperature 295"
+      },
+      "bulk_modulus": {
+        "value_GPa": 259,
+        "T_K": null,
+        "method": "Adiabatic; computed by the authors from the full single-crystal elastic tensor measured by Brillouin scattering (averaging scheme not stated in abstract)",
+        "source": "https://doi.org/10.1063/1.125913 (abstract via api.openalex.org)",
+        "citation": "Vogelgesang, Grimsditch & Wallace, 'The elastic constants of single crystal beta-Si3N4', Appl. Phys. Lett. (2000)",
+        "quote": "c11=433(3), c33=574(3), c13=127(5), c44=108(2), c66=119(4), and c12=c11−2c66=195(8), giving a bulk modulus of 259."
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 1140 (scan leaf n1226)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 314R 'Provisional values for thermal linear expansion of silicon nitride Si3N4'",
+        "quote": "PROVISIONAL VALUES [Temperature, T, K; Linear Expansion, ΔL/L0, %; α, 10-6 K-1] // a-axis // c-axis polycrystalline",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 346.5,
+            "axis": "a",
+            "alpha_1e-6_per_K": 1.03
+          },
+          {
+            "T_K": 346.5,
+            "axis": "c",
+            "alpha_1e-6_per_K": 1.96
+          },
+          {
+            "T_K": 450.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 1.8
+          },
+          {
+            "T_K": 450.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.0
+          },
+          {
+            "T_K": 550.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 2.6
+          },
+          {
+            "T_K": 550.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.0
+          },
+          {
+            "T_K": 650.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 2.9
+          },
+          {
+            "T_K": 650.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.1
+          },
+          {
+            "T_K": 750.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.0
+          },
+          {
+            "T_K": 750.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.3
+          },
+          {
+            "T_K": 850.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.2
+          },
+          {
+            "T_K": 850.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.5
+          },
+          {
+            "T_K": 950.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.3
+          },
+          {
+            "T_K": 950.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.6
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.4
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.6
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.6
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.8
+          },
+          {
+            "T_K": 1250.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.6
+          },
+          {
+            "T_K": 1250.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.8
+          },
+          {
+            "T_K": 1350.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.8
+          },
+          {
+            "T_K": 1350.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.8
+          },
+          {
+            "T_K": 1450.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 3.8
+          },
+          {
+            "T_K": 1450.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 3.9
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 965,
+        "source": "https://doi.org/10.1063/1.125913 (Cij; abstract via api.openalex.org) + https://www.crystallography.net/cod/2102550.cif (density/cell)",
+        "quote": "c11=433(3), c33=574(3), c13=127(5), c44=108(2), c66=119(4), and c12=c11−2c66=195(8), giving a bulk modulus of 259."
+      },
+      "melting_point_K": {
+        "value": 2173,
+        "kind": "decomposition",
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 1140 (figure label)",
+        "quote": "M.P. 2173 K"
+      },
+      "phase_transitions": [],
+      "notes": "Thermal expansion values are DERIVED by me as interval means, alpha = [dL/L0(T2) - dL/L0(T1)] / (T2 - T1), from the TPRC axial dL/L0 tables (values in %, reference 293 K), assigned to the interval midpoint T. TPRC marks the whole Si3N4 table as PROVISIONAL and does not state that it is phase-pure beta-Si3N4 (likely compiled from alpha/beta/reaction-bonded material) - low confidence. TPRC tabulated polycrystalline alpha (direct values): 0.8 (293 K), 1.8 (400), 2.4 (500), 2.8 (600), 3.1 (700), 3.2 (800), 3.4 (900), 3.5 (1000), 3.6 (1100), 3.6 (1200), 3.7 (1300), 3.8 (1400), 3.9 (1500) x1e-6/K. Independent check: Minikayev et al., HASYLAB Annual Report 2007 (https://hasyweb.desy.de/science/annual_reports/2007_report/part1/contrib/42/21438.pdf) state for beta-Si3N4 a 'volume thermal-expansion coefficient at temperature 300 K' of 3.554x10-6 K-1 (labelled volumetric by the authors; this looks low for a volume coefficient - possibly linear-average, ambiguous). The TPRC figure labels 2173 K as 'M.P.'; Si3N4 does not melt congruently at 1 atm, so kind is set to 'decomposition' - the exact decomposition temperature depends on N2 pressure and is not verified here. Lattice is primary synchrotron single-crystal data at 295 K. Bulk modulus is adiabatic (Brillouin). Debye temperature: ELASTIC (acoustic), DERIVED BY ME, NOT A QUOTED VALUE. No published experimental value was found in an opened source; the low-T C_p study of Nishiyama et al. (J. Eur. Ceram. Soc. 2020, doi:10.1016/j.jeurceramsoc.2019.11.025) is paywalled. Computed from the Vogelgesang et al. single-crystal Cij: VRH K = 259.3 GPa (matching the authors' 259) and G = 128.9 GPa (G_V = 133.1, G_R = 124.8), giving vl = 11.60 and vs = 6.35 km/s. Inputs rho = 3.202 g/cm3 (COD 2102550 _exptl_crystal_density_diffrn) and 14 atoms per 145.546 A^3 cell, with theta_D = (h/kB)(3n/4pi)^(1/3) v_m. Result: 965 K, room-temperature elastic data. Treat it as an estimate. Z. Kristallogr. 209, 328 (1994), doi:10.1524/zkri.1994.209.4.328, report 'No exceptional axial thermal expansion' of beta-Si3N4 to 1360 °C (abstract only)."
+    },
+    {
+      "id": "Al2O3",
+      "formula": "Al2O3",
+      "phase": "alpha-Al2O3 (corundum)",
+      "space_group": "R-3c",
+      "lattice": {
+        "a": 4.759355,
+        "b": null,
+        "c": 12.99231,
+        "beta_deg": null,
+        "T_K": 295.65,
+        "source": "https://tsapps.nist.gov/srmext/certificates/676a.pdf",
+        "citation": "NIST Certificate of Analysis, Standard Reference Material 676a, Alumina Powder (Quantitative Analysis Powder Diffraction Standard)",
+        "quote": "Table 1. Certified Lattice Parameters of SRM 676a ... a 0.475 935 5 ± 0.000 008 0 c 1.299 231 ± 0.000 015 (nm)"
+      },
+      "bulk_modulus": {
+        "value_GPa": 252.1,
+        "T_K": 300,
+        "method": "Adiabatic; Voigt-Reuss-Hill average computed by me from the single-crystal elastic compliances (resonance method) at 300 K: K_Voigt = 252.3 GPa, K_Reuss = 251.8 GPa",
+        "source": "https://nvlpubs.nist.gov/nistpubs/jres/70A/jresv70An4p277_A1b.pdf",
+        "citation": "Tefft, W.E., 'Elastic constants of synthetic single crystal corundum', J. Res. NBS 70A, 277 (1966), Table 1 (compliances in 1e-12 m^2/N)",
+        "quote": "300 2.353 2.169 6.942 - .716 - .368 .491 [columns s11 s33 s44 s12 s13 s14, 10-12 m2/N]"
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 176 (scan leaf n263)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 35R 'Recommended values for thermal linear expansion of aluminum oxide Al2O3'",
+        "quote": "// a-axis: ΔL/L0 = -0.176 + 5.431 x 10-4 T + 2.150 x 10-7 T2 - 2.810 x 10-11 T3 (293-1900 K)",
+        "formula": "TPRC recommended (dL/L0 in %, ref 293 K, T in K, 293-1900 K): //c: dL/L0 = -0.192 + 5.927e-4 T + 2.142e-7 T^2 - 2.207e-11 T^3; //a: dL/L0 = -0.176 + 5.431e-4 T + 2.150e-7 T^2 - 2.810e-11 T^3; polycrystalline: -0.180 + 5.494e-4 T + 2.252e-7 T^2 - 2.894e-11 T^3. alpha = d(dL/L0)/dT (x1e4 to get 1e-6/K), i.e. referred to L(293 K).",
+        "values": [
+          {
+            "T_K": 300,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.65
+          },
+          {
+            "T_K": 300,
+            "axis": "c",
+            "alpha_1e-6_per_K": 7.15
+          },
+          {
+            "T_K": 400,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.02
+          },
+          {
+            "T_K": 400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 7.53
+          },
+          {
+            "T_K": 500,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.37
+          },
+          {
+            "T_K": 500,
+            "axis": "c",
+            "alpha_1e-6_per_K": 7.9
+          },
+          {
+            "T_K": 600,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.71
+          },
+          {
+            "T_K": 600,
+            "axis": "c",
+            "alpha_1e-6_per_K": 8.26
+          },
+          {
+            "T_K": 700,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.03
+          },
+          {
+            "T_K": 700,
+            "axis": "c",
+            "alpha_1e-6_per_K": 8.6
+          },
+          {
+            "T_K": 800,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.33
+          },
+          {
+            "T_K": 800,
+            "axis": "c",
+            "alpha_1e-6_per_K": 8.93
+          },
+          {
+            "T_K": 900,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.62
+          },
+          {
+            "T_K": 900,
+            "axis": "c",
+            "alpha_1e-6_per_K": 9.25
+          },
+          {
+            "T_K": 1000,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.89
+          },
+          {
+            "T_K": 1000,
+            "axis": "c",
+            "alpha_1e-6_per_K": 9.55
+          },
+          {
+            "T_K": 1100,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.14
+          },
+          {
+            "T_K": 1100,
+            "axis": "c",
+            "alpha_1e-6_per_K": 9.84
+          },
+          {
+            "T_K": 1200,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.38
+          },
+          {
+            "T_K": 1200,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.11
+          },
+          {
+            "T_K": 1300,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.6
+          },
+          {
+            "T_K": 1300,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.38
+          },
+          {
+            "T_K": 1400,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.8
+          },
+          {
+            "T_K": 1400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.63
+          },
+          {
+            "T_K": 1500,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.98
+          },
+          {
+            "T_K": 1500,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.86
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 1043,
+        "source": "https://doi.org/10.1029/jb094ib06p07588 (abstract via api.openalex.org)",
+        "quote": "Elastic constants of single‐crystal corundum, α‐Al 2 O 3 , up to 1825 K (1.75 times the Debye temperature, θ D ) have been measured"
+      },
+      "melting_point_K": {
+        "value": 2327.15,
+        "kind": "melting",
+        "source": "https://doi.org/10.1149/ma2016-02/11/1250 (abstract via api.openalex.org)",
+        "quote": "lack of reliable enthalpy standards above the melting temperature of Al2O3 (2054 °C)"
+      },
+      "phase_transitions": [],
+      "notes": "°C converted to K by +273.15 (22.5 °C -> 295.65 K; 2054 °C -> 2327.15 K). Lattice from NIST SRM 676a (certified at 22.5 °C, 'adjust the lattice parameter to 22.5 °C'); converted nm -> Å. Bulk modulus is DERIVED by me (VRH from the six compliances incl. s14; resulting C11=497, C33=499, C12=164, C13=112, C14=-24, C44=147 GPa); adiabatic, ~1% above isothermal. Thermal expansion alpha values are DERIVED by me by differentiating the TPRC recommended axial polynomials (TPRC itself derives its tabulated polycrystalline alpha this way; my derivative of the polycrystalline polynomial reproduces TPRC's tabulated alpha, e.g. 9.13 vs 9.1 at 1000 K, 10.3 vs 10.3 at 1500 K). TPRC tabulated polycrystalline alpha: 7.1 (400), 7.5 (500), 7.9 (600), 8.2 (700), 8.5 (800), 8.8 (900), 9.1 (1000), 9.4 (1100), 9.6 (1200), 9.9 (1300), 10.1 (1400), 10.3 (1500) x1e-6/K; TPRC states recommended dL/L0 uncertainty <±5%. Debye temperature 1043 K is DERIVED as 1825/1.75 from the Goto et al. (1989) abstract statement; Debye temperatures of corundum differ by definition (calorimetric vs elastic). Melting point: TPRC figure (p.176) gives 'M.P. ~ 2319 K'; Kapush, Ushakov & Navrotsky (ECS Meeting Abstracts 2016) quote 2054 °C (2327 K). No solid-state phase transition of alpha-Al2O3 below melting at 1 atm reported in the opened sources."
+    },
+    {
+      "id": "HfO2",
+      "formula": "HfO2",
+      "phase": "monoclinic (baddeleyite-type)",
+      "space_group": "P2_1/c",
+      "lattice": {
+        "a": 5.1156,
+        "b": 5.1722,
+        "c": 5.2948,
+        "beta_deg": 99.18,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/9013470.cif",
+        "citation": "Ruh & Corfield, 'Crystal structure of monoclinic hafnia and comparison with monoclinic zirconia', J. Am. Ceram. Soc. 53, 126 (1970) (COD 9013470)",
+        "quote": "_cell_angle_beta 99.18 _cell_length_a 5.1156 _cell_length_b 5.1722 _cell_length_c 5.2948"
+      },
+      "bulk_modulus": {
+        "value_GPa": 185,
+        "T_K": null,
+        "method": "Isothermal; Birch-Murnaghan EOS fit to synchrotron powder XRD at ambient temperature, K' fixed at 4 (uncertainty ±23 GPa); V0 = 34.50(4) A^3/f.u.",
+        "source": "https://doi.org/10.1103/physrevb.82.144106 (abstract via api.openalex.org)",
+        "citation": "Al-Khatatbeh, Lee & Kiefer, 'Phase diagram up to 105 GPa and mechanical strength of HfO2', Phys. Rev. B 82, 144106 (2010)",
+        "quote": "an ambient-pressure bulk modulus K0 of 185 (±23) GPa, assuming K0'=4"
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 251 (scan leaf n338)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 51R 'Provisional values for thermal linear expansion of hafnium dioxide HfO2'",
+        "quote": "PROVISIONAL VALUES [Temperature, T, K; Linear Expansion, ΔL/L0, %; α, 10-6 K-1] // c-axis // a-axis // b-axis polycrystalline",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 346.5,
+            "axis": "a",
+            "alpha_1e-6_per_K": 5.42
+          },
+          {
+            "T_K": 346.5,
+            "axis": "b",
+            "alpha_1e-6_per_K": 0.75
+          },
+          {
+            "T_K": 346.5,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.75
+          },
+          {
+            "T_K": 450.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 5.9
+          },
+          {
+            "T_K": 450.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 0.6
+          },
+          {
+            "T_K": 450.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.5
+          },
+          {
+            "T_K": 550.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.8
+          },
+          {
+            "T_K": 550.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 0.6
+          },
+          {
+            "T_K": 550.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.2
+          },
+          {
+            "T_K": 650.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.7
+          },
+          {
+            "T_K": 650.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 0.8
+          },
+          {
+            "T_K": 650.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.1
+          },
+          {
+            "T_K": 750.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.0
+          },
+          {
+            "T_K": 750.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 0.9
+          },
+          {
+            "T_K": 750.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.2
+          },
+          {
+            "T_K": 850.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.7
+          },
+          {
+            "T_K": 850.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.3
+          },
+          {
+            "T_K": 850.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.5
+          },
+          {
+            "T_K": 950.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.2
+          },
+          {
+            "T_K": 950.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.9
+          },
+          {
+            "T_K": 950.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 12.0
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.9
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 2.4
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 12.8
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 10.0
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 2.4
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 13.2
+          },
+          {
+            "T_K": 1250.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 10.6
+          },
+          {
+            "T_K": 1250.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 3.3
+          },
+          {
+            "T_K": 1250.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 14.4
+          },
+          {
+            "T_K": 1350.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 10.9
+          },
+          {
+            "T_K": 1350.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 3.5
+          },
+          {
+            "T_K": 1350.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 15.0
+          },
+          {
+            "T_K": 1450.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 11.5
+          },
+          {
+            "T_K": 1450.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 4.0
+          },
+          {
+            "T_K": 1450.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 16.1
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 484,
+        "source": "https://doi.org/10.1111/j.1151-2916.1977.tb14088.x (abstract via https://api.openalex.org/works/doi:10.1111/j.1151-2916.1977.tb14088.x)",
+        "quote": "The Debye temperature calculated from the elastic constants was 484°K."
+      },
+      "melting_point_K": {
+        "value": 3073.15,
+        "kind": "melting",
+        "source": "https://www.nature.com/articles/s41598-018-32848-7",
+        "quote": "ZrO2 and HfO2 are isostructural and exhibit monoclinic-tetragonal-cubic transformations before melting at 2710 and 2800 °C, respectively."
+      },
+      "phase_transitions": [
+        {
+          "T_K": 1973,
+          "description": "monoclinic -> tetragonal (TPRC: 'Transition temperature at 1973 K'; Hudak et al., Nat. Commun. (2017), doi:10.1038/ncomms15316: tetragonal 'stable above ~1700 °C'). Martensitic, with hysteresis.",
+          "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) p. 251; https://www.nature.com/articles/ncomms15316"
+        },
+        {
+          "T_K": 2803.15,
+          "description": "tetragonal -> cubic (2530 °C)",
+          "source": "https://www.nature.com/articles/s41598-018-32848-7"
+        }
+      ],
+      "notes": "°C converted to K by +273.15. Lattice: Ruh & Corfield 1970 single-crystal study as given in COD; measurement temperature not stated in the CIF (room temperature implied) so T_K=null. Bulk modulus: literature for monoclinic HfO2 is widely scattered; Al-Khatatbeh et al. note their value is 'distinct from previous measurements'; treat ±25 GPa as realistic. Thermal expansion values are DERIVED by me as interval means [dL/L0(T2)-dL/L0(T1)]/(T2-T1) from TPRC axial dL/L0 tables (%, ref 293 K), assigned to the interval midpoint; TPRC marks these as PROVISIONAL (stated accuracy ±10% below 1973 K). Expansion is along the monoclinic lattice-parameter directions a, b, c (not principal axes of the tensor; beta-angle change not captured). TPRC tabulated polycrystalline alpha: 3.8 (293), 4.6 (400), 5.4 (500), 6.1 (600), 6.7 (700), 7.3 (800), 7.9 (900), 8.4 (1000), 8.9 (1100), 9.3 (1200), 9.7 (1300), 10.0 (1400), 10.3 (1500) x1e-6/K (polycrystal values are likely affected by microcracking and are lower than the axial average). Cross-check: Patil & Subbarao, J. Appl. Cryst. (1969) abstract (doi:10.1107/s0021889869007217) give mean axial coefficients for monoclinic HfO2 (RT to ~1400 °C range) of a = 9.34, b = 2.98, c = 13.10 x1e-6/°C. Modern full tensor data exist (Haggerty et al., J. Am. Ceram. Soc. 97, 2213 (2014), doi:10.1111/jace.12975) but full text could not be opened (OSTI down, Wiley paywalled) - recommended upgrade. Melting point: TPRC figure gives 'M.P. 3063 K'; Hong et al. 2018 give 2800 °C. No Debye temperature found from an opened source. Debye temperature: ELASTIC (acoustic), calculated by Dole, Hunter & Wooge (J. Am. Ceram. Soc., 1977) from room-temperature sonic-resonance Young's and shear moduli of polycrystalline monoclinic HfO2 extrapolated to zero porosity (E = 283.6, G = 109.2 GPa). Polycrystal values may be biased low by microcracking. A calorimetric value was not found: Zhou, Shi, Woodfield & Navrotsky (J. Chem. Thermodyn. 2011) measured C_p at 2-300 K, but no Debye temperature was visible in an opened source."
+    },
+    {
+      "id": "ZrO2",
+      "formula": "ZrO2",
+      "phase": "monoclinic (baddeleyite)",
+      "space_group": "P2_1/c",
+      "lattice": {
+        "a": 5.1505,
+        "b": 5.2116,
+        "c": 5.3173,
+        "beta_deg": 99.23,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/9016714.cif",
+        "citation": "Howard, Hill & Reichert, 'Structures of the ZrO2 polymorphs at room temperature by high-resolution neutron powder diffraction', Acta Cryst. B 44, 116 (1988) (COD 9016714)",
+        "quote": "_cell_angle_beta 99.230 _cell_length_a 5.1505 _cell_length_b 5.2116 _cell_length_c 5.3173"
+      },
+      "bulk_modulus": {
+        "value_GPa": 210,
+        "T_K": null,
+        "method": "Isothermal; second-order Birch-Murnaghan EOS (K'=4 implied) fit to synchrotron powder XRD at ambient temperature; uncertainty ±28 GPa; V0 = 35.15(3) A^3/f.u.",
+        "source": "https://doi.org/10.1103/physrevb.81.214102 (abstract via api.openalex.org)",
+        "citation": "Al-Khatatbeh, Lee & Kiefer, 'Phase relations and hardness trends of ZrO2 phases at high pressure', Phys. Rev. B 81, 214102 (2010)",
+        "quote": "The experimental second-order Birch-Murnaghan EOS parameters of MI-ZrO2 are: ambient-pressure volume (V0) of 35.15(±0.03) Å3/f.u. with an ambient-pressure bulk modulus K0 of 210(±28) GPa"
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 451 (scan leaf n538)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 95R 'Recommended values for thermal linear expansion of zirconium dioxide ZrO2' (monoclinic axial columns marked provisional)",
+        "quote": "RECOMMENDED VALUES ... Monoclinic Structure // c-axis ΔL/L0† // a-axis ΔL/L0† // b-axis ΔL/L0† ... † Provisional values.",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 346.5,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.35
+          },
+          {
+            "T_K": 346.5,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.87
+          },
+          {
+            "T_K": 346.5,
+            "axis": "c",
+            "alpha_1e-6_per_K": 14.02
+          },
+          {
+            "T_K": 450.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.0
+          },
+          {
+            "T_K": 450.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.1
+          },
+          {
+            "T_K": 450.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 13.0
+          },
+          {
+            "T_K": 550.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.8
+          },
+          {
+            "T_K": 550.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.1
+          },
+          {
+            "T_K": 550.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 12.0
+          },
+          {
+            "T_K": 650.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.4
+          },
+          {
+            "T_K": 650.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.0
+          },
+          {
+            "T_K": 650.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.3
+          },
+          {
+            "T_K": 750.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.8
+          },
+          {
+            "T_K": 750.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.1
+          },
+          {
+            "T_K": 750.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.8
+          },
+          {
+            "T_K": 850.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.5
+          },
+          {
+            "T_K": 850.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.2
+          },
+          {
+            "T_K": 850.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.0
+          },
+          {
+            "T_K": 950.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.1
+          },
+          {
+            "T_K": 950.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 0.7
+          },
+          {
+            "T_K": 950.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.6
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.4
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.8
+          },
+          {
+            "T_K": 1050.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 12.3
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.0
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "b",
+            "alpha_1e-6_per_K": 1.5
+          },
+          {
+            "T_K": 1150.0,
+            "axis": "c",
+            "alpha_1e-6_per_K": 14.0
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 590,
+        "source": "https://doi.org/10.1016/s0040-6031(03)00060-1 (abstract via https://api.semanticscholar.org/graph/v1/paper/DOI:10.1016/s0040-6031(03)00060-1; green OA record http://infoscience.epfl.ch/record/207474)",
+        "quote": "The Debye temperature of zirconia (590 K) ... derived from these CP measurements between 150 and 823 K"
+      },
+      "melting_point_K": {
+        "value": 2983.15,
+        "kind": "melting",
+        "source": "https://www.nature.com/articles/s41598-018-32848-7",
+        "quote": "ZrO2 and HfO2 are isostructural and exhibit monoclinic-tetragonal-cubic transformations before melting at 2710 and 2800 °C, respectively."
+      },
+      "phase_transitions": [
+        {
+          "T_K": 1493.15,
+          "description": "monoclinic -> tetragonal on heating; HT-XRD shows it spread over 930-1220 °C (1203-1493 K) with coexistence 1100-1220 °C; large thermal hysteresis (reverse t->m on cooling at lower T)",
+          "source": "https://doi.org/10.1107/s0567739470001389 (Patil & Subbarao, Acta Cryst. A (1970); abstract via api.openalex.org)"
+        },
+        {
+          "T_K": 2584.15,
+          "description": "tetragonal -> cubic (2311 °C)",
+          "source": "https://www.nature.com/articles/s41598-018-32848-7"
+        }
+      ],
+      "notes": "°C converted to K by +273.15. Lattice: neutron powder data 'at room temperature' (exact T not given in CIF) so T_K=null. Bulk modulus: large scatter in literature for monoclinic ZrO2 (the authors say their EOS differs from previous high-pressure experiments but is comparable to Brillouin values); ±28 GPa. Thermal expansion values are DERIVED by me as interval means [dL/L0(T2)-dL/L0(T1)]/(T2-T1) from TPRC axial dL/L0 tables (%, ref 293 K), assigned to interval midpoints, restricted to T <= 1200 K because of pretransformation anomalies (930-1100 °C per Patil & Subbarao) and the m->t transition; TPRC marks axial values PROVISIONAL and the non-monotonic a-axis values (dip near 850 K) reflect data scatter. Directions are monoclinic lattice-parameter axes, not tensor principal axes. TPRC tabulated polycrystalline alpha (direct values): 8.8 (293), 7.6 (400), 7.1 (500), 6.7 (600), 6.5 (700), 6.4 (800), 6.4 (900), 6.9 (1000), 7.5 (1100), 8.9 (1200) x1e-6/K - the decrease with T is characteristic of microcracked polycrystals and should not be used as an intrinsic value. Cross-check: Patil & Subbarao (1969) abstract give mean axial coefficients for monoclinic ZrO2 a = 10.31, b = 1.35, c = 14.68 x1e-6/°C (mean over their measured range). Modern tensor data (Haggerty et al. 2014, doi:10.1111/jace.12975) could not be opened - recommended upgrade. TPRC figure gives 'M.P. 2963 K' vs Hong et al. 2018 2710 °C (2983 K). Debye temperature: CALORIMETRIC, but from a Debye-model fit to C_p measured over 150-823 K, not a low-temperature (T -> 0) limit. Source: Degueldre, Tissot, Lartigue & Pouchon, 'Specific heat capacity and Debye temperature of zirconia and its solid solution', Thermochimica Acta 403, 267-273 (2003). The abstract says 'zirconia' without naming the phase; undoped ZrO2 at 150-823 K is in the monoclinic stability field (m->t begins near 1200 K per Patil & Subbarao), so I take it as monoclinic, but this is my inference. Doped solid solutions give 575-625 K in the same paper. A true low-T calorimetric study exists (Nevitt, Fang & Chan, J. Am. Ceram. Soc. 73, 2502 (1990), C_p of monoclinic ZrO2 at 2.75-350 K), but its abstract gives no Debye temperature and the full text is paywalled. That paper reports excess low-T heat capacity from low-lying optic modes, so a low-T-limit theta_D could differ substantially from 590 K. Treat this value as uncertain at the ~10-20% level."
+    },
+    {
+      "id": "Y2O3",
+      "formula": "Y2O3",
+      "phase": "cubic bixbyite (C-type)",
+      "space_group": "Ia-3",
+      "lattice": {
+        "a": 10.604,
+        "b": null,
+        "c": null,
+        "beta_deg": null,
+        "T_K": 295,
+        "source": "https://www.crystallography.net/cod/1513300.cif",
+        "citation": "Ferreira, Granado, Carvalho Jr, Kycia, Bruno et al., 'X-ray powder diffraction beamline at D10B of LNLS: application to the Ba2FeReO6 double perovskite', J. Synchrotron Rad. 13, 46 (2005 per COD) (COD 1513300)",
+        "quote": "_cell_length_a 10.604000(4) ... _cell_measurement_temperature 295"
+      },
+      "bulk_modulus": {
+        "value_GPa": 149.5,
+        "T_K": null,
+        "method": "Adiabatic; from single-crystal elastic constants (Brillouin spectroscopy), C11=223.7, C12=112.4, C44=74.6 GPa; for cubic symmetry K = (C11+2C12)/3 (Voigt = Reuss = Hill)",
+        "source": "https://doi.org/10.1063/1.1369395 (abstract via api.openalex.org); NASA version http://hdl.handle.net/2060/20050201648",
+        "citation": "Palko, Kriven, Sinogeikin, Bass & Sayir, 'Elastic constants of yttria (Y2O3) monocrystals to high temperatures', J. Appl. Phys. (2001)",
+        "quote": "The resulting bulk and (Voigt–Reuss–Hill) shear moduli are K=149.5±1.0 GPa and GVRH=66.3±0.8 GPa, respectively."
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 438 (scan leaf n525)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 93R 'Recommended values for thermal linear expansion of yttrium oxide Y2O3'",
+        "quote": "RECOMMENDED VALUES [Temperature, T, K; Linear Expansion, ΔL/L0, %; α, 10-6 K-1] ... 293 0.000 7.3 ... 1000 0.556 8.5",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.3
+          },
+          {
+            "T_K": 400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.4
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.6
+          },
+          {
+            "T_K": 600,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.8
+          },
+          {
+            "T_K": 700,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 7.9
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.1
+          },
+          {
+            "T_K": 900,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.3
+          },
+          {
+            "T_K": 1000,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.5
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 8.8
+          },
+          {
+            "T_K": 1200,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.0
+          },
+          {
+            "T_K": 1300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.2
+          },
+          {
+            "T_K": 1400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.5
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 9.7
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 492,
+        "source": "https://doi.org/10.1063/1.1369395 (K and G_VRH; abstract via api.openalex.org) + https://www.crystallography.net/cod/1513300.cif (density/cell)",
+        "quote": "The resulting bulk and (Voigt–Reuss–Hill) shear moduli are K=149.5±1.0 GPa and GVRH=66.3±0.8 GPa, respectively."
+      },
+      "melting_point_K": {
+        "value": 2683,
+        "kind": "melting",
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 438 (figure label)",
+        "quote": "M.P. 2683 K"
+      },
+      "phase_transitions": [],
+      "notes": "Thermal expansion: alpha values read directly from the TPRC recommended table (cubic, 'iso'); TPRC alpha is referred to L(293 K). Lattice: COD entry from a beamline-commissioning paper (Y2O3 likely measured as a test/reference sample); the quoted e.s.d. 0.000004 Å is implausibly small - treat a = 10.604 Å as good to ~±0.001 Å. Bulk modulus adiabatic, room temperature (exact T not stated). Melting point is TPRC's figure label (old value; modern levitation measurements may differ by tens of K - not verified). A high-temperature cubic -> hexagonal transition of Y2O3 a few hundred K below melting is reported in the literature but I could not open a source giving its temperature, so phase_transitions is left empty. Debye temperature: ELASTIC (acoustic), DERIVED BY ME, NOT A QUOTED VALUE. No calorimetric or published elastic Debye temperature for pure Y2O3 was found in an opened source. I computed theta_D = (h/kB)(3n/4pi)^(1/3) v_m with these inputs: v_m = [(2/vs^3 + 1/vl^3)/3]^(-1/3); vl = 6.89 km/s and vs = 3.64 km/s from K = 149.5 and G_VRH = 66.3 GPa (Palko et al. 2001); rho = 5.01 g/cm3 (COD 1513300 _exptl_crystal_density_diffrn); n = 80 atoms per 1192.36 A^3 cell (Z = 16 from the CIF). Result: 492 K, room-temperature elastic data. Treat it as an estimate and replace it if a calorimetric value is found."
+    },
+    {
+      "id": "TiO2_rutile",
+      "formula": "TiO2",
+      "phase": "rutile",
+      "space_group": "P4_2/mnm",
+      "lattice": {
+        "a": 4.59395,
+        "b": null,
+        "c": 2.95891,
+        "beta_deg": null,
+        "T_K": 295.65,
+        "source": "https://tsapps.nist.gov/srmext/certificates/674b.pdf",
+        "citation": "NIST Certificate of Analysis, Standard Reference Material 674b, X-Ray Powder Diffraction Intensity Set (TiO2 rutile component), Table 3",
+        "quote": "Table 3. Certified Lattice Parameters of SRM 674b ... TiO2 0.459 395 ± 0.000 030 0 0.295 891 ± 0.000 030 0"
+      },
+      "bulk_modulus": {
+        "value_GPa": 213.4,
+        "T_K": null,
+        "method": "Adiabatic; Voigt-Reuss-Hill average computed by me from single-crystal elastic constants measured by sphere resonance at room temperature (K_Voigt = 218.1, K_Reuss = 208.6 GPa)",
+        "source": "https://doi.org/10.4294/jpe1952.40.601 (J-STAGE open access; abstract via api.openalex.org)",
+        "citation": "Suzuki, Oda, Isoda, Saito & Seya, 'Free oscillation of an elastically anisotropic sphere and its application to determining the elastic constants of rutile', J. Phys. Earth 40, 601 (1992)",
+        "quote": "C11=267.59±0.73, C33=482.84±1.98, C13=148.09±0.88, C12=176.42±0.71, C44=123.43±0.19, and C66=192.85±0.43 GPa"
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 392 (scan leaf n479)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 83R 'Recommended values for thermal linear expansion of titanium dioxide TiO2'",
+        "quote": "// a-axis: ΔL/L0 = -0.181 + 5.478 x 10-4 T + 2.576 x 10-7 T2 - 5.944 x 10-11 T3",
+        "formula": "TPRC (dL/L0 in %, ref 293 K, T in K, 'temperatures above 293 K'): //c: dL/L0 = -0.232 + 6.796e-4 T + 4.182e-7 T^2 - 1.256e-10 T^3; //a: dL/L0 = -0.181 + 5.478e-4 T + 2.576e-7 T^2 - 5.944e-11 T^3; polycrystalline: -0.198 + 5.906e-4 T + 3.133e-7 T^2 - 8.266e-11 T^3. alpha = d(dL/L0)/dT x1e4 (1e-6/K).",
+        "values": [
+          {
+            "T_K": 300,
+            "axis": "a",
+            "alpha_1e-6_per_K": 6.86
+          },
+          {
+            "T_K": 300,
+            "axis": "c",
+            "alpha_1e-6_per_K": 8.97
+          },
+          {
+            "T_K": 400,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.25
+          },
+          {
+            "T_K": 400,
+            "axis": "c",
+            "alpha_1e-6_per_K": 9.54
+          },
+          {
+            "T_K": 500,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.61
+          },
+          {
+            "T_K": 500,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.04
+          },
+          {
+            "T_K": 600,
+            "axis": "a",
+            "alpha_1e-6_per_K": 7.93
+          },
+          {
+            "T_K": 600,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.46
+          },
+          {
+            "T_K": 700,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.21
+          },
+          {
+            "T_K": 700,
+            "axis": "c",
+            "alpha_1e-6_per_K": 10.8
+          },
+          {
+            "T_K": 800,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.46
+          },
+          {
+            "T_K": 800,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.08
+          },
+          {
+            "T_K": 900,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.67
+          },
+          {
+            "T_K": 900,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.27
+          },
+          {
+            "T_K": 1000,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.85
+          },
+          {
+            "T_K": 1000,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.39
+          },
+          {
+            "T_K": 1100,
+            "axis": "a",
+            "alpha_1e-6_per_K": 8.99
+          },
+          {
+            "T_K": 1100,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.44
+          },
+          {
+            "T_K": 1200,
+            "axis": "a",
+            "alpha_1e-6_per_K": 9.09
+          },
+          {
+            "T_K": 1200,
+            "axis": "c",
+            "alpha_1e-6_per_K": 11.41
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 778,
+        "source": "https://doi.org/10.1103/physrev.177.1370 (abstract via https://api.openalex.org/works/doi:10.1103/physrev.177.1370)",
+        "quote": "The parameters which characterize the specific heat of the stoichiometric boule include a Debye Θ at T=0 of 778 K"
+      },
+      "melting_point_K": {
+        "value": 2128,
+        "kind": "melting",
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 392 (figure label)",
+        "quote": "M.P. 2128 K"
+      },
+      "phase_transitions": [],
+      "notes": "°C converted to K by +273.15 (22.5 °C -> 295.65 K); nm -> Å. Lattice: NIST SRM 674b certified values (adjusted to 22.5 °C by NIST). Older neutron value (Howard, Sabine & Dickson 1991, COD 9015662): a=4.5937, c=2.9587 Å. Bulk modulus is DERIVED by me (VRH) from the quoted Cij; adiabatic. Thermal expansion alpha values are DERIVED by me by differentiating the TPRC axial polynomials; the upper validity limit of the equations is not legible on the scan, and the TPRC tabulated polycrystalline alpha agrees with the derivative of the polycrystalline polynomial only up to ~1200 K (TPRC table: 7.5 (293), 8.0 (400), 8.4 (500), 8.8 (600), 9.1 (700), 9.3 (800), 9.5 (900), 9.7 (1000), 9.8 (1100), 9.9 (1200) x1e-6/K; scan rows are skewed so this read-off has some row-alignment risk), so values are restricted to 300-1200 K. TPRC states accuracy within ±3% above 293 K for dL/L0 and about ±7% for alpha. Rutile has no solid-state transition at 1 atm below melting in the opened sources. No Debye temperature found from an opened source. Debye temperature: CALORIMETRIC, the T -> 0 Debye theta from specific heat of stoichiometric rutile measured at 0.3-20 K (Sandin & Keesom, Phys. Rev. 177, 1370 (1969)). arXiv:0911.5311 also quotes an 'experimental Debye temperature of 778.3 K', but its in-text citation points to an unrelated Raman paper, so it is not used."
+    },
+    {
+      "id": "MgO",
+      "formula": "MgO",
+      "phase": "rocksalt (periclase)",
+      "space_group": "Fm-3m",
+      "lattice": {
+        "a": 4.211,
+        "b": null,
+        "c": null,
+        "beta_deg": null,
+        "T_K": 298,
+        "source": "https://www.crystallography.net/cod/9006456.cif",
+        "citation": "Dubrovinsky & Saxena, 'Thermal expansion of periclase (MgO) and tungsten (W) to melting temperatures', Phys. Chem. Minerals 24, 547 (1997) (COD 9006456)",
+        "quote": "_cell_length_a 4.2110 ... _diffrn_ambient_temperature 298 ... Sample: T = 298 K"
+      },
+      "bulk_modulus": {
+        "value_GPa": 160.2,
+        "T_K": null,
+        "method": "Isothermal (converted by the authors from adiabatic); Brillouin single-crystal velocities + XRD density in diamond cell to 55 GPa, finite-strain fit; K'_T = 4.03(3). Adiabatic K_0S = 162.5(7) GPa, K'_S = 3.99(3) (their Table 2)",
+        "source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC17603/",
+        "citation": "Zha, Mao & Hemley, 'Elasticity of MgO and a primary pressure scale to 55 GPa', PNAS (2000)",
+        "quote": "the resultant isothermal bulk modulus is K0T = 160.2(7) GPa and its pressure derivative K′0T = 4.03(3)"
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 288 (scan leaf n375)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 61R 'Recommended values for thermal linear expansion of magnesium oxide MgO'",
+        "quote": "RECOMMENDED VALUES [Temperature, T, K; Linear Expansion, ΔL/L0, %; α, 10-6 K-1] ... 293 0.000 10.5 ... 1000 0.944 15.0",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.5
+          },
+          {
+            "T_K": 400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.8
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 12.7
+          },
+          {
+            "T_K": 600,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 13.3
+          },
+          {
+            "T_K": 700,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 14.0
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 14.5
+          },
+          {
+            "T_K": 900,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 14.8
+          },
+          {
+            "T_K": 1000,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 15.0
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 15.2
+          },
+          {
+            "T_K": 1200,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 15.4
+          },
+          {
+            "T_K": 1300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 15.7
+          },
+          {
+            "T_K": 1400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 16.0
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 16.2
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 941,
+        "source": "https://www.homepages.ucl.ac.uk/~ucapahh/research/crystal/mgo.htm (cites Barron, Berg & Morrison, Proc. R. Soc. A 250, 70 (1959))",
+        "quote": "Debye temperature: 941 K (See Ref.5 for q (Debye) versus T)"
+      },
+      "melting_point_K": {
+        "value": 3073,
+        "kind": "melting",
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 288 (figure label)",
+        "quote": "M.P. ~3073 K"
+      },
+      "phase_transitions": [],
+      "notes": "Thermal expansion alpha read directly from the TPRC recommended table (cubic, 'iso'; referred to L(293 K)). Lattice: Dubrovinsky & Saxena 1997 COD entry at 298 K; Hazen (Am. Mineral. 61, 266, 1976; COD 9000490) gives 4.211 Å at 24 °C - consistent. Bulk modulus: Li, Woody & Kung (JGR 2006, doi:10.1029/2005jb004251) give adiabatic K0S = 163.5(11) GPa (ultrasonic + XRD) - ~1% higher. Dewaele et al. (JGR 2000) assume K0 = 161 GPa. Debye temperature 941 K is from a secondary university web page citing the calorimetric study of Barron et al. 1959 (low-T limit); Dewaele et al. 2000 use a quasi-harmonic model parameter theta_D0 = 800 K (model-dependent). Melting point: TPRC 'M.P. ~3073 K'; literature values for MgO melting scatter by >100 K (not verified here). No solid-state transition at 1 atm."
+    },
+    {
+      "id": "SrTiO3",
+      "formula": "SrTiO3",
+      "phase": "cubic perovskite",
+      "space_group": "Pm-3m",
+      "lattice": {
+        "a": 3.90528,
+        "b": null,
+        "c": null,
+        "beta_deg": null,
+        "T_K": null,
+        "source": "https://www.crystallography.net/cod/9006864.cif",
+        "citation": "Mitchell, Chakhmouradian & Woodward, 'Crystal chemistry of perovskite-type compounds in the tausonite-loparite series, (Sr1-2xNaxLax)TiO3', Phys. Chem. Minerals 27, 583 (2000), sample x = 0.00 (COD 9006864)",
+        "quote": "_cell_length_a 3.90528 ... Sample: x = 0.00"
+      },
+      "bulk_modulus": {
+        "value_GPa": 173.7,
+        "T_K": 298.15,
+        "method": "Adiabatic; computed by me as K = (C11 + 2 C12)/3 (exact VRH for cubic) from ultrasonic single-crystal elastic constants at 25 °C: C11 = 315.6(2.7), C12 = 102.7(2.7) GPa",
+        "source": "https://nvlpubs.nist.gov/nistpubs/jres/67A/jresv67An2p193_A1b.pdf",
+        "citation": "Wachtman, Wheat & Marzullo, 'A method for determining the elastic constants of a cubic crystal from velocity measurements in a single arbitrary direction; application to SrTiO3', J. Res. NBS 67A, 193 (1963)",
+        "quote": "new data on SrTiO3 which give c11= 3.156 ± 0.027, c12= 1.027 ± 0.027, c44= 1.215 ± 0.006 X 10^12 dynes/cm2 at 25 °C"
+      },
+      "thermal_expansion": {
+        "source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 570 (scan leaf n656)",
+        "citation": "Touloukian, Y.S. et al., Thermophysical Properties of Matter - TPRC Data Series, Vol. 13: Thermal Expansion - Nonmetallic Solids (IFI/Plenum, 1977), DTIC ADA129116, Figure and Table 148R 'Recommended values for thermal linear expansion of strontium titanium oxide SrO.TiO2'",
+        "quote": "RECOMMENDED VALUES [Temperature, T, K; Linear Expansion, ΔL/L0, %; α, 10-6 K-1] ... 293 0.000 10.3 ... 1000 0.780 12.0",
+        "formula": null,
+        "values": [
+          {
+            "T_K": 293,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.3
+          },
+          {
+            "T_K": 400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.4
+          },
+          {
+            "T_K": 500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.6
+          },
+          {
+            "T_K": 600,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 10.9
+          },
+          {
+            "T_K": 700,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.2
+          },
+          {
+            "T_K": 800,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.4
+          },
+          {
+            "T_K": 900,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 11.7
+          },
+          {
+            "T_K": 1000,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 12.0
+          },
+          {
+            "T_K": 1100,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 12.3
+          },
+          {
+            "T_K": 1200,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 12.6
+          },
+          {
+            "T_K": 1300,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 13.0
+          },
+          {
+            "T_K": 1400,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 13.3
+          },
+          {
+            "T_K": 1500,
+            "axis": "iso",
+            "alpha_1e-6_per_K": 13.6
+          }
+        ]
+      },
+      "debye_temperature_K": {
+        "value": 515,
+        "source": "https://arxiv.org/abs/1808.03909 (PDF https://arxiv.org/pdf/1808.03909)",
+        "quote": "While the undoped SrTiO3 θD of 515 ± 20 K (Fig. 2(a)) is larger than many of the early, widely scattered values"
+      },
+      "melting_point_K": {
+        "value": 2352.15,
+        "kind": "melting",
+        "source": "https://arxiv.org/abs/1310.2117 (PDF https://arxiv.org/pdf/1310.2117)",
+        "quote": "a fusion point Tf = (2054 − 1922) °C + 1947 °C = (2079 ± 20) °C is obtained."
+      },
+      "phase_transitions": [
+        {
+          "T_K": 105,
+          "description": "cubic (Pm-3m) -> tetragonal (I4/mcm) antiferrodistortive transition on cooling; cubic at all T above ~105 K",
+          "source": "https://doi.org/10.1088/0022-3719/13/10/016 (Hochli & Bruce, J. Phys. C (1980), abstract: 'near its 105K phase transition')"
+        }
+      ],
+      "notes": "1 dyn/cm^2 = 0.1 Pa, so 1e12 dyn/cm^2 = 100 GPa. Lattice: room-temperature value; exact T not stated in the CIF, so T_K=null. Thermal expansion alpha read directly from TPRC recommended table (polycrystalline/cubic, 'iso'; referred to L(293 K)); TPRC marks only T<=250 K values as provisional. Debye temperature: CALORIMETRIC (low-T C_p fit, single crystal). Value 515 ± 20 K is from McCalla, Gastiasoro, Cassuto, Fernandes & Leighton (arXiv:1808.03909). They state it is 'in excellent agreement with recent single crystal work', and it matches Ahrens et al., Physica B 393, 239 (2007): 513 K for an undoped single crystal (their Supplementary Table SI). Range: the same table lists undoped SrTiO3 values of 324 K (Henning & Hegenbarth 1984, single crystal), 428 K (Duran et al. 2008, polycrystal) and 513 K (Ahrens 2007). The text says the scatter for undoped SrTiO3 'spans from 324 to 513 K'; including doped samples it spans 235-534 K. Melting point: congruent melting from DTA, Tf = 2079 ± 20 °C = 2352 ± 20 K (Guguschev, Klimm, Langhans, Galazka, Kok, Juda & Uecker, 'Top-seeded solution growth of SrTiO3 crystals and phase diagram studies in the SrO-TiO2 system', CrystEngComm 2014 / arXiv:1310.2117). It was calibrated against the Al2O3 melting point taken as 2054 °C. Bulk modulus is DERIVED by me from the quoted Cij; adiabatic."
+    }
+  ]
+}

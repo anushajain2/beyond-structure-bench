@@ -1,0 +1,67 @@
+"""Command line: `chipff <step>`.
+
+  chipff fetch                      download MP structures + DFT references (needs MP_API_KEY)
+  chipff static  [-m MODEL ...]     lattice constants, elastic tensor, EOS (CPU is fine)
+  chipff thermal [-m MODEL ...]     NPT thermal expansion (GPU strongly recommended)
+  chipff plan                       print the thermal-expansion temperatures chosen by the rule
+  chipff analyze                    merge raw results with references -> results/*.csv
+  chipff report                     figures + report/index.html
+  chipff all                        everything above, in order
+"""
+
+from __future__ import annotations
+
+import argparse
+import logging
+import subprocess
+import sys
+
+from chipff.materials import ROOT
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="chipff", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("step", choices=["fetch", "static", "thermal", "plan", "analyze", "report", "all"])
+    ap.add_argument("-m", "--models", nargs="*", help="model keys (default: all in configs/benchmark.yaml)")
+    ap.add_argument("--materials", nargs="*", help="material ids (default: all)")
+    ap.add_argument("--force", action="store_true", help="recompute even if cached")
+    ap.add_argument("--max-prod-ps", type=float, help="cap MD production length (pilot runs)")
+    ap.add_argument("--tag", default="thermal", help="name of the thermal result set (e.g. thermal_pilot)")
+    ap.add_argument("--steps", nargs="*", default=["lattice", "elastic", "eos"],
+                    help="static steps to run (lattice, elastic, eos)")
+    ap.add_argument("--smoke", action="store_true", help="tiny thermal run that only tests the code path")
+    ap.add_argument("-v", "--verbose", action="store_true")
+    a = ap.parse_args(argv)
+    logging.basicConfig(level=logging.DEBUG if a.verbose else logging.INFO, format="%(asctime)s %(name)s %(message)s")
+    for noisy in ("httpx", "huggingface_hub", "absl", "jax"):
+        logging.getLogger(noisy).setLevel(logging.WARNING)
+
+    from chipff.runner import config, run_static, run_thermal, select, thermal_plan
+
+    models = a.models or config()["models"]
+    if a.step in ("fetch", "all"):
+        cmd = [sys.executable, str(ROOT / "scripts" / "fetch_mp.py")] + (["--force"] if a.force else [])
+        if a.materials:
+            cmd += ["--only", *a.materials]
+        subprocess.run(cmd, check=True)
+    if a.step == "plan":
+        for mid, w in thermal_plan(select(a.materials)).items():
+            print(f"{mid:12s} {'ok ' if w.ok else 'SKIP'} {w.temperatures}  ({w.reason})")
+    if a.step in ("static", "all"):
+        for m in models:
+            run_static(m, a.materials, steps=tuple(a.steps), force=a.force)
+    if a.step in ("thermal", "all"):
+        for m in models:
+            run_thermal(m, a.materials, force=a.force, max_prod_ps=a.max_prod_ps, tag=a.tag, smoke=a.smoke)
+    if a.step in ("analyze", "all", "report"):
+        from chipff.analysis import build_tables
+
+        build_tables()
+    if a.step in ("report", "all"):
+        from chipff.report import build_report
+
+        build_report()
+
+
+if __name__ == "__main__":
+    main()

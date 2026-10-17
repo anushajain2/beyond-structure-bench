@@ -1,0 +1,703 @@
+{
+ "class": "semiconductors",
+ "compiled": "2026-10-17",
+ "materials": [
+  {
+   "id": "Si",
+   "formula": "Si",
+   "phase": "diamond cubic",
+   "space_group": "Fd-3m",
+   "lattice": {
+    "a": 5.431020511,
+    "c": null,
+    "T_K": 295.65,
+    "source": "https://physics.nist.gov/cuu/pdf/xray_2018.pdf",
+    "citation": "CODATA 2018 recommended values (NIST), X-ray and lattice-parameter table",
+    "quote": "lattice parameter* of Si (in vacuum, 22.5 °C) a 5.431 020 511(89) × 10−10 m"
+   },
+   "bulk_modulus": {
+    "value_GPa": 98.0,
+    "T_K": 300,
+    "method": "Adiabatic bulk modulus from 300 K elastic constants, Bs=(C11+2C12)/3 with C11=166.0, C12=64.0 GPa (Ioffe NSM; recomputed: 98.0 GPa)",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/Si/mechanic.html",
+    "citation": "Ioffe NSM Archive, Silicon mechanical properties",
+    "quote": "For 300 K Bulk modulus (compressibility-1) Bs = 9.8·10^11 dyn/cm2"
+   },
+   "thermal_expansion": {
+    "source": "https://srd.nist.gov/jpcrdreprint/1.555681.pdf",
+    "citation": "C. A. Swenson, 'Recommended Values for the Thermal Expansivity of Silicon from 0 to 1000 K', J. Phys. Chem. Ref. Data 12, 179 (1983)",
+    "quote": "Various absolute determinations ... are used to establish a smooth relationship from 90 to 850 K ... and which is extrapolated to 1000 K.",
+    "formula": "Okada & Tokumaru, J. Appl. Phys. 56, 314 (1984), valid 120-1500 K: alpha(T) = (3.725*{1 - exp[-5.88e-3*(T - 124)]} + 5.548e-4*T) * 1e-6 /K, T in K (see notes for source/bracketing caveat)",
+    "values": [
+     {
+      "T_K": 300,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 2.618
+     },
+     {
+      "T_K": 400,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 3.251
+     },
+     {
+      "T_K": 500,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 3.61
+     },
+     {
+      "T_K": 600,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 3.844
+     },
+     {
+      "T_K": 700,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.017
+     },
+     {
+      "T_K": 800,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.159
+     },
+     {
+      "T_K": 850,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.225
+     },
+     {
+      "T_K": 900,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.29
+     },
+     {
+      "T_K": 1000,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.41
+     }
+    ]
+   },
+   "debye_temperature_K": {
+    "value": 640,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/Si/basic.html",
+    "quote": "Basic Parameters at 300 K ... Debye temperature 640 K"
+   },
+   "melting_point_K": {
+    "value": 1685,
+    "kind": "melting",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/Si/thermal.html",
+    "quote": "Melting point Tm = 1685 K Tm ≈ 1685 -3.8P (P in kbar)"
+   },
+   "phase_transitions": [],
+   "notes": "Lattice: CODATA 2018 value refers to an ideal natural-Si crystal free of impurities, in vacuum at 22.5 °C (=295.65 K, converted +273.15). Ioffe lists 5.431 A at 300 K. Thermal expansion values are Swenson's Table 2 alpha' = (1/L20)(dL/dT); 300-850 K from his fit to Roberts' data (stated accuracy ~1e-8/K), 900 and 1000 K are values he gives in parentheses as EXTRAPOLATED (1000 K perhaps accurate to 1-2%). Above 1000 K no tabulated value was opened; the Okada-Tokumaru formula (abstract read at https://www.citedrive.com/en/discovery/precise-determination-of-lattice-parameter-and-thermal-expansion-coefficient-of-silicon-between-300-and-1500-k, quote: 'where t is the absolute temperature ranging from 120 to 1500 K') is given in 'formula'. The abstract as displayed has unbalanced brackets ('α(t)=(3.725{1−exp[−5.88×10−3{(t−124)} +5.548×10−4t)×10−6 (K−1)'); I used the standard reading shown in 'formula'. Evaluated (my computation, 1e-6/K): 300 K: 2.57, 500 K: 3.59, 700 K: 3.99, 900 K: 4.19, 1100 K: 4.32, 1300 K: 4.44, 1500 K: 4.56. These agree with Swenson within ~2% (e.g. 2.57 vs 2.62 at 300 K, 4.19 vs 4.29 at 900 K). Bulk modulus: Ioffe also lists 9.8e11 dyn/cm2 in its basic table; 1e11 dyn/cm2 = 10 GPa. Phase transitions: none at ambient pressure reported in the sources consulted (high-pressure transitions not compiled). Debye temperature is Ioffe's single value; its definition (low-T calorimetric vs other) is not stated."
+  },
+  {
+   "id": "Ge",
+   "formula": "Ge",
+   "phase": "diamond cubic",
+   "space_group": "Fd-3m",
+   "lattice": {
+    "a": 5.658,
+    "c": null,
+    "T_K": 300,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/Ge/basic.html",
+    "citation": "Ioffe NSM Archive, Germanium basic parameters",
+    "quote": "Basic Parameters at 300 K ... Lattice constant 5.658 A"
+   },
+   "bulk_modulus": {
+    "value_GPa": 71.3,
+    "T_K": 300,
+    "method": "Adiabatic bulk modulus from 300 K elastic constants, Bs=(C11+2C12)/3 with C11=126.0, C12=44.0 GPa (Ioffe; recomputed 71.3 GPa)",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/Ge/mechanic.html",
+    "citation": "Ioffe NSM Archive, Germanium mechanical properties",
+    "quote": "For 300 K: Bulk modulus (compressibility-1) Bs=7.13·10^11 dyn cm-2"
+   },
+   "thermal_expansion": {
+    "source": "https://journals.iucr.org/paper?S056773946800094X",
+    "citation": "H. P. Singh, 'Determination of thermal expansion of germanium, rhodium and iridium by X-rays', Acta Cryst. A24, 469-471 (1968), doi:10.1107/S056773946800094X (abstract only; full text paywalled)",
+    "quote": "measured with a Unicam 19 cm high-temperature powder camera; ... Ge: at = 5.6569 + 34.22 × 10-6t + 10.17 × 10-9t2 - 0.66 × 10-12t3",
+    "formula": "a(t) = 5.6569 + 34.22e-6*t + 10.17e-9*t^2 - 0.66e-12*t^3 (Angstrom, t in °C; °C inferred because a(25 °C)=5.6578 A matches the RT lattice constant). alpha(T) = (da/dt)/a(t) = (34.22e-6 + 2*10.17e-9*t - 3*0.66e-12*t^2)/a(t). Measured temperature range NOT stated in the abstract.",
+    "values": [
+     {
+      "T_K": 300,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 6.14
+     },
+     {
+      "T_K": 400,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 6.49
+     },
+     {
+      "T_K": 500,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 6.84
+     },
+     {
+      "T_K": 600,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 7.17
+     },
+     {
+      "T_K": 700,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 7.5
+     },
+     {
+      "T_K": 800,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 7.82
+     }
+    ]
+   },
+   "debye_temperature_K": {
+    "value": 374,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/Ge/basic.html",
+    "quote": "Basic Parameters at 300 K ... Debye temperature 374 K"
+   },
+   "melting_point_K": {
+    "value": 1210,
+    "kind": "melting",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/Ge/thermal.html",
+    "quote": "Melting point Tm=1210 K Tm≈1210 -2.0P (P in kbar)"
+   },
+   "phase_transitions": [],
+   "notes": "DOUBT - bulk modulus: the same Ioffe page lists 'Bulk modulus 7.5·10^11 dyn cm-2' in its basic table AND 'Bs=7.13·10^11' computed from its 300 K elastic constants (C11=12.60, C12=4.40 e11 dyn/cm2); I recorded the value consistent with the listed elastic constants (71.3 GPa); 75 GPa is the alternative. Reviewer should check against a primary ultrasonic source (e.g. McSkimin). Thermal expansion: only a single room-temperature value could be sourced; the Ioffe page does not state its temperature explicitly (T_K=300 is an assumption, value is per °C = per K). Ioffe's alpha(T) figure (Novikova 1960) only extends to ~340 K. No accessible tabulation for 300-1500 K was found (TPRC/Touloukian vol. 13 on DTIC was unreachable; Reeber & Wang, Mater. Chem. Phys. 46, 259 (1996) paywalled). Melting: Ioffe also gives 937 °C (=1210.15 K). No ambient-pressure solid-solid transitions found in the sources consulted. UPDATE (thermal expansion): alpha(T) now from Singh (1968) X-ray powder data; values are MY derivative of the published cubic a(t) fit, evaluated only for 300-800 K because the fit's valid range is not given in the abstract I could read (the Unicam camera is a high-temperature camera, but treat >~800 K as extrapolation risk). Singh gives 6.14e-6/K at 300 K, consistent with Ioffe's 5.9e-6 RT value (previous entry). Cross-check (second source, lower quality): Shaw Nan & Liu Yi-Huan, Acta Phys. Sin. 20, 699 (1964), doi:10.7498/aps.20.699, https://wulixb.iphy.ac.cn/article/doi/10.7498/aps.20.699 (English abstract read; Table 1 read from the scanned PDF): Ge (99.9999%) 0-900 °C, a_t = a0(1 + αt + βt^2 + γt^3 + δt^4) with α=5.019e-6, β=1.230e-9, γ=5.420e-12, δ=-4.000e-15, a0=5.64573 kX (t in °C). Its derivative gives 5.10 (300 K), 6.22 (500 K), 7.77 (700 K), 8.46 (800 K) - i.e. 17% lower than Singh at 300 K and 8% higher at 800 K. Secant alphas from their measured table (18-890 °C) are 5.5-8.1e-6/K over 360-740 K. The same 1964 paper's silicon data, checked against Swenson/Okada-Tokumaru, overestimate Si alpha by ~25% on average over 303-1133 K, so I did not use the 1964 numbers. Overall uncertainty of Ge alpha in 375-600 K: about ±10%. No JPCRD/NIST tabulation for Ge above RT was found; Touloukian vol. 13 on DTIC was unreachable."
+  },
+  {
+   "id": "SiC",
+   "formula": "SiC",
+   "phase": "zincblende (3C, beta)",
+   "space_group": "F-43m",
+   "lattice": {
+    "a": 4.3596,
+    "c": null,
+    "T_K": 297,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/SiC/basic.html",
+    "citation": "Ioffe NSM Archive (SiC), citing Taylor & Jones (1960)",
+    "quote": "Lattice constant, 3C-SiC a=4.3596 A 297 K, Debye-Scherrer; see also Temperature dependence Taylor & Jones (1960)"
+   },
+   "bulk_modulus": {
+    "value_GPa": 250,
+    "T_K": 300,
+    "method": "Handbook value (Goldberg et al. 2001) as listed by Ioffe; Ioffe mechanic page attributes Bs=(C11+2C12)/3=250 GPa to Gmelin (1959) elastic constants C11=290, C12=235 GPa",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/SiC/basic.html",
+    "citation": "Ioffe NSM Archive (SiC), citing Goldberg et al. (2001)",
+    "quote": "Bulk modulus 3C-SiC 2.5 x 10^12 dyn cm-2 300 K Goldberg et al.(2001)"
+   },
+   "thermal_expansion": {
+    "source": "https://ntrs.nasa.gov/api/citations/19940024602/downloads/19940024602.pdf",
+    "citation": "J. A. Salem, Z. Li, R. C. Bradt, 'Thermal Expansion and Elastic Anisotropy in Single Crystal Al2O3 and SiC Reinforcements', NASA TM-106516 (1986 ASME symp.), quoting Z. Li & R. C. Bradt, J. Mater. Sci. 21, 4366 (1986)",
+    "quote": "expansion coefficients of both beta-SiC (Ref. 16) and Al2O3 (Ref. 17) have been determined by X-ray diffraction methods from room temperature to 1000 °C",
+    "formula": "alpha(t) = 3.19e-6 + 3.60e-9*t - 1.68e-12*t^2 (1/°C), t in °C, valid room temperature to 1000 °C (X-ray diffraction, 3C single crystal whiskers per Li & Bradt 1986)",
+    "values": [
+     {
+      "T_K": 300,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 3.29
+     },
+     {
+      "T_K": 400,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 3.62
+     },
+     {
+      "T_K": 500,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 3.92
+     },
+     {
+      "T_K": 600,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     },
+     {
+      "T_K": 700,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.42
+     },
+     {
+      "T_K": 800,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.62
+     },
+     {
+      "T_K": 900,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.79
+     },
+     {
+      "T_K": 1000,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.92
+     },
+     {
+      "T_K": 1100,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 5.02
+     },
+     {
+      "T_K": 1200,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 5.08
+     },
+     {
+      "T_K": 1273.15,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 5.11
+     }
+    ]
+   },
+   "debye_temperature_K": {
+    "value": 1200,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/SiC/basic.html",
+    "quote": "Debye temperature 3C-SiC 1200 K Goldberg et al.(2001)"
+   },
+   "melting_point_K": {
+    "value": 3103,
+    "kind": "decomposition",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/SiC/basic.html",
+    "quote": "Melting point 3C-SiC 3103 (40) K p = 35 bar. Peritectic decomposition temperature Scace & Slack (1960)"
+   },
+   "phase_transitions": [
+    {
+     "T_K": 2273,
+     "description": "3C (beta) SiC is stable below about 2000 °C; with extended exposure above this it transforms to hexagonal or rhombohedral polytypes (kinetic polytype transformation, not a sharp transition)",
+     "source": "https://ntrs.nasa.gov/api/citations/19940024602/downloads/19940024602.pdf"
+    }
+   ],
+   "notes": "Thermal expansion values are MY evaluation of the Li & Bradt polynomial (as printed in the NASA TM, PDF text extraction: 'α11 = 3.19x10^-6 + 3.60x10^-9T - 1.68x10^-12T^2', 'T is in °C and the units of α11 are (1/°C)') at t = T_K - 273.15; 1273.15 K = 1000 °C is the upper limit, nothing beyond. The PDF is a scan with OCR, so exponents were read from OCR text ('3.60x10-gT', '1.68x10-12T 2'); a web-search summary of the Li & Bradt abstract gives the same constants and '5.1x10^-6/°C at 1000 °C', consistent with my evaluation (5.11). Ioffe's own SiC thermal page lists different scattered values (3.8 at 300 K Goldberg; 2.77(42) Slack & Bartram; 3.8/4.3/4.8/5.5 at 500/600/900/1500-2100 K) - treat alpha as uncertain by ~10-20%. DOUBT - bulk modulus: 250 GPa is a handbook value; the Gmelin elastic constants behind it (C12=235 GPa) look inconsistent with modern data. Literature EOS values scatter: an arXiv paper (https://ar5iv.arxiv.org/html/mtrl-th/9510002) states 'Most earlier experiments report a bulk modulus around 2.25 Mbar' and that Yoshida et al. (PRB 48, 10587, 1993) reported a larger value (2.60±0.09 Mbar per search snippet, not opened in full). Treat B as 225-260 GPa uncertain. Melting: 3103±40 K is a peritectic decomposition under 35 bar (Ioffe lists '35 bar' for 3C and '35 atm' for 4H/6H), not congruent melting. Phase transition T converted 2000 °C +273.15 = 2273 K (rounded; source says 'about'). Lattice T 297 K per source. Quotes from the NASA TM are from OCR text (OCR reads 'X-my' for 'X-ray', 'A1203' for 'Al2O3')."
+  },
+  {
+   "id": "GaAs",
+   "formula": "GaAs",
+   "phase": "zincblende",
+   "space_group": "F-43m",
+   "lattice": {
+    "a": 5.65325,
+    "c": null,
+    "T_K": 300,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html",
+    "citation": "Ioffe NSM Archive, GaAs basic parameters",
+    "quote": "Basic Parameters at 300 K ... Lattice constant 5.65325 A"
+   },
+   "bulk_modulus": {
+    "value_GPa": 75.3,
+    "T_K": 300,
+    "method": "Adiabatic bulk modulus from 300 K elastic constants, Bs=(C11+2C12)/3 with C11=119.0, C12=53.4 GPa (recomputed 75.27 GPa)",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/mechanic.html",
+    "citation": "Ioffe NSM Archive, GaAs mechanical properties",
+    "quote": "For T = 300 K Bulk modulus (compressibility-1) Bs= 7.53·10^11dyn/cm2"
+   },
+   "thermal_expansion": {
+    "source": "https://arxiv.org/pdf/2607.23868",
+    "citation": "D. Franta, B. Hroncová, M.-G. Mureșan, S. Zollner, 'Dispersion models describing coupled systems in doped crystals. II. ...GaAs...', J. Appl. Phys. 139, 175704 (2026), doi:10.1063/5.0314388 (CC BY); fit to experimental alpha data of S. I. Novikova (Thermal Expansion of Solids, Nauka 1974; 28-348 K) and V. M. Glazov & A. S. Pashinkin, Inorg. Mater. 36, 225 (2000) (392-1185 K)",
+    "quote": "The fit of the thermal expansion coefficient α published by Novikova,14 Glazov and Pashinkin15 is shown in Fig. 1(a) and Table III",
+    "formula": "e(T) = sum_{j=1..3} e_j*[1/(exp(Theta_j/T)-1) - 1/(exp(Theta_j/T_R)-1)], T_R = 300 K; alpha(T) = de/dT (paper's definition). Table III: e1=-0.000064(3), Theta1=92(2) K; e2=0.002460(3), Theta2=346.3(7) K; e3=0.003199(11), Theta3=2203(8) K. Fitted data span 28-1185 K.",
+    "values": [
+     {
+      "T_K": 300,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 5.73
+     },
+     {
+      "T_K": 400,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 6.16
+     },
+     {
+      "T_K": 500,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 6.48
+     },
+     {
+      "T_K": 600,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 6.73
+     },
+     {
+      "T_K": 700,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 6.92
+     },
+     {
+      "T_K": 800,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 7.08
+     },
+     {
+      "T_K": 900,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 7.19
+     },
+     {
+      "T_K": 1000,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 7.29
+     },
+     {
+      "T_K": 1100,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 7.36
+     }
+    ]
+   },
+   "debye_temperature_K": {
+    "value": 360,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html",
+    "quote": "Basic Parameters at 300 K ... Debye temperature 360 K"
+   },
+   "melting_point_K": {
+    "value": 1513,
+    "kind": "melting",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/thermal.html",
+    "quote": "Melting point Tm=1513 K For 0 < P < 45 kbar Tm= 1513 - 3.5P (P in kbar)"
+   },
+   "phase_transitions": [],
+   "notes": "Thermal expansion: only a single room-temperature value could be sourced (temperature not stated explicitly on the Ioffe thermal page; T_K=300 assumed). Ioffe's alpha(T) figure (Novikova 1961) only covers ~20-300 K. No accessible 300-1500 K tabulation found (DTIC GaAs thermophysical report ADA169901 and TPRC vol. 13 were unreachable - DTIC under maintenance / 403). Debye temperature: Ioffe basic table gives 360 K; the Ioffe thermal page uses theta0 = 345 K in a low-T Cp fit (Blakemore 1982). Ioffe also gives melting point 1240 °C (=1513.15 K). Elastic constants T-dependence (Ioffe, Burenkov 1973): C11=12.17-1.44e-3T, C12=5.46-0.64e-3T (1e11 dyn/cm2) for 0<T<1513 K, implying B(T) can be derived if needed. No ambient-pressure solid-solid transitions found in sources consulted. UPDATE (thermal expansion): alpha(T) now from the Franta et al. (2026) three-term Bose-Einstein fit to experimental data (Novikova below 348 K, Glazov & Pashinkin 2000 dilatometry/X-ray 392-1185 K; table rows 'Novikova α 28–348' and 'Glazov–Pashinkin α 392–1185'). Values are MY evaluation of the fit as (de/dT)/(1+e(T)); using de/dT alone (the paper's definition) changes values by <0.6%. The fit gives 5.73e-6/K at 300 K, matching Ioffe's RT value. I could not open the Glazov & Pashinkin paper itself (Springer abstract read at https://link.springer.com/article/10.1007/BF02757926: 'Thermal expansion of GaAs and InAs was measured in the temperature ranges from 396 to 1149' K). The third fit term (Theta3=2203 K) is described by the authors as a phenomenological correction. Cross-check (lower quality): Shaw Nan & Liu Yi-Huan, Acta Phys. Sin. 20, 699 (1964) (https://wulixb.iphy.ac.cn/article/doi/10.7498/aps.20.699), GaAs 0-750 °C X-ray: a_t=a0(1+αt+βt^2+γt^3+δt^4), α=6.174e-6, β=0.140e-9, γ=-1.425e-12, δ=2.282e-15, a0=5.64037 kX; derivative gives 6.18 (300 K), 6.12 (500 K), 6.21 (700 K), 6.45 (800 K); secants of their measured table (23-735 °C) 5.95-6.65e-6/K. That dataset overestimates Si alpha by ~25%, so it was not used."
+  },
+  {
+   "id": "GaN",
+   "formula": "GaN",
+   "phase": "wurtzite",
+   "space_group": "P6_3mc",
+   "lattice": {
+    "a": 3.189,
+    "c": 5.186,
+    "T_K": 300,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaN/basic.html",
+    "citation": "Ioffe NSM Archive (GaN): a from Qian et al. (1996), c from Bougrov et al. (2001)",
+    "quote": "Lattice constant, a ... 3.189 A 300 K Qian et al. (1996) ... Lattice constant, c ... 5.186 A 300 K Bougrov et al. (2001)"
+   },
+   "bulk_modulus": {
+    "value_GPa": 210,
+    "T_K": 300,
+    "method": "From 300 K elastic constants (Brillouin, Polian et al. 1996): C11=390, C12=145, C13=106, C33=398 GPa; Ioffe uses the Reuss formula Bs=[C33(C11+C12)-2C13^2]/(C11+C12-4C13+2C33). Recomputed: Reuss 210.0, Voigt 210.2, VRH 210.1 GPa",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaN/mechanic.html",
+    "citation": "Ioffe NSM Archive (GaN), elastic constants from Polian et al. (1996)",
+    "quote": "Wurtzite GaN. Bulk modulus (compressibility-1) For T = 300 K ... Bs = 210 ± 10 GPa"
+   },
+   "thermal_expansion": {
+    "source": "http://lib.ysu.am/articles_art/f3badd801da83c5a05b3ca0e780f85df.pdf",
+    "citation": "C. Roder, S. Einfeldt, S. Figge, D. Hommel, 'Temperature dependence of the thermal expansion of GaN', Phys. Rev. B 72, 085218 (2005), doi:10.1103/PhysRevB.72.085218",
+    "quote": "The thermal expansion of hexagonal GaN bulk crystals was studied in an extended temperature range from 12 to 1025 K.",
+    "formula": "Einstein-model fit (Roder 2005 Eq. 2 + Table I): L(T) = L0 + L1*ThetaE*fE(ThetaE/T), fE(x)=1/(exp(x)-1); alpha_L(T) = (dL/dT)/L(T) = L1*x^2*e^x/(e^x-1)^2 / L(T), x=ThetaE/T. a-axis: a1,E=19.8e-6 A/K, ThetaE,a=636 K, a0=3.1876 A; c-axis: c1,E=29.6e-6 A/K, ThetaE,c=662 K, c0=5.1827 A (a0,c0 for sample C). Fitted to data 12-1025 K.",
+    "values": [
+     {
+      "T_K": 300,
+      "axis": "a",
+      "alpha_1e-6_per_K": 4.33
+     },
+     {
+      "T_K": 300,
+      "axis": "c",
+      "alpha_1e-6_per_K": 3.86
+     },
+     {
+      "T_K": 400,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.05
+     },
+     {
+      "T_K": 400,
+      "axis": "c",
+      "alpha_1e-6_per_K": 4.56
+     },
+     {
+      "T_K": 500,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.43
+     },
+     {
+      "T_K": 500,
+      "axis": "c",
+      "alpha_1e-6_per_K": 4.94
+     },
+     {
+      "T_K": 600,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.65
+     },
+     {
+      "T_K": 600,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.16
+     },
+     {
+      "T_K": 700,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.79
+     },
+     {
+      "T_K": 700,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.29
+     },
+     {
+      "T_K": 800,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.88
+     },
+     {
+      "T_K": 800,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.38
+     },
+     {
+      "T_K": 900,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.94
+     },
+     {
+      "T_K": 900,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.44
+     },
+     {
+      "T_K": 1000,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.98
+     },
+     {
+      "T_K": 1000,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.49
+     }
+    ]
+   },
+   "debye_temperature_K": {
+    "value": 600,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaN/basic.html",
+    "quote": "Basic Parameters for Wurtzite crystal structure ... Debye temperature 600 K"
+   },
+   "melting_point_K": {
+    "value": 2773,
+    "kind": "melting",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaN/thermal.html",
+    "quote": "Melting point, Tm 2500° C also see: Equilibrium N2 pressure over GaN. Porowski (1997)"
+   },
+   "phase_transitions": [],
+   "notes": "Thermal expansion values are MY evaluation of Roder et al.'s published Einstein-model fit (Table I, PDF read in full from a third-party library copy of the APS paper; DOI given in citation). Check: high-T limits a1/a = 6.2 and c1/c = 5.7 (1e-6/K) match the paper's 'αc = (5.7±0.5)×10−6 K−1 and αa = (6.2±0.4)×10−6 K−1'. Their Debye-model fit gives values within ~0.1e-6/K of these (e.g. 300 K: 4.25 a / 3.80 c). Fit parameter uncertainty ~±7%. Values limited to <=1000 K (data end at 1025 K); no sourced values 1100-1500 K. Ioffe lists constant alpha_a=5.59, alpha_c=3.17 (Qian 1996 / Maruska & Tietjen), which Roder et al. say scatter significantly. NOTE Ioffe's labels 'αort= αc' / 'α||= αa' are confusingly worded. Lattice: a and c come from different references on the Ioffe page; Ioffe also lists c=5.178 A (Qian 1996). Cross-check: Roder's fit gives a(300 K)=3.1893, c(300 K)=5.1851 A (my evaluation) - consistent. DOUBT - melting: Ioffe's 2500 °C (=2773.15 K, converted) is not an ambient-pressure value. At ambient pressure GaN decomposes into Ga + N2 before melting (JAEA page https://rdreview.jaea.go.jp/tayu/ACT04E/05/0505.htm: 'at ambient pressure GaN usually decomposes into Ga and N2 before melting'; 'high-pressure suppresses the decomposition of GaN and allows congruent melting above 6.0 GPa'). Utsumi et al., Nature Mater. 2, 735 (2003) report congruent melting ~2220 °C above 6 GPa (from search snippet of the abstract only; not opened). An ambient-pressure decomposition temperature with a source could not be verified. Treat as low confidence. Debye temperature: Ioffe gives 600 K; Roder et al. derive Debye temperatures from expansion of 868±20 K (a) and 898±24 K (c) - definitions differ. No ambient-pressure solid-solid transitions found in sources consulted (zincblende GaN is metastable, not a transition)."
+  },
+  {
+   "id": "InP",
+   "formula": "InP",
+   "phase": "zincblende",
+   "space_group": "F-43m",
+   "lattice": {
+    "a": 5.8687,
+    "c": null,
+    "T_K": 300,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/InP/basic.html",
+    "citation": "Ioffe NSM Archive, InP basic parameters",
+    "quote": "Basic Parameters at 300 K ... Lattice constant 5.8687 A"
+   },
+   "bulk_modulus": {
+    "value_GPa": 71.1,
+    "T_K": 300,
+    "method": "Adiabatic bulk modulus from 300 K elastic constants (Nichols et al. 1980), Bs=(C11+2C12)/3 with C11=101.1, C12=56.1 GPa (recomputed 71.1 GPa)",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/InP/mechanic.html",
+    "citation": "Ioffe NSM Archive (InP), elastic constants from Nichols et al. (1980)",
+    "quote": "Bulk modulus (compressibility-1) Bs= 7.11·10^11 dyn/cm2"
+   },
+   "thermal_expansion": {
+    "source": "https://www.mathnet.ru/php/getFT.phtml?jrnid=tvt&paperid=1799&what=fullt&option_lang=eng",
+    "citation": "V. M. Glazov, A. S. Pashinkin, L. M. Pavlova, 'Thermal expansion and some characteristics of the interatomic bond strength in gallium and indium phosphides', Teplofiz. Vys. Temp. 40(3), 405-415 (2002) [High Temperature 40, 369-378], mathnet tvt1799",
+    "quote": "Следовательно, среднее значение КТР фосфида индия для указанного интервала температур равно (4.19 ± 0.10) х 10^-6 К^-1",
+    "formula": "Statistical linear fit (Eq. 7) to selected dilatometric/X-ray data, 300-910 K: (Δl/l) x 10^4 = -12.444(±0.646) + 0.04192(±0.0010)*T, T in K => constant alpha = 4.19(±0.10)e-6 /K over 300-910 K. (Eq. 8, 910-1299 K, from a single study: (Δl/l) x 10^4 = -34.316(±1.399) + 0.06477(±0.00128)*T => alpha = 6.48(±0.13)e-6 /K.)",
+    "values": [
+     {
+      "T_K": 300,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     },
+     {
+      "T_K": 400,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     },
+     {
+      "T_K": 500,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     },
+     {
+      "T_K": 600,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     },
+     {
+      "T_K": 700,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     },
+     {
+      "T_K": 800,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     },
+     {
+      "T_K": 900,
+      "axis": "iso",
+      "alpha_1e-6_per_K": 4.19
+     }
+    ]
+   },
+   "debye_temperature_K": {
+    "value": 425,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/InP/basic.html",
+    "quote": "Basic Parameters at 300 K ... Debye temperature 425 K"
+   },
+   "melting_point_K": {
+    "value": 1333,
+    "kind": "melting",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/InP/thermal.html",
+    "quote": "Melting point Tm = 1333 K For 0 < P < 40 kbar Tm = 1333 - 2.0·P (P in kbar) (Glasov et al. [1977])"
+   },
+   "phase_transitions": [],
+   "notes": "Thermal expansion: only a single room-temperature value sourced (T not stated explicitly on the Ioffe thermal page; T_K=300 assumed). Ioffe's alpha(T) figure (http://www.ioffe.ru/SVA/NSM/Semicond/InP/Figs/853.gif; curve 1 Soma et al. 1982 to ~300 K, curve 2 Glazov et al. 1977 points at ~560-950 K) shows alpha rising roughly linearly from ~4.5e-6 at ~560 K to ~7.7e-6 at ~950 K, but I did NOT record digitized numbers because they are read off a small plot and the Glazov high-T data look anomalously steep. No accessible tabulation for 300-1500 K found (Reeber & Wang, MRS Proc. 410, 211 (1996) 'Thermal expansion of beta-SiC, GaP and InP' paywalled). Ioffe lists melting point 1060 °C (=1333.15 K). Ioffe basic table also lists Bulk modulus 7.1e11 dyn/cm2. No ambient-pressure solid-solid transitions found in sources consulted. UPDATE (thermal expansion): values are a CONSTANT range-average, 4.19e-6/K, recommended by Glazov et al. (2002) for 300-910 K (linear Δl/l(T) fit, so no temperature dependence is resolved). The paper is Russian; the PDF on mathnet.ru (official archive) has an OCR text layer, quote transcribed from it. The authors attribute a kink at 910 K to a claimed second-order phase transition in InP (heat-capacity maximum at 910 K, ~376 J/mol, their refs [11,20,21]); I have not seen this confirmed elsewhere and did NOT add it to phase_transitions. Above 910 K they give 6.48e-6/K from one study only (not entered as values). CAVEAT: 4.19 is below most room-temperature single-crystal values listed in the same paper's Table 2 (e.g. 4.56±0.1 for 298-673 K X-ray, 4.38 at 310 K, 4.48 at 300 K, 5.0 Bond method 298-673 K; polycrystal X-ray 289-912 K 4.75±0.01; dilatometric 3.87 and 3.97) and below Ioffe's RT 4.60. The real alpha(T) almost certainly rises with T, so 4.19 likely underestimates alpha at 500-900 K; treat as ±15%. Ioffe's InP figure (curve 2, Glazov et al. 1977, ~560-950 K points rising to ~7.7e-6) disagrees with this later recommendation by the same lead author; not digitized."
+  },
+  {
+   "id": "AlN",
+   "formula": "AlN",
+   "phase": "wurtzite",
+   "space_group": "P6_3mc",
+   "lattice": {
+    "a": 3.112,
+    "c": 4.981,
+    "T_K": 300,
+    "source": "https://przyrbwn.icm.edu.pl/APP/PDF/114/a114z529.pdf",
+    "citation": "H. Kröncke, S. Figge, B. M. Epelbaum, D. Hommel, 'Determination of the Temperature Dependent Thermal Expansion Coefficients of Bulk AlN by HRXRD', Acta Phys. Pol. A 114, 1193 (2008), doi:10.12693/APhysPolA.114.1193",
+    "quote": "TABLE I Lattice constants at room temperature. c-direction [Å] a-direction [Å] measured 4.981 ± 0.0004 3.112 ± 0.001"
+   },
+   "bulk_modulus": {
+    "value_GPa": 210,
+    "T_K": 300,
+    "method": "From 300 K elastic constants (McNeil 1993): C11=410, C12=149, C13=99, C33=389 GPa; Ioffe uses the Reuss formula. Recomputed: Reuss 210.3, Voigt 211.4, VRH 210.8 GPa",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/AlN/mechanic.html",
+    "citation": "Ioffe NSM Archive (AlN), elastic constants from McNeil (1993)",
+    "quote": "Wurtzite AlN. Bulk modulus (compressibility-1) For T = 300 K ... Bs = 210 GPa"
+   },
+   "thermal_expansion": {
+    "source": "https://przyrbwn.icm.edu.pl/APP/PDF/114/a114z529.pdf",
+    "citation": "H. Kröncke, S. Figge, B. M. Epelbaum, D. Hommel, Acta Phys. Pol. A 114, 1193 (2008)",
+    "quote": "a temperature regime from 20 to 1210 K was available. Furthermore, the measured data were fitted by Einstein- and Debye models",
+    "formula": "Einstein-model fit (Kröncke 2008 Eq. 4 + Table II): L(T) = L0 + L0*alpha_inf*ThetaE*fE(ThetaE/T), fE(x)=1/(exp(x)-1); alpha_L(T) = L0*alpha_inf*x^2*e^x/(e^x-1)^2 / L(T), x=ThetaE/T. c: c0=4.9800 A, alpha_inf=5.6e-6 /K, ThetaE=937 K; a: a0=3.1105 A, alpha_inf=6.9e-6 /K, ThetaE=1025 K. Data range 20-1210 K.",
+    "values": [
+     {
+      "T_K": 300,
+      "axis": "a",
+      "alpha_1e-6_per_K": 2.83
+     },
+     {
+      "T_K": 300,
+      "axis": "c",
+      "alpha_1e-6_per_K": 2.63
+     },
+     {
+      "T_K": 400,
+      "axis": "a",
+      "alpha_1e-6_per_K": 4.1
+     },
+     {
+      "T_K": 400,
+      "axis": "c",
+      "alpha_1e-6_per_K": 3.61
+     },
+     {
+      "T_K": 500,
+      "axis": "a",
+      "alpha_1e-6_per_K": 4.91
+     },
+     {
+      "T_K": 500,
+      "axis": "c",
+      "alpha_1e-6_per_K": 4.21
+     },
+     {
+      "T_K": 600,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.43
+     },
+     {
+      "T_K": 600,
+      "axis": "c",
+      "alpha_1e-6_per_K": 4.58
+     },
+     {
+      "T_K": 700,
+      "axis": "a",
+      "alpha_1e-6_per_K": 5.78
+     },
+     {
+      "T_K": 700,
+      "axis": "c",
+      "alpha_1e-6_per_K": 4.82
+     },
+     {
+      "T_K": 800,
+      "axis": "a",
+      "alpha_1e-6_per_K": 6.01
+     },
+     {
+      "T_K": 800,
+      "axis": "c",
+      "alpha_1e-6_per_K": 4.99
+     },
+     {
+      "T_K": 900,
+      "axis": "a",
+      "alpha_1e-6_per_K": 6.18
+     },
+     {
+      "T_K": 900,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.11
+     },
+     {
+      "T_K": 1000,
+      "axis": "a",
+      "alpha_1e-6_per_K": 6.3
+     },
+     {
+      "T_K": 1000,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.19
+     },
+     {
+      "T_K": 1100,
+      "axis": "a",
+      "alpha_1e-6_per_K": 6.39
+     },
+     {
+      "T_K": 1100,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.25
+     },
+     {
+      "T_K": 1200,
+      "axis": "a",
+      "alpha_1e-6_per_K": 6.46
+     },
+     {
+      "T_K": 1200,
+      "axis": "c",
+      "alpha_1e-6_per_K": 5.3
+     }
+    ]
+   },
+   "debye_temperature_K": {
+    "value": 1150,
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/AlN/basic.html",
+    "quote": "Debye temperature 1150 K"
+   },
+   "melting_point_K": {
+    "value": 3273,
+    "kind": "melting",
+    "source": "http://www.ioffe.ru/SVA/NSM/Semicond/AlN/thermal.html",
+    "quote": "Melting point 3273 K MacChesney et al. (1970) 3023 K (between 100 and 500 atm of nitrogen) Goldberg (2001)"
+   },
+   "phase_transitions": [],
+   "notes": "Thermal expansion values are MY evaluation of Kröncke et al.'s Einstein-model parameters (Table II); the Debye-model parameters (c: 4.9799 A, 5.8e-6, 1317 K; a: 3.1104 A, 7.1e-6, 1455 K) give similar high-T values. Model a(300 K)=3.1112, c(300 K)=4.9812 A, consistent with their measured RT values. DOUBT/CONFLICT: this source gives alpha_a > alpha_c at high T and quite low RT values (a 2.83, c 2.63 at 300 K), whereas the Ioffe page lists alpha_a=4.2, alpha_c=5.3 at 300 K (Slack & Bartram 1975 etc.) and 'αort = αc = 5.27 x10-6 K-1 ... α|| = αa =4.15 x10-6 K-1' for 20-800 °C (Sirota & Golodushko 1974). The Ioffe page also gives polynomials Δa/a300 and Δc/c300 for 293-1700 K, but their derivative at 300 K (3.75 and 3.06 if Δ is in %) does not match the alpha values printed beside them, so I did not use them. Kröncke's a-axis is derived indirectly (larger error) and authors note a lower a gradient at high T in their data. Reviewer should treat AlN alpha as uncertain by ~±1e-6/K. Melting: 3273 K (MacChesney 1970) vs 3023 K under 100-500 atm N2 (Goldberg 2001) - both from Ioffe; AlN decomposes/sublimes at lower T at ambient pressure (not sourced here). Lattice T: 'room temperature' (authors scaled their HT data so that the 300 K value equals the RT measurement). Ioffe lists a=3.112, c=4.982 A at 300 K (Goldberg 2001). No ambient-pressure solid-solid transitions found in sources consulted."
+  }
+ ]
+}

@@ -1,0 +1,161 @@
+{
+ "id": "TiN",
+ "formula": "TiN",
+ "material_id": "mp-492",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     0.0,
+     2.126767,
+     2.126767
+    ],
+    [
+     2.126767,
+     0.0,
+     2.126767
+    ],
+    [
+     2.126767,
+     2.126767,
+     0.0
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 3.0077027354075403,
+   "b": 3.0077027354075403,
+   "c": 3.0077027354075403,
+   "alpha": 59.99999999999999,
+   "beta": 59.99999999999999,
+   "gamma": 59.99999999999999,
+   "volume": 19.23932072646892
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Ti",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.5,
+     0.5,
+     0.5
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ti",
+    "xyz": [
+     2.126767,
+     2.126767,
+     2.126767
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "N",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "N",
+    "xyz": [
+     0.0,
+     0.0,
+     0.0
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 4.253534,
+  "b": 4.253534,
+  "c": 4.253534,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 9.61966036323446
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 278.511,
+  "K_voigt_GPa": 278.511,
+  "K_reuss_GPa": 278.511,
+  "G_vrh_GPa": 191.577,
+  "C_ieee_GPa": [
+   [
+    607.0,
+    114.0,
+    114.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    114.0,
+    607.0,
+    114.0,
+    -0.0,
+    0.0,
+    0.0
+   ],
+   [
+    114.0,
+    114.0,
+    607.0,
+    -0.0,
+    -0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    -0.0,
+    -0.0,
+    162.0,
+    0.0,
+    0.0
+   ],
+   [
+    0.0,
+    0.0,
+    -0.0,
+    0.0,
+    162.0,
+    -0.0
+   ],
+   [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -0.0,
+    162.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-492"
+}

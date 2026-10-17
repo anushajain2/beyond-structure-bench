@@ -1,0 +1,293 @@
+{
+ "id": "NiSi",
+ "formula": "NiSi",
+ "material_id": "mp-351",
+ "selection": "hint matched formula and space group",
+ "functional": "PBE (GGA/GGA+U), Materials Project",
+ "space_group": "Pnma",
+ "space_group_number": 62,
+ "energy_above_hull_eV": 0.0,
+ "structure": {
+  "@module": "pymatgen.core.structure",
+  "@class": "Structure",
+  "charge": 0.0,
+  "lattice": {
+   "matrix": [
+    [
+     3.350126,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     5.154628,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     5.580648
+    ]
+   ],
+   "pbc": [
+    true,
+    true,
+    true
+   ],
+   "a": 3.350126,
+   "b": 5.154628,
+   "c": 5.580648,
+   "alpha": 90.0,
+   "beta": 90.0,
+   "gamma": 90.0,
+   "volume": 96.37027540718171
+  },
+  "properties": {},
+  "sites": [
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.321579,
+     0.916562
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     2.5125945,
+     1.657620117612,
+     5.115009892176
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.821579,
+     0.583438
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     2.5125945,
+     4.234934117611999,
+     3.255962107824
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.25,
+     0.678421,
+     0.083438
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     0.8375315,
+     3.497007882388,
+     0.465638107824
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Si",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.25,
+     0.178421,
+     0.416562
+    ],
+    "properties": {
+     "magmom": 0.0
+    },
+    "label": "Si",
+    "xyz": [
+     0.8375315,
+     0.919693882388,
+     2.324685892176
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ni",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.25,
+     0.009193,
+     0.811961
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ni",
+    "xyz": [
+     0.8375315,
+     0.047386495204,
+     4.531268530728
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ni",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.25,
+     0.509193,
+     0.688039
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ni",
+    "xyz": [
+     0.8375315,
+     2.624700495204,
+     3.839703469272
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ni",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.990807,
+     0.188039
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ni",
+    "xyz": [
+     2.5125945,
+     5.107241504796,
+     1.049379469272
+    ]
+   },
+   {
+    "species": [
+     {
+      "element": "Ni",
+      "occu": 1.0
+     }
+    ],
+    "abc": [
+     0.75,
+     0.490807,
+     0.311961
+    ],
+    "properties": {
+     "magmom": -0.0
+    },
+    "label": "Ni",
+    "xyz": [
+     2.5125945,
+     2.529927504796,
+     1.740944530728
+    ]
+   }
+  ]
+ },
+ "dft_lattice": {
+  "a": 3.350126,
+  "b": 5.154628,
+  "c": 5.580648,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0,
+  "volume_per_atom": 12.046284425897714
+ },
+ "dft_elastic": {
+  "K_vrh_GPa": 164.819,
+  "K_voigt_GPa": 167.313,
+  "K_reuss_GPa": 162.325,
+  "G_vrh_GPa": 91.069,
+  "C_ieee_GPa": [
+   [
+    266.0,
+    86.0,
+    143.0,
+    -0.0,
+    -0.0,
+    -0.0
+   ],
+   [
+    86.0,
+    228.0,
+    147.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   [
+    143.0,
+    147.0,
+    261.0,
+    -0.0,
+    0.0,
+    -0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    -0.0,
+    108.0,
+    0.0,
+    0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    0.0,
+    0.0,
+    126.0,
+    0.0
+   ],
+   [
+    -0.0,
+    0.0,
+    -0.0,
+    0.0,
+    0.0,
+    133.0
+   ]
+  ],
+  "state": "successful"
+ },
+ "fetched": "2026-10-17",
+ "url": "https://next-gen.materialsproject.org/materials/mp-351"
+}
