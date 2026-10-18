@@ -17,7 +17,12 @@ from chipff.models import MODELS  # noqa: E402
 
 REPORT = ROOT / "report"
 FIG = REPORT / "figures"
-MARKERS = {"mace-mpa-0": "o", "orb-v3": "s", "mattersim-5m": "^", "uma-s-1p2": "D"}
+MARKERS = {"mace-mpa-0": "o", "orb-v3": "s", "mattersim-5m": "^", "mattersim-5m-native": "^", "uma-s-1p2": "D"}
+
+
+def short(m: str) -> str:
+    """Legend name; models not run through kUPS are starred."""
+    return MODELS[m].label.split(" (")[0] + ("*" if not MODELS[m].via_kups else "")
 STATUS = {"good": "#0ca30c", "okay": "#fab219", "poor": "#d03b3b"}
 INK, INK2, GRID, SURF = "#0b0b0b", "#52514e", "#e6e5e1", "#fcfcfb"
 PROP_LABEL = {"lattice": "Lattice constant", "bulk_modulus": "Bulk modulus", "thermal_expansion": "Thermal expansion"}
@@ -58,7 +63,7 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
                         color="white" if r["grade"] != "okay" else INK)
         ax.set_xlim(0, len(models))
         ax.set_ylim(len(classes), 0)
-        ax.set_xticks([j + 0.48 for j in range(len(models))], [MODELS[m].label.split(" (")[0] for m in models],
+        ax.set_xticks([j + 0.48 for j in range(len(models))], [short(m) for m in models],
                       rotation=30, ha="right")
         ax.set_yticks([i + 0.46 for i in range(len(classes))], [CLASS_LABELS[c] for c in classes] if p == props[0] else [])
         ax.set_title(PROP_LABEL[p], color=INK, fontsize=10, loc="left")
@@ -88,7 +93,7 @@ def parity_figure(s: dict, prop: str, model_col: str, ref_col: str, label: str, 
         if pts:
             x, y = zip(*pts)
             ax.scatter(x, y, s=34, marker=MARKERS[m], color=MODELS[m].color, edgecolor=SURF, linewidth=1.2,
-                       label=MODELS[m].label.split(" (")[0], zorder=3)
+                       label=short(m), zorder=3)
     if log:
         ax.set_xscale("log")
         ax.set_yscale("log")
@@ -113,7 +118,7 @@ def signed_error_figure(s: dict, prop: str, col: str, title: str, name: str):
             vals = [r[col] for r in rows if r["class"] == c and r["model"] == m]
             y = i + (j - (len(models) - 1) / 2) * 0.16
             ax.scatter(vals, [y] * len(vals), s=22, marker=MARKERS[m], color=MODELS[m].color, edgecolor=SURF,
-                       linewidth=0.8, label=MODELS[m].label.split(" (")[0] if i == 0 else None, zorder=3)
+                       linewidth=0.8, label=short(m) if i == 0 else None, zorder=3)
     ax.axvline(0, color=INK2, lw=1)
     ax.set_yticks(range(len(classes)), [CLASS_LABELS[c] for c in classes])
     ax.set_ylim(len(classes) - 0.5, -0.5)

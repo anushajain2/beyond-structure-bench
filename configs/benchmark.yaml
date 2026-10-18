@@ -8,7 +8,7 @@ thresholds:
   bulk_modulus:       {good: 10.0, okay: 25.0}
   thermal_expansion:  {good: 20.0, okay: 40.0}   # volumetric coefficient vs experiment
 
-models: [mace-mpa-0, orb-v3, mattersim-5m, uma-s-1p2]
+models: [mace-mpa-0, orb-v3, mattersim-5m-native, uma-s-1p2]
 
 relax:
   fmax_eV_per_A: 0.001      # as in kUPS's example configs

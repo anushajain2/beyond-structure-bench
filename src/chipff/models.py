@@ -17,6 +17,8 @@ class ModelSpec:
     extra: dict = field(default_factory=dict)
     gated: bool = False
     color: str = "#888888"
+    via_kups: bool = True
+    excluded: str | None = None  # set when a model's results must not be used, with the reason
 
     def potential_config(self, device: str = "cpu"):
         """Return the kUPS potential config object for this model."""
@@ -61,6 +63,20 @@ MODELS: dict[str, ModelSpec] = {
             backend="tojax",
             model_path="hf://CuspAI/kUPS-mattersim-jax/mattersim-v1.0.0-5m.zip",
             color="#1baf7a",
+            excluded=("the kUPS JAX export returns energies that depend on neighbour-list order and supercell "
+                      "size (scripts/repro_mattersim_export.py); MatterSim is benchmarked through its official "
+                      "package instead (mattersim-5m-native)"),
+        ),
+        ModelSpec(
+            key="mattersim-5m-native",
+            label="MatterSim v1 (5M), official package",
+            developer="Microsoft Research",
+            training_data="MatterSim's own sampled PBE/PBE+U dataset",
+            license="MIT",
+            backend="ase-mattersim",
+            model_path="MatterSim-v1.0.0-5M.pth",
+            color="#1baf7a",
+            via_kups=False,
         ),
         ModelSpec(
             key="uma-s-1p2",

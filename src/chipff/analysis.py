@@ -17,7 +17,9 @@ import numpy as np
 import pandas as pd
 
 from chipff.materials import CLASS_LABELS, ROOT, experimental, load_materials, mp_record
-from chipff.models import MODELS
+from chipff.models import MODELS as _ALL_MODELS
+
+MODELS = {k: m for k, m in _ALL_MODELS.items() if not m.excluded}
 from chipff.runner import config, load_raw
 
 OUT = ROOT / "results"
@@ -172,12 +174,19 @@ def lattice_table() -> pd.DataFrame:
                            key=lambda p: sum(math.log(m3[p[i]] / e3[i]) ** 2 for i in range(3)))
                 row["a"], row["b"], row["c"] = (m3[best[i]] for i in range(3))
                 row["axis_matching"] = "".join("abc"[i] for i in best)
+            row["excluded"] = None
+            if not r["symmetry_kept"]:
+                row["excluded"] = f"relaxed to a different crystal form (space group {r['spg_start']} -> {r['spg_end']})"
+            elif not r["converged"]:
+                row["excluded"] = "relaxation did not converge"
             for ref in ("dft", "exp"):
                 vref = row[f"V_atom_{ref}"]
-                row[f"err_lin_{ref}_pct"] = None if not vref else 100 * ((r["volume_per_atom"] / vref) ** (1 / 3) - 1)
-            row["err_a_exp_pct"] = pct(row["a"], lat.get("a"))
-            row["err_b_exp_pct"] = pct(row["b"], lat.get("b")) if lat.get("b") else None
-            row["err_c_exp_pct"] = pct(row["c"], lat.get("c")) if not mat.cubic else None
+                row[f"err_lin_{ref}_pct"] = None if (not vref or row["excluded"]) else (
+                    100 * ((r["volume_per_atom"] / vref) ** (1 / 3) - 1))
+            ok = not row["excluded"]
+            row["err_a_exp_pct"] = pct(row["a"], lat.get("a")) if ok else None
+            row["err_b_exp_pct"] = pct(row["b"], lat.get("b")) if (ok and lat.get("b")) else None
+            row["err_c_exp_pct"] = pct(row["c"], lat.get("c")) if (ok and not mat.cubic) else None
             rows.append(row)
     return pd.DataFrame(rows)
 
@@ -201,7 +210,10 @@ def bulk_table() -> pd.DataFrame:
             k_for_exp = el["K_reuss_GPa"] if kind == "reuss" else el["K_vrh_GPa"]
             asym = el.get("asymmetry_rel", 0.0)
             excluded = None
-            if not el["mechanically_stable"]:
+            lat_row = load_raw(mk, "lattice").get(mat.id) or {}
+            if lat_row and not lat_row.get("symmetry_kept", True):
+                excluded = "relaxed to a different crystal form"
+            elif not el["mechanically_stable"]:
                 excluded = "elastic tensor not positive definite"
             elif asym > 0.05:
                 excluded = f"elastic fit {100 * asym:.0f}% asymmetric (nonlinear response)"
@@ -318,7 +330,9 @@ def build_tables(tag: str = "thermal") -> dict:
     summary = {
         "thresholds": config()["thresholds"],
         "models": {k: {"label": m.label, "developer": m.developer, "training_data": m.training_data,
-                       "license": m.license, "model_path": m.model_path} for k, m in MODELS.items()},
+                       "license": m.license, "model_path": m.model_path, "via_kups": m.via_kups}
+                   for k, m in MODELS.items()},
+        "excluded_models": {k: m.excluded for k, m in _ALL_MODELS.items() if m.excluded},
         "materials": [{"id": m.id, "formula": m.formula, "class": m.cls, "class_label": CLASS_LABELS[m.cls],
                        "phase": m.phase, "spg": m.spg, "role": m.role,
                        "mp_id": (mp_record(m.id) or {}).get("material_id")} for m in load_materials()],

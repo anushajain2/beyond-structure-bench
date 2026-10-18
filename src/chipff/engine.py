@@ -147,7 +147,14 @@ class Engine:
             cg = 0.0
             if optimize_cell:
                 cg = float(max(np.max(np.abs(leaf[i])) for leaf in cell_leaves if leaf.ndim >= 1 and leaf.shape[0] == len(structures)))
-            atoms = Atoms(numbers=numbers, positions=pos, cell=cell, pbc=True)
+                atoms = Atoms(numbers=numbers, positions=pos, cell=cell, pbc=True)
+            else:
+                # kUPS works in its own (rotated) frame; hand the atoms back in the INPUT frame via
+                # fractional coordinates, so stresses computed later refer to the caller's axes
+                src = structures[i]
+                assert list(numbers) == list(src.numbers), "kUPS reordered atoms"
+                frac = np.linalg.solve(np.asarray(cell).T, np.asarray(pos).T).T
+                atoms = Atoms(numbers=numbers, scaled_positions=frac, cell=src.cell, pbc=True)
             results.append(
                 RelaxResult(
                     atoms=atoms,

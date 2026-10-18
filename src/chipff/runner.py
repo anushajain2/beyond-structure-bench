@@ -54,19 +54,39 @@ def _json_default(o):
 
 
 def run_meta(engine) -> dict:
-    import jax
-
-    import kups
-
-    return {
+    meta = {
         "utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "kups_version": getattr(kups, "__version__", "unknown"),
-        "jax_version": jax.__version__,
         "device": engine.device,
-        "jax_devices": [str(d) for d in jax.devices()],
         "platform": platform.platform(),
         "model_path": engine.model.model_path,
+        "via_kups": engine.model.via_kups,
     }
+    if engine.model.via_kups:
+        import jax
+
+        from importlib.metadata import version
+
+        meta.update(kups_version=version("kups"), jax_version=jax.__version__,
+                    jax_devices=[str(d) for d in jax.devices()])
+    else:
+        from importlib.metadata import version
+
+        meta.update(ase_version=version("ase"), torch_version=version("torch"),
+                    calculator_package_version=version("mattersim"))
+    return meta
+
+
+def make_engine(model_key: str):
+    from chipff.models import get_model
+
+    spec = get_model(model_key)
+    if spec.backend.startswith("ase-"):
+        from chipff.ase_engine import AseEngine
+
+        return AseEngine(spec)
+    from chipff.engine import Engine
+
+    return Engine(spec)
 
 
 def select(materials: list[str] | None) -> list[Material]:
@@ -88,13 +108,11 @@ def relaxed_structures(model: str) -> dict:
 
 # -- static ------------------------------------------------------------------
 def run_static(model_key: str, materials: list[str] | None = None, steps=("lattice", "elastic", "eos"), force=False):
-    from chipff.engine import Engine
-    from chipff.models import get_model
     from chipff.static import run_elastic, run_eos, run_lattice, to_records
 
     cfg = config()
     mats = select(materials)
-    eng = Engine(get_model(model_key))
+    eng = make_engine(model_key)
     meta = run_meta(eng)
     if "lattice" in steps:
         todo = mats if force else [m for m in mats if m.id not in load_raw(model_key, "lattice")]

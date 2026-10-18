@@ -3,539 +3,539 @@ mace-mpa-0,Si,relaxation converged,True
 mace-mpa-0,Si,space group unchanged,True
 orb-v3,Si,relaxation converged,True
 orb-v3,Si,space group unchanged,True
-mattersim-5m,Si,relaxation converged,True
-mattersim-5m,Si,space group unchanged,True
+mattersim-5m-native,Si,relaxation converged,True
+mattersim-5m-native,Si,space group unchanged,True
 mace-mpa-0,Ge,relaxation converged,True
 mace-mpa-0,Ge,space group unchanged,True
 orb-v3,Ge,relaxation converged,True
 orb-v3,Ge,space group unchanged,True
-mattersim-5m,Ge,relaxation converged,True
-mattersim-5m,Ge,space group unchanged,True
+mattersim-5m-native,Ge,relaxation converged,True
+mattersim-5m-native,Ge,space group unchanged,True
 mace-mpa-0,SiC,relaxation converged,True
 mace-mpa-0,SiC,space group unchanged,True
 orb-v3,SiC,relaxation converged,True
 orb-v3,SiC,space group unchanged,True
-mattersim-5m,SiC,relaxation converged,True
-mattersim-5m,SiC,space group unchanged,True
+mattersim-5m-native,SiC,relaxation converged,True
+mattersim-5m-native,SiC,space group unchanged,True
 mace-mpa-0,GaAs,relaxation converged,True
 mace-mpa-0,GaAs,space group unchanged,True
 orb-v3,GaAs,relaxation converged,True
 orb-v3,GaAs,space group unchanged,True
-mattersim-5m,GaAs,relaxation converged,True
-mattersim-5m,GaAs,space group unchanged,True
+mattersim-5m-native,GaAs,relaxation converged,True
+mattersim-5m-native,GaAs,space group unchanged,True
 mace-mpa-0,GaN,relaxation converged,True
 mace-mpa-0,GaN,space group unchanged,True
 orb-v3,GaN,relaxation converged,True
 orb-v3,GaN,space group unchanged,True
-mattersim-5m,GaN,relaxation converged,False
-mattersim-5m,GaN,space group unchanged,True
+mattersim-5m-native,GaN,relaxation converged,True
+mattersim-5m-native,GaN,space group unchanged,True
 mace-mpa-0,InP,relaxation converged,True
 mace-mpa-0,InP,space group unchanged,True
 orb-v3,InP,relaxation converged,True
 orb-v3,InP,space group unchanged,True
-mattersim-5m,InP,relaxation converged,True
-mattersim-5m,InP,space group unchanged,True
+mattersim-5m-native,InP,relaxation converged,True
+mattersim-5m-native,InP,space group unchanged,True
 mace-mpa-0,AlN,relaxation converged,True
 mace-mpa-0,AlN,space group unchanged,True
 orb-v3,AlN,relaxation converged,True
 orb-v3,AlN,space group unchanged,True
-mattersim-5m,AlN,relaxation converged,True
-mattersim-5m,AlN,space group unchanged,False
+mattersim-5m-native,AlN,relaxation converged,True
+mattersim-5m-native,AlN,space group unchanged,True
 mace-mpa-0,SiO2_quartz,relaxation converged,True
 mace-mpa-0,SiO2_quartz,space group unchanged,True
 orb-v3,SiO2_quartz,relaxation converged,True
 orb-v3,SiO2_quartz,space group unchanged,True
-mattersim-5m,SiO2_quartz,relaxation converged,False
-mattersim-5m,SiO2_quartz,space group unchanged,False
+mattersim-5m-native,SiO2_quartz,relaxation converged,True
+mattersim-5m-native,SiO2_quartz,space group unchanged,True
 mace-mpa-0,Si3N4_beta,relaxation converged,True
 mace-mpa-0,Si3N4_beta,space group unchanged,True
 orb-v3,Si3N4_beta,relaxation converged,True
 orb-v3,Si3N4_beta,space group unchanged,True
-mattersim-5m,Si3N4_beta,relaxation converged,False
-mattersim-5m,Si3N4_beta,space group unchanged,False
+mattersim-5m-native,Si3N4_beta,relaxation converged,True
+mattersim-5m-native,Si3N4_beta,space group unchanged,True
 mace-mpa-0,Al2O3,relaxation converged,True
 mace-mpa-0,Al2O3,space group unchanged,True
 orb-v3,Al2O3,relaxation converged,True
 orb-v3,Al2O3,space group unchanged,True
-mattersim-5m,Al2O3,relaxation converged,True
-mattersim-5m,Al2O3,space group unchanged,False
+mattersim-5m-native,Al2O3,relaxation converged,True
+mattersim-5m-native,Al2O3,space group unchanged,True
 mace-mpa-0,HfO2,relaxation converged,True
 mace-mpa-0,HfO2,space group unchanged,True
 orb-v3,HfO2,relaxation converged,True
 orb-v3,HfO2,space group unchanged,True
-mattersim-5m,HfO2,relaxation converged,True
-mattersim-5m,HfO2,space group unchanged,False
+mattersim-5m-native,HfO2,relaxation converged,True
+mattersim-5m-native,HfO2,space group unchanged,True
 mace-mpa-0,ZrO2,relaxation converged,True
 mace-mpa-0,ZrO2,space group unchanged,True
 orb-v3,ZrO2,relaxation converged,True
 orb-v3,ZrO2,space group unchanged,True
-mattersim-5m,ZrO2,relaxation converged,True
-mattersim-5m,ZrO2,space group unchanged,True
+mattersim-5m-native,ZrO2,relaxation converged,True
+mattersim-5m-native,ZrO2,space group unchanged,True
 mace-mpa-0,Y2O3,relaxation converged,True
 mace-mpa-0,Y2O3,space group unchanged,True
 orb-v3,Y2O3,relaxation converged,True
 orb-v3,Y2O3,space group unchanged,True
-mattersim-5m,Y2O3,relaxation converged,True
-mattersim-5m,Y2O3,space group unchanged,False
+mattersim-5m-native,Y2O3,relaxation converged,True
+mattersim-5m-native,Y2O3,space group unchanged,True
 mace-mpa-0,TiO2_rutile,relaxation converged,True
 mace-mpa-0,TiO2_rutile,space group unchanged,True
 orb-v3,TiO2_rutile,relaxation converged,True
 orb-v3,TiO2_rutile,space group unchanged,False
-mattersim-5m,TiO2_rutile,relaxation converged,True
-mattersim-5m,TiO2_rutile,space group unchanged,False
+mattersim-5m-native,TiO2_rutile,relaxation converged,True
+mattersim-5m-native,TiO2_rutile,space group unchanged,True
 mace-mpa-0,MgO,relaxation converged,True
 mace-mpa-0,MgO,space group unchanged,True
 orb-v3,MgO,relaxation converged,True
 orb-v3,MgO,space group unchanged,True
-mattersim-5m,MgO,relaxation converged,True
-mattersim-5m,MgO,space group unchanged,False
+mattersim-5m-native,MgO,relaxation converged,True
+mattersim-5m-native,MgO,space group unchanged,True
 mace-mpa-0,SrTiO3,relaxation converged,True
 mace-mpa-0,SrTiO3,space group unchanged,True
 orb-v3,SrTiO3,relaxation converged,True
 orb-v3,SrTiO3,space group unchanged,False
-mattersim-5m,SrTiO3,relaxation converged,True
-mattersim-5m,SrTiO3,space group unchanged,False
+mattersim-5m-native,SrTiO3,relaxation converged,True
+mattersim-5m-native,SrTiO3,space group unchanged,True
 mace-mpa-0,Cu,relaxation converged,True
 mace-mpa-0,Cu,space group unchanged,True
 orb-v3,Cu,relaxation converged,True
 orb-v3,Cu,space group unchanged,True
-mattersim-5m,Cu,relaxation converged,True
-mattersim-5m,Cu,space group unchanged,True
+mattersim-5m-native,Cu,relaxation converged,True
+mattersim-5m-native,Cu,space group unchanged,True
 mace-mpa-0,Al,relaxation converged,True
 mace-mpa-0,Al,space group unchanged,True
 orb-v3,Al,relaxation converged,True
 orb-v3,Al,space group unchanged,True
-mattersim-5m,Al,relaxation converged,False
-mattersim-5m,Al,space group unchanged,False
+mattersim-5m-native,Al,relaxation converged,True
+mattersim-5m-native,Al,space group unchanged,True
 mace-mpa-0,W,relaxation converged,True
 mace-mpa-0,W,space group unchanged,True
 orb-v3,W,relaxation converged,True
 orb-v3,W,space group unchanged,True
-mattersim-5m,W,relaxation converged,True
-mattersim-5m,W,space group unchanged,True
+mattersim-5m-native,W,relaxation converged,True
+mattersim-5m-native,W,space group unchanged,True
 mace-mpa-0,Co,relaxation converged,True
 mace-mpa-0,Co,space group unchanged,True
 orb-v3,Co,relaxation converged,True
 orb-v3,Co,space group unchanged,True
-mattersim-5m,Co,relaxation converged,False
-mattersim-5m,Co,space group unchanged,True
+mattersim-5m-native,Co,relaxation converged,True
+mattersim-5m-native,Co,space group unchanged,True
 mace-mpa-0,Ru,relaxation converged,True
 mace-mpa-0,Ru,space group unchanged,True
 orb-v3,Ru,relaxation converged,True
 orb-v3,Ru,space group unchanged,True
-mattersim-5m,Ru,relaxation converged,True
-mattersim-5m,Ru,space group unchanged,False
+mattersim-5m-native,Ru,relaxation converged,True
+mattersim-5m-native,Ru,space group unchanged,True
 mace-mpa-0,Mo,relaxation converged,True
 mace-mpa-0,Mo,space group unchanged,True
 orb-v3,Mo,relaxation converged,True
 orb-v3,Mo,space group unchanged,True
-mattersim-5m,Mo,relaxation converged,True
-mattersim-5m,Mo,space group unchanged,True
+mattersim-5m-native,Mo,relaxation converged,True
+mattersim-5m-native,Mo,space group unchanged,True
 mace-mpa-0,Ti,relaxation converged,True
 mace-mpa-0,Ti,space group unchanged,True
 orb-v3,Ti,relaxation converged,True
 orb-v3,Ti,space group unchanged,True
-mattersim-5m,Ti,relaxation converged,True
-mattersim-5m,Ti,space group unchanged,False
+mattersim-5m-native,Ti,relaxation converged,True
+mattersim-5m-native,Ti,space group unchanged,True
 mace-mpa-0,Ta,relaxation converged,True
 mace-mpa-0,Ta,space group unchanged,True
 orb-v3,Ta,relaxation converged,True
 orb-v3,Ta,space group unchanged,True
-mattersim-5m,Ta,relaxation converged,True
-mattersim-5m,Ta,space group unchanged,True
+mattersim-5m-native,Ta,relaxation converged,True
+mattersim-5m-native,Ta,space group unchanged,True
 mace-mpa-0,TiN,relaxation converged,True
 mace-mpa-0,TiN,space group unchanged,True
 orb-v3,TiN,relaxation converged,True
 orb-v3,TiN,space group unchanged,True
-mattersim-5m,TiN,relaxation converged,True
-mattersim-5m,TiN,space group unchanged,True
+mattersim-5m-native,TiN,relaxation converged,True
+mattersim-5m-native,TiN,space group unchanged,True
 mace-mpa-0,TaN,relaxation converged,True
 mace-mpa-0,TaN,space group unchanged,True
 orb-v3,TaN,relaxation converged,True
 orb-v3,TaN,space group unchanged,True
-mattersim-5m,TaN,relaxation converged,True
-mattersim-5m,TaN,space group unchanged,False
+mattersim-5m-native,TaN,relaxation converged,True
+mattersim-5m-native,TaN,space group unchanged,True
 mace-mpa-0,CoSi2,relaxation converged,True
 mace-mpa-0,CoSi2,space group unchanged,True
 orb-v3,CoSi2,relaxation converged,True
 orb-v3,CoSi2,space group unchanged,True
-mattersim-5m,CoSi2,relaxation converged,True
-mattersim-5m,CoSi2,space group unchanged,True
+mattersim-5m-native,CoSi2,relaxation converged,True
+mattersim-5m-native,CoSi2,space group unchanged,True
 mace-mpa-0,NiSi,relaxation converged,True
 mace-mpa-0,NiSi,space group unchanged,True
 orb-v3,NiSi,relaxation converged,True
 orb-v3,NiSi,space group unchanged,True
-mattersim-5m,NiSi,relaxation converged,True
-mattersim-5m,NiSi,space group unchanged,False
+mattersim-5m-native,NiSi,relaxation converged,True
+mattersim-5m-native,NiSi,space group unchanged,True
 mace-mpa-0,TiSi2,relaxation converged,True
 mace-mpa-0,TiSi2,space group unchanged,True
 orb-v3,TiSi2,relaxation converged,True
 orb-v3,TiSi2,space group unchanged,True
-mattersim-5m,TiSi2,relaxation converged,True
-mattersim-5m,TiSi2,space group unchanged,False
+mattersim-5m-native,TiSi2,relaxation converged,True
+mattersim-5m-native,TiSi2,space group unchanged,True
 mace-mpa-0,WSi2,relaxation converged,True
 mace-mpa-0,WSi2,space group unchanged,True
 orb-v3,WSi2,relaxation converged,True
 orb-v3,WSi2,space group unchanged,True
-mattersim-5m,WSi2,relaxation converged,True
-mattersim-5m,WSi2,space group unchanged,True
+mattersim-5m-native,WSi2,relaxation converged,True
+mattersim-5m-native,WSi2,space group unchanged,True
 mace-mpa-0,MoS2,relaxation converged,True
 mace-mpa-0,MoS2,space group unchanged,True
 orb-v3,MoS2,relaxation converged,True
 orb-v3,MoS2,space group unchanged,False
-mattersim-5m,MoS2,relaxation converged,True
-mattersim-5m,MoS2,space group unchanged,True
+mattersim-5m-native,MoS2,relaxation converged,True
+mattersim-5m-native,MoS2,space group unchanged,True
 mace-mpa-0,hBN,relaxation converged,True
 mace-mpa-0,hBN,space group unchanged,True
 orb-v3,hBN,relaxation converged,True
 orb-v3,hBN,space group unchanged,True
-mattersim-5m,hBN,relaxation converged,True
-mattersim-5m,hBN,space group unchanged,False
+mattersim-5m-native,hBN,relaxation converged,True
+mattersim-5m-native,hBN,space group unchanged,True
 mace-mpa-0,graphite,relaxation converged,True
 mace-mpa-0,graphite,space group unchanged,True
 orb-v3,graphite,relaxation converged,True
 orb-v3,graphite,space group unchanged,True
-mattersim-5m,graphite,relaxation converged,True
-mattersim-5m,graphite,space group unchanged,True
+mattersim-5m-native,graphite,relaxation converged,True
+mattersim-5m-native,graphite,space group unchanged,True
 mace-mpa-0,Si,elastic tensor positive definite,True
 mace-mpa-0,Si,elastic fit symmetric (<5%),True
 mace-mpa-0,Si,Birch-Murnaghan fit clean,True
 mace-mpa-0,Si,cubic: EOS B within 5% of elastic K,True
 orb-v3,Si,elastic tensor positive definite,True
-orb-v3,Si,elastic fit symmetric (<5%),False
+orb-v3,Si,elastic fit symmetric (<5%),True
 orb-v3,Si,Birch-Murnaghan fit clean,True
 orb-v3,Si,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,Si,elastic tensor positive definite,True
-mattersim-5m,Si,elastic fit symmetric (<5%),True
-mattersim-5m,Si,Birch-Murnaghan fit clean,True
-mattersim-5m,Si,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,Si,elastic tensor positive definite,True
+mattersim-5m-native,Si,elastic fit symmetric (<5%),True
+mattersim-5m-native,Si,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Si,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,Ge,elastic tensor positive definite,True
 mace-mpa-0,Ge,elastic fit symmetric (<5%),True
 mace-mpa-0,Ge,Birch-Murnaghan fit clean,True
 mace-mpa-0,Ge,cubic: EOS B within 5% of elastic K,True
 orb-v3,Ge,elastic tensor positive definite,True
-orb-v3,Ge,elastic fit symmetric (<5%),False
+orb-v3,Ge,elastic fit symmetric (<5%),True
 orb-v3,Ge,Birch-Murnaghan fit clean,True
 orb-v3,Ge,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,Ge,elastic tensor positive definite,False
-mattersim-5m,Ge,elastic fit symmetric (<5%),True
-mattersim-5m,Ge,Birch-Murnaghan fit clean,False
-mattersim-5m,Ge,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,Ge,elastic tensor positive definite,True
+mattersim-5m-native,Ge,elastic fit symmetric (<5%),True
+mattersim-5m-native,Ge,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Ge,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,SiC,elastic tensor positive definite,True
 mace-mpa-0,SiC,elastic fit symmetric (<5%),True
 mace-mpa-0,SiC,Birch-Murnaghan fit clean,True
 mace-mpa-0,SiC,cubic: EOS B within 5% of elastic K,True
-orb-v3,SiC,elastic tensor positive definite,False
-orb-v3,SiC,elastic fit symmetric (<5%),False
+orb-v3,SiC,elastic tensor positive definite,True
+orb-v3,SiC,elastic fit symmetric (<5%),True
 orb-v3,SiC,Birch-Murnaghan fit clean,True
 orb-v3,SiC,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,SiC,elastic tensor positive definite,True
-mattersim-5m,SiC,elastic fit symmetric (<5%),True
-mattersim-5m,SiC,Birch-Murnaghan fit clean,False
-mattersim-5m,SiC,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,SiC,elastic tensor positive definite,True
+mattersim-5m-native,SiC,elastic fit symmetric (<5%),True
+mattersim-5m-native,SiC,Birch-Murnaghan fit clean,True
+mattersim-5m-native,SiC,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,GaAs,elastic tensor positive definite,True
 mace-mpa-0,GaAs,elastic fit symmetric (<5%),True
 mace-mpa-0,GaAs,Birch-Murnaghan fit clean,True
 mace-mpa-0,GaAs,cubic: EOS B within 5% of elastic K,True
 orb-v3,GaAs,elastic tensor positive definite,True
-orb-v3,GaAs,elastic fit symmetric (<5%),False
+orb-v3,GaAs,elastic fit symmetric (<5%),True
 orb-v3,GaAs,Birch-Murnaghan fit clean,True
 orb-v3,GaAs,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,GaAs,elastic tensor positive definite,True
-mattersim-5m,GaAs,elastic fit symmetric (<5%),True
-mattersim-5m,GaAs,Birch-Murnaghan fit clean,True
-mattersim-5m,GaAs,cubic: EOS B within 5% of elastic K,True
+mattersim-5m-native,GaAs,elastic tensor positive definite,True
+mattersim-5m-native,GaAs,elastic fit symmetric (<5%),True
+mattersim-5m-native,GaAs,Birch-Murnaghan fit clean,True
+mattersim-5m-native,GaAs,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,GaN,elastic tensor positive definite,True
 mace-mpa-0,GaN,elastic fit symmetric (<5%),True
 mace-mpa-0,GaN,Birch-Murnaghan fit clean,True
 orb-v3,GaN,elastic tensor positive definite,True
-orb-v3,GaN,elastic fit symmetric (<5%),False
+orb-v3,GaN,elastic fit symmetric (<5%),True
 orb-v3,GaN,Birch-Murnaghan fit clean,True
-mattersim-5m,GaN,elastic tensor positive definite,True
-mattersim-5m,GaN,elastic fit symmetric (<5%),False
-mattersim-5m,GaN,Birch-Murnaghan fit clean,False
+mattersim-5m-native,GaN,elastic tensor positive definite,True
+mattersim-5m-native,GaN,elastic fit symmetric (<5%),True
+mattersim-5m-native,GaN,Birch-Murnaghan fit clean,True
 mace-mpa-0,InP,elastic tensor positive definite,True
 mace-mpa-0,InP,elastic fit symmetric (<5%),True
 mace-mpa-0,InP,Birch-Murnaghan fit clean,True
 mace-mpa-0,InP,cubic: EOS B within 5% of elastic K,True
 orb-v3,InP,elastic tensor positive definite,True
-orb-v3,InP,elastic fit symmetric (<5%),False
+orb-v3,InP,elastic fit symmetric (<5%),True
 orb-v3,InP,Birch-Murnaghan fit clean,True
 orb-v3,InP,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,InP,elastic tensor positive definite,True
-mattersim-5m,InP,elastic fit symmetric (<5%),True
-mattersim-5m,InP,Birch-Murnaghan fit clean,True
-mattersim-5m,InP,cubic: EOS B within 5% of elastic K,True
+mattersim-5m-native,InP,elastic tensor positive definite,True
+mattersim-5m-native,InP,elastic fit symmetric (<5%),True
+mattersim-5m-native,InP,Birch-Murnaghan fit clean,True
+mattersim-5m-native,InP,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,AlN,elastic tensor positive definite,True
 mace-mpa-0,AlN,elastic fit symmetric (<5%),True
 mace-mpa-0,AlN,Birch-Murnaghan fit clean,True
-orb-v3,AlN,elastic tensor positive definite,False
-orb-v3,AlN,elastic fit symmetric (<5%),False
+orb-v3,AlN,elastic tensor positive definite,True
+orb-v3,AlN,elastic fit symmetric (<5%),True
 orb-v3,AlN,Birch-Murnaghan fit clean,True
-mattersim-5m,AlN,elastic tensor positive definite,True
-mattersim-5m,AlN,elastic fit symmetric (<5%),False
-mattersim-5m,AlN,Birch-Murnaghan fit clean,False
+mattersim-5m-native,AlN,elastic tensor positive definite,True
+mattersim-5m-native,AlN,elastic fit symmetric (<5%),True
+mattersim-5m-native,AlN,Birch-Murnaghan fit clean,True
 mace-mpa-0,SiO2_quartz,elastic tensor positive definite,True
 mace-mpa-0,SiO2_quartz,elastic fit symmetric (<5%),True
 mace-mpa-0,SiO2_quartz,Birch-Murnaghan fit clean,True
 orb-v3,SiO2_quartz,elastic tensor positive definite,True
-orb-v3,SiO2_quartz,elastic fit symmetric (<5%),False
+orb-v3,SiO2_quartz,elastic fit symmetric (<5%),True
 orb-v3,SiO2_quartz,Birch-Murnaghan fit clean,False
-mattersim-5m,SiO2_quartz,elastic tensor positive definite,False
-mattersim-5m,SiO2_quartz,elastic fit symmetric (<5%),False
-mattersim-5m,SiO2_quartz,Birch-Murnaghan fit clean,False
+mattersim-5m-native,SiO2_quartz,elastic tensor positive definite,True
+mattersim-5m-native,SiO2_quartz,elastic fit symmetric (<5%),True
+mattersim-5m-native,SiO2_quartz,Birch-Murnaghan fit clean,False
 mace-mpa-0,Si3N4_beta,elastic tensor positive definite,True
 mace-mpa-0,Si3N4_beta,elastic fit symmetric (<5%),True
 mace-mpa-0,Si3N4_beta,Birch-Murnaghan fit clean,True
 orb-v3,Si3N4_beta,elastic tensor positive definite,True
-orb-v3,Si3N4_beta,elastic fit symmetric (<5%),False
+orb-v3,Si3N4_beta,elastic fit symmetric (<5%),True
 orb-v3,Si3N4_beta,Birch-Murnaghan fit clean,True
-mattersim-5m,Si3N4_beta,elastic tensor positive definite,True
-mattersim-5m,Si3N4_beta,elastic fit symmetric (<5%),False
-mattersim-5m,Si3N4_beta,Birch-Murnaghan fit clean,False
+mattersim-5m-native,Si3N4_beta,elastic tensor positive definite,True
+mattersim-5m-native,Si3N4_beta,elastic fit symmetric (<5%),True
+mattersim-5m-native,Si3N4_beta,Birch-Murnaghan fit clean,True
 mace-mpa-0,Al2O3,elastic tensor positive definite,True
 mace-mpa-0,Al2O3,elastic fit symmetric (<5%),True
 mace-mpa-0,Al2O3,Birch-Murnaghan fit clean,True
 orb-v3,Al2O3,elastic tensor positive definite,True
-orb-v3,Al2O3,elastic fit symmetric (<5%),False
+orb-v3,Al2O3,elastic fit symmetric (<5%),True
 orb-v3,Al2O3,Birch-Murnaghan fit clean,True
-mattersim-5m,Al2O3,elastic tensor positive definite,True
-mattersim-5m,Al2O3,elastic fit symmetric (<5%),True
-mattersim-5m,Al2O3,Birch-Murnaghan fit clean,False
+mattersim-5m-native,Al2O3,elastic tensor positive definite,True
+mattersim-5m-native,Al2O3,elastic fit symmetric (<5%),True
+mattersim-5m-native,Al2O3,Birch-Murnaghan fit clean,True
 mace-mpa-0,HfO2,elastic tensor positive definite,True
 mace-mpa-0,HfO2,elastic fit symmetric (<5%),True
 mace-mpa-0,HfO2,Birch-Murnaghan fit clean,True
 orb-v3,HfO2,elastic tensor positive definite,True
-orb-v3,HfO2,elastic fit symmetric (<5%),False
+orb-v3,HfO2,elastic fit symmetric (<5%),True
 orb-v3,HfO2,Birch-Murnaghan fit clean,True
-mattersim-5m,HfO2,elastic tensor positive definite,True
-mattersim-5m,HfO2,elastic fit symmetric (<5%),False
-mattersim-5m,HfO2,Birch-Murnaghan fit clean,False
+mattersim-5m-native,HfO2,elastic tensor positive definite,True
+mattersim-5m-native,HfO2,elastic fit symmetric (<5%),True
+mattersim-5m-native,HfO2,Birch-Murnaghan fit clean,True
 mace-mpa-0,ZrO2,elastic tensor positive definite,True
 mace-mpa-0,ZrO2,elastic fit symmetric (<5%),True
 mace-mpa-0,ZrO2,Birch-Murnaghan fit clean,True
 orb-v3,ZrO2,elastic tensor positive definite,True
-orb-v3,ZrO2,elastic fit symmetric (<5%),False
+orb-v3,ZrO2,elastic fit symmetric (<5%),True
 orb-v3,ZrO2,Birch-Murnaghan fit clean,True
-mattersim-5m,ZrO2,elastic tensor positive definite,True
-mattersim-5m,ZrO2,elastic fit symmetric (<5%),False
-mattersim-5m,ZrO2,Birch-Murnaghan fit clean,False
+mattersim-5m-native,ZrO2,elastic tensor positive definite,True
+mattersim-5m-native,ZrO2,elastic fit symmetric (<5%),True
+mattersim-5m-native,ZrO2,Birch-Murnaghan fit clean,True
 mace-mpa-0,Y2O3,elastic tensor positive definite,True
 mace-mpa-0,Y2O3,elastic fit symmetric (<5%),True
 mace-mpa-0,Y2O3,Birch-Murnaghan fit clean,True
 mace-mpa-0,Y2O3,cubic: EOS B within 5% of elastic K,True
 orb-v3,Y2O3,elastic tensor positive definite,True
-orb-v3,Y2O3,elastic fit symmetric (<5%),False
+orb-v3,Y2O3,elastic fit symmetric (<5%),True
 orb-v3,Y2O3,Birch-Murnaghan fit clean,True
 orb-v3,Y2O3,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,Y2O3,elastic tensor positive definite,True
-mattersim-5m,Y2O3,elastic fit symmetric (<5%),False
-mattersim-5m,Y2O3,Birch-Murnaghan fit clean,True
-mattersim-5m,Y2O3,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,Y2O3,elastic tensor positive definite,True
+mattersim-5m-native,Y2O3,elastic fit symmetric (<5%),True
+mattersim-5m-native,Y2O3,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Y2O3,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,TiO2_rutile,elastic tensor positive definite,True
 mace-mpa-0,TiO2_rutile,elastic fit symmetric (<5%),True
 mace-mpa-0,TiO2_rutile,Birch-Murnaghan fit clean,True
 orb-v3,TiO2_rutile,elastic tensor positive definite,True
-orb-v3,TiO2_rutile,elastic fit symmetric (<5%),False
+orb-v3,TiO2_rutile,elastic fit symmetric (<5%),True
 orb-v3,TiO2_rutile,Birch-Murnaghan fit clean,True
-mattersim-5m,TiO2_rutile,elastic tensor positive definite,True
-mattersim-5m,TiO2_rutile,elastic fit symmetric (<5%),True
-mattersim-5m,TiO2_rutile,Birch-Murnaghan fit clean,False
+mattersim-5m-native,TiO2_rutile,elastic tensor positive definite,True
+mattersim-5m-native,TiO2_rutile,elastic fit symmetric (<5%),True
+mattersim-5m-native,TiO2_rutile,Birch-Murnaghan fit clean,True
 mace-mpa-0,MgO,elastic tensor positive definite,True
 mace-mpa-0,MgO,elastic fit symmetric (<5%),True
 mace-mpa-0,MgO,Birch-Murnaghan fit clean,True
 mace-mpa-0,MgO,cubic: EOS B within 5% of elastic K,True
 orb-v3,MgO,elastic tensor positive definite,True
-orb-v3,MgO,elastic fit symmetric (<5%),False
+orb-v3,MgO,elastic fit symmetric (<5%),True
 orb-v3,MgO,Birch-Murnaghan fit clean,True
 orb-v3,MgO,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,MgO,elastic tensor positive definite,True
-mattersim-5m,MgO,elastic fit symmetric (<5%),False
-mattersim-5m,MgO,Birch-Murnaghan fit clean,False
-mattersim-5m,MgO,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,MgO,elastic tensor positive definite,True
+mattersim-5m-native,MgO,elastic fit symmetric (<5%),True
+mattersim-5m-native,MgO,Birch-Murnaghan fit clean,True
+mattersim-5m-native,MgO,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,SrTiO3,elastic tensor positive definite,True
 mace-mpa-0,SrTiO3,elastic fit symmetric (<5%),True
 mace-mpa-0,SrTiO3,Birch-Murnaghan fit clean,True
 mace-mpa-0,SrTiO3,cubic: EOS B within 5% of elastic K,True
-orb-v3,SrTiO3,elastic tensor positive definite,False
-orb-v3,SrTiO3,elastic fit symmetric (<5%),False
+orb-v3,SrTiO3,elastic tensor positive definite,True
+orb-v3,SrTiO3,elastic fit symmetric (<5%),True
 orb-v3,SrTiO3,Birch-Murnaghan fit clean,True
 orb-v3,SrTiO3,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,SrTiO3,elastic tensor positive definite,True
-mattersim-5m,SrTiO3,elastic fit symmetric (<5%),True
-mattersim-5m,SrTiO3,Birch-Murnaghan fit clean,False
-mattersim-5m,SrTiO3,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,SrTiO3,elastic tensor positive definite,True
+mattersim-5m-native,SrTiO3,elastic fit symmetric (<5%),True
+mattersim-5m-native,SrTiO3,Birch-Murnaghan fit clean,True
+mattersim-5m-native,SrTiO3,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,Cu,elastic tensor positive definite,True
 mace-mpa-0,Cu,elastic fit symmetric (<5%),True
 mace-mpa-0,Cu,Birch-Murnaghan fit clean,True
 mace-mpa-0,Cu,cubic: EOS B within 5% of elastic K,True
-orb-v3,Cu,elastic tensor positive definite,False
-orb-v3,Cu,elastic fit symmetric (<5%),False
+orb-v3,Cu,elastic tensor positive definite,True
+orb-v3,Cu,elastic fit symmetric (<5%),True
 orb-v3,Cu,Birch-Murnaghan fit clean,True
 orb-v3,Cu,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,Cu,elastic tensor positive definite,True
-mattersim-5m,Cu,elastic fit symmetric (<5%),True
-mattersim-5m,Cu,Birch-Murnaghan fit clean,False
-mattersim-5m,Cu,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,Cu,elastic tensor positive definite,True
+mattersim-5m-native,Cu,elastic fit symmetric (<5%),True
+mattersim-5m-native,Cu,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Cu,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,Al,elastic tensor positive definite,True
 mace-mpa-0,Al,elastic fit symmetric (<5%),True
 mace-mpa-0,Al,Birch-Murnaghan fit clean,True
 mace-mpa-0,Al,cubic: EOS B within 5% of elastic K,True
 orb-v3,Al,elastic tensor positive definite,True
-orb-v3,Al,elastic fit symmetric (<5%),False
+orb-v3,Al,elastic fit symmetric (<5%),True
 orb-v3,Al,Birch-Murnaghan fit clean,True
 orb-v3,Al,cubic: EOS B within 5% of elastic K,False
-mattersim-5m,Al,elastic tensor positive definite,False
-mattersim-5m,Al,elastic fit symmetric (<5%),False
-mattersim-5m,Al,Birch-Murnaghan fit clean,False
-mattersim-5m,Al,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,Al,elastic tensor positive definite,True
+mattersim-5m-native,Al,elastic fit symmetric (<5%),True
+mattersim-5m-native,Al,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Al,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,W,elastic tensor positive definite,True
 mace-mpa-0,W,elastic fit symmetric (<5%),True
 mace-mpa-0,W,Birch-Murnaghan fit clean,True
 mace-mpa-0,W,cubic: EOS B within 5% of elastic K,True
 orb-v3,W,elastic tensor positive definite,True
-orb-v3,W,elastic fit symmetric (<5%),False
+orb-v3,W,elastic fit symmetric (<5%),True
 orb-v3,W,Birch-Murnaghan fit clean,True
 orb-v3,W,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,W,elastic tensor positive definite,True
-mattersim-5m,W,elastic fit symmetric (<5%),True
-mattersim-5m,W,Birch-Murnaghan fit clean,True
-mattersim-5m,W,cubic: EOS B within 5% of elastic K,True
+mattersim-5m-native,W,elastic tensor positive definite,True
+mattersim-5m-native,W,elastic fit symmetric (<5%),True
+mattersim-5m-native,W,Birch-Murnaghan fit clean,True
+mattersim-5m-native,W,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,Co,elastic tensor positive definite,True
 mace-mpa-0,Co,elastic fit symmetric (<5%),True
 mace-mpa-0,Co,Birch-Murnaghan fit clean,True
 orb-v3,Co,elastic tensor positive definite,True
-orb-v3,Co,elastic fit symmetric (<5%),False
+orb-v3,Co,elastic fit symmetric (<5%),True
 orb-v3,Co,Birch-Murnaghan fit clean,True
-mattersim-5m,Co,elastic tensor positive definite,True
-mattersim-5m,Co,elastic fit symmetric (<5%),True
-mattersim-5m,Co,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Co,elastic tensor positive definite,True
+mattersim-5m-native,Co,elastic fit symmetric (<5%),True
+mattersim-5m-native,Co,Birch-Murnaghan fit clean,False
 mace-mpa-0,Ru,elastic tensor positive definite,True
 mace-mpa-0,Ru,elastic fit symmetric (<5%),True
 mace-mpa-0,Ru,Birch-Murnaghan fit clean,True
 orb-v3,Ru,elastic tensor positive definite,True
-orb-v3,Ru,elastic fit symmetric (<5%),False
+orb-v3,Ru,elastic fit symmetric (<5%),True
 orb-v3,Ru,Birch-Murnaghan fit clean,True
-mattersim-5m,Ru,elastic tensor positive definite,True
-mattersim-5m,Ru,elastic fit symmetric (<5%),True
-mattersim-5m,Ru,Birch-Murnaghan fit clean,False
+mattersim-5m-native,Ru,elastic tensor positive definite,True
+mattersim-5m-native,Ru,elastic fit symmetric (<5%),True
+mattersim-5m-native,Ru,Birch-Murnaghan fit clean,True
 mace-mpa-0,Mo,elastic tensor positive definite,True
 mace-mpa-0,Mo,elastic fit symmetric (<5%),True
 mace-mpa-0,Mo,Birch-Murnaghan fit clean,True
 mace-mpa-0,Mo,cubic: EOS B within 5% of elastic K,True
 orb-v3,Mo,elastic tensor positive definite,True
-orb-v3,Mo,elastic fit symmetric (<5%),False
+orb-v3,Mo,elastic fit symmetric (<5%),True
 orb-v3,Mo,Birch-Murnaghan fit clean,True
 orb-v3,Mo,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,Mo,elastic tensor positive definite,True
-mattersim-5m,Mo,elastic fit symmetric (<5%),True
-mattersim-5m,Mo,Birch-Murnaghan fit clean,True
-mattersim-5m,Mo,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,Mo,elastic tensor positive definite,True
+mattersim-5m-native,Mo,elastic fit symmetric (<5%),True
+mattersim-5m-native,Mo,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Mo,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,Ti,elastic tensor positive definite,True
 mace-mpa-0,Ti,elastic fit symmetric (<5%),True
 mace-mpa-0,Ti,Birch-Murnaghan fit clean,True
-orb-v3,Ti,elastic tensor positive definite,False
-orb-v3,Ti,elastic fit symmetric (<5%),False
+orb-v3,Ti,elastic tensor positive definite,True
+orb-v3,Ti,elastic fit symmetric (<5%),True
 orb-v3,Ti,Birch-Murnaghan fit clean,True
-mattersim-5m,Ti,elastic tensor positive definite,False
-mattersim-5m,Ti,elastic fit symmetric (<5%),False
-mattersim-5m,Ti,Birch-Murnaghan fit clean,False
+mattersim-5m-native,Ti,elastic tensor positive definite,False
+mattersim-5m-native,Ti,elastic fit symmetric (<5%),True
+mattersim-5m-native,Ti,Birch-Murnaghan fit clean,True
 mace-mpa-0,Ta,elastic tensor positive definite,True
 mace-mpa-0,Ta,elastic fit symmetric (<5%),True
 mace-mpa-0,Ta,Birch-Murnaghan fit clean,True
 mace-mpa-0,Ta,cubic: EOS B within 5% of elastic K,True
 orb-v3,Ta,elastic tensor positive definite,True
-orb-v3,Ta,elastic fit symmetric (<5%),False
+orb-v3,Ta,elastic fit symmetric (<5%),True
 orb-v3,Ta,Birch-Murnaghan fit clean,True
 orb-v3,Ta,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,Ta,elastic tensor positive definite,True
-mattersim-5m,Ta,elastic fit symmetric (<5%),True
-mattersim-5m,Ta,Birch-Murnaghan fit clean,True
-mattersim-5m,Ta,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,Ta,elastic tensor positive definite,True
+mattersim-5m-native,Ta,elastic fit symmetric (<5%),True
+mattersim-5m-native,Ta,Birch-Murnaghan fit clean,True
+mattersim-5m-native,Ta,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,TiN,elastic tensor positive definite,True
 mace-mpa-0,TiN,elastic fit symmetric (<5%),True
 mace-mpa-0,TiN,Birch-Murnaghan fit clean,True
 mace-mpa-0,TiN,cubic: EOS B within 5% of elastic K,True
 orb-v3,TiN,elastic tensor positive definite,True
-orb-v3,TiN,elastic fit symmetric (<5%),False
+orb-v3,TiN,elastic fit symmetric (<5%),True
 orb-v3,TiN,Birch-Murnaghan fit clean,True
 orb-v3,TiN,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,TiN,elastic tensor positive definite,True
-mattersim-5m,TiN,elastic fit symmetric (<5%),True
-mattersim-5m,TiN,Birch-Murnaghan fit clean,True
-mattersim-5m,TiN,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,TiN,elastic tensor positive definite,True
+mattersim-5m-native,TiN,elastic fit symmetric (<5%),True
+mattersim-5m-native,TiN,Birch-Murnaghan fit clean,True
+mattersim-5m-native,TiN,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,TaN,elastic tensor positive definite,True
 mace-mpa-0,TaN,elastic fit symmetric (<5%),True
 mace-mpa-0,TaN,Birch-Murnaghan fit clean,True
 orb-v3,TaN,elastic tensor positive definite,True
-orb-v3,TaN,elastic fit symmetric (<5%),False
+orb-v3,TaN,elastic fit symmetric (<5%),True
 orb-v3,TaN,Birch-Murnaghan fit clean,True
-mattersim-5m,TaN,elastic tensor positive definite,True
-mattersim-5m,TaN,elastic fit symmetric (<5%),True
-mattersim-5m,TaN,Birch-Murnaghan fit clean,True
+mattersim-5m-native,TaN,elastic tensor positive definite,True
+mattersim-5m-native,TaN,elastic fit symmetric (<5%),True
+mattersim-5m-native,TaN,Birch-Murnaghan fit clean,True
 mace-mpa-0,CoSi2,elastic tensor positive definite,True
 mace-mpa-0,CoSi2,elastic fit symmetric (<5%),True
 mace-mpa-0,CoSi2,Birch-Murnaghan fit clean,True
 mace-mpa-0,CoSi2,cubic: EOS B within 5% of elastic K,True
 orb-v3,CoSi2,elastic tensor positive definite,True
-orb-v3,CoSi2,elastic fit symmetric (<5%),False
+orb-v3,CoSi2,elastic fit symmetric (<5%),True
 orb-v3,CoSi2,Birch-Murnaghan fit clean,True
 orb-v3,CoSi2,cubic: EOS B within 5% of elastic K,True
-mattersim-5m,CoSi2,elastic tensor positive definite,True
-mattersim-5m,CoSi2,elastic fit symmetric (<5%),True
-mattersim-5m,CoSi2,Birch-Murnaghan fit clean,True
-mattersim-5m,CoSi2,cubic: EOS B within 5% of elastic K,False
+mattersim-5m-native,CoSi2,elastic tensor positive definite,True
+mattersim-5m-native,CoSi2,elastic fit symmetric (<5%),True
+mattersim-5m-native,CoSi2,Birch-Murnaghan fit clean,True
+mattersim-5m-native,CoSi2,cubic: EOS B within 5% of elastic K,True
 mace-mpa-0,NiSi,elastic tensor positive definite,True
 mace-mpa-0,NiSi,elastic fit symmetric (<5%),True
 mace-mpa-0,NiSi,Birch-Murnaghan fit clean,True
-orb-v3,NiSi,elastic tensor positive definite,False
-orb-v3,NiSi,elastic fit symmetric (<5%),False
+orb-v3,NiSi,elastic tensor positive definite,True
+orb-v3,NiSi,elastic fit symmetric (<5%),True
 orb-v3,NiSi,Birch-Murnaghan fit clean,True
-mattersim-5m,NiSi,elastic tensor positive definite,False
-mattersim-5m,NiSi,elastic fit symmetric (<5%),False
-mattersim-5m,NiSi,Birch-Murnaghan fit clean,False
+mattersim-5m-native,NiSi,elastic tensor positive definite,True
+mattersim-5m-native,NiSi,elastic fit symmetric (<5%),True
+mattersim-5m-native,NiSi,Birch-Murnaghan fit clean,True
 mace-mpa-0,TiSi2,elastic tensor positive definite,True
 mace-mpa-0,TiSi2,elastic fit symmetric (<5%),True
 mace-mpa-0,TiSi2,Birch-Murnaghan fit clean,True
-orb-v3,TiSi2,elastic tensor positive definite,False
-orb-v3,TiSi2,elastic fit symmetric (<5%),False
+orb-v3,TiSi2,elastic tensor positive definite,True
+orb-v3,TiSi2,elastic fit symmetric (<5%),True
 orb-v3,TiSi2,Birch-Murnaghan fit clean,True
-mattersim-5m,TiSi2,elastic tensor positive definite,True
-mattersim-5m,TiSi2,elastic fit symmetric (<5%),False
-mattersim-5m,TiSi2,Birch-Murnaghan fit clean,False
+mattersim-5m-native,TiSi2,elastic tensor positive definite,True
+mattersim-5m-native,TiSi2,elastic fit symmetric (<5%),True
+mattersim-5m-native,TiSi2,Birch-Murnaghan fit clean,True
 mace-mpa-0,WSi2,elastic tensor positive definite,True
 mace-mpa-0,WSi2,elastic fit symmetric (<5%),True
 mace-mpa-0,WSi2,Birch-Murnaghan fit clean,True
 orb-v3,WSi2,elastic tensor positive definite,True
-orb-v3,WSi2,elastic fit symmetric (<5%),False
+orb-v3,WSi2,elastic fit symmetric (<5%),True
 orb-v3,WSi2,Birch-Murnaghan fit clean,True
-mattersim-5m,WSi2,elastic tensor positive definite,True
-mattersim-5m,WSi2,elastic fit symmetric (<5%),False
-mattersim-5m,WSi2,Birch-Murnaghan fit clean,True
+mattersim-5m-native,WSi2,elastic tensor positive definite,True
+mattersim-5m-native,WSi2,elastic fit symmetric (<5%),True
+mattersim-5m-native,WSi2,Birch-Murnaghan fit clean,True
 mace-mpa-0,MoS2,elastic tensor positive definite,True
 mace-mpa-0,MoS2,elastic fit symmetric (<5%),True
 mace-mpa-0,MoS2,Birch-Murnaghan fit clean,True
-orb-v3,MoS2,elastic tensor positive definite,False
-orb-v3,MoS2,elastic fit symmetric (<5%),False
+orb-v3,MoS2,elastic tensor positive definite,True
+orb-v3,MoS2,elastic fit symmetric (<5%),True
 orb-v3,MoS2,Birch-Murnaghan fit clean,True
-mattersim-5m,MoS2,elastic tensor positive definite,False
-mattersim-5m,MoS2,elastic fit symmetric (<5%),True
-mattersim-5m,MoS2,Birch-Murnaghan fit clean,True
+mattersim-5m-native,MoS2,elastic tensor positive definite,False
+mattersim-5m-native,MoS2,elastic fit symmetric (<5%),True
+mattersim-5m-native,MoS2,Birch-Murnaghan fit clean,True
 mace-mpa-0,hBN,elastic tensor positive definite,False
 mace-mpa-0,hBN,elastic fit symmetric (<5%),False
 mace-mpa-0,hBN,Birch-Murnaghan fit clean,True
-orb-v3,hBN,elastic tensor positive definite,False
-orb-v3,hBN,elastic fit symmetric (<5%),False
+orb-v3,hBN,elastic tensor positive definite,True
+orb-v3,hBN,elastic fit symmetric (<5%),True
 orb-v3,hBN,Birch-Murnaghan fit clean,True
-mattersim-5m,hBN,elastic tensor positive definite,False
-mattersim-5m,hBN,elastic fit symmetric (<5%),False
-mattersim-5m,hBN,Birch-Murnaghan fit clean,False
+mattersim-5m-native,hBN,elastic tensor positive definite,True
+mattersim-5m-native,hBN,elastic fit symmetric (<5%),True
+mattersim-5m-native,hBN,Birch-Murnaghan fit clean,True
 mace-mpa-0,graphite,elastic tensor positive definite,True
 mace-mpa-0,graphite,elastic fit symmetric (<5%),True
 mace-mpa-0,graphite,Birch-Murnaghan fit clean,True
-orb-v3,graphite,elastic tensor positive definite,False
-orb-v3,graphite,elastic fit symmetric (<5%),False
+orb-v3,graphite,elastic tensor positive definite,True
+orb-v3,graphite,elastic fit symmetric (<5%),True
 orb-v3,graphite,Birch-Murnaghan fit clean,True
-mattersim-5m,graphite,elastic tensor positive definite,True
-mattersim-5m,graphite,elastic fit symmetric (<5%),False
-mattersim-5m,graphite,Birch-Murnaghan fit clean,False
+mattersim-5m-native,graphite,elastic tensor positive definite,True
+mattersim-5m-native,graphite,elastic fit symmetric (<5%),True
+mattersim-5m-native,graphite,Birch-Murnaghan fit clean,True
