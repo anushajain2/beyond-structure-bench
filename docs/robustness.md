@@ -34,10 +34,21 @@ holds every pair, the difference, its interval, P(A better) and a verdict. Layer
 are left out of these tables because their errors are so large (60–130%) that they would
 dominate the averages; they are reported separately.
 
+**Within each material class** (`pairwise_by_class.csv`) the same paired bootstrap is run per
+class. With 5 classes x 3 model pairs there are 15 comparisons per property and reference, so about
+one would look significant at 95% by chance alone. We therefore apply the Holm-Bonferroni correction
+and only claim a difference whose adjusted p-value is below 0.05. Uncorrected "suggestive" results
+are listed but not claimed.
+
 **What it showed.** Against experiment, MACE, Orb and MatterSim are statistically tied for
-both lattice constants and bulk moduli. Against DFT there are real differences: MatterSim
-reproduces PBE lattice constants most closely, and Orb reproduces PBE bulk moduli more closely
-than MACE.
+both lattice constants and bulk moduli, overall and within every class. Against DFT there are
+real differences: MatterSim reproduces PBE most closely (lattices for semiconductors, dielectrics,
+barriers; bulk moduli for semiconductors, metals, barriers), and Orb is closer than MACE for barrier
+bulk moduli. Being closer to the training data does not make a model closer to experiment.
+
+**Statistical power.** With ~26-30 materials, differences of about 3-5 percentage points in
+bulk-modulus error and about 0.1 points in lattice error can be resolved; within a class
+(4-9 materials) only much larger ones. Smaller real differences appear as ties.
 
 ## 2. Would a rerun give the same numbers? Determinism
 

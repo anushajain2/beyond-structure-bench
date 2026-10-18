@@ -35,8 +35,11 @@ updated when they land.
    staying close to DFT (5–6 %); MACE is unbiased on average but scatters more and over-stiffens some
    refractory metals (W +18 %, Mo +17 %, Ti +35 %). **Against experiment the three models are
    statistically tied** for both lattice constants and bulk moduli: every pairwise difference's 95 %
-   bootstrap interval includes zero (`results/robustness/pairwise.csv`). Against DFT the differences are
-   real: MatterSim reproduces PBE lattices most closely, and Orb reproduces PBE bulk moduli better than MACE.
+   bootstrap interval includes zero (`results/robustness/pairwise.csv`), and the same holds within every
+   material class (`pairwise_by_class.csv`, Holm-corrected). Against DFT the differences are real:
+   MatterSim reproduces PBE most closely, especially for metals and semiconductors, yet is no closer to
+   experiment. **Fidelity to the PBE training data doesn't buy accuracy against reality: for these
+   properties the limit is the training functional, not the architecture.**
 4. **Symmetry is not guaranteed.** Orb, which is not built to be exactly equivariant, relaxes rutile
    TiO₂ and cubic SrTiO₃ into lower-symmetry polar structures; MACE and MatterSim keep them. Those
    cases are excluded from the averages and reported as findings.

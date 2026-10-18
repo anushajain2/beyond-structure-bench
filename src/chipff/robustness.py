@@ -126,6 +126,58 @@ def bootstrap_tables(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame,
     return pd.DataFrame(ci_rows), pd.DataFrame(pair_rows)
 
 
+def class_pairwise(lat: pd.DataFrame, bulk: pd.DataFrame, n: int = 5000, seed: int = 1, min_n: int = 4) -> pd.DataFrame:
+    """Paired bootstrap per material class, with Holm correction for the many comparisons.
+
+    With 5 classes x 3 model pairs there are 15 tests per property and reference, so about
+    one would look "significant" at 95% by chance alone. The Holm-Bonferroni step-down
+    adjustment controls that: a difference is only claimed if its adjusted p < 0.05.
+    """
+    rng = np.random.default_rng(seed)
+    rows = []
+    for prop, df, ref in (("lattice", lat, "experiment"), ("lattice", lat, "dft"),
+                          ("bulk_modulus", bulk, "experiment"), ("bulk_modulus", bulk, "dft")):
+        d = _usable(df, prop, ref)
+        fam = []
+        for cls, g in d.groupby("class"):
+            models = sorted(g.model.unique())
+            for i, a in enumerate(models):
+                for b in models[i + 1:]:
+                    common = sorted(set(g[g.model == a].material) & set(g[g.model == b].material))
+                    if len(common) < min_n:
+                        continue
+                    A = g[g.model == a].set_index("material").loc[common].reset_index()
+                    B = g[g.model == b].set_index("material").loc[common].reset_index()
+                    k = len(common)
+                    diffs = []
+                    for _ in range(n):
+                        idx = rng.integers(0, k, k)
+                        noise = rng.standard_normal(k)[idx] if ref == "experiment" else None
+                        diffs.append(np.abs(_perturbed(A.iloc[idx], prop, ref, noise)).mean()
+                                     - np.abs(_perturbed(B.iloc[idx], prop, ref, noise)).mean())
+                    diffs = np.array(diffs)
+                    p_two = float(min(1.0, 2 * min((diffs < 0).mean(), (diffs > 0).mean())))
+                    ea = float(np.abs(_perturbed(A, prop, ref, None)).mean())
+                    eb = float(np.abs(_perturbed(B, prop, ref, None)).mean())
+                    lo, hi = np.percentile(diffs, [2.5, 97.5])
+                    fam.append({"property": prop, "reference": ref, "class": cls, "model_a": a, "model_b": b,
+                                "n_common": k, "MAPE_a": ea, "MAPE_b": eb, "diff": ea - eb,
+                                "ci_low": float(lo), "ci_high": float(hi), "p": p_two})
+        # Holm-Bonferroni within this property x reference family
+        order = sorted(range(len(fam)), key=lambda i: fam[i]["p"])
+        m, running = len(fam), 0.0
+        for rank, i in enumerate(order):
+            running = max(running, min(1.0, (m - rank) * fam[i]["p"]))
+            fam[i]["p_holm"] = running
+        for r in fam:
+            better = r["model_a"] if r["diff"] < 0 else r["model_b"]
+            r["verdict"] = (f"{better} more accurate" if r["p_holm"] < 0.05 else
+                            f"suggestive: {better} (not significant after correction)" if r["p"] < 0.05 else
+                            "no significant difference")
+        rows += fam
+    return pd.DataFrame(rows)
+
+
 def _perturbed(g: pd.DataFrame, prop: str, ref: str, noise) -> pd.Series:
     if noise is None:
         return _errors(g, prop, ref, None, False)
@@ -309,12 +361,15 @@ def build(lat, bulk, therm) -> dict:
     ci, pairs = bootstrap_tables(lat, bulk, therm)
     ci.to_csv(OUT / "bootstrap_ci.csv", index=False, float_format="%.4g")
     pairs.to_csv(OUT / "pairwise.csv", index=False, float_format="%.4g")
+    by_class = class_pairwise(lat, bulk)
+    by_class.to_csv(OUT / "pairwise_by_class.csv", index=False, float_format="%.4g")
     md = md_variant_table()
     md.to_csv(OUT / "md_variants.csv", index=False, float_format="%.4g")
     sens_p = OUT / "static_sensitivity.json"
     sens = json.loads(sens_p.read_text()) if sens_p.exists() else []
     return {"bootstrap_ci": json.loads(ci.to_json(orient="records")),
             "pairwise": json.loads(pairs.to_json(orient="records")),
+            "pairwise_by_class": json.loads(by_class.to_json(orient="records")),
             "md_variants": json.loads(md.to_json(orient="records")), "static_sensitivity": sens}
 
 

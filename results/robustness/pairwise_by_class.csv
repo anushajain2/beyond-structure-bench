@@ -1,0 +1,49 @@
+property,reference,class,model_a,model_b,n_common,MAPE_a,MAPE_b,diff,ci_low,ci_high,p,p_holm,verdict
+lattice,experiment,barriers_silicides,mace-mpa-0,mattersim-5m-native,6,0.2316,0.2596,-0.028,-0.2783,0.1912,0.7656,1,no significant difference
+lattice,experiment,barriers_silicides,mace-mpa-0,orb-v3,6,0.2316,0.3103,-0.07869,-0.2863,0.1653,0.5608,1,no significant difference
+lattice,experiment,barriers_silicides,mattersim-5m-native,orb-v3,6,0.2596,0.3103,-0.05069,-0.1425,0.08824,0.6276,1,no significant difference
+lattice,experiment,dielectrics,mace-mpa-0,mattersim-5m-native,9,1.084,1.089,-0.004632,-0.05137,0.04353,0.8396,1,no significant difference
+lattice,experiment,dielectrics,mace-mpa-0,orb-v3,7,1.132,0.9963,0.1353,-0.1069,0.411,0.2864,1,no significant difference
+lattice,experiment,dielectrics,mattersim-5m-native,orb-v3,7,1.12,0.9963,0.1241,-0.08563,0.3574,0.2768,1,no significant difference
+lattice,experiment,metals,mace-mpa-0,mattersim-5m-native,8,0.4817,0.6237,-0.142,-0.3457,0.1016,0.2368,1,no significant difference
+lattice,experiment,metals,mace-mpa-0,orb-v3,8,0.4817,0.49,-0.008351,-0.2269,0.2229,0.8836,1,no significant difference
+lattice,experiment,metals,mattersim-5m-native,orb-v3,8,0.6237,0.49,0.1337,0.01083,0.2437,0.0344,0.4128,suggestive: orb-v3 (not significant after correction)
+lattice,experiment,semiconductors,mace-mpa-0,mattersim-5m-native,7,1.036,1.081,-0.04471,-0.285,0.1516,0.7436,1,no significant difference
+lattice,experiment,semiconductors,mace-mpa-0,orb-v3,7,1.036,1.093,-0.05731,-0.3249,0.1727,0.6544,1,no significant difference
+lattice,experiment,semiconductors,mattersim-5m-native,orb-v3,7,1.081,1.093,-0.0126,-0.09148,0.06018,0.7884,1,no significant difference
+lattice,dft,barriers_silicides,mace-mpa-0,mattersim-5m-native,6,0.4739,0.08172,0.3922,0.1289,0.7185,0.0008,0.008,mattersim-5m-native more accurate
+lattice,dft,barriers_silicides,mace-mpa-0,orb-v3,6,0.4739,0.1309,0.3431,0.01345,0.7051,0.0416,0.3328,suggestive: orb-v3 (not significant after correction)
+lattice,dft,barriers_silicides,mattersim-5m-native,orb-v3,6,0.08172,0.1309,-0.04915,-0.1414,0.035,0.296,0.888,no significant difference
+lattice,dft,dielectrics,mace-mpa-0,mattersim-5m-native,9,0.08181,0.03201,0.04979,0.01825,0.08236,0,0,mattersim-5m-native more accurate
+lattice,dft,dielectrics,mace-mpa-0,orb-v3,7,0.08287,0.2005,-0.1177,-0.3053,0.04765,0.1768,0.884,no significant difference
+lattice,dft,dielectrics,mattersim-5m-native,orb-v3,7,0.03564,0.2005,-0.1649,-0.3529,-0.002177,0.046,0.3328,suggestive: mattersim-5m-native (not significant after correction)
+lattice,dft,metals,mace-mpa-0,mattersim-5m-native,8,0.2599,0.1325,0.1274,-0.02918,0.2946,0.1208,0.7248,no significant difference
+lattice,dft,metals,mace-mpa-0,orb-v3,8,0.2599,0.2185,0.0414,-0.1405,0.2153,0.6752,1,no significant difference
+lattice,dft,metals,mattersim-5m-native,orb-v3,8,0.1325,0.2185,-0.08599,-0.2182,0.03744,0.182,0.884,no significant difference
+lattice,dft,semiconductors,mace-mpa-0,mattersim-5m-native,7,0.2608,0.05262,0.2082,0.08645,0.3675,0,0,mattersim-5m-native more accurate
+lattice,dft,semiconductors,mace-mpa-0,orb-v3,7,0.2608,0.05855,0.2022,0.05005,0.3954,0.006,0.054,suggestive: orb-v3 (not significant after correction)
+lattice,dft,semiconductors,mattersim-5m-native,orb-v3,7,0.05262,0.05855,-0.005933,-0.05848,0.04104,0.8652,1,no significant difference
+bulk_modulus,experiment,barriers_silicides,mace-mpa-0,mattersim-5m-native,4,10.2,4.247,5.956,-2.816,13.85,0.3192,1,no significant difference
+bulk_modulus,experiment,barriers_silicides,mace-mpa-0,orb-v3,4,10.2,3.548,6.656,-1.122,10.68,0.0868,1,no significant difference
+bulk_modulus,experiment,barriers_silicides,mattersim-5m-native,orb-v3,4,4.247,3.548,0.6995,-5.786,7.669,0.82,1,no significant difference
+bulk_modulus,experiment,dielectrics,mace-mpa-0,mattersim-5m-native,9,7.422,12.07,-4.653,-15.87,2.282,0.4172,1,no significant difference
+bulk_modulus,experiment,dielectrics,mace-mpa-0,orb-v3,7,8.505,11.58,-3.073,-8.924,0.8233,0.268,1,no significant difference
+bulk_modulus,experiment,dielectrics,mattersim-5m-native,orb-v3,7,14.8,11.58,3.222,-2.306,11.38,0.4216,1,no significant difference
+bulk_modulus,experiment,metals,mace-mpa-0,mattersim-5m-native,7,9.96,13.85,-3.889,-17.57,8.919,0.5868,1,no significant difference
+bulk_modulus,experiment,metals,mace-mpa-0,orb-v3,8,13.13,11.13,1.998,-7.335,13.37,0.6896,1,no significant difference
+bulk_modulus,experiment,metals,mattersim-5m-native,orb-v3,7,13.85,11.11,2.74,-6.568,15.23,0.6832,1,no significant difference
+bulk_modulus,experiment,semiconductors,mace-mpa-0,mattersim-5m-native,7,12.68,16.95,-4.266,-11.8,3.23,0.324,1,no significant difference
+bulk_modulus,experiment,semiconductors,mace-mpa-0,orb-v3,7,12.68,18.04,-5.361,-12.38,1.784,0.1568,1,no significant difference
+bulk_modulus,experiment,semiconductors,mattersim-5m-native,orb-v3,7,16.95,18.04,-1.095,-3.613,1.588,0.4232,1,no significant difference
+bulk_modulus,dft,barriers_silicides,mace-mpa-0,mattersim-5m-native,6,13.98,3.775,10.2,1.905,22.01,0.0052,0.0416,mattersim-5m-native more accurate
+bulk_modulus,dft,barriers_silicides,mace-mpa-0,orb-v3,6,13.98,4.387,9.588,2.046,20.77,0.0008,0.008,orb-v3 more accurate
+bulk_modulus,dft,barriers_silicides,mattersim-5m-native,orb-v3,6,3.775,4.387,-0.6122,-3.131,1.93,0.6252,1,no significant difference
+bulk_modulus,dft,dielectrics,mace-mpa-0,mattersim-5m-native,9,2.149,6.597,-4.448,-14.26,1.469,0.3708,1,no significant difference
+bulk_modulus,dft,dielectrics,mace-mpa-0,orb-v3,7,1.803,4.105,-2.303,-5.841,-0.1401,0.0188,0.1316,suggestive: mace-mpa-0 (not significant after correction)
+bulk_modulus,dft,dielectrics,mattersim-5m-native,orb-v3,7,8.307,4.105,4.202,-0.7899,12.6,0.2824,1,no significant difference
+bulk_modulus,dft,metals,mace-mpa-0,mattersim-5m-native,5,14.29,8.449,5.836,3.074,7.826,0,0,mattersim-5m-native more accurate
+bulk_modulus,dft,metals,mace-mpa-0,orb-v3,6,16.75,14.41,2.331,-2.45,7.637,0.374,1,no significant difference
+bulk_modulus,dft,metals,mattersim-5m-native,orb-v3,5,8.449,14.21,-5.763,-7.629,-3.881,0,0,mattersim-5m-native more accurate
+bulk_modulus,dft,semiconductors,mace-mpa-0,mattersim-5m-native,7,10.68,2.909,7.774,2.17,14.95,0.0016,0.0144,mattersim-5m-native more accurate
+bulk_modulus,dft,semiconductors,mace-mpa-0,orb-v3,7,10.68,3.68,7.003,0.6923,13.91,0.0296,0.1776,suggestive: orb-v3 (not significant after correction)
+bulk_modulus,dft,semiconductors,mattersim-5m-native,orb-v3,7,2.909,3.68,-0.7711,-3.51,2.109,0.6108,1,no significant difference
