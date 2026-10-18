@@ -11,7 +11,8 @@
   ],
   "platform": "macOS-26.6.2-arm64-arm-64bit",
   "model_path": "hf://CuspAI/kUPS-mattersim-jax/mattersim-v1.0.0-5m.zip",
-  "wall_s": 4235.260598897934
+  "wall_s": 4235.260598897934,
+  "excluded": "kUPS MatterSim export defect; kept only as evidence for the bug report (scripts/repro_mattersim_export.py)"
  },
  "results": [
   {

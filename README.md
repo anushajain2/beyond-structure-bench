@@ -75,6 +75,8 @@ bulk modulus good ≤ 10 %, okay ≤ 25 %; thermal expansion good ≤ 20 %, okay
   elastic tensor positive definite; Birch–Murnaghan fit clean; for cubic crystals, EOS bulk modulus
   within 5 % of the elastic-tensor value; MD temperature and pressure on target; mean volume
   converged; short NVE runs conserve energy.
+* **Every result is fingerprinted** with the code, settings and inputs that produced it
+  (`docs/provenance.md`); `chipff analyze` refuses to mix results from different code or settings.
 * **Written rules for every judgement call** (`configs/benchmark.yaml`): MD temperatures are above
   0.75 × the Debye temperature, below half the melting point and 50 K below any phase change; MD
   runs until the volume's standard error is below 0.02 %; supercells are ≥ 10 Å across.

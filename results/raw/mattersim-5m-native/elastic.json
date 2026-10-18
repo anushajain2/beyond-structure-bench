@@ -75,7 +75,25 @@
    "asymmetry_rel": 2.266280876556441e-05,
    "residual_stress_GPa": 9.346355363959447e-05,
    "fit_rms_GPa": 0.008307911912113695,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "76a03aaf4a85fcb6",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ge",
@@ -139,7 +157,25 @@
    "asymmetry_rel": 6.839298025665893e-06,
    "residual_stress_GPa": 0.0004755223053507507,
    "fit_rms_GPa": 0.005018744323304412,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "5a037b83dff45320",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "SiC",
@@ -203,7 +239,25 @@
    "asymmetry_rel": 7.326501994333739e-06,
    "residual_stress_GPa": 4.9921909521799535e-05,
    "fit_rms_GPa": 0.019935952278198377,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "34409c8c644f2968",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "GaAs",
@@ -267,7 +321,25 @@
    "asymmetry_rel": 6.559300748563559e-06,
    "residual_stress_GPa": 0.001006322680041194,
    "fit_rms_GPa": 0.005250631448321745,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "b351390831e354a3",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "GaN",
@@ -331,7 +403,25 @@
    "asymmetry_rel": 0.0009555362241598865,
    "residual_stress_GPa": 0.0023024696856737137,
    "fit_rms_GPa": 0.017264063486153697,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "0c4e6064253a1fea",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "InP",
@@ -395,7 +485,25 @@
    "asymmetry_rel": 1.7092237998076e-05,
    "residual_stress_GPa": 0.00044520021765492857,
    "fit_rms_GPa": 0.005988099700718568,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "9fabf1a13d94ebd1",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "AlN",
@@ -459,7 +567,25 @@
    "asymmetry_rel": 0.0003157897806189246,
    "residual_stress_GPa": 0.006146153435111046,
    "fit_rms_GPa": 0.01893447035991724,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "7bbf12f92948983a",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "SiO2_quartz",
@@ -523,7 +649,25 @@
    "asymmetry_rel": 0.019202663184060637,
    "residual_stress_GPa": 0.0029264413751661777,
    "fit_rms_GPa": 0.0129856485564872,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "b9d0caf9e25b419d",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Si3N4_beta",
@@ -587,7 +731,25 @@
    "asymmetry_rel": 0.0003294980531598286,
    "residual_stress_GPa": 0.007394410669803619,
    "fit_rms_GPa": 0.024904870828149073,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "90808f1cc79814f9",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Al2O3",
@@ -651,7 +813,25 @@
    "asymmetry_rel": 0.0008197002087073989,
    "residual_stress_GPa": 0.0009852898074313998,
    "fit_rms_GPa": 0.02890560639230041,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "646c670a43284ad8",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "HfO2",
@@ -715,7 +895,25 @@
    "asymmetry_rel": 0.0031867075693884,
    "residual_stress_GPa": 0.013341167941689491,
    "fit_rms_GPa": 0.023469986447790546,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "1c7d2719745d1593",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "ZrO2",
@@ -779,7 +977,25 @@
    "asymmetry_rel": 0.002384122625648616,
    "residual_stress_GPa": 0.008306499570608139,
    "fit_rms_GPa": 0.021469371076286638,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "a6853443108ab0d2",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Y2O3",
@@ -843,7 +1059,25 @@
    "asymmetry_rel": 1.2212531065996218e-05,
    "residual_stress_GPa": 0.000418960495153442,
    "fit_rms_GPa": 0.012192150678716275,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "915429155597c988",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TiO2_rutile",
@@ -907,7 +1141,25 @@
    "asymmetry_rel": 0.001198773920482637,
    "residual_stress_GPa": 0.014769598841667175,
    "fit_rms_GPa": 0.025835474868596057,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "af19415d4266e2f6",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "MgO",
@@ -971,7 +1223,25 @@
    "asymmetry_rel": 6.54903836480849e-06,
    "residual_stress_GPa": 8.624848123872653e-05,
    "fit_rms_GPa": 0.031114238812859248,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "1e5bf262111f810e",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "SrTiO3",
@@ -1035,7 +1305,25 @@
    "asymmetry_rel": 2.9238954233827247e-06,
    "residual_stress_GPa": 0.00015671123401261866,
    "fit_rms_GPa": 0.032669436756073936,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "e904566c84c89d3e",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Cu",
@@ -1099,7 +1387,25 @@
    "asymmetry_rel": 2.0943953258829057e-05,
    "residual_stress_GPa": 0.0008530503837391734,
    "fit_rms_GPa": 0.018139134469283908,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "38ebf96dd56a7053",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Al",
@@ -1163,7 +1469,25 @@
    "asymmetry_rel": 5.829499259483853e-06,
    "residual_stress_GPa": 0.0031590282451361418,
    "fit_rms_GPa": 0.011489105236752251,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "21ead29fbdae7ca9",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "W",
@@ -1227,7 +1551,25 @@
    "asymmetry_rel": 7.495807520089295e-06,
    "residual_stress_GPa": 0.00022803500178270042,
    "fit_rms_GPa": 0.025242914415606228,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "9cb0a455b65d00d2",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Co",
@@ -1291,7 +1633,25 @@
    "asymmetry_rel": 0.00034088742333404794,
    "residual_stress_GPa": 0.0003123542701359838,
    "fit_rms_GPa": 0.020652415570712686,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "81285cc049b4eaea",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ru",
@@ -1355,7 +1715,25 @@
    "asymmetry_rel": 0.00011280985496453424,
    "residual_stress_GPa": 0.00019287139002699405,
    "fit_rms_GPa": 0.04272747221426681,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "ee5c0359ce440339",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Mo",
@@ -1419,7 +1797,25 @@
    "asymmetry_rel": 6.553687993446213e-06,
    "residual_stress_GPa": 0.0038727382197976112,
    "fit_rms_GPa": 0.022400431782261955,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "aefece3a118735b8",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ti",
@@ -1483,7 +1879,25 @@
    "asymmetry_rel": 0.0007146568703243135,
    "residual_stress_GPa": 0.0003156660823151469,
    "fit_rms_GPa": 0.011116758919121282,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "7e2fea9903f6f289",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ta",
@@ -1547,7 +1961,25 @@
    "asymmetry_rel": 1.0013948025347502e-05,
    "residual_stress_GPa": 9.250092261936516e-06,
    "fit_rms_GPa": 0.015655773319415457,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "d9d8f196bf79ae20",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TiN",
@@ -1611,7 +2043,25 @@
    "asymmetry_rel": 7.140107842893925e-06,
    "residual_stress_GPa": 0.00042754155583679676,
    "fit_rms_GPa": 0.06530871566870962,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "2a11d1134f4acc73",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TaN",
@@ -1675,7 +2125,25 @@
    "asymmetry_rel": 2.9716593156880243e-05,
    "residual_stress_GPa": 0.011243763379752636,
    "fit_rms_GPa": 0.04063611252013058,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "60793c9dd9549115",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "CoSi2",
@@ -1739,7 +2207,25 @@
    "asymmetry_rel": 6.4308386748388945e-06,
    "residual_stress_GPa": 0.0012139613972976804,
    "fit_rms_GPa": 0.02585905395910012,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "b71382abacc144e4",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "NiSi",
@@ -1803,7 +2289,25 @@
    "asymmetry_rel": 0.0009605559184085159,
    "residual_stress_GPa": 0.007510365918278694,
    "fit_rms_GPa": 0.022295421423202982,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "03f5b5d67b84b34b",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TiSi2",
@@ -1867,7 +2371,25 @@
    "asymmetry_rel": 0.00030440655160114634,
    "residual_stress_GPa": 0.003376219654455781,
    "fit_rms_GPa": 0.026723073049712963,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "4f5205b184273795",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "WSi2",
@@ -1931,7 +2453,25 @@
    "asymmetry_rel": 0.0004914342813106938,
    "residual_stress_GPa": 0.007935751229524612,
    "fit_rms_GPa": 0.03705119436563735,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "7a495f2ed12b7e1b",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "MoS2",
@@ -1995,7 +2535,25 @@
    "asymmetry_rel": 0.0009018301579797298,
    "residual_stress_GPa": 0.0028296816162765026,
    "fit_rms_GPa": 0.00801254384740788,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "0e57edc019d7de2f",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "hBN",
@@ -2059,7 +2617,25 @@
    "asymmetry_rel": 0.0001513818405668792,
    "residual_stress_GPa": 0.004289541393518448,
    "fit_rms_GPa": 0.030128984444704555,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "7864a7fd3da29b8d",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "graphite",
@@ -2123,7 +2699,25 @@
    "asymmetry_rel": 7.197309640790672e-05,
    "residual_stress_GPa": 0.0007603790145367384,
    "fit_rms_GPa": 0.040141852768440386,
-   "all_converged": true
+   "all_converged": true,
+   "provenance": {
+    "code": "d825578d1dc9bc1b",
+    "settings": "f3bb5e14e6988bcb",
+    "inputs": "5c579dd26b1b256e",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:14:59+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   }
  ]
 }

@@ -94,3 +94,17 @@ def test_pack_batches_respects_padded_budget():
         assert len(b) == 1 or len(b) * max(j["edges"] for j in b) <= 24000
     assert sorted(j["id"] for b in batches for j in b) == list(range(7))   # nothing lost
     assert any(len(b) == 1 and b[0]["edges"] == 30000 for b in batches)  # oversize job runs alone
+
+
+def test_provenance_detects_stale_results():
+    import copy
+
+    from chipff.provenance import check
+    from chipff.runner import load_raw
+
+    rec = load_raw("mace-mpa-0", "lattice")["Si"]
+    assert check("lattice", "mace-mpa-0", "Si", rec) is None          # committed results match today's code
+    stale = copy.deepcopy(rec)
+    stale["provenance"]["code"] = "0" * 16
+    assert "code" in check("lattice", "mace-mpa-0", "Si", stale)
+    assert check("lattice", "mace-mpa-0", "Si", {k: v for k, v in rec.items() if k != "provenance"})  # unstamped

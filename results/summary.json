@@ -404,6 +404,7 @@
    "V_atom_exp": 20.0241616201,
    "exp_source": "https://physics.nist.gov/cuu/pdf/xray_2018.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0236929908,
    "err_lin_exp_pct": 0.6704409181,
    "err_a_exp_pct": 0.6704409181,
@@ -432,6 +433,7 @@
    "V_atom_exp": 20.0241616201,
    "exp_source": "https://physics.nist.gov/cuu/pdf/xray_2018.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1457749326,
    "err_lin_exp_pct": 0.5475113634,
    "err_a_exp_pct": 0.5475117397,
@@ -460,6 +462,7 @@
    "V_atom_exp": 20.0241616201,
    "exp_source": "https://physics.nist.gov/cuu/pdf/xray_2018.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.007674617,
    "err_lin_exp_pct": 0.6865705073,
    "err_a_exp_pct": 0.6865705073,
@@ -488,6 +491,7 @@
    "V_atom_exp": 22.641168789,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/Ge/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.7580086434,
    "err_lin_exp_pct": 1.0812832791,
    "err_a_exp_pct": 1.0812832791,
@@ -516,6 +520,7 @@
    "V_atom_exp": 22.641168789,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/Ge/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0821503079,
    "err_lin_exp_pct": 1.7696675702,
    "err_a_exp_pct": 1.7696682752,
@@ -544,6 +549,7 @@
    "V_atom_exp": 22.641168789,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/Ge/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0956298963,
    "err_lin_exp_pct": 1.7559381592,
    "err_a_exp_pct": 1.7559381592,
@@ -572,6 +578,7 @@
    "V_atom_exp": 10.3573808216,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/SiC/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.1592072318,
    "err_lin_exp_pct": 0.6177763153,
    "err_a_exp_pct": 0.6177763153,
@@ -600,6 +607,7 @@
    "V_atom_exp": 10.3573808216,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/SiC/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0166562725,
    "err_lin_exp_pct": 0.4411076372,
    "err_a_exp_pct": 0.4411088231,
@@ -628,6 +636,7 @@
    "V_atom_exp": 10.3573808216,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/SiC/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0088965667,
    "err_lin_exp_pct": 0.4489028701,
    "err_a_exp_pct": 0.4489028701,
@@ -656,6 +665,7 @@
    "V_atom_exp": 22.5841935555,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1933836611,
    "err_lin_exp_pct": 1.5179248668,
    "err_a_exp_pct": 1.5179248668,
@@ -684,6 +694,7 @@
    "V_atom_exp": 22.5841935555,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0689728422,
    "err_lin_exp_pct": 1.7847797985,
    "err_a_exp_pct": 1.7847800924,
@@ -712,6 +723,7 @@
    "V_atom_exp": 22.5841935555,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaAs/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1336595234,
    "err_lin_exp_pct": 1.578673049,
    "err_a_exp_pct": 1.578673049,
@@ -740,6 +752,7 @@
    "V_atom_exp": 11.4185824274,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaN/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1722262277,
    "err_lin_exp_pct": 0.7435050434,
    "err_a_exp_pct": 0.4945736869,
@@ -768,6 +781,7 @@
    "V_atom_exp": 11.4185824274,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaN/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0707516754,
    "err_lin_exp_pct": 0.9887118099,
    "err_a_exp_pct": 0.910294499,
@@ -796,6 +810,7 @@
    "V_atom_exp": 11.4185824274,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/GaN/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0151333161,
    "err_lin_exp_pct": 0.9325832572,
    "err_a_exp_pct": 0.903737646,
@@ -824,6 +839,7 @@
    "V_atom_exp": 25.2659563561,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/InP/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.3770582105,
    "err_lin_exp_pct": 1.8826371166,
    "err_a_exp_pct": 1.8826371166,
@@ -852,6 +868,7 @@
    "V_atom_exp": 25.2659563561,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/InP/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0082663218,
    "err_lin_exp_pct": 1.5083136323,
    "err_a_exp_pct": 1.508313983,
@@ -880,6 +897,7 @@
    "V_atom_exp": 25.2659563561,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/InP/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0864412288,
    "err_lin_exp_pct": 1.5876611029,
    "err_a_exp_pct": 1.5876611029,
@@ -908,6 +926,7 @@
    "V_atom_exp": 10.4439878697,
    "exp_source": "https://przyrbwn.icm.edu.pl/APP/PDF/114/a114z529.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.1419217642,
    "err_lin_exp_pct": 0.7387019995,
    "err_a_exp_pct": 0.6578902671,
@@ -936,6 +955,7 @@
    "V_atom_exp": 10.4439878697,
    "exp_source": "https://przyrbwn.icm.edu.pl/APP/PDF/114/a114z529.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0172916972,
    "err_lin_exp_pct": 0.6133292189,
    "err_a_exp_pct": 0.6544934726,
@@ -964,6 +984,7 @@
    "V_atom_exp": 10.4439878697,
    "exp_source": "https://przyrbwn.icm.edu.pl/APP/PDF/114/a114z529.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.020898095,
    "err_lin_exp_pct": 0.5749118406,
    "err_a_exp_pct": 0.4543339485,
@@ -992,6 +1013,7 @@
    "V_atom_exp": 12.5567425486,
    "exp_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9348876/ (full text via Europe PMC); also https://arxiv.org/abs/1612.07049",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1277150868,
    "err_lin_exp_pct": 2.1216065661,
    "err_a_exp_pct": 2.1266518693,
@@ -1020,6 +1042,7 @@
    "V_atom_exp": 12.5567425486,
    "exp_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9348876/ (full text via Europe PMC); also https://arxiv.org/abs/1612.07049",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.1980474552,
    "err_lin_exp_pct": 2.4547059257,
    "err_a_exp_pct": 2.5847954449,
@@ -1048,6 +1071,7 @@
    "V_atom_exp": 12.5567425486,
    "exp_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9348876/ (full text via Europe PMC); also https://arxiv.org/abs/1612.07049",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0362108236,
    "err_lin_exp_pct": 2.2151716865,
    "err_a_exp_pct": 2.2003502238,
@@ -1076,6 +1100,7 @@
    "V_atom_exp": 10.3961597478,
    "exp_source": "https://www.crystallography.net/cod/2102550.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.111181997,
    "err_lin_exp_pct": 0.5936119304,
    "err_a_exp_pct": 0.6983787243,
@@ -1104,6 +1129,7 @@
    "V_atom_exp": 10.3961597478,
    "exp_source": "https://www.crystallography.net/cod/2102550.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0105225223,
    "err_lin_exp_pct": 0.7161751705,
    "err_a_exp_pct": 0.7617016947,
@@ -1132,6 +1158,7 @@
    "V_atom_exp": 10.3961597478,
    "exp_source": "https://www.crystallography.net/cod/2102550.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0834841785,
    "err_lin_exp_pct": 0.6215051787,
    "err_a_exp_pct": 0.6044998709,
@@ -1160,6 +1187,7 @@
    "V_atom_exp": 8.4955588253,
    "exp_source": "https://tsapps.nist.gov/srmext/certificates/676a.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0195172233,
    "err_lin_exp_pct": 0.9380493609,
    "err_a_exp_pct": 0.9281994882,
@@ -1188,6 +1216,7 @@
    "V_atom_exp": 8.4955588253,
    "exp_source": "https://tsapps.nist.gov/srmext/certificates/676a.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0539880535,
    "err_lin_exp_pct": 1.012258637,
    "err_a_exp_pct": 0.9829244887,
@@ -1216,6 +1245,7 @@
    "V_atom_exp": 8.4955588253,
    "exp_source": "https://tsapps.nist.gov/srmext/certificates/676a.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0077891093,
    "err_lin_exp_pct": 0.9656172209,
    "err_a_exp_pct": 1.0025349755,
@@ -1244,6 +1274,7 @@
    "V_atom_exp": 11.5250239406,
    "exp_source": "https://www.crystallography.net/cod/9013470.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.184962676,
    "err_lin_exp_pct": 0.6564647346,
    "err_a_exp_pct": 0.9197561314,
@@ -1272,6 +1303,7 @@
    "V_atom_exp": 11.5250239406,
    "exp_source": "https://www.crystallography.net/cod/9013470.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0489642129,
    "err_lin_exp_pct": 0.421436912,
    "err_a_exp_pct": 0.4989224196,
@@ -1300,6 +1332,7 @@
    "V_atom_exp": 11.5250239406,
    "exp_source": "https://www.crystallography.net/cod/9013470.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0690740416,
    "err_lin_exp_pct": 0.5400306917,
    "err_a_exp_pct": 0.9059850117,
@@ -1328,6 +1361,7 @@
    "V_atom_exp": 11.7400676792,
    "exp_source": "https://www.crystallography.net/cod/9016714.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.13526485,
    "err_lin_exp_pct": 1.5899847936,
    "err_a_exp_pct": 1.6100574048,
@@ -1356,6 +1390,7 @@
    "V_atom_exp": 11.7400676792,
    "exp_source": "https://www.crystallography.net/cod/9016714.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.6272716126,
    "err_lin_exp_pct": 0.8163705453,
    "err_a_exp_pct": 0.7287047204,
@@ -1384,6 +1419,7 @@
    "V_atom_exp": 11.7400676792,
    "exp_source": "https://www.crystallography.net/cod/9016714.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0387554722,
    "err_lin_exp_pct": 1.492073371,
    "err_a_exp_pct": 1.733621246,
@@ -1412,6 +1448,7 @@
    "V_atom_exp": 14.9045603608,
    "exp_source": "https://www.crystallography.net/cod/1513300.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0013043205,
    "err_lin_exp_pct": 0.9406864105,
    "err_a_exp_pct": 0.9406864105,
@@ -1440,6 +1477,7 @@
    "V_atom_exp": 14.9045603608,
    "exp_source": "https://www.crystallography.net/cod/1513300.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.4628797386,
    "err_lin_exp_pct": 0.474762938,
    "err_a_exp_pct": 0.4747630651,
@@ -1468,6 +1506,7 @@
    "V_atom_exp": 14.9045603608,
    "exp_source": "https://www.crystallography.net/cod/1513300.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0090905923,
    "err_lin_exp_pct": 0.9328267917,
    "err_a_exp_pct": 0.9328267917,
@@ -1496,6 +1535,7 @@
    "V_atom_exp": 10.4076584955,
    "exp_source": "https://tsapps.nist.gov/srmext/certificates/674b.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1107242823,
    "err_lin_exp_pct": 0.8640399881,
    "err_a_exp_pct": 1.1524179211,
@@ -1524,6 +1564,7 @@
    "V_atom_exp": 10.4076584955,
    "exp_source": "https://tsapps.nist.gov/srmext/certificates/674b.pdf",
    "excluded": "relaxed to a different crystal form (space group 136 -> 102)",
+   "provenance": null,
    "err_lin_dft_pct": null,
    "err_lin_exp_pct": null,
    "err_a_exp_pct": null,
@@ -1552,6 +1593,7 @@
    "V_atom_exp": 10.4076584955,
    "exp_source": "https://tsapps.nist.gov/srmext/certificates/674b.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0007404284,
    "err_lin_exp_pct": 0.9765924213,
    "err_a_exp_pct": 1.2444682388,
@@ -1580,6 +1622,7 @@
    "V_atom_exp": 9.3339557414,
    "exp_source": "https://www.crystallography.net/cod/9006456.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0001673044,
    "err_lin_exp_pct": 1.0802925976,
    "err_a_exp_pct": 1.0802925976,
@@ -1608,6 +1651,7 @@
    "V_atom_exp": 9.3339557414,
    "exp_source": "https://www.crystallography.net/cod/9006456.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0020174329,
    "err_lin_exp_pct": 1.0780842624,
    "err_a_exp_pct": 1.0780842922,
@@ -1636,6 +1680,7 @@
    "V_atom_exp": 9.3339557414,
    "exp_source": "https://www.crystallography.net/cod/9006456.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0051032437,
    "err_lin_exp_pct": 1.0749651211,
    "err_a_exp_pct": 1.0749651211,
@@ -1664,6 +1709,7 @@
    "V_atom_exp": 11.9120505449,
    "exp_source": "https://www.crystallography.net/cod/9006864.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0454474073,
    "err_lin_exp_pct": 0.9745022303,
    "err_a_exp_pct": 0.9745022303,
@@ -1692,6 +1738,7 @@
    "V_atom_exp": 11.9120505449,
    "exp_source": "https://www.crystallography.net/cod/9006864.cif",
    "excluded": "relaxed to a different crystal form (space group 221 -> 160)",
+   "provenance": null,
    "err_lin_dft_pct": null,
    "err_lin_exp_pct": null,
    "err_a_exp_pct": null,
@@ -1720,6 +1767,7 @@
    "V_atom_exp": 11.9120505449,
    "exp_source": "https://www.crystallography.net/cod/9006864.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0378858051,
    "err_lin_exp_pct": 0.9821409921,
    "err_a_exp_pct": 0.9821409921,
@@ -1748,6 +1796,7 @@
    "V_atom_exp": 11.8104083438,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.5138499151,
    "err_lin_exp_pct": 0.6879627029,
    "err_a_exp_pct": 0.6879627029,
@@ -1776,6 +1825,7 @@
    "V_atom_exp": 11.8104083438,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.2159296013,
    "err_lin_exp_pct": -0.043080957,
    "err_a_exp_pct": -0.0430804911,
@@ -1804,6 +1854,7 @@
    "V_atom_exp": 11.8104083438,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0836653778,
    "err_lin_exp_pct": 0.089412378,
    "err_a_exp_pct": 0.089412378,
@@ -1832,6 +1883,7 @@
    "V_atom_exp": 16.6001512184,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0052418382,
    "err_lin_exp_pct": -0.2637851083,
    "err_a_exp_pct": -0.2637851078,
@@ -1860,6 +1912,7 @@
    "V_atom_exp": 16.6001512184,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.3589700602,
    "err_lin_exp_pct": -0.6165987419,
    "err_a_exp_pct": -0.6165896665,
@@ -1888,6 +1941,7 @@
    "V_atom_exp": 16.6001512184,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1988909516,
    "err_lin_exp_pct": -0.4569335287,
    "err_a_exp_pct": -0.4569335287,
@@ -1916,6 +1970,7 @@
    "V_atom_exp": 15.8492535849,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.3984683208,
    "err_lin_exp_pct": 0.3132319564,
    "err_a_exp_pct": 0.3132319564,
@@ -1944,6 +1999,7 @@
    "V_atom_exp": 15.8492535849,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0145461963,
    "err_lin_exp_pct": 0.699897387,
    "err_a_exp_pct": 0.6998975849,
@@ -1972,6 +2028,7 @@
    "V_atom_exp": 15.8492535849,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.1277702888,
    "err_lin_exp_pct": 0.843230791,
    "err_a_exp_pct": 0.843230791,
@@ -2000,6 +2057,7 @@
    "V_atom_exp": 11.0774132853,
    "exp_source": "https://en.wikipedia.org/wiki/Cobalt",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1719535607,
    "err_lin_exp_pct": -0.63989482,
    "err_a_exp_pct": -0.4176909746,
@@ -2028,6 +2086,7 @@
    "V_atom_exp": 11.0774132853,
    "exp_source": "https://en.wikipedia.org/wiki/Cobalt",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.2464198861,
    "err_lin_exp_pct": -0.7140120865,
    "err_a_exp_pct": -0.3648062816,
@@ -2056,6 +2115,7 @@
    "V_atom_exp": 11.0774132853,
    "exp_source": "https://en.wikipedia.org/wiki/Cobalt",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.3035493361,
    "err_lin_exp_pct": -0.7708737438,
    "err_a_exp_pct": -0.4448454026,
@@ -2084,6 +2144,7 @@
    "V_atom_exp": 13.5736958212,
    "exp_source": "https://technology.matthey.com/content/journals/10.1595/147106713X665030",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.2086362947,
    "err_lin_exp_pct": 0.7094626754,
    "err_a_exp_pct": 0.8400538066,
@@ -2112,6 +2173,7 @@
    "V_atom_exp": 13.5736958212,
    "exp_source": "https://technology.matthey.com/content/journals/10.1595/147106713X665030",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.49071752,
    "err_lin_exp_pct": 0.4247862507,
    "err_a_exp_pct": 0.5367088954,
@@ -2140,6 +2202,7 @@
    "V_atom_exp": 13.5736958212,
    "exp_source": "https://technology.matthey.com/content/journals/10.1595/147106713X665030",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0597587186,
    "err_lin_exp_pct": 0.8597099526,
    "err_a_exp_pct": 1.0738408656,
@@ -2168,6 +2231,7 @@
    "V_atom_exp": 15.586300033,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.5176433562,
    "err_lin_exp_pct": 0.1277655018,
    "err_a_exp_pct": 0.1277655018,
@@ -2196,6 +2260,7 @@
    "V_atom_exp": 15.586300033,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.2100437628,
    "err_lin_exp_pct": 0.4373607003,
    "err_a_exp_pct": 0.4373607451,
@@ -2224,6 +2289,7 @@
    "V_atom_exp": 15.586300033,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0392870226,
    "err_lin_exp_pct": 0.688309062,
    "err_a_exp_pct": 0.688309062,
@@ -2252,6 +2318,7 @@
    "V_atom_exp": 17.6582211771,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v3.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1526465192,
    "err_lin_exp_pct": -0.7237942715,
    "err_a_exp_pct": -1.0633171685,
@@ -2280,6 +2347,7 @@
    "V_atom_exp": 17.6582211771,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v3.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0630475904,
    "err_lin_exp_pct": -0.6347078674,
    "err_a_exp_pct": -0.2607940028,
@@ -2308,6 +2376,7 @@
    "V_atom_exp": 17.6582211771,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v3.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.2293650169,
    "err_lin_exp_pct": -0.8000739234,
    "err_a_exp_pct": -1.3121065298,
@@ -2336,6 +2405,7 @@
    "V_atom_exp": 18.0634096156,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1107060265,
    "err_lin_exp_pct": 0.387501572,
    "err_a_exp_pct": 0.387501572,
@@ -2364,6 +2434,7 @@
    "V_atom_exp": 18.0634096156,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.1482555148,
    "err_lin_exp_pct": 0.3497648019,
    "err_a_exp_pct": 0.349766047,
@@ -2392,6 +2463,7 @@
    "V_atom_exp": 18.0634096156,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v1.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0177189235,
    "err_lin_exp_pct": 0.4809524572,
    "err_a_exp_pct": 0.4809524572,
@@ -2420,6 +2492,7 @@
    "V_atom_exp": 9.5645790241,
    "exp_source": "https://doi.org/10.1029/2020JB020074",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.321873296,
    "err_lin_exp_pct": -0.1308943817,
    "err_a_exp_pct": -0.1308943817,
@@ -2448,6 +2521,7 @@
    "V_atom_exp": 9.5645790241,
    "exp_source": "https://doi.org/10.1029/2020JB020074",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0089166471,
    "err_lin_exp_pct": 0.2005293404,
    "err_a_exp_pct": 0.2005297572,
@@ -2476,6 +2550,7 @@
    "V_atom_exp": 9.5645790241,
    "exp_source": "https://doi.org/10.1029/2020JB020074",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0408178769,
    "err_lin_exp_pct": 0.1506995272,
    "err_a_exp_pct": 0.1506995272,
@@ -2504,6 +2579,7 @@
    "V_atom_exp": 11.3438342329,
    "exp_source": "https://www.crystallography.net/cod/2106407.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -1.1757108487,
    "err_lin_exp_pct": -0.536394846,
    "err_a_exp_pct": -1.7532796503,
@@ -2532,6 +2608,7 @@
    "V_atom_exp": 11.3438342329,
    "exp_source": "https://www.crystallography.net/cod/2106407.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0609100595,
    "err_lin_exp_pct": 0.5856178339,
    "err_a_exp_pct": 0.5015400292,
@@ -2560,6 +2637,7 @@
    "V_atom_exp": 11.3438342329,
    "exp_source": "https://www.crystallography.net/cod/2106407.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0820186447,
    "err_lin_exp_pct": 0.7294711754,
    "err_a_exp_pct": 0.8063832818,
@@ -2588,6 +2666,7 @@
    "V_atom_exp": 12.8685001771,
    "exp_source": "https://www.crystallography.net/cod/1008148.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.3435288587,
    "err_lin_exp_pct": 0.2525931202,
    "err_a_exp_pct": 0.2525931202,
@@ -2616,6 +2695,7 @@
    "V_atom_exp": 12.8685001771,
    "exp_source": "https://www.crystallography.net/cod/1008148.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.2138839277,
    "err_lin_exp_pct": 0.1230656791,
    "err_a_exp_pct": 0.1230673136,
@@ -2644,6 +2724,7 @@
    "V_atom_exp": 12.8685001771,
    "exp_source": "https://www.crystallography.net/cod/1008148.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0542525355,
    "err_lin_exp_pct": -0.0364210481,
    "err_a_exp_pct": -0.0364210481,
@@ -2672,6 +2753,7 @@
    "V_atom_exp": 12.0912607776,
    "exp_source": "https://www.crystallography.net/cod/1532040.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0858018146,
    "err_lin_exp_pct": -0.0384501095,
    "err_a_exp_pct": 0.4812993907,
@@ -2700,6 +2782,7 @@
    "V_atom_exp": 12.0912607776,
    "exp_source": "https://www.crystallography.net/cod/1532040.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.415323247,
    "err_lin_exp_pct": 0.2906622372,
    "err_a_exp_pct": 0.2624826545,
@@ -2728,6 +2811,7 @@
    "V_atom_exp": 12.0912607776,
    "exp_source": "https://www.crystallography.net/cod/1532040.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.1766347405,
    "err_lin_exp_pct": 0.0522700515,
    "err_a_exp_pct": -0.3622954321,
@@ -2756,6 +2840,7 @@
    "V_atom_exp": 14.1423417997,
    "exp_source": "https://www.crystallography.net/cod/1532210.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.4334017969,
    "err_lin_exp_pct": -0.3476677536,
    "err_a_exp_pct": -1.0203157202,
@@ -2784,6 +2869,7 @@
    "V_atom_exp": 14.1423417997,
    "exp_source": "https://www.crystallography.net/cod/1532210.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0462151292,
    "err_lin_exp_pct": 0.1323621573,
    "err_a_exp_pct": -0.4029053718,
@@ -2812,6 +2898,7 @@
    "V_atom_exp": 14.1423417997,
    "exp_source": "https://www.crystallography.net/cod/1532210.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.120881114,
    "err_lin_exp_pct": -0.0348779678,
    "err_a_exp_pct": -0.2594829604,
@@ -2840,6 +2927,7 @@
    "V_atom_exp": 13.4785339824,
    "exp_source": "https://www.crystallography.net/cod/1532195.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.4833441028,
    "err_lin_exp_pct": 0.0836743579,
    "err_a_exp_pct": -0.1886252364,
@@ -2868,6 +2956,7 @@
    "V_atom_exp": 13.4785339824,
    "exp_source": "https://www.crystallography.net/cod/1532195.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.03998579,
    "err_lin_exp_pct": 0.5295588041,
    "err_a_exp_pct": 0.5369278658,
@@ -2896,6 +2985,7 @@
    "V_atom_exp": 13.4785339824,
    "exp_source": "https://www.crystallography.net/cod/1532195.cif",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -0.0157408198,
    "err_lin_exp_pct": 0.5539419155,
    "err_a_exp_pct": 0.6109584831,
@@ -2924,6 +3014,7 @@
    "V_atom_exp": 17.7252357712,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v5.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -2.8280893569,
    "err_lin_exp_pct": 4.2038056881,
    "err_a_exp_pct": 1.3665721653,
@@ -2952,6 +3043,7 @@
    "V_atom_exp": 17.7252357712,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v5.pdf",
    "excluded": "relaxed to a different crystal form (space group 194 -> 12)",
+   "provenance": null,
    "err_lin_dft_pct": null,
    "err_lin_exp_pct": null,
    "err_a_exp_pct": null,
@@ -2980,6 +3072,7 @@
    "V_atom_exp": 17.7252357712,
    "exp_source": "https://nvlpubs.nist.gov/nistpubs/Legacy/circ/nbscircular539v5.pdf",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.8786040513,
    "err_lin_exp_pct": 8.1787358618,
    "err_a_exp_pct": 0.8799728327,
@@ -3008,6 +3101,7 @@
    "V_atom_exp": 9.0425675729,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/BN/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -1.5758991756,
    "err_lin_exp_pct": 3.5595839996,
    "err_a_exp_pct": 0.1475727166,
@@ -3036,6 +3130,7 @@
    "V_atom_exp": 9.0425675729,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/BN/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 1.018044336,
    "err_lin_exp_pct": 6.2888719355,
    "err_a_exp_pct": 0.3660045982,
@@ -3064,6 +3159,7 @@
    "V_atom_exp": 9.0425675729,
    "exp_source": "http://www.ioffe.ru/SVA/NSM/Semicond/BN/basic.html",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 2.1768748993,
    "err_lin_exp_pct": 7.5081669055,
    "err_a_exp_pct": 0.3608836776,
@@ -3092,6 +3188,7 @@
    "V_atom_exp": 8.7972018805,
    "exp_source": "https://api.openalex.org/works/doi:10.1088/0959-5309/57/6/303",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -3.0338244745,
    "err_lin_exp_pct": 5.8726898592,
    "err_a_exp_pct": 0.1015138062,
@@ -3120,6 +3217,7 @@
    "V_atom_exp": 8.7972018805,
    "exp_source": "https://api.openalex.org/works/doi:10.1088/0959-5309/57/6/303",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": 0.0153994817,
    "err_lin_exp_pct": 9.2019904166,
    "err_a_exp_pct": 0.2679108918,
@@ -3148,6 +3246,7 @@
    "V_atom_exp": 8.7972018805,
    "exp_source": "https://api.openalex.org/works/doi:10.1088/0959-5309/57/6/303",
    "excluded": null,
+   "provenance": null,
    "err_lin_dft_pct": -1.1118002724,
    "err_lin_exp_pct": 7.9712553759,
    "err_a_exp_pct": 0.3210938573,
@@ -3176,6 +3275,7 @@
    "err_exp_pct": -11.979614821,
    "excluded": null,
    "asymmetry_rel": 0.0002528169,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.3651261054,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3199,6 +3299,7 @@
    "err_exp_pct": -15.3731817601,
    "excluded": null,
    "asymmetry_rel": 0.0001873142,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.9090922462,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3222,6 +3323,7 @@
    "err_exp_pct": -12.2843783767,
    "excluded": null,
    "asymmetry_rel": 2.26628e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.1075447307,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3245,6 +3347,7 @@
    "err_exp_pct": 3.7988506289,
    "excluded": null,
    "asymmetry_rel": 0.0003187613,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.9024892252,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3268,6 +3371,7 @@
    "err_exp_pct": -22.7966474688,
    "excluded": null,
    "asymmetry_rel": 0.0003588743,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.0954390095,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3291,6 +3395,7 @@
    "err_exp_pct": -17.4888644046,
    "excluded": null,
    "asymmetry_rel": 6.8393e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.1917017933,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3314,6 +3419,7 @@
    "err_exp_pct": -13.1432554552,
    "excluded": null,
    "asymmetry_rel": 0.0002308047,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.146812527,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3337,6 +3443,7 @@
    "err_exp_pct": -19.6608301376,
    "excluded": null,
    "asymmetry_rel": 0.0001678363,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.1255730881,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3360,6 +3467,7 @@
    "err_exp_pct": -15.0028208637,
    "excluded": null,
    "asymmetry_rel": 7.3265e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.1219030495,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3383,6 +3491,7 @@
    "err_exp_pct": -14.1551631174,
    "excluded": null,
    "asymmetry_rel": 8.49869e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.8054927051,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3406,6 +3515,7 @@
    "err_exp_pct": -22.8200925271,
    "excluded": null,
    "asymmetry_rel": 0.0001886854,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.127431757,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3429,6 +3539,7 @@
    "err_exp_pct": -25.8521457819,
    "excluded": null,
    "asymmetry_rel": 6.5593e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.3598194293,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3452,6 +3563,7 @@
    "err_exp_pct": -26.1200141923,
    "excluded": null,
    "asymmetry_rel": 0.0004843416,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.6332495236,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3475,6 +3587,7 @@
    "err_exp_pct": -18.6311088017,
    "excluded": null,
    "asymmetry_rel": 0.0002356772,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.2498370912,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3498,6 +3611,7 @@
    "err_exp_pct": -18.6056875343,
    "excluded": null,
    "asymmetry_rel": 0.0009555362,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.0833050474,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3521,6 +3635,7 @@
    "err_exp_pct": -3.2398314198,
    "excluded": null,
    "asymmetry_rel": 0.000146704,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.3932905789,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3544,6 +3659,7 @@
    "err_exp_pct": -17.0069680013,
    "excluded": null,
    "asymmetry_rel": 0.0003502745,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.5421984048,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3567,6 +3683,7 @@
    "err_exp_pct": -21.714229774,
    "excluded": null,
    "asymmetry_rel": 1.70922e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.1326182473,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3590,6 +3707,7 @@
    "err_exp_pct": -16.3193582304,
    "excluded": null,
    "asymmetry_rel": 0.0011892815,
+   "provenance": null,
    "eos_vs_elastic_pct": 2.617984192,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3613,6 +3731,7 @@
    "err_exp_pct": -9.9922048624,
    "excluded": null,
    "asymmetry_rel": 0.0001630416,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.1551598783,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3636,6 +3755,7 @@
    "err_exp_pct": -7.667308412,
    "excluded": null,
    "asymmetry_rel": 0.0003157898,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.0043128835,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3659,6 +3779,7 @@
    "err_exp_pct": -5.5307576916,
    "excluded": null,
    "asymmetry_rel": 0.0015056238,
+   "provenance": null,
    "eos_vs_elastic_pct": -3.7281300406,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3682,6 +3803,7 @@
    "err_exp_pct": -25.3769062489,
    "excluded": null,
    "asymmetry_rel": 0.0027971703,
+   "provenance": null,
    "eos_vs_elastic_pct": 11.9403199416,
    "mechanically_stable": true,
    "eos_fit_ok": false
@@ -3705,6 +3827,7 @@
    "err_exp_pct": -50.8881765574,
    "excluded": null,
    "asymmetry_rel": 0.0192026632,
+   "provenance": null,
    "eos_vs_elastic_pct": 36.2652045617,
    "mechanically_stable": true,
    "eos_fit_ok": false
@@ -3728,6 +3851,7 @@
    "err_exp_pct": -7.7538445773,
    "excluded": null,
    "asymmetry_rel": 0.000303482,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.5885025938,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3751,6 +3875,7 @@
    "err_exp_pct": -11.7731485909,
    "excluded": null,
    "asymmetry_rel": 0.000543267,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.1225974895,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3774,6 +3899,7 @@
    "err_exp_pct": -10.8230155873,
    "excluded": null,
    "asymmetry_rel": 0.0003294981,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.0568859553,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3797,6 +3923,7 @@
    "err_exp_pct": -7.9630060342,
    "excluded": null,
    "asymmetry_rel": 0.0002530287,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.3569511975,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3820,6 +3947,7 @@
    "err_exp_pct": -8.9429560481,
    "excluded": null,
    "asymmetry_rel": 0.000188,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.1053932628,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3843,6 +3971,7 @@
    "err_exp_pct": -8.4783300089,
    "excluded": null,
    "asymmetry_rel": 0.0008197002,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.0264630713,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3866,6 +3995,7 @@
    "err_exp_pct": 8.9951623849,
    "excluded": null,
    "asymmetry_rel": 0.0024246367,
+   "provenance": null,
    "eos_vs_elastic_pct": -1.589866633,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3889,6 +4019,7 @@
    "err_exp_pct": 6.922466978,
    "excluded": null,
    "asymmetry_rel": 0.0053475078,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.0287248819,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3912,6 +4043,7 @@
    "err_exp_pct": 13.9106934293,
    "excluded": null,
    "asymmetry_rel": 0.0031867076,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.7731312447,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3935,6 +4067,7 @@
    "err_exp_pct": -12.961678141,
    "excluded": null,
    "asymmetry_rel": 0.0053114838,
+   "provenance": null,
    "eos_vs_elastic_pct": -2.8966117731,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3958,6 +4091,7 @@
    "err_exp_pct": -11.8544846347,
    "excluded": null,
    "asymmetry_rel": 0.0030986982,
+   "provenance": null,
    "eos_vs_elastic_pct": -1.1369686933,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -3981,6 +4115,7 @@
    "err_exp_pct": -7.1238746424,
    "excluded": null,
    "asymmetry_rel": 0.0023841226,
+   "provenance": null,
    "eos_vs_elastic_pct": -1.3610046473,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4004,6 +4139,7 @@
    "err_exp_pct": -8.5947297491,
    "excluded": null,
    "asymmetry_rel": 0.0002188889,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.0071121036,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4027,6 +4163,7 @@
    "err_exp_pct": -9.2199489225,
    "excluded": null,
    "asymmetry_rel": 0.0001964176,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.046129219,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4050,6 +4187,7 @@
    "err_exp_pct": -7.5218864122,
    "excluded": null,
    "asymmetry_rel": 1.22125e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.2380722793,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4073,6 +4211,7 @@
    "err_exp_pct": -7.0780084791,
    "excluded": null,
    "asymmetry_rel": 0.0009462479,
+   "provenance": null,
    "eos_vs_elastic_pct": 2.0865004221,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4096,6 +4235,7 @@
    "err_exp_pct": null,
    "excluded": "relaxed to a different crystal form",
    "asymmetry_rel": 0.0025375858,
+   "provenance": null,
    "eos_vs_elastic_pct": 1.251768605,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4119,6 +4259,7 @@
    "err_exp_pct": -2.432690067,
    "excluded": null,
    "asymmetry_rel": 0.0011987739,
+   "provenance": null,
    "eos_vs_elastic_pct": 2.7451936187,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4142,6 +4283,7 @@
    "err_exp_pct": -7.7354493209,
    "excluded": null,
    "asymmetry_rel": 0.0003016191,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.21239809,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4165,6 +4307,7 @@
    "err_exp_pct": -6.957472606,
    "excluded": null,
    "asymmetry_rel": 0.0003485876,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.185785951,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4188,6 +4331,7 @@
    "err_exp_pct": -4.854126821,
    "excluded": null,
    "asymmetry_rel": 6.549e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.1510243771,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4211,6 +4355,7 @@
    "err_exp_pct": 0.185231936,
    "excluded": null,
    "asymmetry_rel": 8.351e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.2535156537,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4234,6 +4379,7 @@
    "err_exp_pct": null,
    "excluded": "relaxed to a different crystal form",
    "asymmetry_rel": 0.0318162152,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.2659079289,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4257,6 +4403,7 @@
    "err_exp_pct": -2.6412751653,
    "excluded": null,
    "asymmetry_rel": 2.9239e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.1961937052,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4280,6 +4427,7 @@
    "err_exp_pct": -5.0627935213,
    "excluded": null,
    "asymmetry_rel": 0.0004128114,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.2943829874,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4303,6 +4451,7 @@
    "err_exp_pct": -1.571480899,
    "excluded": null,
    "asymmetry_rel": 0.0003233369,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.0015322298,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4326,6 +4475,7 @@
    "err_exp_pct": 4.2707856353,
    "excluded": null,
    "asymmetry_rel": 2.0944e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.305386045,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4349,6 +4499,7 @@
    "err_exp_pct": 7.9491251817,
    "excluded": null,
    "asymmetry_rel": 0.0006391106,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.4171402554,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4372,6 +4523,7 @@
    "err_exp_pct": 6.7815705807,
    "excluded": null,
    "asymmetry_rel": 0.0028902475,
+   "provenance": null,
    "eos_vs_elastic_pct": -5.0913458666,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4395,6 +4547,7 @@
    "err_exp_pct": -8.6452528704,
    "excluded": null,
    "asymmetry_rel": 5.8295e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": 1.2062229705,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4418,6 +4571,7 @@
    "err_exp_pct": 18.2563933587,
    "excluded": null,
    "asymmetry_rel": 0.0003198291,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.2404338178,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4441,6 +4595,7 @@
    "err_exp_pct": -19.8590081554,
    "excluded": null,
    "asymmetry_rel": 0.0005294664,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.6565272237,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4464,6 +4619,7 @@
    "err_exp_pct": -17.7699270282,
    "excluded": null,
    "asymmetry_rel": 7.4958e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": 3.1609987059,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4487,6 +4643,7 @@
    "err_exp_pct": 5.2205893819,
    "excluded": null,
    "asymmetry_rel": 0.0002297766,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.2199157866,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4510,6 +4667,7 @@
    "err_exp_pct": -4.4171776013,
    "excluded": null,
    "asymmetry_rel": 0.0007435249,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.247077058,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4533,6 +4691,7 @@
    "err_exp_pct": -42.3879981053,
    "excluded": null,
    "asymmetry_rel": 0.0003408874,
+   "provenance": null,
    "eos_vs_elastic_pct": 11.5784475282,
    "mechanically_stable": true,
    "eos_fit_ok": false
@@ -4556,6 +4715,7 @@
    "err_exp_pct": 9.7163780874,
    "excluded": null,
    "asymmetry_rel": 0.0003335963,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.1544329072,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4579,6 +4739,7 @@
    "err_exp_pct": -17.0286879675,
    "excluded": null,
    "asymmetry_rel": 0.0006559027,
+   "provenance": null,
    "eos_vs_elastic_pct": 1.2389386361,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4602,6 +4763,7 @@
    "err_exp_pct": -12.0134126622,
    "excluded": null,
    "asymmetry_rel": 0.0001128099,
+   "provenance": null,
    "eos_vs_elastic_pct": 1.961747139,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4625,6 +4787,7 @@
    "err_exp_pct": 17.332507262,
    "excluded": null,
    "asymmetry_rel": 0.0007936228,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.3592745897,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4648,6 +4811,7 @@
    "err_exp_pct": -17.2403603991,
    "excluded": null,
    "asymmetry_rel": 0.000541308,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.3579112643,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4671,6 +4835,7 @@
    "err_exp_pct": -8.824560777,
    "excluded": null,
    "asymmetry_rel": 6.5537e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": 2.6345543721,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4694,6 +4859,7 @@
    "err_exp_pct": 35.3307755586,
    "excluded": null,
    "asymmetry_rel": 0.0004068394,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.8122276084,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4717,6 +4883,7 @@
    "err_exp_pct": -11.311665345,
    "excluded": null,
    "asymmetry_rel": 0.000557651,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.1732380554,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4740,6 +4907,7 @@
    "err_exp_pct": null,
    "excluded": "elastic tensor not positive definite",
    "asymmetry_rel": 0.0007146569,
+   "provenance": null,
    "eos_vs_elastic_pct": 2.4277872942,
    "mechanically_stable": false,
    "eos_fit_ok": true
@@ -4763,6 +4931,7 @@
    "err_exp_pct": 6.1854629374,
    "excluded": null,
    "asymmetry_rel": 0.0010507836,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.4660166333,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4786,6 +4955,7 @@
    "err_exp_pct": -10.8620450863,
    "excluded": null,
    "asymmetry_rel": 0.0004385254,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.2869864046,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4809,6 +4979,7 @@
    "err_exp_pct": -3.0318163499,
    "excluded": null,
    "asymmetry_rel": 1.00139e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.9588705948,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4832,6 +5003,7 @@
    "err_exp_pct": -11.9245640815,
    "excluded": null,
    "asymmetry_rel": 0.0006725707,
+   "provenance": null,
    "eos_vs_elastic_pct": 1.3954071508,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4855,6 +5027,7 @@
    "err_exp_pct": -5.1824145535,
    "excluded": null,
    "asymmetry_rel": 0.0003762366,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.0904951176,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4878,6 +5051,7 @@
    "err_exp_pct": 3.6376095488,
    "excluded": null,
    "asymmetry_rel": 7.1401e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.3527544862,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4901,6 +5075,7 @@
    "err_exp_pct": 17.4790403784,
    "excluded": null,
    "asymmetry_rel": 0.0012935671,
+   "provenance": null,
    "eos_vs_elastic_pct": 2.3119767706,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4924,6 +5099,7 @@
    "err_exp_pct": 5.2009107596,
    "excluded": null,
    "asymmetry_rel": 0.0005035744,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.2517298573,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4947,6 +5123,7 @@
    "err_exp_pct": 0.5079581297,
    "excluded": null,
    "asymmetry_rel": 2.97166e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.391045687,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4970,6 +5147,7 @@
    "err_exp_pct": null,
    "excluded": null,
    "asymmetry_rel": 0.0010855516,
+   "provenance": null,
    "eos_vs_elastic_pct": -1.4435930497,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -4993,6 +5171,7 @@
    "err_exp_pct": null,
    "excluded": null,
    "asymmetry_rel": 0.0002923383,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.2920426429,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5016,6 +5195,7 @@
    "err_exp_pct": null,
    "excluded": null,
    "asymmetry_rel": 6.4308e-06,
+   "provenance": null,
    "eos_vs_elastic_pct": -0.8916289367,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5039,6 +5219,7 @@
    "err_exp_pct": -1.7089754619,
    "excluded": null,
    "asymmetry_rel": 0.0005247188,
+   "provenance": null,
    "eos_vs_elastic_pct": 2.4680039373,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5062,6 +5243,7 @@
    "err_exp_pct": -2.8801839861,
    "excluded": null,
    "asymmetry_rel": 0.0005088721,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.3498448015,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5085,6 +5267,7 @@
    "err_exp_pct": -1.5455364076,
    "excluded": null,
    "asymmetry_rel": 0.0009605559,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.490065645,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5108,6 +5291,7 @@
    "err_exp_pct": -9.7024130236,
    "excluded": null,
    "asymmetry_rel": 0.0013391091,
+   "provenance": null,
    "eos_vs_elastic_pct": 3.6521991078,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5131,6 +5315,7 @@
    "err_exp_pct": -0.9284885053,
    "excluded": null,
    "asymmetry_rel": 0.0004047218,
+   "provenance": null,
    "eos_vs_elastic_pct": 1.6831387604,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5154,6 +5339,7 @@
    "err_exp_pct": -11.2987664711,
    "excluded": null,
    "asymmetry_rel": 0.0003044066,
+   "provenance": null,
    "eos_vs_elastic_pct": 1.999887522,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5177,6 +5363,7 @@
    "err_exp_pct": null,
    "excluded": null,
    "asymmetry_rel": 0.0001947237,
+   "provenance": null,
    "eos_vs_elastic_pct": -1.0727449259,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5200,6 +5387,7 @@
    "err_exp_pct": null,
    "excluded": null,
    "asymmetry_rel": 0.0004395913,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.0915430023,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5223,6 +5411,7 @@
    "err_exp_pct": null,
    "excluded": null,
    "asymmetry_rel": 0.0004914343,
+   "provenance": null,
    "eos_vs_elastic_pct": 0.4372529426,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5246,6 +5435,7 @@
    "err_exp_pct": -68.7750460902,
    "excluded": null,
    "asymmetry_rel": 0.0006534187,
+   "provenance": null,
    "eos_vs_elastic_pct": 60.794359109,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5269,6 +5459,7 @@
    "err_exp_pct": null,
    "excluded": "relaxed to a different crystal form",
    "asymmetry_rel": 0.0003769397,
+   "provenance": null,
    "eos_vs_elastic_pct": 93.2879423571,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5292,6 +5483,7 @@
    "err_exp_pct": null,
    "excluded": "elastic tensor not positive definite",
    "asymmetry_rel": 0.0009018302,
+   "provenance": null,
    "eos_vs_elastic_pct": 99.0960628278,
    "mechanically_stable": false,
    "eos_fit_ok": true
@@ -5315,6 +5507,7 @@
    "err_exp_pct": null,
    "excluded": "elastic tensor not positive definite",
    "asymmetry_rel": 0.1297324205,
+   "provenance": null,
    "eos_vs_elastic_pct": 142.8610125929,
    "mechanically_stable": false,
    "eos_fit_ok": true
@@ -5338,6 +5531,7 @@
    "err_exp_pct": -70.9940037107,
    "excluded": null,
    "asymmetry_rel": 0.0002544161,
+   "provenance": null,
    "eos_vs_elastic_pct": 91.9674093801,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5361,6 +5555,7 @@
    "err_exp_pct": -73.0901162617,
    "excluded": null,
    "asymmetry_rel": 0.0001513818,
+   "provenance": null,
    "eos_vs_elastic_pct": 92.4325768786,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5384,6 +5579,7 @@
    "err_exp_pct": 129.4019642011,
    "excluded": null,
    "asymmetry_rel": 0.0002964511,
+   "provenance": null,
    "eos_vs_elastic_pct": 52.7835534421,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5407,6 +5603,7 @@
    "err_exp_pct": -86.7636858825,
    "excluded": null,
    "asymmetry_rel": 0.0002205868,
+   "provenance": null,
    "eos_vs_elastic_pct": 95.736526905,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -5430,6 +5627,7 @@
    "err_exp_pct": -63.1142983938,
    "excluded": null,
    "asymmetry_rel": 7.19731e-05,
+   "provenance": null,
    "eos_vs_elastic_pct": 89.1935607083,
    "mechanically_stable": true,
    "eos_fit_ok": true
@@ -6231,6 +6429,1194 @@
   }
  ],
  "checks": [
+  {
+   "model": "mace-mpa-0",
+   "material": "Si",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Si",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ge",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ge",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ge",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SiC",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SiC",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SiC",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "GaAs",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "GaAs",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "GaAs",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "GaN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "GaN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "GaN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "InP",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "InP",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "InP",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "AlN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "AlN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "AlN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SiO2_quartz",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SiO2_quartz",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SiO2_quartz",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Si3N4_beta",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Si3N4_beta",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Al2O3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Al2O3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Al2O3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "HfO2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "HfO2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "ZrO2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "ZrO2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Y2O3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Y2O3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiO2_rutile",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiO2_rutile",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiO2_rutile",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "MgO",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MgO",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "MgO",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SrTiO3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SrTiO3",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Cu",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Cu",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Cu",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Al",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Al",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Al",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "W",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "W",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "W",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Co",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Co",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Co",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ru",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ru",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ru",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Mo",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Mo",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Mo",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ti",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ti",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ti",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ta",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ta",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ta",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TaN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TaN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "CoSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "CoSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "CoSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "NiSi",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "NiSi",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "NiSi",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "WSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "WSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "WSi2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "MoS2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "MoS2",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "hBN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "hBN",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "graphite",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "graphite",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "graphite",
+   "check": "lattice: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Si",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Si",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ge",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ge",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ge",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SiC",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SiC",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SiC",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "GaAs",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "GaAs",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "GaAs",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "GaN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "GaN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "GaN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "InP",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "InP",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "InP",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "AlN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "AlN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "AlN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SiO2_quartz",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SiO2_quartz",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SiO2_quartz",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Si3N4_beta",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Si3N4_beta",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Al2O3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Al2O3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Al2O3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "HfO2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "HfO2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "ZrO2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "ZrO2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Y2O3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Y2O3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiO2_rutile",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiO2_rutile",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiO2_rutile",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "MgO",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MgO",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "MgO",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SrTiO3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SrTiO3",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Cu",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Cu",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Cu",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Al",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Al",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Al",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "W",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "W",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "W",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Co",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Co",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Co",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ru",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ru",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ru",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Mo",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Mo",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Mo",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ti",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ti",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ti",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ta",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ta",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ta",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TaN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TaN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "CoSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "CoSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "CoSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "NiSi",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "NiSi",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "NiSi",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "WSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "WSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "WSi2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "MoS2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "MoS2",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "hBN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "hBN",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "graphite",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "graphite",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "graphite",
+   "check": "bulk modulus: fingerprint matches current code",
+   "pass": true
+  },
   {
    "model": "mace-mpa-0",
    "material": "Si",

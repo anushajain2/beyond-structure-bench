@@ -46,7 +46,25 @@
     -5.40553,
     -5.3981838
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "3684947bfa29197b",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ge",
@@ -80,7 +98,25 @@
     -4.4813929,
     -4.4758587
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "eb19940fa6839167",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "SiC",
@@ -114,7 +150,25 @@
     -7.5211515,
     -7.5119953
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "6ef5ba58d7f6438b",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "GaAs",
@@ -148,7 +202,25 @@
     -4.1170125,
     -4.1111178
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "00d6ee8235d67801",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "GaN",
@@ -182,7 +254,25 @@
     -6.0704947,
     -6.061954
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "092fe8b4e05429da",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "InP",
@@ -216,7 +306,25 @@
     -4.1804032,
     -4.1738648
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "1a38eaa0b9c4de95",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "AlN",
@@ -250,7 +358,25 @@
     -7.4203763,
     -7.4116306
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "9b5f8237fc42f4ed",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "SiO2_quartz",
@@ -284,7 +410,25 @@
     -7.9031338,
     -7.9009425
    ],
-   "fit_ok": false
+   "fit_ok": false,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "278ee448847719d2",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Si3N4_beta",
@@ -318,7 +462,25 @@
     -8.1686374,
     -8.1581345
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "f06a0bd357a7f965",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Al2O3",
@@ -352,7 +514,25 @@
     -7.4692017,
     -7.4605453
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "f6d9d47e632813a9",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "HfO2",
@@ -386,7 +566,25 @@
     -10.1549193,
     -10.1447671
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "5cef946372b47ae6",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "ZrO2",
@@ -420,7 +618,25 @@
     -9.5799891,
     -9.5704753
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "9d4bd34691e8191f",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Y2O3",
@@ -454,7 +670,25 @@
     -9.1425026,
     -9.133712
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "f1cdc471c43d5dea",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TiO2_rutile",
@@ -488,7 +722,25 @@
     -8.899231,
     -8.8917452
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "7b10ee5dc21d4d8e",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "MgO",
@@ -522,7 +774,25 @@
     -5.924159,
     -5.9180093
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "bff222352c67bf31",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "SrTiO3",
@@ -556,7 +826,25 @@
     -7.9911682,
     -7.9850403
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "49f3e6eadaab2d35",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Cu",
@@ -590,7 +878,25 @@
     -3.7329001,
     -3.7261825
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "8002ba4f3c71077e",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Al",
@@ -624,7 +930,25 @@
     -3.7212667,
     -3.7166188
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "920701d1610f7852",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "W",
@@ -658,7 +982,25 @@
     -12.9273167,
     -12.909565
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "11e335da82030033",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Co",
@@ -692,7 +1034,25 @@
     -7.0207143,
     -7.0121722
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "f50fbf84ea70d392",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ru",
@@ -726,7 +1086,25 @@
     -9.2073717,
     -9.1914282
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "e423dcfd19deb53f",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Mo",
@@ -760,7 +1138,25 @@
     -10.8999929,
     -10.8849468
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "8ba7ccb4141433f2",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ti",
@@ -794,7 +1190,25 @@
     -7.7793636,
     -7.7720466
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "fa8379df21546ca6",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "Ta",
@@ -828,7 +1242,25 @@
     -11.7924242,
     -11.7785826
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "8b21b50928b1130d",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TiN",
@@ -862,7 +1294,25 @@
     -9.7746286,
     -9.7638464
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "9948a17537d98275",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TaN",
@@ -896,7 +1346,25 @@
     -11.2284838,
     -11.2134183
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "df54d03d296f2598",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "CoSi2",
@@ -930,7 +1398,25 @@
     -6.3967717,
     -6.3877271
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "77b5a27bc41da63e",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "NiSi",
@@ -964,7 +1450,25 @@
     -5.9212503,
     -5.9128618
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "8d496c0ec889ce82",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "TiSi2",
@@ -998,7 +1502,25 @@
     -6.7543392,
     -6.7454764
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "c79ee73bdbce4a07",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "WSi2",
@@ -1032,7 +1554,25 @@
     -8.2565823,
     -8.2446162
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "b7b881cbd2d57ae8",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "MoS2",
@@ -1066,7 +1606,25 @@
     -7.2768466,
     -7.2722893
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "801ace69c4e4e7b5",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "hBN",
@@ -1100,7 +1658,25 @@
     -8.7869473,
     -8.777668
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "dc9df493df65c71a",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   },
   {
    "material": "graphite",
@@ -1134,7 +1710,25 @@
     -9.2135277,
     -9.2031116
    ],
-   "fit_ok": true
+   "fit_ok": true,
+   "provenance": {
+    "code": "59b907f32c7564da",
+    "settings": "ada700b22c5ced99",
+    "inputs": "d71e24030b790abc",
+    "git": {
+     "commit": "9f2a8a9f21827aab4c6e041cbee75ea2fbf4685a",
+     "dirty": true
+    },
+    "versions": {
+     "kups": "1.0.8",
+     "jax": "0.11.2",
+     "torch": "2.13.0",
+     "ase": "3.29.0",
+     "pymatgen": "2026.9.24"
+    },
+    "utc": "2026-10-18T14:15:00+00:00",
+    "stamped": "backfilled 2026-10-18: computed before stamping; step code verified behaviour-identical (docs/provenance.md)"
+   }
   }
  ]
 }

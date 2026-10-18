@@ -20,6 +20,7 @@ from chipff.materials import CLASS_LABELS, ROOT, experimental, load_materials, m
 from chipff.models import MODELS as _ALL_MODELS
 
 MODELS = {k: m for k, m in _ALL_MODELS.items() if not m.excluded}
+from chipff.provenance import check as provenance_check
 from chipff.runner import config, load_raw
 
 OUT = ROOT / "results"
@@ -175,7 +176,10 @@ def lattice_table() -> pd.DataFrame:
                 row["a"], row["b"], row["c"] = (m3[best[i]] for i in range(3))
                 row["axis_matching"] = "".join("abc"[i] for i in best)
             row["excluded"] = None
-            if not r["symmetry_kept"]:
+            row["provenance"] = provenance_check("lattice", mk, mat.id, r)
+            if row["provenance"]:
+                row["excluded"] = "stale: " + row["provenance"]
+            elif not r["symmetry_kept"]:
                 row["excluded"] = f"relaxed to a different crystal form (space group {r['spg_start']} -> {r['spg_end']})"
             elif not r["converged"]:
                 row["excluded"] = "relaxation did not converge"
@@ -211,7 +215,10 @@ def bulk_table() -> pd.DataFrame:
             asym = el.get("asymmetry_rel", 0.0)
             excluded = None
             lat_row = load_raw(mk, "lattice").get(mat.id) or {}
-            if lat_row and not lat_row.get("symmetry_kept", True):
+            prov = provenance_check("elastic", mk, mat.id, el) or (provenance_check("eos", mk, mat.id, eos) if eos else None)
+            if prov:
+                excluded = "stale: " + prov
+            elif lat_row and not lat_row.get("symmetry_kept", True):
                 excluded = "relaxed to a different crystal form"
             elif not el["mechanically_stable"]:
                 excluded = "elastic tensor not positive definite"
@@ -227,7 +234,7 @@ def bulk_table() -> pd.DataFrame:
                 "exp_source": (e.get("bulk_modulus") or {}).get("source"),
                 "err_dft_pct": None if excluded else pct(el["K_vrh_GPa"], dft.get("K_vrh_GPa")),
                 "err_exp_pct": None if excluded else pct(k_for_exp, b_exp),
-                "excluded": excluded, "asymmetry_rel": asym,
+                "excluded": excluded, "asymmetry_rel": asym, "provenance": prov,
                 "eos_vs_elastic_pct": pct(eos["B0_GPa"], el["K_vrh_GPa"]) if eos else None,
                 "mechanically_stable": el["mechanically_stable"], "eos_fit_ok": eos["fit_ok"] if eos else None,
             })
@@ -246,12 +253,14 @@ def thermal_table(tag: str = "thermal") -> pd.DataFrame:
                 continue
             lo, hi = min(r["temperatures"]), max(r["temperatures"])
             ref, why = window_average(T_exp, aV_exp, lo, hi)
+            prov = provenance_check(tag, mk, mat.id, r)
             rows.append({
                 "model": mk, "material": mat.id, "class": mat.cls, "T_low": lo, "T_high": hi,
                 "alpha_V": r["alpha_V_1e6"], "alpha_V_err": r["alpha_V_err_1e6"],
                 "alpha_a": r["alpha_axes_1e6"][0], "alpha_b": r["alpha_axes_1e6"][1], "alpha_c": r["alpha_axes_1e6"][2],
                 "alpha_V_exp": ref, "exp_note": why, "exp_source": (e.get("thermal_expansion") or {}).get("source"),
-                "err_exp_pct": pct(r["alpha_V_1e6"], ref), "prod_ps": max(r["prod_ps"]),
+                "err_exp_pct": None if prov else pct(r["alpha_V_1e6"], ref), "prod_ps": max(r["prod_ps"]),
+                "provenance": prov,
                 **{f"check_{k}": v for k, v in r["checks"].items()},
             })
     return pd.DataFrame(rows)
@@ -295,6 +304,10 @@ def trust_map(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame) -> pd.
 
 def checks_table(lat, bulk, therm) -> pd.DataFrame:
     rows = []
+    for name, df in (("lattice", lat), ("bulk modulus", bulk), ("thermal expansion", therm)):
+        for _, r in df.iterrows():
+            rows.append({"model": r.model, "material": r.material, "check": f"{name}: fingerprint matches current code",
+                         "pass": not (isinstance(r.get("provenance"), str) and r.get("provenance"))})
     for _, r in lat.iterrows():
         rows.append({"model": r.model, "material": r.material, "check": "relaxation converged", "pass": bool(r.converged)})
         rows.append({"model": r.model, "material": r.material, "check": "space group unchanged", "pass": bool(r.symmetry_kept)})

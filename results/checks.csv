@@ -1,4 +1,202 @@
 model,material,check,pass
+mace-mpa-0,Si,lattice: fingerprint matches current code,True
+orb-v3,Si,lattice: fingerprint matches current code,True
+mattersim-5m-native,Si,lattice: fingerprint matches current code,True
+mace-mpa-0,Ge,lattice: fingerprint matches current code,True
+orb-v3,Ge,lattice: fingerprint matches current code,True
+mattersim-5m-native,Ge,lattice: fingerprint matches current code,True
+mace-mpa-0,SiC,lattice: fingerprint matches current code,True
+orb-v3,SiC,lattice: fingerprint matches current code,True
+mattersim-5m-native,SiC,lattice: fingerprint matches current code,True
+mace-mpa-0,GaAs,lattice: fingerprint matches current code,True
+orb-v3,GaAs,lattice: fingerprint matches current code,True
+mattersim-5m-native,GaAs,lattice: fingerprint matches current code,True
+mace-mpa-0,GaN,lattice: fingerprint matches current code,True
+orb-v3,GaN,lattice: fingerprint matches current code,True
+mattersim-5m-native,GaN,lattice: fingerprint matches current code,True
+mace-mpa-0,InP,lattice: fingerprint matches current code,True
+orb-v3,InP,lattice: fingerprint matches current code,True
+mattersim-5m-native,InP,lattice: fingerprint matches current code,True
+mace-mpa-0,AlN,lattice: fingerprint matches current code,True
+orb-v3,AlN,lattice: fingerprint matches current code,True
+mattersim-5m-native,AlN,lattice: fingerprint matches current code,True
+mace-mpa-0,SiO2_quartz,lattice: fingerprint matches current code,True
+orb-v3,SiO2_quartz,lattice: fingerprint matches current code,True
+mattersim-5m-native,SiO2_quartz,lattice: fingerprint matches current code,True
+mace-mpa-0,Si3N4_beta,lattice: fingerprint matches current code,True
+orb-v3,Si3N4_beta,lattice: fingerprint matches current code,True
+mattersim-5m-native,Si3N4_beta,lattice: fingerprint matches current code,True
+mace-mpa-0,Al2O3,lattice: fingerprint matches current code,True
+orb-v3,Al2O3,lattice: fingerprint matches current code,True
+mattersim-5m-native,Al2O3,lattice: fingerprint matches current code,True
+mace-mpa-0,HfO2,lattice: fingerprint matches current code,True
+orb-v3,HfO2,lattice: fingerprint matches current code,True
+mattersim-5m-native,HfO2,lattice: fingerprint matches current code,True
+mace-mpa-0,ZrO2,lattice: fingerprint matches current code,True
+orb-v3,ZrO2,lattice: fingerprint matches current code,True
+mattersim-5m-native,ZrO2,lattice: fingerprint matches current code,True
+mace-mpa-0,Y2O3,lattice: fingerprint matches current code,True
+orb-v3,Y2O3,lattice: fingerprint matches current code,True
+mattersim-5m-native,Y2O3,lattice: fingerprint matches current code,True
+mace-mpa-0,TiO2_rutile,lattice: fingerprint matches current code,True
+orb-v3,TiO2_rutile,lattice: fingerprint matches current code,True
+mattersim-5m-native,TiO2_rutile,lattice: fingerprint matches current code,True
+mace-mpa-0,MgO,lattice: fingerprint matches current code,True
+orb-v3,MgO,lattice: fingerprint matches current code,True
+mattersim-5m-native,MgO,lattice: fingerprint matches current code,True
+mace-mpa-0,SrTiO3,lattice: fingerprint matches current code,True
+orb-v3,SrTiO3,lattice: fingerprint matches current code,True
+mattersim-5m-native,SrTiO3,lattice: fingerprint matches current code,True
+mace-mpa-0,Cu,lattice: fingerprint matches current code,True
+orb-v3,Cu,lattice: fingerprint matches current code,True
+mattersim-5m-native,Cu,lattice: fingerprint matches current code,True
+mace-mpa-0,Al,lattice: fingerprint matches current code,True
+orb-v3,Al,lattice: fingerprint matches current code,True
+mattersim-5m-native,Al,lattice: fingerprint matches current code,True
+mace-mpa-0,W,lattice: fingerprint matches current code,True
+orb-v3,W,lattice: fingerprint matches current code,True
+mattersim-5m-native,W,lattice: fingerprint matches current code,True
+mace-mpa-0,Co,lattice: fingerprint matches current code,True
+orb-v3,Co,lattice: fingerprint matches current code,True
+mattersim-5m-native,Co,lattice: fingerprint matches current code,True
+mace-mpa-0,Ru,lattice: fingerprint matches current code,True
+orb-v3,Ru,lattice: fingerprint matches current code,True
+mattersim-5m-native,Ru,lattice: fingerprint matches current code,True
+mace-mpa-0,Mo,lattice: fingerprint matches current code,True
+orb-v3,Mo,lattice: fingerprint matches current code,True
+mattersim-5m-native,Mo,lattice: fingerprint matches current code,True
+mace-mpa-0,Ti,lattice: fingerprint matches current code,True
+orb-v3,Ti,lattice: fingerprint matches current code,True
+mattersim-5m-native,Ti,lattice: fingerprint matches current code,True
+mace-mpa-0,Ta,lattice: fingerprint matches current code,True
+orb-v3,Ta,lattice: fingerprint matches current code,True
+mattersim-5m-native,Ta,lattice: fingerprint matches current code,True
+mace-mpa-0,TiN,lattice: fingerprint matches current code,True
+orb-v3,TiN,lattice: fingerprint matches current code,True
+mattersim-5m-native,TiN,lattice: fingerprint matches current code,True
+mace-mpa-0,TaN,lattice: fingerprint matches current code,True
+orb-v3,TaN,lattice: fingerprint matches current code,True
+mattersim-5m-native,TaN,lattice: fingerprint matches current code,True
+mace-mpa-0,CoSi2,lattice: fingerprint matches current code,True
+orb-v3,CoSi2,lattice: fingerprint matches current code,True
+mattersim-5m-native,CoSi2,lattice: fingerprint matches current code,True
+mace-mpa-0,NiSi,lattice: fingerprint matches current code,True
+orb-v3,NiSi,lattice: fingerprint matches current code,True
+mattersim-5m-native,NiSi,lattice: fingerprint matches current code,True
+mace-mpa-0,TiSi2,lattice: fingerprint matches current code,True
+orb-v3,TiSi2,lattice: fingerprint matches current code,True
+mattersim-5m-native,TiSi2,lattice: fingerprint matches current code,True
+mace-mpa-0,WSi2,lattice: fingerprint matches current code,True
+orb-v3,WSi2,lattice: fingerprint matches current code,True
+mattersim-5m-native,WSi2,lattice: fingerprint matches current code,True
+mace-mpa-0,MoS2,lattice: fingerprint matches current code,True
+orb-v3,MoS2,lattice: fingerprint matches current code,True
+mattersim-5m-native,MoS2,lattice: fingerprint matches current code,True
+mace-mpa-0,hBN,lattice: fingerprint matches current code,True
+orb-v3,hBN,lattice: fingerprint matches current code,True
+mattersim-5m-native,hBN,lattice: fingerprint matches current code,True
+mace-mpa-0,graphite,lattice: fingerprint matches current code,True
+orb-v3,graphite,lattice: fingerprint matches current code,True
+mattersim-5m-native,graphite,lattice: fingerprint matches current code,True
+mace-mpa-0,Si,bulk modulus: fingerprint matches current code,True
+orb-v3,Si,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Si,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Ge,bulk modulus: fingerprint matches current code,True
+orb-v3,Ge,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Ge,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,SiC,bulk modulus: fingerprint matches current code,True
+orb-v3,SiC,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,SiC,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,GaAs,bulk modulus: fingerprint matches current code,True
+orb-v3,GaAs,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,GaAs,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,GaN,bulk modulus: fingerprint matches current code,True
+orb-v3,GaN,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,GaN,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,InP,bulk modulus: fingerprint matches current code,True
+orb-v3,InP,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,InP,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,AlN,bulk modulus: fingerprint matches current code,True
+orb-v3,AlN,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,AlN,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,SiO2_quartz,bulk modulus: fingerprint matches current code,True
+orb-v3,SiO2_quartz,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,SiO2_quartz,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Si3N4_beta,bulk modulus: fingerprint matches current code,True
+orb-v3,Si3N4_beta,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Si3N4_beta,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Al2O3,bulk modulus: fingerprint matches current code,True
+orb-v3,Al2O3,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Al2O3,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,HfO2,bulk modulus: fingerprint matches current code,True
+orb-v3,HfO2,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,HfO2,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,ZrO2,bulk modulus: fingerprint matches current code,True
+orb-v3,ZrO2,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,ZrO2,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Y2O3,bulk modulus: fingerprint matches current code,True
+orb-v3,Y2O3,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Y2O3,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,TiO2_rutile,bulk modulus: fingerprint matches current code,True
+orb-v3,TiO2_rutile,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,TiO2_rutile,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,MgO,bulk modulus: fingerprint matches current code,True
+orb-v3,MgO,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,MgO,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,SrTiO3,bulk modulus: fingerprint matches current code,True
+orb-v3,SrTiO3,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,SrTiO3,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Cu,bulk modulus: fingerprint matches current code,True
+orb-v3,Cu,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Cu,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Al,bulk modulus: fingerprint matches current code,True
+orb-v3,Al,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Al,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,W,bulk modulus: fingerprint matches current code,True
+orb-v3,W,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,W,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Co,bulk modulus: fingerprint matches current code,True
+orb-v3,Co,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Co,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Ru,bulk modulus: fingerprint matches current code,True
+orb-v3,Ru,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Ru,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Mo,bulk modulus: fingerprint matches current code,True
+orb-v3,Mo,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Mo,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Ti,bulk modulus: fingerprint matches current code,True
+orb-v3,Ti,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Ti,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,Ta,bulk modulus: fingerprint matches current code,True
+orb-v3,Ta,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,Ta,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,TiN,bulk modulus: fingerprint matches current code,True
+orb-v3,TiN,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,TiN,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,TaN,bulk modulus: fingerprint matches current code,True
+orb-v3,TaN,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,TaN,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,CoSi2,bulk modulus: fingerprint matches current code,True
+orb-v3,CoSi2,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,CoSi2,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,NiSi,bulk modulus: fingerprint matches current code,True
+orb-v3,NiSi,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,NiSi,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,TiSi2,bulk modulus: fingerprint matches current code,True
+orb-v3,TiSi2,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,TiSi2,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,WSi2,bulk modulus: fingerprint matches current code,True
+orb-v3,WSi2,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,WSi2,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,MoS2,bulk modulus: fingerprint matches current code,True
+orb-v3,MoS2,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,MoS2,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,hBN,bulk modulus: fingerprint matches current code,True
+orb-v3,hBN,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,hBN,bulk modulus: fingerprint matches current code,True
+mace-mpa-0,graphite,bulk modulus: fingerprint matches current code,True
+orb-v3,graphite,bulk modulus: fingerprint matches current code,True
+mattersim-5m-native,graphite,bulk modulus: fingerprint matches current code,True
 mace-mpa-0,Si,relaxation converged,True
 mace-mpa-0,Si,space group unchanged,True
 orb-v3,Si,relaxation converged,True

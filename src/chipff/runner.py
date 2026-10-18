@@ -35,6 +35,11 @@ def load_raw(model: str, step: str) -> dict[str, dict]:
 
 
 def save_raw(model: str, step: str, records: list[dict], meta: dict):
+    """Merge records into results/raw/<model>/<step>.json, stamping each with its fingerprint."""
+    from chipff.provenance import fingerprint
+
+    for r in records:
+        r.setdefault("provenance", fingerprint(step, model, r["material"]))
     p = raw_path(model, step)
     p.parent.mkdir(parents=True, exist_ok=True)
     old = load_raw(model, step)
