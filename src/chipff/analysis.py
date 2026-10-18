@@ -223,6 +223,7 @@ def bulk_table() -> pd.DataFrame:
                 "G_vrh": el["G_vrh_GPa"], "B_eos": eos["B0_GPa"] if eos else None,
                 "B_eos_prime": eos["B0_prime"] if eos else None,
                 "K_vrh_dft": dft.get("K_vrh_GPa"), "B_exp": b_exp, "exp_definition": kind,
+                "K_for_exp": k_for_exp,
                 "exp_source": (e.get("bulk_modulus") or {}).get("source"),
                 "err_dft_pct": None if excluded else pct(el["K_vrh_GPa"], dft.get("K_vrh_GPa")),
                 "err_exp_pct": None if excluded else pct(k_for_exp, b_exp),

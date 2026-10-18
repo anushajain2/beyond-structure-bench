@@ -17,7 +17,6 @@ Run:  chipff-mcp            (stdio transport; add it to any MCP client)
 from __future__ import annotations
 
 import json
-import math
 from functools import lru_cache
 
 from chipff.materials import CLASS_LABELS, ROOT, load_materials
@@ -51,7 +50,7 @@ def _find_class(name: str):
         if q in (k, v.lower()) or q.rstrip("s") in k:
             return k
     aliases = {"metal": "metals", "oxide": "dielectrics", "dielectric": "dielectrics", "insulator": "dielectrics",
-               "nitride": "barriers_silicides", "silicide": "barriers_silicides", "barrier": "barriers_silicides",
+               "silicide": "barriers_silicides", "barrier": "barriers_silicides",
                "semiconductor": "semiconductors", "2d": "layered", "van der waals": "layered", "layered": "layered"}
     for a, k in aliases.items():
         if a in q:
@@ -81,6 +80,8 @@ def recommend_model(material: str, property: str, temperature_K: float | None = 
     if mat is None and cls is None:
         return {"error": f"{material!r} is not a benchmarked material or class",
                 "benchmarked": [m.id for m in load_materials()]}
+    if not _rows(prop):
+        return {"error": f"no {prop.replace('_', ' ')} results in this benchmark yet"}
     rows = [r for r in _rows(prop) if r.get(col) is not None and (r["material"] == mat.id if mat else r["class"] == cls)]
     basis = f"material {mat.id}" if mat else f"class {CLASS_LABELS[cls]}"
     if mat and not rows:  # no experimental comparison for this material: fall back to its class
@@ -182,9 +183,12 @@ def check_material(cif: str, models: list[str] | None = None) -> dict:
 
 
 def main():
-    from mcp.server.fastmcp import FastMCP
+    try:  # mcp >= 2
+        from mcp.server.mcpserver import MCPServer as Server
+    except ImportError:  # mcp 1.x
+        from mcp.server.fastmcp import FastMCP as Server
 
-    app = FastMCP("chipff-bench")
+    app = Server("chipff-bench")
     app.tool()(recommend_model)
     app.tool()(get_benchmark)
     app.tool()(check_material)

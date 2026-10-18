@@ -48,7 +48,8 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
     models = [m for m in MODELS if any(r["model"] == m for r in tm)]
     classes = list(CLASS_LABELS)
     props = [p for p in PROP_LABEL if any(r["property"] == p for r in tm)]
-    fig, axes = plt.subplots(1, len(props), figsize=(3.3 * len(props), 0.42 * len(classes) + 1.2), squeeze=False)
+    fig, axes = plt.subplots(1, len(props), figsize=(1.15 * len(models) * len(props) + 2.4, 0.5 * len(classes) + 1.6),
+                             squeeze=False, gridspec_kw={"wspace": 0.08})
     for ax, p in zip(axes[0], props):
         ax.grid(False)
         for i, c in enumerate(classes):
@@ -56,30 +57,34 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
                 r = next((x for x in tm if x["model"] == m and x["class"] == c and x["property"] == p), None)
                 if r is None:
                     ax.add_patch(plt.Rectangle((j, i), 0.96, 0.92, color="#f0efec"))
-                    ax.text(j + 0.48, i + 0.46, "n/a", ha="center", va="center", color=INK2, fontsize=7)
+                    ax.text(j + 0.48, i + 0.46, "n/a", ha="center", va="center", color=INK2, fontsize=7.5)
                     continue
                 ax.add_patch(plt.Rectangle((j, i), 0.96, 0.92, color=STATUS[r["grade"]], alpha=0.9))
-                ax.text(j + 0.48, i + 0.46, f"{r['MAPE']:.1f}%", ha="center", va="center", fontsize=7.5,
+                val = f"{r['MAPE']:.2f}%" if r["MAPE"] < 10 else f"{r['MAPE']:.0f}%"
+                ax.text(j + 0.48, i + 0.46, val, ha="center", va="center", fontsize=8,
                         color="white" if r["grade"] != "okay" else INK)
         ax.set_xlim(0, len(models))
         ax.set_ylim(len(classes), 0)
-        ax.set_xticks([j + 0.48 for j in range(len(models))], [short(m) for m in models],
-                      rotation=30, ha="right")
+        ax.xaxis.tick_top()
+        ax.set_xticks([j + 0.48 for j in range(len(models))], [short(m) for m in models], fontsize=8)
         ax.set_yticks([i + 0.46 for i in range(len(classes))], [CLASS_LABELS[c] for c in classes] if p == props[0] else [])
-        ax.set_title(PROP_LABEL[p], color=INK, fontsize=10, loc="left")
+        ax.set_title(PROP_LABEL[p], color=INK, fontsize=10, loc="left", pad=22)
         for sp in ax.spines.values():
             sp.set_visible(False)
         ax.tick_params(length=0)
     th = s["thresholds"]
-    note = "  ·  ".join(f"{PROP_LABEL[p]}: good ≤{th[p]['good']:g}%, okay ≤{th[p]['okay']:g}%" for p in props)
-    fig.text(0.0, -0.04, f"Mean absolute % error vs {reference}. Green good, amber okay, red poor (pre-registered: {note}).",
-             fontsize=7.5, color=INK2)
+    note = "; ".join(f"{PROP_LABEL[p].lower()} good ≤{th[p]['good']:g}%, okay ≤{th[p]['okay']:g}%" for p in props)
+    star = " *not run through kUPS (official package)." if any(not MODELS[m].via_kups for m in models) else ""
+    fig.text(0.0, -0.02, f"Mean absolute % error vs {reference}. Green good, amber okay, red poor; thresholds fixed in "
+             f"advance ({note}).{star}", fontsize=7.5, color=INK2, wrap=True)
     _save(fig, f"trust_map_{reference}")
     return f"figures/trust_map_{reference}.svg"
 
 
-def parity_figure(s: dict, prop: str, model_col: str, ref_col: str, label: str, unit: str, log=False, name=None):
-    rows = [r for r in s[prop] if r.get(model_col) is not None and r.get(ref_col) is not None]
+def parity_figure(s: dict, prop: str, model_col: str, ref_col: str, label: str, unit: str, log=False, name=None,
+                  err_col: str | None = None):
+    rows = [r for r in s[prop] if r.get(model_col) is not None and r.get(ref_col) is not None
+            and (err_col is None or r.get(err_col) is not None)]
     if not rows:
         return None
     fig, ax = plt.subplots(figsize=(4.6, 4.4))
@@ -95,8 +100,15 @@ def parity_figure(s: dict, prop: str, model_col: str, ref_col: str, label: str, 
             ax.scatter(x, y, s=34, marker=MARKERS[m], color=MODELS[m].color, edgecolor=SURF, linewidth=1.2,
                        label=short(m), zorder=3)
     if log:
+        from matplotlib.ticker import FixedLocator, NullFormatter, ScalarFormatter
+
         ax.set_xscale("log")
         ax.set_yscale("log")
+        ticks = [t for t in (5, 10, 20, 50, 100, 200, 500) if lim[0] <= t <= lim[1]]
+        for axis in (ax.xaxis, ax.yaxis):
+            axis.set_major_locator(FixedLocator(ticks))
+            axis.set_major_formatter(ScalarFormatter())
+            axis.set_minor_formatter(NullFormatter())
     ax.set_xlim(lim)
     ax.set_ylim(lim)
     ax.set_xlabel(f"Reference {label} ({unit})")
@@ -148,12 +160,16 @@ def build_report():
     figs = {
         "tm_exp": trust_map_figure(s, "experiment"),
         "tm_dft": trust_map_figure(s, "dft"),
-        "lat": parity_figure(s, "lattice", "V_atom", "V_atom_exp", "volume per atom", "Å³", name="parity_lattice_exp"),
-        "lat_dft": parity_figure(s, "lattice", "V_atom", "V_atom_dft", "volume per atom", "Å³", name="parity_lattice_dft"),
-        "bulk": parity_figure(s, "bulk_modulus", "K_vrh", "B_exp", "bulk modulus", "GPa", log=True, name="parity_bulk_exp"),
+        "lat": parity_figure(s, "lattice", "V_atom", "V_atom_exp", "volume per atom", "Å³", name="parity_lattice_exp",
+                            err_col="err_lin_exp_pct"),
+        "lat_dft": parity_figure(s, "lattice", "V_atom", "V_atom_dft", "volume per atom", "Å³", name="parity_lattice_dft",
+                                 err_col="err_lin_dft_pct"),
+        "bulk": parity_figure(s, "bulk_modulus", "K_for_exp", "B_exp", "bulk modulus", "GPa", log=True,
+                              name="parity_bulk_exp", err_col="err_exp_pct"),
         "bulk_dft": parity_figure(s, "bulk_modulus", "K_vrh", "K_vrh_dft", "bulk modulus", "GPa", log=True,
-                                  name="parity_bulk_dft"),
-        "cte": parity_figure(s, "thermal_expansion", "alpha_V", "alpha_V_exp", "α_V", "10⁻⁶/K", name="parity_cte_exp"),
+                                  name="parity_bulk_dft", err_col="err_dft_pct"),
+        "cte": parity_figure(s, "thermal_expansion", "alpha_V", "alpha_V_exp", "α_V", "10⁻⁶/K", name="parity_cte_exp",
+                            err_col="err_exp_pct"),
         "lat_err": signed_error_figure(s, "lattice", "err_lin_exp_pct", "Lattice vs experiment", "signed_lattice_exp"),
         "bulk_err": signed_error_figure(s, "bulk_modulus", "err_exp_pct", "Bulk modulus vs experiment", "signed_bulk_exp"),
         "cte_err": signed_error_figure(s, "thermal_expansion", "err_exp_pct", "Thermal expansion vs experiment",

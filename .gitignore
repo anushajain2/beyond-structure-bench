@@ -9,3 +9,4 @@ __pycache__/
 work/
 logs/
 .venv-mattersim/
+dist/

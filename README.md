@@ -6,10 +6,42 @@ ChipFF Bench measures four universal ML force fields (MACE-MPA-0, Orb v3, Matter
 33 chip materials — semiconductors, gate and capacitor dielectrics, interconnect metals, barriers
 and silicides, and layered 2D materials — for three properties that decide whether a film stack
 survives processing: **lattice constant, bulk modulus and thermal expansion**. Every number is
-compared against Materials Project DFT (PBE) and against sourced experimental values. All
-simulations run through CuspAI's open-source [kUPS](https://github.com/cusp-ai-oss/kups) toolkit.
+compared against Materials Project DFT (PBE) and against sourced experimental values. Simulations
+run through CuspAI's open-source [kUPS](https://github.com/cusp-ai-oss/kups) toolkit, except MatterSim,
+whose kUPS export is currently broken (see Findings) and which runs through its official package.
 
-<!-- FINDINGS -->
+![Trust map vs experiment](report/figures/trust_map_experiment.png)
+
+## Findings so far
+
+Status: lattice constants and bulk moduli are complete for MACE-MPA-0, Orb v3 and MatterSim v1.
+Thermal expansion (GPU) and UMA (awaiting license access) are still to come; these findings will be
+updated when they land.
+
+1. **Lattice constants of non-layered chip materials are effectively solved.** All three models are
+   within 0.73–0.80 % of experiment on average across the 30 non-layered materials (worst case:
+   α-quartz, +2.1 to +2.5 %). Against Materials Project DFT they agree to 0.07–0.25 %, and the
+   systematic +0.6 % offset from experiment is the known PBE overestimation, inherited rather than
+   introduced by the models.
+2. **Layered 2D materials are where every model fails.** Interlayer spacing is overestimated by
+   10–30 % (c axis of graphite: MACE +18 %, MatterSim +25 %, Orb +30 %), because PBE training data
+   lacks van der Waals binding. Their bulk moduli are off by 60–130 %. Orb relaxes MoS₂ into a
+   different, sheared stacking.
+3. **Stiffness is the harder property, and the models err in different directions.** Excluding layered
+   materials, mean absolute bulk-modulus error vs experiment is 10.8 % (MACE), 11.9 % (Orb) and
+   12.6 % (MatterSim). Orb and MatterSim run systematically soft (mean −10.5 % and −11 %) while
+   staying close to DFT (5–6 %); MACE is unbiased on average but scatters more and over-stiffens some
+   refractory metals (W +18 %, Mo +17 %, Ti +35 %).
+4. **Symmetry is not guaranteed.** Orb, which is not built to be exactly equivariant, relaxes rutile
+   TiO₂ and cubic SrTiO₃ into lower-symmetry polar structures; MACE and MatterSim keep them. Those
+   cases are excluded from the averages and reported as findings.
+5. **Running the models through a toolkit adds its own failure modes.** The MatterSim JAX export used
+   by kUPS returns energies that depend on neighbour-list order and supercell size (reproducer:
+   `scripts/repro_mattersim_export.py`), so MatterSim is benchmarked through its official package and
+   starred in every figure. Self-checks also caught two frame-convention bugs in this project's own
+   stress handling before any number was published.
+
+*Thermal expansion: pending the GPU run (`notebooks/thermal_expansion_gpu.ipynb`).*
 
 ## What's measured
 
@@ -52,15 +84,23 @@ bulk modulus good ≤ 10 %, okay ≤ 25 %; thermal expansion good ≤ 20 %, okay
 uv venv --python 3.12 && uv pip install -e ".[uma,mcp,dev]"
 cp .env.example .env                  # add your free Materials Project API key
 chipff fetch                          # MP structures + DFT references -> data/mp/
-chipff static                         # lattice, elastic tensor, EOS for all models (CPU, ~1 h)
+chipff static                         # lattice, elastic tensor, EOS for the kUPS models (CPU, ~1 h)
+# MatterSim through its official package, in its own environment:
+uv venv .venv-mattersim --python 3.12 && uv pip install --python .venv-mattersim/bin/python mattersim pymatgen pyyaml pandas
+PYTHONPATH=src .venv-mattersim/bin/python -m chipff.cli static -m mattersim-5m-native
 chipff thermal                        # NPT MD (GPU; see notebooks/thermal_expansion_gpu.ipynb)
 chipff analyze && chipff report       # results/*.csv, report/index.html
 pytest -q
 ```
 
 UMA is gated: accept Meta's license at <https://huggingface.co/facebook/UMA> and run
-`hf auth login`. Thermal expansion needs a GPU; the notebook runs it on a free Kaggle or Colab GPU
-and writes `results/raw/<model>/thermal.json`, which `chipff analyze` picks up.
+`hf auth login`. Thermal expansion needs a GPU: `scripts/make_kaggle_bundle.sh` packages the project
+for upload as a private Kaggle dataset, and `notebooks/thermal_expansion_gpu.ipynb` runs it unattended
+and returns `results/raw/<model>/thermal.json`, which `chipff analyze` picks up.
+
+Validation scripts any model must pass: `scripts/check_stress.py <model>` (reported stress equals the
+strain derivative of the model's own energy) and `scripts/check_batch_consistency.py <model>` (a
+structure's energy doesn't depend on what else is in the batch).
 
 Raw per-model results are committed under `results/raw/`, so `chipff analyze && chipff report`
 rebuilds every table and figure without rerunning a simulation.
@@ -112,7 +152,10 @@ notebooks/                    GPU notebook for thermal expansion
   K) and is excluded. For layered solids, PBE itself misses the interlayer binding, so "vs DFT" there
   measures agreement with a flawed reference.
 * **Model versions.** Results apply to the exact model files listed in `src/chipff/models.py`
-  (CuspAI's JAX exports of MACE, Orb and MatterSim; Meta's UMA checkpoint via kUPS's PyTorch bridge).
+  (CuspAI's JAX exports of MACE and Orb; Meta's UMA checkpoint via kUPS's PyTorch bridge; MatterSim
+  v1 5M through Microsoft's `mattersim` package with ASE's L-BFGS, not kUPS).
+* **No MatterSim thermal expansion.** Its official package runs one structure at a time; at benchmark
+  settings that is ~50 GPU-hours, beyond a free GPU quota, and the batched kUPS export is unusable.
 * **Independent project.** Built on kUPS and CuspAI's published model exports; not affiliated with
   or endorsed by CuspAI, Meta, Microsoft, Orbital Materials or the MACE developers.
 
