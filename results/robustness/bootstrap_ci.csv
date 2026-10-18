@@ -1,0 +1,13 @@
+property,reference,model,n,MAPE,ci_low,ci_high
+lattice,experiment,mace-mpa-0,30,0.7418,0.5707,0.9318
+lattice,experiment,mattersim-5m-native,30,0.7971,0.619,0.9962
+lattice,experiment,orb-v3,28,0.7289,0.5429,0.9499
+lattice,dft,mace-mpa-0,30,0.2495,0.1694,0.3467
+lattice,dft,mattersim-5m-native,30,0.07356,0.04851,0.1021
+lattice,dft,orb-v3,28,0.1552,0.09524,0.2191
+bulk_modulus,experiment,mace-mpa-0,28,10.77,8.339,14.63
+bulk_modulus,experiment,mattersim-5m-native,27,12.64,9.054,18.09
+bulk_modulus,experiment,orb-v3,26,11.95,9.449,15.2
+bulk_modulus,dft,mace-mpa-0,28,9.945,6.516,13.87
+bulk_modulus,dft,mattersim-5m-native,27,5.357,2.772,9.168
+bulk_modulus,dft,orb-v3,26,6.435,4.428,8.571

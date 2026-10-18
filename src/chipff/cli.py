@@ -4,7 +4,9 @@
   chipff static  [-m MODEL ...]     lattice constants, elastic tensor, EOS (CPU is fine)
   chipff thermal [-m MODEL ...]     NPT thermal expansion (GPU strongly recommended)
   chipff plan                       print the thermal-expansion temperatures chosen by the rule
-  chipff analyze                    merge raw results with references -> results/*.csv
+  chipff robustness --what static   rerun a subset with one setting changed (CPU, ~10 min per model)
+  chipff robustness --what md       MD reruns: 2 extra seeds, bigger cell, half time step (GPU)
+  chipff analyze                    merge raw results with references -> results/*.csv (+ bootstrap CIs)
   chipff report                     figures + report/index.html
   chipff all                        everything above, in order
 """
@@ -21,7 +23,8 @@ from chipff.materials import ROOT
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="chipff", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=["fetch", "static", "thermal", "plan", "analyze", "report", "all"])
+    ap.add_argument("step", choices=["fetch", "static", "thermal", "robustness", "plan", "analyze", "report", "all"])
+    ap.add_argument("--what", choices=["static", "md"], help="robustness: which reruns")
     ap.add_argument("-m", "--models", nargs="*", help="model keys (default: all in configs/benchmark.yaml)")
     ap.add_argument("--materials", nargs="*", help="material ids (default: all)")
     ap.add_argument("--force", action="store_true", help="recompute even if cached")
@@ -55,6 +58,16 @@ def main(argv=None):
         for m in models:
             run_thermal(m, a.materials, force=a.force, max_prod_ps=a.max_prod_ps, tag=a.tag, smoke=a.smoke,
                         max_edges=a.max_edges)
+    if a.step == "robustness":
+        from chipff import robustness
+
+        for m in models:
+            if a.what == "static":
+                robustness.save_static_sensitivity(robustness.static_sensitivity(m, a.materials))
+            elif a.what == "md":
+                robustness.md_variants(m, max_edges=a.max_edges)
+            else:
+                raise SystemExit("chipff robustness needs --what static or --what md")
     if a.step in ("analyze", "all", "report"):
         from chipff.analysis import build_tables
 

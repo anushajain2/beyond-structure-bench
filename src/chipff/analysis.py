@@ -353,6 +353,9 @@ def build_tables(tag: str = "thermal") -> dict:
         "lattice": _records(lat), "bulk_modulus": _records(bulk), "thermal_expansion": _records(therm),
         "trust_map": _records(tm), "checks": _records(chk),
     }
+    from chipff.robustness import build as build_robustness
+
+    summary["robustness"] = build_robustness(lat, bulk, therm)
     (OUT / "summary.json").write_text(json.dumps(summary, indent=1))
     print(f"wrote results/: {len(lat)} lattice, {len(bulk)} bulk, {len(therm)} thermal rows; "
           f"{int(chk['pass'].sum()) if not chk.empty else 0}/{len(chk)} checks pass")

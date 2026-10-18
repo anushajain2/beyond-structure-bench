@@ -33,7 +33,10 @@ updated when they land.
    materials, mean absolute bulk-modulus error vs experiment is 10.8 % (MACE), 11.9 % (Orb) and
    12.6 % (MatterSim). Orb and MatterSim run systematically soft (mean −10.5 % and −11 %) while
    staying close to DFT (5–6 %); MACE is unbiased on average but scatters more and over-stiffens some
-   refractory metals (W +18 %, Mo +17 %, Ti +35 %).
+   refractory metals (W +18 %, Mo +17 %, Ti +35 %). **Against experiment the three models are
+   statistically tied** for both lattice constants and bulk moduli: every pairwise difference's 95 %
+   bootstrap interval includes zero (`results/robustness/pairwise.csv`). Against DFT the differences are
+   real: MatterSim reproduces PBE lattices most closely, and Orb reproduces PBE bulk moduli better than MACE.
 4. **Symmetry is not guaranteed.** Orb, which is not built to be exactly equivariant, relaxes rutile
    TiO₂ and cubic SrTiO₃ into lower-symmetry polar structures; MACE and MatterSim keep them. Those
    cases are excluded from the averages and reported as findings.
@@ -73,14 +76,36 @@ bulk modulus good ≤ 10 %, okay ≤ 25 %; thermal expansion good ≤ 20 %, okay
   binding. Both appear in the results; if they didn't, the pipeline would be suspect.
 * **Automatic self-checks** (`results/checks.csv`): relaxation converged; space group unchanged;
   elastic tensor positive definite; Birch–Murnaghan fit clean; for cubic crystals, EOS bulk modulus
-  within 5 % of the elastic-tensor value; MD temperature and pressure on target; mean volume
-  converged; short NVE runs conserve energy.
+  within 5 % of the elastic-tensor value; elastic fit symmetric; MD temperature and pressure on
+  target; mean volume converged. Two invariance checks every model must pass ship as scripts:
+  stress equals the strain derivative of the model's own energy, and a structure's energy does not
+  depend on what else is in its batch.
 * **Every result is fingerprinted** with the code, settings and inputs that produced it
   (`docs/provenance.md`); `chipff analyze` refuses to mix results from different code or settings.
 * **Written rules for every judgement call** (`configs/benchmark.yaml`): MD temperatures are above
   0.75 × the Debye temperature, below half the melting point and 50 K below any phase change; MD
-  runs until the volume's standard error is below 0.02 %; supercells are ≥ 10 Å across.
+  runs until the volume's standard error is below 0.02 % (or a 40 ps cap); supercells are ≥ 10 Å across.
   Materials where a rule can't be applied get fixed temperatures with the reason written down.
+
+## Robustness and statistics
+
+Averages over ~30 materials can rank models by chance, and simulation results can hinge on
+arbitrary settings. So every headline comparison is backed by three kinds of check, explained in
+[`docs/robustness.md`](docs/robustness.md):
+
+* **Confidence intervals.** A bootstrap over materials, also perturbing each experimental reference
+  by its typical uncertainty, gives 95 % intervals on every error. A paired bootstrap says whether
+  one model is *significantly* more accurate than another or the two are tied
+  (`results/robustness/bootstrap_ci.csv`, `pairwise.csv`).
+* **Sensitivity to settings.** On eight representative materials, one setting is changed at a time:
+  strain size for the elastic tensor, a 10x tighter force tolerance, and starting cells 3 % smaller
+  or larger. The results must not move (`static_sensitivity.json`, `chipff robustness --what static`).
+* **Reproducibility of MD.** Six materials are rerun with two extra random seeds, and three with a
+  bigger supercell and half the time step, to show that thermal-expansion error bars are honest
+  (`md_variants.csv`, `chipff robustness --what md`, run in the Kaggle notebook).
+
+Static properties are deterministic, so "pass@k"-style repeated sampling doesn't apply to them; the
+questions above are its counterparts here.
 
 ## Reproduce
 

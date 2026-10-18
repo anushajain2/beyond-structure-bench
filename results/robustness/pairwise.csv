@@ -1,0 +1,13 @@
+property,reference,model_a,model_b,n_common,mean_diff_pct_points,ci_low,ci_high,p_a_better,verdict
+lattice,experiment,mace-mpa-0,mattersim-5m-native,30,-0.05529,-0.1543,0.03583,0.8826,no significant difference
+lattice,experiment,mace-mpa-0,orb-v3,28,0.0002435,-0.1284,0.1303,0.5084,no significant difference
+lattice,experiment,mattersim-5m-native,orb-v3,28,0.05519,-0.01533,0.1407,0.0636,no significant difference
+lattice,dft,mace-mpa-0,mattersim-5m-native,30,0.1759,0.09248,0.2691,0,mattersim-5m-native more accurate
+lattice,dft,mace-mpa-0,orb-v3,28,0.1065,-0.01923,0.2371,0.0478,no significant difference
+lattice,dft,mattersim-5m-native,orb-v3,28,-0.0778,-0.1455,-0.01637,0.9948,mattersim-5m-native more accurate
+bulk_modulus,experiment,mace-mpa-0,mattersim-5m-native,27,-2.783,-8.541,2.398,0.8416,no significant difference
+bulk_modulus,experiment,mace-mpa-0,orb-v3,26,-0.632,-4.789,3.722,0.624,no significant difference
+bulk_modulus,experiment,mattersim-5m-native,orb-v3,25,1.475,-2.107,5.882,0.2502,no significant difference
+bulk_modulus,dft,mace-mpa-0,mattersim-5m-native,27,3.88,-0.9659,8.36,0.0566,no significant difference
+bulk_modulus,dft,mace-mpa-0,orb-v3,26,4.016,0.7008,7.945,0.0092,orb-v3 more accurate
+bulk_modulus,dft,mattersim-5m-native,orb-v3,25,-0.3389,-2.638,2.704,0.6374,no significant difference
