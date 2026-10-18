@@ -59,8 +59,14 @@ thermal:
   integrator: {cubic: csvr_npt, other: baoab_npt_langevin}
   compressibility: 1 / K_Reuss of the same model
   start_strain_per_K: 1.0e-5   # initial cell pre-expanded by this linear strain x T
-  equilibration_ps: 10
-  production_ps: {min: 20, max: 100, check_every: 5}
+  # Amended 2026-10-18, before any production MD result existed: equilibration 10 -> 5 ps and
+  # production cap 100 -> 40 ps. Reason: MLFF memory (~2 GB per 100-atom metal cell on a T4) forces
+  # small batches, and the original lengths do not fit two models in a free 30 GPU-hour quota.
+  # The volume-error stopping rule is unchanged; runs that hit the cap report their larger error bars.
+  equilibration_ps: 5
+  production_ps: {min: 20, max: 40, check_every: 5}
+  max_edges_per_batch: 24000    # memory budget per MD batch: n_systems x largest system's neighbour pairs (~8-9 GB for MACE)
+  edge_cutoff_A: 6.0
   stop_when_volume_sem_below: 0.0002   # relative standard error of mean volume (10-block averaging)
   sample_every_fs: 10
   spot_checks:

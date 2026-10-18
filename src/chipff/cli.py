@@ -29,6 +29,7 @@ def main(argv=None):
     ap.add_argument("--tag", default="thermal", help="name of the thermal result set (e.g. thermal_pilot)")
     ap.add_argument("--steps", nargs="*", default=["lattice", "elastic", "eos"],
                     help="static steps to run (lattice, elastic, eos)")
+    ap.add_argument("--max-edges", type=int, help="memory budget per MD batch, in neighbour pairs (default from config)")
     ap.add_argument("--smoke", action="store_true", help="tiny thermal run that only tests the code path")
     ap.add_argument("-v", "--verbose", action="store_true")
     a = ap.parse_args(argv)
@@ -52,7 +53,8 @@ def main(argv=None):
             run_static(m, a.materials, steps=tuple(a.steps), force=a.force)
     if a.step in ("thermal", "all"):
         for m in models:
-            run_thermal(m, a.materials, force=a.force, max_prod_ps=a.max_prod_ps, tag=a.tag, smoke=a.smoke)
+            run_thermal(m, a.materials, force=a.force, max_prod_ps=a.max_prod_ps, tag=a.tag, smoke=a.smoke,
+                        max_edges=a.max_edges)
     if a.step in ("analyze", "all", "report"):
         from chipff.analysis import build_tables
 

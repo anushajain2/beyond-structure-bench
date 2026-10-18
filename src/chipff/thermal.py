@@ -79,6 +79,25 @@ def time_step_fs(atoms: Atoms) -> float:
     return 1.0 if set(atoms.get_chemical_symbols()) & LIGHT else 2.0
 
 
+def pack_batches(jobs: list[dict], budget: int) -> list[list[dict]]:
+    """Pack MD jobs into batches under a memory budget.
+
+    kUPS pads every system in a batch to the largest one, so a batch costs
+    (number of systems) x (largest system's neighbour pairs). Jobs are sorted by
+    size so similar systems share a batch; a job larger than the budget runs alone.
+    """
+    jobs = sorted(jobs, key=lambda j: -j["edges"])
+    batches, cur = [], []
+    for j in jobs:
+        if cur and (len(cur) + 1) * max(x["edges"] for x in cur + [j]) > budget:
+            batches.append(cur)
+            cur = []
+        cur.append(j)
+    if cur:
+        batches.append(cur)
+    return batches
+
+
 # -- statistics ------------------------------------------------------------------
 def block_sem(x: np.ndarray, n_blocks: int = 10) -> float:
     """Standard error of the mean from n_blocks contiguous block averages."""

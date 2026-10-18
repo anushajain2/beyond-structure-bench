@@ -9,7 +9,7 @@ from ase.build import bulk
 
 from chipff.analysis import exp_alpha_V, exp_bulk, exp_volume_per_atom, window_average
 from chipff.materials import DATA, experimental, get_material, load_materials
-from chipff.thermal import _wfit, block_sem, supercell, temperature_window, time_step_fs
+from chipff.thermal import _wfit, block_sem, pack_batches, supercell, temperature_window, time_step_fs
 
 
 def test_material_set():
@@ -85,3 +85,12 @@ def test_experimental_ids_match_material_set():
     extra = {"TaN_cubic"}  # documented alternative phase, not benchmarked
     assert set(experimental()) - ids <= extra
     assert ids - set(experimental()) == set()
+
+
+def test_pack_batches_respects_padded_budget():
+    jobs = [{"id": i, "edges": e} for i, e in enumerate([8000, 8000, 8000, 3000, 3000, 3000, 30000])]
+    batches = pack_batches(jobs, budget=24000)
+    for b in batches:
+        assert len(b) == 1 or len(b) * max(j["edges"] for j in b) <= 24000
+    assert sorted(j["id"] for b in batches for j in b) == list(range(7))   # nothing lost
+    assert any(len(b) == 1 and b[0]["edges"] == 30000 for b in batches)  # oversize job runs alone

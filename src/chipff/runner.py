@@ -152,7 +152,7 @@ def thermal_plan(materials: list[Material]) -> dict:
 
 
 def run_thermal(model_key: str, materials: list[str] | None = None, force=False, max_prod_ps=None, tag: str = "thermal",
-                smoke: bool = False):
+                smoke: bool = False, max_edges: int | None = None):
     """NPT thermal expansion. ``smoke=True`` uses tiny cells and runs of a few ps: it tests the
     code path on a CPU and its numbers are not results."""
     from pymatgen.io.ase import AseAtomsAdaptor
@@ -160,7 +160,9 @@ def run_thermal(model_key: str, materials: list[str] | None = None, force=False,
 
     from chipff.engine import Engine
     from chipff.models import get_model
-    from chipff.thermal import analyze, make_stop_fn, supercell, time_step_fs, to_record
+    from ase.neighborlist import neighbor_list
+
+    from chipff.thermal import analyze, make_stop_fn, pack_batches, supercell, time_step_fs, to_record
 
     cfg = config()["thermal"]
     if smoke:
@@ -196,36 +198,51 @@ def run_thermal(model_key: str, materials: list[str] | None = None, force=False,
         groups.setdefault((integ, dt), []).append((m, sc, reps, w.temperatures, 1 / (max(K, 5.0) * 1e9)))
 
     prod = cfg["production_ps"]
+    budget = int(max_edges or cfg.get("max_edges_per_batch", 24000))
     for (integ, dt), items in groups.items():
-        structs, temps, comp, owners = [], [], [], []
+        # one job per (material, temperature); jobs are packed into batches under a memory budget
+        # (neighbour pairs within the model cutoff, which is what MLFF memory scales with)
+        jobs = []
         for m, sc, reps, Ts, k in items:
+            n_edges = len(neighbor_list("i", sc, cfg.get("edge_cutoff_A", 6.0)))
             for T in Ts:
                 # start near the expected volume (linear strain 1e-5/K x T) so the initial thermal
                 # pressure doesn't kick the cell into a long-lived breathing oscillation
                 start = sc.copy()
                 start.set_cell(sc.cell * (1 + cfg.get("start_strain_per_K", 1e-5) * T), scale_atoms=True)
-                structs.append(start)
-                temps.append(T)
-                comp.append(k)
-                owners.append(m.id)
-        log.info("%s: NPT batch %s dt=%.1f fs, %d systems, %d atoms", model_key, integ, dt, len(structs),
-                 sum(len(s) for s in structs))
-        out = eng.npt(
-            structs, temps, integrators=[integ] * len(structs), time_step_fs=dt, compressibility_per_pa=comp,
-            equil_ps=cfg["equilibration_ps"], min_prod_ps=prod["min"], max_prod_ps=max_prod_ps or prod["max"],
-            check_every_ps=prod["check_every"], sample_every_fs=cfg["sample_every_fs"],
-            stop_fn=make_stop_fn(cfg["stop_when_volume_sem_below"]),
-            thermostat_tau_fs=cfg["thermostat_tau_fs"], barostat_tau_fs=cfg["barostat_tau_fs"],
-            friction_per_fs=cfg["langevin_friction_per_fs"],
-        )
-        recs = []
-        for m, sc, reps, Ts, k in items:
-            idx = [i for i, o in enumerate(owners) if o == m.id]
-            r = analyze(
-                m.id, model_key, Ts,
-                [out["cells"][:, i] for i in idx], [out["kinetic_energy"][:, i] for i in idx],
-                [out["pressure_GPa"][:, i] for i in idx], len(sc), reps, integ, dt, [out["prod_ps"]] * len(idx),
+                jobs.append({"m": m, "T": T, "atoms": start, "k": k, "edges": n_edges, "reps": reps, "natoms": len(sc)})
+        batches = pack_batches(jobs, budget)
+
+        pending: dict[str, dict] = {}
+        need = {m.id: len(Ts) for m, _, _, Ts, _ in items}
+        for b, batch in enumerate(batches, 1):
+            log.info("%s: NPT %s dt=%.1f fs, batch %d/%d: %d systems, %d atoms, ~%d pairs (%s)", model_key, integ, dt, b,
+                     len(batches), len(batch), sum(len(j["atoms"]) for j in batch), sum(j["edges"] for j in batch),
+                     ", ".join(f"{j['m'].id}@{j['T']:.0f}K" for j in batch))
+            out = eng.npt(
+                [j["atoms"] for j in batch], [j["T"] for j in batch], integrators=[integ] * len(batch), time_step_fs=dt,
+                compressibility_per_pa=[j["k"] for j in batch], equil_ps=cfg["equilibration_ps"],
+                min_prod_ps=prod["min"], max_prod_ps=max_prod_ps or prod["max"], check_every_ps=prod["check_every"],
+                sample_every_fs=cfg["sample_every_fs"], stop_fn=make_stop_fn(cfg["stop_when_volume_sem_below"]),
+                thermostat_tau_fs=cfg["thermostat_tau_fs"], barostat_tau_fs=cfg["barostat_tau_fs"],
+                friction_per_fs=cfg["langevin_friction_per_fs"],
             )
-            recs.append(to_record(r))
-            log.info("%s %s: alpha_V = %.2f ± %.2f e-6/K", model_key, m.id, r.alpha_V_1e6, r.alpha_V_err_1e6)
-        save_raw(model_key, tag, recs, {**meta, "wall_s": out["wall_s"], "batch": [integ, dt]})
+            steps = (cfg["equilibration_ps"] + out["prod_ps"]) * 1000 / dt
+            log.info("%s: batch %d done in %.1f min (%.1f ms/step, %.1f ps production)", model_key, b,
+                     out["wall_s"] / 60, 1000 * out["wall_s"] / max(steps, 1), out["prod_ps"])
+            for i, j in enumerate(batch):
+                pending.setdefault(j["m"].id, {})[j["T"]] = (
+                    j, out["cells"][:, i], out["kinetic_energy"][:, i], out["pressure_GPa"][:, i], out["prod_ps"])
+            recs = []
+            for mid, by_T in list(pending.items()):
+                if len(by_T) < need[mid]:
+                    continue
+                Ts = sorted(by_T)
+                j0 = by_T[Ts[0]][0]
+                r = analyze(mid, model_key, Ts, [by_T[T][1] for T in Ts], [by_T[T][2] for T in Ts],
+                            [by_T[T][3] for T in Ts], j0["natoms"], j0["reps"], integ, dt, [by_T[T][4] for T in Ts])
+                recs.append(to_record(r))
+                del pending[mid]
+                log.info("%s %s: alpha_V = %.2f ± %.2f e-6/K", model_key, mid, r.alpha_V_1e6, r.alpha_V_err_1e6)
+            if recs:
+                save_raw(model_key, tag, recs, {**meta, "wall_s": out["wall_s"], "batch": [integ, dt]})
