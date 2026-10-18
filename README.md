@@ -1,5 +1,7 @@
 # ChipFF Bench
 
+[![tests](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml)
+
 **How reliable are today's open ML force fields for the materials chips are made of?**
 
 ChipFF Bench measures four universal ML force fields (MACE-MPA-0, Orb v3, MatterSim v1, UMA) on
