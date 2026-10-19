@@ -135,6 +135,14 @@ isolated.
 and should be fixed; passing `exclude_gamma_acoustic=True` changes nothing else. It does not explain any of the large
 errors. In the rest of this study, "Γ fixed" values are the reference.
 
+**Applied (2026-10-20).** `thermal_qha.exclude_gamma_acoustic: true` is now the benchmark's setting, and the QHA
+was rerun for MACE-MPA-0 and MatterSim v1 (all 33 materials each; Orb v3's partial run is left as it was and
+is now marked stale). Across the 33 materials, α(300 K) changed by a median of 0.7 % (largest: GaN, −3.7 % MACE and
++3.9 % MatterSim). The window averages changed by a median of 0.4–0.8 %. The rerun reproduces this study's
+"Γ fixed" values (e.g. Ta window 46.70, Si window 19.91 and 11.04). Headline effects: mean absolute error at 300 K
+moves 34.4 → 34.5 % (MACE) and 29.2 → 28.7 % (MatterSim), and the models stay statistically tied. MACE Ta now passes
+the "volume inside scan" check, and MatterSim's metals at 300 K move from 20.3 % (okay) to 19.4 % (good).
+
 ## 3. Convergence on the hard cases
 
 α_V(300 K) in 10⁻⁶ K⁻¹. *published*: `results/raw` (benchmark run). *rerun*: same settings, this study's data. *Γ fixed*:
@@ -297,8 +305,9 @@ cancel. Cu is the control case and behaves as one.
 stiffens too fast under compression. K_T, C_V and V are each within 5 %. The static EOS confirms this independently:
 MACE's K′ = 7.7 against 3.1 measured, while MatterSim (K′ = 3.6) reproduces Ta's γ. The 0.03 Å and volume-scan checks
 move α(300 K) by ≤ 1 %, and the exported model matches `mace-torch` exactly. So this is a property of the MACE-MPA-0
-potential, not of the pipeline (the 14 Å supercell check was skipped; see Scope). The window average (300–1600 K) is
-not usable: the predicted volume runs out of the stable scan. *MatterSim −14 %:* all ingredients within 7 %. The
+potential, not of the pipeline (the 14 Å supercell check was skipped; see Scope). With the Γ fix the 300–1600 K
+window passes the benchmark's volume check (it failed in the published run), but it has no experimental value to be
+graded against. *MatterSim −14 %:* all ingredients within 7 %. The
 residual sits mostly between the γ formula and the full QHA (18.7 vs 16.3), i.e. in the volume dependence of γ.
 
 **InP.** *MACE −12 %: γ too low.* MACE has strong negative TA modes (TA(X) −1.03, TA(L) −1.46), so γ is 23 % low.
