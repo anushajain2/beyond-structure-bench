@@ -251,3 +251,29 @@ def run_thermal(model_key: str, materials: list[str] | None = None, force=False,
                 log.info("%s %s: alpha_V = %.2f ± %.2f e-6/K", model_key, mid, r.alpha_V_1e6, r.alpha_V_err_1e6)
             if recs:
                 save_raw(model_key, tag, recs, {**meta, "wall_s": out["wall_s"], "batch": [integ, dt]})
+
+
+# -- thermal expansion, quasi-harmonic ---------------------------------------------
+def run_thermal_qha(model_key: str, materials: list[str] | None = None, force=False, tag: str = "thermal_qha"):
+    """QHA thermal expansion for each material (see chipff.qha); results go to <tag>.json."""
+    from chipff.qha import run_qha, to_record
+
+    cfg = config()["thermal_qha"]
+    mats = select(materials)
+    plan = thermal_plan(mats)
+    relaxed = relaxed_structures(model_key)
+    done = load_raw(model_key, tag)
+    eng = make_engine(model_key)
+    meta = run_meta(eng)
+    for m in mats:
+        if m.id in done and not force:
+            continue
+        if m.id not in relaxed or not plan[m.id].ok:
+            log.warning("%s %s: skipped (no relaxed structure or no temperature window)", model_key, m.id)
+            continue
+        t = time.time()
+        r = run_qha(eng, m, model_key, relaxed[m.id], plan[m.id].temperatures, cfg)
+        save_raw(model_key, tag, [to_record(r)], {**meta, "wall_s": time.time() - t})
+        log.info("%s %s: QHA alpha_V = %.2f e-6/K over %s K (%d displacements x %d volumes, %.0f s)%s", model_key,
+                 m.id, r.alpha_V_1e6, r.temperatures, r.n_displacements, len(r.volume_scales), time.time() - t,
+                 "" if all(r.checks.values()) else f"  CHECK: {[k for k, v in r.checks.items() if not v]}")

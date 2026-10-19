@@ -2,7 +2,8 @@
 
   chipff fetch                      download MP structures + DFT references (needs MP_API_KEY)
   chipff static  [-m MODEL ...]     lattice constants, elastic tensor, EOS (CPU is fine)
-  chipff thermal [-m MODEL ...]     NPT thermal expansion (GPU strongly recommended)
+  chipff qha     [-m MODEL ...]     thermal expansion, quasi-harmonic (CPU is fine; the published method)
+  chipff thermal [-m MODEL ...]     thermal expansion from NPT MD (GPU; cross-check only, see docs/thermal_method.md)
   chipff plan                       print the thermal-expansion temperatures chosen by the rule
   chipff robustness --what static   rerun a subset with one setting changed (CPU, ~10 min per model)
   chipff robustness --what md       MD reruns: 2 extra seeds, bigger cell, half time step (GPU)
@@ -23,7 +24,7 @@ from chipff.materials import ROOT
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="chipff", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=["fetch", "static", "thermal", "robustness", "plan", "analyze", "report", "all"])
+    ap.add_argument("step", choices=["fetch", "static", "thermal", "qha", "robustness", "plan", "analyze", "report", "all"])
     ap.add_argument("--what", choices=["static", "md"], help="robustness: which reruns")
     ap.add_argument("-m", "--models", nargs="*", help="model keys (default: all in configs/benchmark.yaml)")
     ap.add_argument("--materials", nargs="*", help="material ids (default: all)")
@@ -54,10 +55,15 @@ def main(argv=None):
     if a.step in ("static", "all"):
         for m in models:
             run_static(m, a.materials, steps=tuple(a.steps), force=a.force)
-    if a.step in ("thermal", "all"):
+    if a.step == "thermal":
         for m in models:
             run_thermal(m, a.materials, force=a.force, max_prod_ps=a.max_prod_ps, tag=a.tag, smoke=a.smoke,
                         max_edges=a.max_edges)
+    if a.step in ("qha", "all"):
+        from chipff.runner import run_thermal_qha
+
+        for m in models:
+            run_thermal_qha(m, a.materials, force=a.force)
     if a.step == "robustness":
         from chipff import robustness
 

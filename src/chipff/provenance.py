@@ -58,6 +58,13 @@ def _code_objects(step: str, backend: str) -> list:
                                  repr(static.STRAINS)]
     if step == "eos":
         return relax + [static.run_eos, "EOS_VOLUME_SCALES", repr(static.EOS_VOLUME_SCALES)]
+    if step == "thermal_qha":
+        from chipff import qha, runner
+
+        fcall = [ase_engine.AseEngine.forces] if ase_backend else [engine.Engine.forces, engine.Engine._md_state,
+                                                                    engine.Engine._md_step_fn, engine.Engine._advance]
+        return relax + fcall + [qha.run_qha, qha._forces_batched, qha._supercell_reps, qha._phonopy_atoms,
+                                runner.run_thermal_qha, runner.thermal_plan]
     if step.startswith("thermal"):
         from chipff import runner
 
@@ -66,6 +73,12 @@ def _code_objects(step: str, backend: str) -> list:
                 thermal.temperature_window, thermal.supercell, thermal.time_step_fs, thermal.pack_batches,
                 thermal.block_sem, thermal.make_stop_fn, thermal.cell_lengths, thermal._wfit, thermal.analyze]
     raise ValueError(step)
+
+
+def _code_step(step: str) -> str:
+    if step == "thermal_qha":
+        return step
+    return "thermal" if step.startswith("thermal") else step
 
 
 @lru_cache
@@ -79,7 +92,8 @@ def settings_hash(step: str, model_key: str) -> str:
     from chipff.runner import config
 
     cfg = config()
-    sections = {"lattice": ["relax"], "elastic": ["relax", "elastic"], "eos": ["relax", "eos"]}
+    sections = {"lattice": ["relax"], "elastic": ["relax", "elastic"], "eos": ["relax", "eos"],
+                "thermal_qha": ["thermal_qha"]}
     keys = sections.get(step, ["thermal"])
     m = get_model(model_key)
     return _h({"config": {k: cfg.get(k) for k in keys},
@@ -94,7 +108,10 @@ def inputs_hash(step: str, model_key: str, material: str) -> str:
     if step in ("elastic", "eos") or step.startswith("thermal"):
         lat = load_raw(model_key, "lattice").get(material) or {}
         parts["relaxed_structure"] = _h(lat.get("structure"))
-    if step.startswith("thermal"):
+    if step == "thermal_qha":
+        w = thermal_plan(select([material]))[material]
+        parts["temperatures"] = list(w.temperatures)
+    elif step.startswith("thermal"):
         el = load_raw(model_key, "elastic").get(material) or {}
         parts["K_reuss"] = round(float(el["K_reuss_GPa"]), 6) if el.get("K_reuss_GPa") is not None else None
         w = thermal_plan(select([material]))[material]
@@ -129,7 +146,7 @@ def fingerprint(step: str, model_key: str, material: str, stamped: str = "at run
     from chipff.models import get_model
 
     return {
-        "code": code_hash(step if not step.startswith("thermal") else "thermal", get_model(model_key).backend),
+        "code": code_hash(_code_step(step), get_model(model_key).backend),
         "settings": settings_hash(step, model_key),
         "inputs": inputs_hash(step, model_key, material),
         "git": _git(),
@@ -146,7 +163,7 @@ def check(step: str, model_key: str, material: str, rec: dict) -> str | None:
         return "no fingerprint (computed before provenance stamping)"
     from chipff.models import get_model
 
-    now = {"code": code_hash("thermal" if step.startswith("thermal") else step, get_model(model_key).backend),
+    now = {"code": code_hash(_code_step(step), get_model(model_key).backend),
            "settings": settings_hash(step, model_key), "inputs": inputs_hash(step, model_key, material)}
     stale = [k for k in ("code", "settings", "inputs") if fp.get(k) != now[k]]
     return None if not stale else "computed with different " + ", ".join(stale)

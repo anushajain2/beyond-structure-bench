@@ -64,3 +64,13 @@ class AseEngine:
             E.append(a.get_potential_energy())
             S.append(a.get_stress(voigt=False) * EV_PER_A3_TO_GPA)
         return np.array(E), np.array(S)
+
+    def forces(self, structures: list[Atoms]) -> tuple[np.ndarray, list[np.ndarray]]:
+        """Energies (eV) and forces (eV/Å), for phonon calculations."""
+        E, F = [], []
+        for s in structures:
+            a = s.copy()
+            a.calc = self.calc
+            E.append(a.get_potential_energy())
+            F.append(a.get_forces())
+        return np.array(E), F

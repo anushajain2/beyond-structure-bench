@@ -197,6 +197,32 @@ class Engine:
             out.append(Rt @ sg @ Rt.T)
         return energies, -np.array(out) * EV_PER_A3_TO_GPA
 
+    # -- single-point forces ---------------------------------------------------
+    def forces(self, structures: list[Atoms]) -> tuple[np.ndarray, list[np.ndarray]]:
+        """Energies (eV) and forces (eV/Å) in each input's own frame, for phonon calculations.
+
+        Same single negligible-length Verlet step as ``stress``; kUPS's frame rotation is
+        undone per structure (forces transform like positions: f_in = f_kups @ Rt^T).
+        """
+        from kups.application.md.data import MdParameters
+
+        state = self._md_state(structures, MdParameters(
+            temperature=0.0, time_step=1e-9, friction_coefficient=0.0, thermostat_time_constant=1.0,
+            target_pressure=0.0, pressure_coupling_time=1.0, compressibility=1e-11, minimum_scale_factor=0.0,
+            integrator="verlet", initialize_momenta=False,
+        ))
+        step = self._md_step_fn(state, "verlet", 1)
+        state = self._advance(step, state, self.jax.random.key(0))
+        grads = np.asarray(state.particles.data.position_gradients)
+        energies = np.asarray(state.systems.data.potential_energy)
+        L_all = np.asarray(state.systems.data.cell.vectors)
+        out = []
+        for i, (numbers, _pos, _cell, mask) in enumerate(_split(state, len(structures))):
+            assert list(numbers) == list(structures[i].numbers), "kUPS reordered atoms"
+            Rt = np.linalg.solve(np.asarray(structures[i].cell), L_all[i])
+            out.append(-grads[mask] @ Rt.T)
+        return energies, out
+
     # -- molecular dynamics --------------------------------------------------
     def _md_state(self, structures, params_list, keys=None):
         import jax.numpy as jnp

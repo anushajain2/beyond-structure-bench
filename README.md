@@ -57,7 +57,7 @@ updated when they land.
 |---|---|---|---|
 | Lattice constant / volume | L-BFGS cell + atom relaxation from the MP structure, fmax 0.001 eV/Å | MP PBE relaxed structure | room-temperature diffraction values |
 | Bulk modulus | full elastic tensor: 24 strains (6 Voigt × ±0.5 %, ±1 %), ions relaxed, stress from kUPS → K_VRH, K_Reuss; plus a Birch–Murnaghan E(V) cross-check | MP PBE elastic tensor (K_VRH) | ultrasonic / Brillouin elastic constants or EOS fits to compression data |
-| Thermal expansion | NPT MD at P = 0 (isotropic `csvr_npt` for cubic, flexible-cell `baoab_npt_langevin` otherwise), 3 temperatures, slope of ⟨V⟩(T) | — (not available from static DFT) | high-temperature dilatometry / diffraction, averaged over the same temperature window |
+| Thermal expansion | quasi-harmonic approximation: phonons (phonopy, forces via kUPS) at 9 volumes, minimise E(V) + F_vib(V,T) → α_V(T), averaged over a pre-registered temperature window ([why not MD](docs/thermal_method.md)) | — (not available from static DFT) | high-temperature dilatometry / diffraction, averaged over the same temperature window |
 
 **Errors.** Lattice error is the effective linear error (V/V_ref)^(1/3) − 1, so one number covers
 any crystal system; per-axis errors are in `results/lattice.csv`. Bulk modulus is compared like for
@@ -85,10 +85,11 @@ bulk modulus good ≤ 10 %, okay ≤ 25 %; thermal expansion good ≤ 20 %, okay
   depend on what else is in its batch.
 * **Every result is fingerprinted** with the code, settings and inputs that produced it
   (`docs/provenance.md`); `chipff analyze` refuses to mix results from different code or settings.
-* **Written rules for every judgement call** (`configs/benchmark.yaml`): MD temperatures are above
-  0.75 × the Debye temperature, below half the melting point and 50 K below any phase change; MD
-  runs until the volume's standard error is below 0.02 % (or a 40 ps cap); supercells are ≥ 10 Å across.
-  Materials where a rule can't be applied get fixed temperatures with the reason written down.
+* **Written rules for every judgement call** (`configs/benchmark.yaml`): thermal-expansion windows run
+  from 0.75 × the Debye temperature (min 300 K) to half the melting point, 50 K below any phase change;
+  phonon supercells are ≥ 10 Å across. Materials where a rule can't be applied get fixed temperatures
+  with the reason written down. Changes of method or rule are recorded in the config with their date
+  and reason (e.g. the switch from MD to QHA, `docs/thermal_method.md`).
 
 ## Robustness and statistics
 
@@ -120,15 +121,15 @@ chipff static                         # lattice, elastic tensor, EOS for the kUP
 # MatterSim through its official package, in its own environment:
 uv venv .venv-mattersim --python 3.12 && uv pip install --python .venv-mattersim/bin/python mattersim pymatgen pyyaml pandas
 PYTHONPATH=src .venv-mattersim/bin/python -m chipff.cli static -m mattersim-5m-native
-chipff thermal                        # NPT MD (GPU; see notebooks/thermal_expansion_gpu.ipynb)
+chipff qha                            # thermal expansion, quasi-harmonic (CPU, ~1-2 h per model)
 chipff analyze && chipff report       # results/*.csv, report/index.html
 pytest -q
 ```
 
 UMA is gated: accept Meta's license at <https://huggingface.co/facebook/UMA> and run
-`hf auth login`. Thermal expansion needs a GPU: `scripts/make_kaggle_bundle.sh` packages the project
-for upload as a private Kaggle dataset, and `notebooks/thermal_expansion_gpu.ipynb` runs it unattended
-and returns `results/raw/<model>/thermal.json`, which `chipff analyze` picks up.
+`hf auth login`. The original NPT-MD route (`chipff thermal`, `notebooks/thermal_expansion_gpu.ipynb`)
+is kept for cross-checks; it is not used for the published numbers because of its cost and a bias in
+kUPS's isotropic barostat (`docs/thermal_method.md`, reproducer `scripts/repro_kups_barostat_bias.py`).
 
 Validation scripts any model must pass: `scripts/check_stress.py <model>` (reported stress equals the
 strain derivative of the model's own energy) and `scripts/check_batch_consistency.py <model>` (a
@@ -172,9 +173,10 @@ notebooks/                    GPU notebook for thermal expansion
 * **Static lattice vs room-temperature experiment.** Relaxed lattices are 0 K without zero-point
   motion; experiment is at ~300 K. This adds roughly +0.1–0.3 % to the experimental value and is
   part of the measured error, as in most benchmarks.
-* **Classical MD.** Thermal expansion is compared only where classical statistics hold
-  (T ≥ 0.75 Θ_D). Graphite's and h-BN's negative in-plane expansion is a quantum effect classical MD
-  can't reproduce; their volumetric expansion is dominated by the c axis.
+* **Quasi-harmonic thermal expansion.** QHA includes quantum effects but omits anharmonicity beyond
+  the volume dependence of the phonons, which matters most near melting (windows stop at T_m/2). The
+  volume scan keeps the cell shape fixed: exact for cubic crystals, approximate otherwise; layered
+  materials are computed but not graded. Crystals unstable in a model (imaginary phonons) are excluded.
 * **Experimental values vary.** Sources disagree by several percent (e.g. Ge bulk modulus 71–75 GPa,
   hBN 18–37 GPa), and some values are weaker than others (InP expansion given as a constant average;
   NiSi per-axis expansion from a conference poster). The notes in `data/experimental/` say which.

@@ -73,3 +73,22 @@ thermal:
     nve_drift_max_meV_per_atom_per_ps: 1.0
     bigger_supercell_width_A: 14.0
     halved_time_step: true
+
+# Thermal expansion method used for the published results (decided 2026-10-19, before any
+# QHA result existed): quasi-harmonic approximation. NPT MD (the `thermal` section above) is
+# kept for reference and cross-checks; see docs/thermal_method.md for why it was replaced.
+thermal_qha:
+  volume_scales: [0.96, 0.975, 0.99, 1.0, 1.015, 1.03, 1.045, 1.06, 1.08]   # V / V0, cell shape fixed
+  fmax_eV_per_A: 0.001          # atom relaxation at each volume
+  min_supercell_width_A: 10.0
+  displacement_A: 0.01
+  mesh_length: 50.0             # phonopy q-mesh density (length in Å)
+  t_max_K: 2000
+  t_step_K: 10
+  eos: vinet
+  imaginary_tolerance_THz: 0.1  # any mode below -0.1 THz at any volume = dynamically unstable
+  max_pairs_per_call: 24000     # memory budget for batched force calls (as for MD)
+  edge_cutoff_A: 6.0
+  # The comparison window per material is the same pre-registered window as for MD
+  # (thermal_plan); layered materials are computed but not graded (isotropic scaling
+  # cannot represent their strongly anisotropic expansion).

@@ -241,7 +241,8 @@ def bulk_table() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-def thermal_table(tag: str = "thermal") -> pd.DataFrame:
+def thermal_table(tag: str = "thermal_qha") -> pd.DataFrame:
+    """Thermal expansion vs experiment. Default source: QHA (docs/thermal_method.md)."""
     exp = experimental()
     rows = []
     for mat in load_materials():
@@ -254,14 +255,27 @@ def thermal_table(tag: str = "thermal") -> pd.DataFrame:
             lo, hi = min(r["temperatures"]), max(r["temperatures"])
             ref, why = window_average(T_exp, aV_exp, lo, hi)
             prov = provenance_check(tag, mk, mat.id, r)
+            checks = r.get("checks", {})
+            excluded = None
+            if prov:
+                excluded = "stale: " + prov
+            elif mat.layered:
+                excluded = "layered: isotropic volume scan cannot represent its anisotropic expansion"
+            elif not checks.get("dynamically_stable", True):
+                excluded = f"dynamically unstable (lowest phonon {r.get('min_frequency_THz', float('nan')):.2f} THz)"
+            elif not all(checks.values()):
+                excluded = "failed: " + ", ".join(k for k, v in checks.items() if not v)
+            lat_row = load_raw(mk, "lattice").get(mat.id) or {}
+            if not excluded and lat_row and not lat_row.get("symmetry_kept", True):
+                excluded = "relaxed to a different crystal form"
             rows.append({
                 "model": mk, "material": mat.id, "class": mat.cls, "T_low": lo, "T_high": hi,
-                "alpha_V": r["alpha_V_1e6"], "alpha_V_err": r["alpha_V_err_1e6"],
-                "alpha_a": r["alpha_axes_1e6"][0], "alpha_b": r["alpha_axes_1e6"][1], "alpha_c": r["alpha_axes_1e6"][2],
-                "alpha_V_exp": ref, "exp_note": why, "exp_source": (e.get("thermal_expansion") or {}).get("source"),
-                "err_exp_pct": None if prov else pct(r["alpha_V_1e6"], ref), "prod_ps": max(r["prod_ps"]),
-                "provenance": prov,
-                **{f"check_{k}": v for k, v in r["checks"].items()},
+                "alpha_V": r["alpha_V_1e6"], "alpha_V_err": r.get("alpha_V_err_1e6"),
+                "alpha_V_300K": r.get("alpha_V_300K_1e6"), "alpha_V_exp": ref, "exp_note": why,
+                "exp_source": (e.get("thermal_expansion") or {}).get("source"),
+                "err_exp_pct": None if excluded else pct(r["alpha_V_1e6"], ref),
+                "excluded": excluded, "provenance": prov, "method": r.get("method", "MD"),
+                **{f"check_{k}": v for k, v in checks.items()},
             })
     return pd.DataFrame(rows)
 
@@ -323,9 +337,10 @@ def checks_table(lat, bulk, therm) -> pd.DataFrame:
             rows.append({"model": r.model, "material": r.material, "check": "cubic: EOS B within 5% of elastic K",
                          "pass": abs(r.eos_vs_elastic_pct) < 5})
     for _, r in therm.iterrows():
-        for k in ("temperature_on_target", "pressure_on_target", "volume_converged"):
-            rows.append({"model": r.model, "material": r.material, "check": f"MD {k.replace('_', ' ')}",
-                         "pass": bool(r[f"check_{k}"])})
+        for col in [c for c in therm.columns if c.startswith("check_")]:
+            if pd.notna(r[col]):
+                rows.append({"model": r.model, "material": r.material,
+                             "check": f"thermal: {col[6:].replace('_', ' ')}", "pass": bool(r[col])})
     return pd.DataFrame(rows)
 
 
@@ -333,7 +348,7 @@ def _records(df: pd.DataFrame) -> list[dict]:
     return json.loads(df.to_json(orient="records")) if not df.empty else []
 
 
-def build_tables(tag: str = "thermal") -> dict:
+def build_tables(tag: str = "thermal_qha") -> dict:
     OUT.mkdir(exist_ok=True)
     lat, bulk, therm = lattice_table(), bulk_table(), thermal_table(tag)
     tm = trust_map(lat, bulk, therm)
