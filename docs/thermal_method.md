@@ -87,7 +87,10 @@ volume to the next. Repeated runs therefore scattered by up to ±8 % in α(300 K
 reproducible across processes, because its CPU forces differ by ~10⁻⁶ eV/Å between processes and that is
 enough to flip the signs (GaAs: 28.5 / 29.9 / 28.7). The QHA now passes `exclude_gamma_acoustic=True`
 (config `thermal_qha.exclude_gamma_acoustic`), phonopy's option for exactly this. Repeated runs then agree
-to 0.1 %. For the six materials checked in
+to 0.1 %. The size of the effect depends on the conditions: the Γ point's weight in the q-mesh (1/N_q), force
+noise large enough to flip the near-zero modes, and a quantity built from small free-energy differences. On a
+model-free test it was 0.4 % at the benchmark's mesh density and catastrophic on a coarse mesh
+(`tests/test_core.py`). For the six materials checked in
 [`docs/thermal_failure_study.md`](thermal_failure_study.md), the previously published α(300 K) lie within
 ±2 % of the corrected values. The convergence numbers below were measured before the fix, so part of their
 2–7 % spread is this noise. With the fix, the study measured ≤ 2 % for displacement amplitude and supercell

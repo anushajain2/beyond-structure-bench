@@ -57,8 +57,8 @@ correlate their signed errors against experiment over the materials both have, w
 |---|---|---|---|
 | lattice constant | 0.88 (0.72 to 0.96) | 0.83 (0.65 to 0.93) | 0.95 (0.90 to 0.98) |
 | bulk modulus | 0.11 (−0.21 to 0.42) | 0.19 (−0.17 to 0.53) | 0.61 (0.23 to 0.88) |
-| thermal expansion, 300 K | −0.11 (−0.43 to 0.36) | Orb pending | Orb pending |
-| thermal expansion, window | 0.22 (−0.30 to 0.72) | Orb pending | Orb pending |
+| thermal expansion, 300 K | −0.10 (−0.42 to 0.37) | Orb pending | Orb pending |
+| thermal expansion, window | 0.23 (−0.29 to 0.73) | Orb pending | Orb pending |
 
 - Lattice constants: strongly shared errors. This is consistent with the limits of the PBE
   reference and training data (plus the 0 K vs room-temperature mismatch), but correlation alone
@@ -68,9 +68,9 @@ correlate their signed errors against experiment over the materials both have, w
   correlate only weakly with theirs (sample correlation 0.11 and 0.19, intervals spanning zero).
   PBE's error is about as large as MACE's departure from PBE, so tracking PBE more closely does not
   make a model more accurate here.
-- Thermal expansion: the sample correlation is small, with wide uncertainty (table above). The average of MACE and MatterSim has a 25.9%
-  error at 300 K (against 34.4% and 29.2% alone). The models' relative disagreement correlates
-  with that average's error (0.42 at 300 K, interval −0.03 to 0.79; 0.25 over the window, −0.15
+- Thermal expansion: the sample correlation is small, with wide uncertainty (table above). The average of MACE and MatterSim has a 25.7%
+  error at 300 K (against 34.5% and 28.7% alone). The models' relative disagreement correlates
+  with that average's error (0.41 at 300 K, interval −0.06 to 0.78; 0.25 over the window, −0.13
   to 0.64). That is an exploratory warning signal, not a calibrated uncertainty estimate.
 
 **Does disagreement predict error for the static properties?** Not in this data. For lattice
@@ -95,9 +95,12 @@ information. We still check it: a subset is rerun from scratch in a differently 
 batch, and the result must match the stored value (`lattice_rerun_pct` in
 `static_sensitivity.json`; tiny differences come only from floating-point summation order).
 
-Thermal expansion, as published, is also deterministic: the quasi-harmonic calculation has no
-random element ([`thermal_method.md`](thermal_method.md)). Its sensitivity to settings (supercell
-size, q-mesh, volume range, displacement size) was tested directly and is 2–7%. The MD route, kept
+Thermal expansion, as published, has no random element by design ([`thermal_method.md`](thermal_method.md)),
+but it was not reproducible in practice until the Γ-mode fix. MatterSim's CPU forces differ by ~10⁻⁶ eV/Å
+between processes, and before the fix that was enough to move α(300 K) by several percent. With the
+acoustic modes at Γ excluded, repeated runs agree to 0.1 % ([`thermal_failure_study.md`](thermal_failure_study.md)).
+Its sensitivity to settings was tested on six cases: ≤ 2 % for displacement size and supercell size (MACE
+InP +7 %), and up to 9–12 % for the volume range. The MD route, kept
 as a cross-check, does involve randomness (starting velocities, thermostat and barostat kicks);
 for it, six materials are rerun with two other random seeds (`md_variants.csv`), and agreement
 within about two combined error bars means its error bars can be trusted.

@@ -5,5 +5,5 @@ lattice,mattersim-5m-native,orb-v3,28,0.9547,0.9011,0.9837,0.7841,0.7289,0.7525,
 bulk_modulus,mace-mpa-0,mattersim-5m-native,27,0.1058,-0.209,0.4232,9.855,12.64,8.861,0.383,-0.3736,0.7229
 bulk_modulus,mace-mpa-0,orb-v3,26,0.191,-0.165,0.5327,11.31,11.95,8.902,-0.1858,-0.5151,0.2152
 bulk_modulus,mattersim-5m-native,orb-v3,25,0.6065,0.2275,0.8806,13.45,11.97,12.23,0.5063,-0.4175,0.7754
-thermal_expansion,mace-mpa-0,mattersim-5m-native,17,0.2167,-0.2954,0.7234,35.77,35.49,31.28,0.2531,-0.1496,0.6395
-thermal_expansion_300K,mace-mpa-0,mattersim-5m-native,24,-0.1123,-0.429,0.3628,34.36,29.18,25.9,0.4228,-0.03427,0.7933
+thermal_expansion,mace-mpa-0,mattersim-5m-native,17,0.228,-0.2937,0.7277,35.47,34.86,30.91,0.2505,-0.1324,0.6351
+thermal_expansion_300K,mace-mpa-0,mattersim-5m-native,24,-0.1024,-0.4229,0.3715,34.54,28.69,25.66,0.4059,-0.05517,0.7835
