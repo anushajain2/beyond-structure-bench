@@ -1,0 +1,3 @@
+backend,material,processes,torch_threads,max_dF_same_process_eV_per_A,max_dF_any_run_eV_per_A,max_dE_any_run_eV,alpha300_as_benchmark,alpha300_gamma_fixed
+mattersim-native,GaAs,3,8,0.0,7.9e-07,0.0,28.48 29.94 28.69,28.91 28.92 28.92
+mattersim-native,Si,3,8,0.0,3.72e-06,0.0,14.32 14.38 14.34,14.50 14.51 14.50
