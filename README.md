@@ -18,8 +18,9 @@ whose kUPS export is currently broken (see Findings) and which runs through its 
 
 Status: lattice constants and bulk moduli are complete for MACE-MPA-0, Orb v3 and MatterSim v1.
 Thermal expansion is complete for MACE-MPA-0 and MatterSim v1; **Orb v3's thermal run is in progress
-(7 of 33 materials) and is left out of every thermal average and comparison until it finishes.** UMA
-is awaiting license access. These findings will be updated when the rest lands.
+(7 of 33 materials, computed before the Γ-mode fix described below and to be recomputed) and is left out
+of every thermal average and comparison until it finishes.** UMA is awaiting license access. These
+findings will be updated when the rest lands.
 
 1. **Lattice constants of non-layered chip materials are effectively solved.** All three models are
    within 0.73–0.80 % of experiment on average across the 30 non-layered materials (worst case:
@@ -56,21 +57,24 @@ is awaiting license access. These findings will be updated when the rest lands.
    stress handling before any number was published.
 6. **Thermal expansion is the hardest property, and the two finished models fail in different
    places.** Computed in the quasi-harmonic approximation, MACE and MatterSim are off from experiment
-   by 34 % and 29 % on average at 300 K (36 % and 35 % over each material's pre-registered
+   by 34.5 % and 28.7 % on average at 300 K (35 % for both over each material's pre-registered
    temperature window), both too large on average, and statistically tied. But MACE overshoots
-   refractory and hcp metals (Ta +177 %, Mo +99 %, Ru +53 %, W +49 % at 300 K) where MatterSim is
-   mostly within 16 %, while MatterSim overshoots semiconductors (InP +123 %, Si +85 %, GaAs +69 %)
-   where MACE gets Si within 1 %. Their errors are uncorrelated (−0.11 at 300 K), so **averaging the
-   two models cuts the error to 26 %**, and the size of their disagreement tracks the error of that
-   average (0.42): when two models disagree, distrust both. Rutile TiO₂ and cubic SrTiO₃ are
+   refractory and hcp metals (Ta +179 %, Mo +97 %, Ru +52 %, W +48 % at 300 K) where MatterSim is
+   mostly within 14 %, while MatterSim overshoots semiconductors (InP +119 %, Si +85 %, GaAs +68 %)
+   where MACE gets Si within 1 %. Their errors are uncorrelated (−0.10 at 300 K), so **averaging the
+   two models cuts the error to 25.7 %**, and the size of their disagreement tracks the error of that
+   average (0.41): when two models disagree, distrust both. A controlled study of six hard cases
+   ([`docs/thermal_failure_study.md`](docs/thermal_failure_study.md)) traces the large errors to the
+   models' Grüneisen parameters (and, for MatterSim's semiconductors, a too-soft bulk modulus), not to
+   the software route or the QHA settings. Rutile TiO₂ and cubic SrTiO₃ are
    dynamically unstable in both models and are excluded, as are a few results where QHA itself breaks
    down at high temperature (`results/thermal_expansion.csv` gives the reason for each).
 
 | Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 |
 |---|---|---|---|
-| mean abs. error at 300 K (95 % CI) | 34.4 % (22–55), n = 24 | 29.2 % (20–45), n = 24 | in progress |
-| mean abs. error over the window (95 % CI) | 35.8 % (23–53), n = 17 | 35.1 % (23–55), n = 18 | in progress |
-| within 20 % / 40 % at 300 K | 11 / 18 | 14 / 18 | in progress |
+| mean abs. error at 300 K (95 % CI) | 34.5 % (22–56), n = 24 | 28.7 % (20–44), n = 24 | in progress |
+| mean abs. error over the window (95 % CI) | 35.5 % (23–53), n = 17 | 34.5 % (23–54), n = 18 | in progress |
+| within 20 % / 40 % at 300 K | 11 / 19 | 13 / 18 | in progress |
 
 \* MatterSim runs through its official package (finding 5). Class-by-class results are in the
 trust map above and `results/trust_map.csv`.
@@ -133,10 +137,13 @@ arbitrary settings. So every headline comparison is backed by three kinds of che
   the error of their average, and whether their disagreement predicts that error
   (`model_agreement.csv`). Shared errors point at the training data; independent ones mean a second
   model is worth running.
-* **Convergence of thermal expansion.** QHA is deterministic; its settings (supercell size, q-mesh,
-  volume range) were checked on Si and Cu and change α by 2–7 %; a 3x larger displacement changes
-  it by < 5 %
-  ([`docs/thermal_method.md`](docs/thermal_method.md)). The MD seed and time-step reruns
+* **Convergence of thermal expansion.** QHA's settings were checked on six hard cases (Si, GaAs, Cu,
+  Ta, InP, HfO₂; [`docs/thermal_failure_study.md`](docs/thermal_failure_study.md)). A 3x larger
+  displacement and a 14 Å supercell change α(300 K) by ≤ 2 % (MACE InP: +7 %); the volume-scan range
+  by up to 9 % (Si) and 12 % (HfO₂). That study also found the acoustic modes at Γ entering the free
+  energy at random, which made repeated runs scatter by up to ±8 %. They are now excluded, and all
+  published QHA numbers come from the corrected rerun (median change 0.7 %;
+  [`docs/thermal_method.md`](docs/thermal_method.md)). The MD seed and time-step reruns
   (`chipff robustness --what md`) belong to the MD cross-check route.
 
 Static properties are deterministic, so "pass@k"-style repeated sampling doesn't apply to them; the
