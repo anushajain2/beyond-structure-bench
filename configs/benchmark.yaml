@@ -78,6 +78,9 @@ thermal:
 # QHA result existed): quasi-harmonic approximation. NPT MD (the `thermal` section above) is
 # kept for reference and cross-checks; see docs/thermal_method.md for why it was replaced.
 thermal_qha:
+  # Amended 2026-10-19 after the first QHA pass, before results were compared with experiment:
+  # use only the contiguous dynamically stable volumes around V0 (stretched cells can soften into
+  # spurious instabilities that corrupt the free-energy fit).
   volume_scales: [0.96, 0.975, 0.99, 1.0, 1.015, 1.03, 1.045, 1.06, 1.08]   # V / V0, cell shape fixed
   fmax_eV_per_A: 0.001          # atom relaxation at each volume
   min_supercell_width_A: 10.0
@@ -86,8 +89,9 @@ thermal_qha:
   t_max_K: 2000
   t_step_K: 10
   eos: vinet
-  imaginary_tolerance_THz: 0.1  # any mode below -0.1 THz at any volume = dynamically unstable
-  max_pairs_per_call: 24000     # memory budget for batched force calls (as for MD)
+  imaginary_tolerance_THz: 0.1  # a volume with any mode below -0.1 THz is unstable; unstable at V0 = excluded
+  min_volumes: 5                # stable volumes needed around V0 for the QHA fit
+  max_pairs_per_call: 12000     # memory budget for batched force calls (performance only)
   edge_cutoff_A: 6.0
   # The comparison window per material is the same pre-registered window as for MD
   # (thermal_plan); layered materials are computed but not graded (isotropic scaling

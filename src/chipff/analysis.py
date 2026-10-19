@@ -268,12 +268,20 @@ def thermal_table(tag: str = "thermal_qha") -> pd.DataFrame:
             lat_row = load_raw(mk, "lattice").get(mat.id) or {}
             if not excluded and lat_row and not lat_row.get("symmetry_kept", True):
                 excluded = "relaxed to a different crystal form"
+            # secondary comparison at room temperature (added with the switch to QHA, which is
+            # most reliable there): not affected by high-temperature breakdown of the window
+            ex300 = excluded if (excluded and not excluded.startswith("failed")) else None
+            a300_exp = (float(np.interp(300.0, T_exp, aV_exp)) if T_exp and min(T_exp) <= 310 and max(T_exp) >= 290
+                        else None)
             rows.append({
                 "model": mk, "material": mat.id, "class": mat.cls, "T_low": lo, "T_high": hi,
                 "alpha_V": r["alpha_V_1e6"], "alpha_V_err": r.get("alpha_V_err_1e6"),
                 "alpha_V_300K": r.get("alpha_V_300K_1e6"), "alpha_V_exp": ref, "exp_note": why,
                 "exp_source": (e.get("thermal_expansion") or {}).get("source"),
                 "err_exp_pct": None if excluded else pct(r["alpha_V_1e6"], ref),
+                "alpha_V_300K_exp": a300_exp,
+                "err_300K_pct": None if (ex300 or r.get("alpha_V_300K_1e6") is None) else pct(r["alpha_V_300K_1e6"], a300_exp),
+                "excluded_300K": ex300,
                 "excluded": excluded, "provenance": prov, "method": r.get("method", "MD"),
                 **{f"check_{k}": v for k, v in checks.items()},
             })
@@ -293,6 +301,7 @@ def trust_map(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame) -> pd.
         ("lattice", lat, "err_lin_exp_pct", "experiment"), ("lattice", lat, "err_lin_dft_pct", "dft"),
         ("bulk_modulus", bulk, "err_exp_pct", "experiment"), ("bulk_modulus", bulk, "err_dft_pct", "dft"),
         ("thermal_expansion", therm, "err_exp_pct", "experiment"),
+        ("thermal_expansion_300K", therm, "err_300K_pct", "experiment"),
     ]
     rows = []
     for prop, df, col, ref in specs:
@@ -305,14 +314,15 @@ def trust_map(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame) -> pd.
             mape = float(vals.abs().mean())
             rows.append({"model": mk, "class": cls, "property": prop, "reference": ref, "MAPE": mape,
                          "mean_signed": float(vals.mean()), "n": int(len(vals)),
-                         "worst_material": g.loc[g[col].abs().idxmax(), "material"], "grade": grade(mape, th[prop])})
+                         "worst_material": g.loc[g[col].abs().idxmax(), "material"],
+                         "grade": grade(mape, th[prop.replace("_300K", "")])})
         for mk, g in df.groupby("model"):
             vals = g[col].dropna().astype(float)
             if not vals.empty:
                 rows.append({"model": mk, "class": "all", "property": prop, "reference": ref,
                              "MAPE": float(vals.abs().mean()), "mean_signed": float(vals.mean()), "n": int(len(vals)),
                              "worst_material": g.loc[g[col].abs().idxmax(), "material"],
-                             "grade": grade(float(vals.abs().mean()), th[prop])})
+                             "grade": grade(float(vals.abs().mean()), th[prop.replace("_300K", "")])})
     return pd.DataFrame(rows)
 
 

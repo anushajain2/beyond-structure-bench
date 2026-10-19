@@ -44,6 +44,25 @@ with experiment averaged over that window.
 does not use a barostat, and includes zero-point motion and quantum statistics. It is
 therefore valid from room temperature, with no Debye-temperature cutoff.
 
+**Refinements after the first QHA pass** (2026-10-19, recorded in the config; made before any
+QHA result was compared with experiment):
+
+* **Stable volumes only.** At the largest scanned volumes some crystals soften into spurious
+  instabilities (imaginary phonons) that they never reach within their temperature window, and
+  those volumes corrupt the free-energy fit. The fit now uses only the contiguous run of
+  dynamically stable volumes around V0, at least 5 of them. A crystal unstable *at V0 itself*
+  is genuinely unstable in that model and is excluded.
+* **Symmetrised cells.** Models that are not exactly equivariant leave ~10⁻⁴ noise in relaxed cells
+  (e.g. 89.997° instead of 90°), which breaks phonopy's Brillouin-zone setup. Each relaxed cell is
+  symmetrised to its own space group at 10⁻³ Å before the phonon step. That removes only noise of
+  that size; genuine changes of crystal form are excluded upstream.
+* **Room-temperature comparison added.** The pre-registered windows were chosen for classical MD,
+  which needs high temperatures. QHA is the opposite, most reliable at low temperature, and at the
+  top of some windows (1500–1600 K) the predicted volume runs past the stable range: QHA breaks down
+  there. Such cases fail the "volume inside scan" check and are excluded from the window comparison.
+  We also report α_V at 300 K against experiment, a standard reference point where QHA is reliable.
+  It is labelled as a secondary comparison added with the method change.
+
 **Limitations.**
 - It treats vibrations as harmonic at each volume, so it misses higher-order anharmonicity,
   which grows near melting. The temperature windows stay below half the melting point.

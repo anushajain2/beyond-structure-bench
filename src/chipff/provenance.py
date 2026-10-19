@@ -63,7 +63,7 @@ def _code_objects(step: str, backend: str) -> list:
 
         fcall = [ase_engine.AseEngine.forces] if ase_backend else [engine.Engine.forces, engine.Engine._md_state,
                                                                     engine.Engine._md_step_fn, engine.Engine._advance]
-        return relax + fcall + [qha.run_qha, qha._forces_batched, qha._supercell_reps, qha._phonopy_atoms,
+        return relax + fcall + [qha.run_qha, qha._forces_batched, qha._supercell_reps, qha._phonopy_atoms, qha._make_phonopy, qha._symmetrized,
                                 runner.run_thermal_qha, runner.thermal_plan]
     if step.startswith("thermal"):
         from chipff import runner
@@ -96,7 +96,10 @@ def settings_hash(step: str, model_key: str) -> str:
                 "thermal_qha": ["thermal_qha"]}
     keys = sections.get(step, ["thermal"])
     m = get_model(model_key)
-    return _h({"config": {k: cfg.get(k) for k in keys},
+    perf = {"max_pairs_per_call", "max_edges_per_batch", "edge_cutoff_A"}  # memory/speed only, not results
+    sect = {k: ({kk: vv for kk, vv in cfg[k].items() if kk not in perf} if isinstance(cfg.get(k), dict) else cfg.get(k))
+            for k in keys}
+    return _h({"config": sect,
                "model": {"path": m.model_path, "backend": m.backend, "extra": m.extra}})
 
 

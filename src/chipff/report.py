@@ -25,7 +25,8 @@ def short(m: str) -> str:
     return MODELS[m].label.split(" (")[0] + ("*" if not MODELS[m].via_kups else "")
 STATUS = {"good": "#0ca30c", "okay": "#fab219", "poor": "#d03b3b"}
 INK, INK2, GRID, SURF = "#0b0b0b", "#52514e", "#e6e5e1", "#fcfcfb"
-PROP_LABEL = {"lattice": "Lattice constant", "bulk_modulus": "Bulk modulus", "thermal_expansion": "Thermal expansion"}
+PROP_LABEL = {"lattice": "Lattice constant", "bulk_modulus": "Bulk modulus", "thermal_expansion": "Thermal expansion",
+              "thermal_expansion_300K": "Thermal exp. at 300 K"}
 
 plt.rcParams.update({
     "font.family": "sans-serif", "font.size": 9, "axes.edgecolor": INK2, "axes.labelcolor": INK, "xtick.color": INK2,
@@ -73,7 +74,8 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
             sp.set_visible(False)
         ax.tick_params(length=0)
     th = s["thresholds"]
-    note = "; ".join(f"{PROP_LABEL[p].lower()} good ≤{th[p]['good']:g}%, okay ≤{th[p]['okay']:g}%" for p in props)
+    note = "; ".join(f"{PROP_LABEL[p].lower()} good ≤{th[p.replace('_300K', '')]['good']:g}%, okay ≤{th[p.replace('_300K', '')]['okay']:g}%"
+                     for p in props if not p.endswith("_300K"))
     star = " *not run through kUPS (official package)." if any(not MODELS[m].via_kups for m in models) else ""
     fig.text(0.0, -0.02, f"Mean absolute % error vs {reference}. Green good, amber okay, red poor; thresholds fixed in "
              f"advance ({note}).{star}", fontsize=7.5, color=INK2, wrap=True)

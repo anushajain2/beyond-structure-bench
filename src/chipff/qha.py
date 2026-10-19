@@ -52,6 +52,8 @@ class QhaResult:
     n_displacements: int
     min_frequency_THz: float
     checks: dict
+    min_frequency_by_volume_THz: list | None = None
+    volumes_used: list | None = None   # the contiguous stable volumes around V0 that enter the QHA fit
     method: str = "QHA (isotropic volume scan, fixed cell shape)"
 
 
@@ -60,6 +62,41 @@ def _phonopy_atoms(atoms: Atoms):
 
     return PhonopyAtoms(symbols=atoms.get_chemical_symbols(), cell=np.asarray(atoms.cell),
                         scaled_positions=atoms.get_scaled_positions())
+
+
+def _symmetrized(atoms: Atoms, symprec: float = 1e-3) -> Atoms:
+    """The same crystal as a clean standard primitive cell.
+
+    Models that are not exactly equivariant leave ~1e-4 relative noise in a relaxed cell
+    (e.g. 89.997 deg instead of 90 deg), which spglib then reads as P1 and which breaks
+    phonopy's Brillouin-zone setup. Symmetrising at 1e-3 Å removes only noise of that size;
+    genuine changes of crystal form are far larger and are excluded upstream.
+    """
+    from pymatgen.io.ase import AseAtomsAdaptor
+    from pymatgen.symmetry.analyzer import SpacegroupAnalyzer
+
+    s = AseAtomsAdaptor.get_structure(atoms)
+    try:
+        ref = SpacegroupAnalyzer(s, symprec=symprec).get_refined_structure()
+        prim = SpacegroupAnalyzer(ref, symprec=symprec).get_primitive_standard_structure()
+        if len(prim) == len(s):
+            return AseAtomsAdaptor.get_atoms(prim)
+    except Exception as err:  # fall back to the cell as relaxed, lattice-reduced
+        log.warning("symmetrisation failed (%s); using the LLL-reduced relaxed cell", err)
+    return AseAtomsAdaptor.get_atoms(s.get_reduced_structure("LLL"))
+
+
+def _make_phonopy(atoms: Atoms, reps):
+    """Phonopy object; falls back to a looser symmetry tolerance, then to no symmetry, if
+    spglib cannot reduce a slightly distorted relaxed cell (more displacements, same physics)."""
+    from phonopy import Phonopy
+
+    for kwargs in ({}, {"symprec": 1e-3}, {"is_symmetry": False}):
+        try:
+            return Phonopy(_phonopy_atoms(atoms), supercell_matrix=np.diag(reps), **kwargs)
+        except Exception as err:  # spglib errors (e.g. "Niggli reduction failed")
+            log.warning("phonopy setup failed (%s); retrying with %s", err, kwargs or "looser symmetry")
+    raise RuntimeError("phonopy could not be set up")
 
 
 def _supercell_reps(atoms: Atoms, min_width: float) -> list[int]:
@@ -85,9 +122,10 @@ def _forces_batched(engine, structs: list[Atoms], budget_pairs: int, cutoff: flo
 
 
 def run_qha(engine, material, model_key: str, relaxed: Atoms, window: list[float], cfg: dict) -> QhaResult:
-    from phonopy import Phonopy, PhonopyQHA
+    from phonopy import PhonopyQHA
 
     q = cfg
+    relaxed = _symmetrized(relaxed)
     scales = list(q["volume_scales"])
     t_max = float(q["t_max_K"])
     reps = _supercell_reps(relaxed, q["min_supercell_width_A"])
@@ -101,51 +139,68 @@ def run_qha(engine, material, model_key: str, relaxed: Atoms, window: list[float
     E = [r.energy for r in rel]
     V = [r.atoms.get_volume() for r in rel]
     # 2. phonons at each volume
-    free, cv, entropy = [], [], []
-    temps = None
-    min_freq = float("inf")
-    n_disp = 0
+    per_volume = []
     for r in rel:
-        ph = Phonopy(_phonopy_atoms(r.atoms), supercell_matrix=np.diag(reps))
+        ph = _make_phonopy(r.atoms, reps)
         ph.generate_displacements(distance=q["displacement_A"])
         scs = [Atoms(symbols=sc.symbols, cell=sc.cell, scaled_positions=sc.scaled_positions, pbc=True)
                for sc in ph.supercells_with_displacements]
-        n_disp = len(scs)
         ph.forces = np.array(_forces_batched(engine, scs, q["max_pairs_per_call"], q["edge_cutoff_A"]))
         ph.produce_force_constants()
         ph.run_mesh(q["mesh_length"])
-        freqs = ph.get_mesh_dict()["frequencies"]
-        min_freq = min(min_freq, float(np.min(freqs)))
+        fmin = float(np.min(ph.get_mesh_dict()["frequencies"]))
         ph.run_thermal_properties(t_min=0, t_max=t_max, t_step=q["t_step_K"])
-        tp = ph.get_thermal_properties_dict()
-        temps = tp["temperatures"]
-        free.append(tp["free_energy"])
-        cv.append(tp["heat_capacity"])
-        entropy.append(tp["entropy"])
-    stable = min_freq > -abs(q["imaginary_tolerance_THz"])
-    # 3. quasi-harmonic minimisation
-    qha = PhonopyQHA(volumes=V, electronic_energies=E, temperatures=temps,
-                     free_energy=np.array(free).T, cv=np.array(cv).T, entropy=np.array(entropy).T,
+        per_volume.append((ph.get_thermal_properties_dict(), fmin, len(scs)))
+    n_disp = per_volume[0][2]
+    fmins = [pv[1] for pv in per_volume]
+    tol = -abs(q["imaginary_tolerance_THz"])
+    # keep the contiguous run of dynamically stable volumes around the equilibrium volume:
+    # a strongly stretched or compressed cell can soften into instability without the crystal
+    # ever reaching that volume in the temperature window, and such volumes would corrupt F(V)
+    i0 = int(np.argmin(np.abs(np.asarray(scales) - 1.0)))
+    stable_at_eq = fmins[i0] > tol
+    keep = []
+    if stable_at_eq:
+        lo_i, hi_i = i0, i0
+        while lo_i - 1 >= 0 and fmins[lo_i - 1] > tol:
+            lo_i -= 1
+        while hi_i + 1 < len(scales) and fmins[hi_i + 1] > tol:
+            hi_i += 1
+        keep = list(range(lo_i, hi_i + 1))
+    lo, hi = min(window), max(window)
+    checks = {"dynamically_stable": bool(stable_at_eq), "enough_stable_volumes": len(keep) >= q["min_volumes"]}
+    if not all(checks.values()):
+        checks.update(volume_inside_scan=False, window_covered=False)
+        return QhaResult(
+            material=material.id, model=model_key, temperatures=[float(x) for x in window], alpha_V_1e6=float("nan"),
+            alpha_V_err_1e6=0.0, alpha_V_300K_1e6=None, curve_T=[], curve_alpha_V_1e6=[], volume_scales=scales,
+            supercell=reps, n_displacements=n_disp, min_frequency_THz=float(min(fmins)), checks=checks,
+            min_frequency_by_volume_THz=fmins, volumes_used=[scales[i] for i in keep],
+        )
+    tps = [per_volume[i][0] for i in keep]
+    temps = tps[0]["temperatures"]
+    # 3. quasi-harmonic minimisation over the stable volumes
+    qha = PhonopyQHA(volumes=[V[i] for i in keep], electronic_energies=[E[i] for i in keep], temperatures=temps,
+                     free_energy=np.array([tp["free_energy"] for tp in tps]).T,
+                     cv=np.array([tp["heat_capacity"] for tp in tps]).T,
+                     entropy=np.array([tp["entropy"] for tp in tps]).T,
                      eos=q["eos"], t_max=t_max - 2 * q["t_step_K"], verbose=False)
     T = np.asarray(temps)[: len(qha.thermal_expansion)]
     alpha = np.asarray(qha.thermal_expansion) * 1e6
     vol_T = np.asarray(qha.volume_temperature)[: len(T)]
-    lo, hi = min(window), max(window)
+    Vk = [V[i] for i in keep]
     sel = (T >= lo) & (T <= hi)
     a_win = float(np.mean(alpha[sel])) if sel.any() else float("nan")
     a300 = float(np.interp(300.0, T, alpha)) if T.max() >= 300 else None
-    inside = bool(vol_T[sel].max() < max(V) and vol_T[sel].min() > min(V)) if sel.any() else False
+    inside = bool(vol_T[sel].max() < max(Vk) and vol_T[sel].min() > min(Vk)) if sel.any() else False
     grid = [t for t in range(0, int(T.max()) + 1, 50)]
-    checks = {
-        "dynamically_stable": stable,
-        "volume_inside_scan": inside,
-        "window_covered": bool(sel.any() and T.max() >= hi),
-    }
+    checks.update(volume_inside_scan=inside, window_covered=bool(sel.any() and T.max() >= hi))
     return QhaResult(
         material=material.id, model=model_key, temperatures=[float(x) for x in window], alpha_V_1e6=a_win,
         alpha_V_err_1e6=0.0, alpha_V_300K_1e6=a300, curve_T=grid,
         curve_alpha_V_1e6=[float(np.interp(t, T, alpha)) for t in grid], volume_scales=scales, supercell=reps,
-        n_displacements=n_disp, min_frequency_THz=min_freq, checks=checks,
+        n_displacements=n_disp, min_frequency_THz=float(min(fmins[i] for i in keep)), checks=checks,
+        min_frequency_by_volume_THz=fmins, volumes_used=[scales[i] for i in keep],
     )
 
 
