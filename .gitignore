@@ -10,3 +10,5 @@ work/
 logs/
 .venv-mattersim/
 dist/
+.venv-mace/
+results/thermal_failure/logs/
