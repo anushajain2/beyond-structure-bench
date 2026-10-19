@@ -27,7 +27,10 @@ These are typical scatters between independent measurements. To compare two mode
 **paired** bootstrap: only materials both models have, resampled together, with the same
 perturbed references for both. That gives a 95% interval on the *difference* of their errors
 and the probability that model A is more accurate than model B. If the interval includes
-zero, we report the two models as **statistically tied**.
+zero, we report that the benchmark **does not resolve a difference** between the two models.
+That is not evidence that they are equally accurate: it is a failure to reject "no difference",
+not an equivalence test. The statistical-power paragraph below says how large a difference the
+data could have detected.
 
 **Files.** `bootstrap_ci.csv` holds each model's mean error with its interval; `pairwise.csv`
 holds every pair, the difference, its interval, P(A better) and a verdict. Layered materials
@@ -40,8 +43,8 @@ one would look significant at 95% by chance alone. We therefore apply the Holm-B
 and only claim a difference whose adjusted p-value is below 0.05. Uncorrected "suggestive" results
 are listed but not claimed.
 
-**What it showed.** Against experiment, MACE, Orb and MatterSim are statistically tied for
-both lattice constants and bulk moduli, overall and within every class. Against DFT there are
+**What it showed.** Against experiment, no difference between MACE, Orb and MatterSim is
+resolved for lattice constants or bulk moduli, overall or within any class. Against DFT there are
 real differences: MatterSim reproduces PBE most closely (lattices for semiconductors, dielectrics,
 barriers; bulk moduli for semiconductors, metals, barriers), and Orb is closer than MACE for barrier
 bulk moduli. Being closer to the training data does not make a model closer to experiment.
@@ -57,14 +60,24 @@ correlate their signed errors against experiment over the materials both have, w
 | thermal expansion, 300 K | −0.11 (−0.43 to 0.36) | Orb pending | Orb pending |
 | thermal expansion, window | 0.22 (−0.30 to 0.72) | Orb pending | Orb pending |
 
-- Lattice constants: one shared error, PBE's. The training functional is the ceiling.
+- Lattice constants: strongly shared errors. This is consistent with the limits of the PBE
+  reference and training data (plus the 0 K vs room-temperature mismatch), but correlation alone
+  cannot separate the functional from shared training data, numerical choices or reference
+  mismatches.
 - Bulk moduli: the two models that track PBE closely (Orb, MatterSim) share their errors; MACE's
-  are its own. PBE's error is about as large as MACE's departure from PBE, so PBE limits the models
-  that reproduce it but is not a common ceiling.
-- Thermal expansion: the errors are independent. The average of MACE and MatterSim has a 25.9%
-  error at 300 K (against 34.4% and 29.2% alone), and the models' relative disagreement correlates
-  with that average's error (0.42 at 300 K, 0.25 over the window). Disagreement between models is a
-  usable warning sign, which is what the MCP `check_material` tool relies on.
+  correlate only weakly with theirs (sample correlation 0.11 and 0.19, intervals spanning zero).
+  PBE's error is about as large as MACE's departure from PBE, so tracking PBE more closely does not
+  make a model more accurate here.
+- Thermal expansion: the sample correlation is small, with wide uncertainty (table above). The average of MACE and MatterSim has a 25.9%
+  error at 300 K (against 34.4% and 29.2% alone). The models' relative disagreement correlates
+  with that average's error (0.42 at 300 K, interval −0.03 to 0.79; 0.25 over the window, −0.15
+  to 0.64). That is an exploratory warning signal, not a calibrated uncertainty estimate.
+
+**Does disagreement predict error for the static properties?** Not in this data. For lattice
+constants and bulk moduli the same correlation is −0.31 to +0.51 across model pairs, with every
+interval spanning zero (`model_agreement.csv`). The MCP `check_material` tool compares lattice
+constants and bulk moduli, so its disagreement flag is a heuristic that this benchmark does not
+validate: agreement between models that share training data does not show they are right.
 
 **Incomplete runs are not compared.** A model whose thermal run has not covered every material
 (currently Orb v3, 7 of 33) is marked `pending` in `results/thermal_expansion.csv` and left out of

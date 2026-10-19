@@ -127,3 +127,32 @@ def test_model_agreement_and_pending():
     assert list(zip(out.model_a, out.model_b)) == [("a", "b")]  # the pending model is left out
     r = out.iloc[0]
     assert abs(r.error_correlation - 1) < 1e-9 and abs(r.MAPE_average_of_two - r.MAPE_a) < 1e-9
+
+
+def test_mcp_temperature_and_exclusions():
+    import io
+
+    from ase.io import write
+
+    from chipff.mcp_server import check_material, recommend_model
+
+    r = recommend_model("Si", "thermal_expansion", 300)
+    assert r["comparison"] == "300 K" and "calibrated" in r["caution"]
+    r = recommend_model("Si", "thermal_expansion", 2000)
+    assert "no evidence" in r["temperature_note"] and "lower bound" not in r["temperature_note"]
+    buf = io.BytesIO()
+    write(buf, bulk("Si", "diamond", 5.43), format="cif")
+    out = check_material(buf.getvalue().decode(), models=["mattersim-5m"])  # the broken export is refused
+    assert "excluded" in out["skipped"]["mattersim-5m"] and "error" in out
+
+
+def test_coverage_counts_model_failures():
+    import pandas as pd
+
+    from chipff.analysis import coverage_table
+
+    lat = pd.DataFrame({"model": ["a", "a"], "material": ["x", "y"], "class": ["metals"] * 2,
+                        "err_lin_exp_pct": [0.5, None], "excluded": [None, "relaxed to a different crystal form (P1)"]})
+    cov = coverage_table(lat, pd.DataFrame(), pd.DataFrame())
+    r = cov.iloc[0]
+    assert (r.graded, r.model_failure, r.method_limit) == (1, 1, 0) and "y" in r.model_failure_cases

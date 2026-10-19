@@ -1,0 +1,32 @@
+{
+ "mace-mpa-0": {
+  "hf_repo": "CuspAI/kUPS-mace-jax",
+  "file": "mace-mpa-0-medium_32.zip",
+  "revision": "aa54c05695b6509f588d04d664be70b28cf3138c",
+  "sha256": "728762228338782ab961e9dc689ffbe7b51690fcf7cd8b4ef3c63c37ec6cd78c",
+  "bytes": 39718719
+ },
+ "orb-v3": {
+  "hf_repo": "CuspAI/kUPS-orb-jax",
+  "file": "orb_v3_conservative_inf_omat.zip",
+  "revision": "33127c65e717b333ca0c049bade585c9667b49ad",
+  "sha256": "c5269b12f2bf913ee27adfa6205d2548cc27057f1b9ebd4a2aa2b7704dfa89e0",
+  "bytes": 102276742
+ },
+ "mattersim-5m": {
+  "hf_repo": "CuspAI/kUPS-mattersim-jax",
+  "file": "mattersim-v1.0.0-5m.zip",
+  "revision": "9bedd37fab0b593dadb90e894a4afbf8eb9251df",
+  "sha256": "8debd7072cd9220faa2a745f6739faf92d593a0c24671a6099effdbf4dd58f0a",
+  "bytes": 18484429
+ },
+ "mattersim-5m-native": {
+  "path": "~/.local/mattersim/pretrained_models/mattersim-v1.0.0-5M.pth",
+  "package": "mattersim",
+  "revision": null,
+  "sha256": "e3df9fa708725e3d453140646c7d1838324b347a3d1214cf1440522146f872b5",
+  "bytes": 91176875,
+  "package_version": "1.2.5"
+ },
+ "_note": "Files the published results were computed with (recorded 2026-10-19 from the local caches). Verify with scripts/verify_checkpoints.py."
+}

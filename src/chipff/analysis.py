@@ -361,6 +361,43 @@ def checks_table(lat, bulk, therm) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+MODEL_FAILURES = ("relaxed to a different crystal form", "elastic tensor not positive definite", "dynamically unstable")
+METHOD_LIMITS = ("layered", "failed: volume_inside_scan")
+
+
+def coverage_table(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame) -> pd.DataFrame:
+    """How often each model produced a gradable result, and why the rest were not graded.
+
+    Accuracy averages only cover successful cases, so they are reported next to this:
+    a model that changes the crystal form or is dynamically unstable has failed part of
+    the workflow even when leaving its number out of the average is the right call.
+    """
+    specs = [("lattice", lat, "err_lin_exp_pct", "excluded"), ("bulk_modulus", bulk, "err_exp_pct", "excluded"),
+             ("thermal_expansion", therm, "err_exp_pct", "excluded"),
+             ("thermal_expansion_300K", therm, "err_300K_pct", "excluded_300K")]
+    rows = []
+    n_mat = len(load_materials())
+    for prop, df, col, exc in specs:
+        if df.empty or col not in df:
+            continue
+        for mk, g in df.groupby("model"):
+            why = g[exc].fillna("").astype(str) if exc in g else pd.Series("", index=g.index)
+            if prop.startswith("thermal") and "excluded" in g:  # window failures also matter at 300 K
+                why = why.where(why != "", g["excluded"].fillna("").astype(str).where(
+                    g["excluded"].fillna("").astype(str).str.startswith(MODEL_FAILURES), ""))
+            graded = g[col].notna()
+            fail = why.str.startswith(MODEL_FAILURES) & ~graded
+            limit = why.str.startswith(METHOD_LIMITS) & ~graded & ~fail
+            rows.append({"model": mk, "property": prop, "materials": n_mat, "computed": int(len(g)),
+                         "graded": int(graded.sum()), "model_failure": int(fail.sum()),
+                         "method_limit": int(limit.sum()),
+                         "no_experimental_reference": int((~graded & ~fail & ~limit & (why == "")).sum()),
+                         "pending": bool(g["pending"].any()) if "pending" in g else False,
+                         "model_failure_cases": "; ".join(f"{m} ({w.split(' (')[0]})" for m, w in
+                                                          zip(g.material[fail], why[fail]))})
+    return pd.DataFrame(rows)
+
+
 def _records(df: pd.DataFrame) -> list[dict]:
     return json.loads(df.to_json(orient="records")) if not df.empty else []
 
@@ -370,8 +407,9 @@ def build_tables(tag: str = "thermal_qha") -> dict:
     lat, bulk, therm = lattice_table(), bulk_table(), thermal_table(tag)
     tm = trust_map(lat, bulk, therm)
     chk = checks_table(lat, bulk, therm)
+    cov = coverage_table(lat, bulk, therm)
     for name, df in (("lattice", lat), ("bulk_modulus", bulk), ("thermal_expansion", therm), ("trust_map", tm),
-                     ("checks", chk)):
+                     ("checks", chk), ("coverage", cov)):
         df.to_csv(OUT / f"{name}.csv", index=False, float_format="%.5g")
     summary = {
         "thresholds": config()["thresholds"],
@@ -383,7 +421,7 @@ def build_tables(tag: str = "thermal_qha") -> dict:
                        "phase": m.phase, "spg": m.spg, "role": m.role,
                        "mp_id": (mp_record(m.id) or {}).get("material_id")} for m in load_materials()],
         "lattice": _records(lat), "bulk_modulus": _records(bulk), "thermal_expansion": _records(therm),
-        "trust_map": _records(tm), "checks": _records(chk),
+        "trust_map": _records(tm), "checks": _records(chk), "coverage": _records(cov),
         "pending": {"thermal_expansion": sorted(therm.loc[therm["pending"].astype(bool), "model"].unique())
                     if "pending" in therm else []},
     }

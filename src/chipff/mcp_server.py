@@ -2,14 +2,14 @@
 
 Tools
   recommend_model(material, property, temperature_K=None)
-      best model for a benchmarked material (or the nearest material class)
-      and its expected error, from the stored benchmark.
+      models ranked by their measured errors for a benchmarked material (or its
+      class), with the evidence behind the ranking and whether it is resolved.
   get_benchmark(query)
       stored results for one material or a whole class, with references and sources.
   check_material(cif)
       run the lattice + bulk-modulus checks on a NEW structure with every
-      model and report where they disagree (a warning sign that predictions
-      for it are unreliable).
+      model and report where they disagree (an exploratory warning signal that
+      predictions for it may be unreliable).
 
 Run:  chipff-mcp            (stdio transport; add it to any MCP client)
 """
@@ -62,19 +62,43 @@ def _rows(prop: str):
     return summary()[prop]
 
 
+def _pairwise_note(prop_key: str, a: str, b: str, cls: str | None) -> str | None:
+    """What the paired bootstrap says about the top two models (results/robustness)."""
+    rob = summary().get("robustness", {})
+    rows = rob.get("pairwise_by_class", []) if cls else rob.get("pairwise", [])
+    for r in rows:
+        if (r["property"] == prop_key and r["reference"] == "experiment" and {r["model_a"], r["model_b"]} == {a, b}
+                and (cls is None or r.get("class") == cls)):
+            lo, hi = r["ci_low"], r["ci_high"]
+            if lo < 0 < hi:
+                return (f"the benchmark does not resolve a difference between {a} and {b} "
+                        f"(95% interval of {r['model_a']} minus {r['model_b']}: {lo:+.2f} to {hi:+.2f} points, "
+                        f"{r['n_common']} shared materials)")
+            return f"paired bootstrap: {r['verdict']} ({r['n_common']} shared materials)"
+    return None
+
+
 def recommend_model(material: str, property: str, temperature_K: float | None = None) -> dict:
-    """Recommend the most accurate ML force field for a chip material and property.
+    """Rank the ML force fields by their measured ChipFF Bench errors for a material or class.
+
+    This retrieves benchmark evidence; it is not a calibrated prediction of the error for
+    another material. Each ranking entry lists the per-material errors it averages.
 
     material: a benchmarked material (e.g. "TaN", "HfO2", "GaN") or a class
       ("nitrides", "metals", "dielectrics", "silicides", "layered").
     property: "lattice", "bulk_modulus" or "thermal_expansion".
-    temperature_K: optional; for thermal expansion, whether it falls inside the
-      benchmarked window is reported.
+    temperature_K: optional, thermal expansion only. Near 300 K (250-350 K) the 300 K
+      comparison is used; otherwise the pre-registered temperature-window comparison.
+      Outside both, the answer says the benchmark has no evidence at that temperature.
     """
     prop = PROPS.get(property.strip().lower().replace(" ", "_"))
     if prop is None:
         return {"error": f"property must be one of lattice, bulk_modulus, thermal_expansion (got {property!r})"}
-    col = ERR_COL[prop]
+    col, prop_key, comparison = ERR_COL[prop], prop, None
+    if prop == "thermal_expansion":
+        comparison = "temperature window (pre-registered)"
+        if temperature_K is not None and abs(temperature_K - 300.0) <= 50:
+            col, prop_key, comparison = "err_300K_pct", "thermal_expansion_300K", "300 K"
     mat = _find_material(material)
     cls = mat.cls if mat else _find_class(material)
     if mat is None and cls is None:
@@ -87,35 +111,54 @@ def recommend_model(material: str, property: str, temperature_K: float | None = 
     rows = [r for r in _rows(prop) if r.get(col) is not None and r["model"] not in pending
             and (r["material"] == mat.id if mat else r["class"] == cls)]
     basis = f"material {mat.id}" if mat else f"class {CLASS_LABELS[cls]}"
+    used_cls = None if mat else cls
     if mat and not rows:  # no experimental comparison for this material: fall back to its class
         rows = [r for r in _rows(prop) if r.get(col) is not None and r["model"] not in pending
                 and r["class"] == mat.cls]
-        basis = f"class {CLASS_LABELS[mat.cls]} (no experimental reference for {mat.id})"
+        basis = f"class {CLASS_LABELS[mat.cls]} (no usable experimental comparison for {mat.id})"
+        used_cls = mat.cls
     if not rows:
         return {"error": f"no benchmark results for {property} in {basis}"}
-    by_model: dict[str, list[float]] = {}
+    by_model: dict[str, list[dict]] = {}
     for r in rows:
-        by_model.setdefault(r["model"], []).append(r[col])
+        by_model.setdefault(r["model"], []).append(r)
     ranking = sorted(
-        ({"model": k, "label": summary()["models"][k]["label"], "mean_abs_error_pct": sum(map(abs, v)) / len(v),
-          "mean_signed_error_pct": sum(v) / len(v), "n_materials": len(v)} for k, v in by_model.items()),
+        ({"model": k, "label": summary()["models"][k]["label"],
+          "mean_abs_error_pct": sum(abs(x[col]) for x in v) / len(v),
+          "mean_signed_error_pct": sum(x[col] for x in v) / len(v), "n_materials": len(v),
+          "errors_pct": {x["material"]: round(x[col], 2) for x in v}} for k, v in by_model.items()),
         key=lambda x: x["mean_abs_error_pct"],
     )
-    out = {"basis": basis, "property": prop, "reference": "experiment", "recommended": ranking[0], "ranking": ranking,
-           "thresholds_pct": summary()["thresholds"][prop]}
+    out = {"basis": basis, "property": prop, "reference": "experiment", "lowest_error": ranking[0],
+           "ranking": ranking, "thresholds_pct": summary()["thresholds"][prop],
+           "caution": ("benchmark evidence on the materials listed, not a calibrated error estimate for "
+                       "other materials or conditions")}
+    if comparison:
+        out["comparison"] = comparison
+    if len(ranking) > 1:
+        if mat and basis.startswith("material"):
+            out["statistical_note"] = (f"single material: these are its measured errors; the benchmark-wide "
+                                       f"comparison: {_pairwise_note(prop_key, ranking[0]['model'], ranking[1]['model'], None) or 'n/a'}")
+        else:
+            note = _pairwise_note(prop_key, ranking[0]["model"], ranking[1]["model"], used_cls)
+            if note:
+                out["statistical_note"] = note
     if pending:
         out["pending"] = f"not yet ranked (run in progress): {', '.join(sorted(pending))}"
-    if prop == "thermal_expansion" and temperature_K is not None and mat:
-        win = [r for r in rows if r["material"] == mat.id]
+    if prop == "thermal_expansion" and temperature_K is not None and comparison != "300 K":
+        win = [r for r in rows if mat and r["material"] == mat.id]
         if win:
             lo, hi = win[0]["T_low"], win[0]["T_high"]
             out["temperature_note"] = (
                 f"{temperature_K:.0f} K is inside the benchmarked window {lo:.0f}-{hi:.0f} K"
                 if lo <= temperature_K <= hi else
-                f"{temperature_K:.0f} K is outside the benchmarked window {lo:.0f}-{hi:.0f} K; treat errors as a lower bound"
-            )
+                f"the benchmark has no evidence at {temperature_K:.0f} K: it compares at 300 K and over "
+                f"{lo:.0f}-{hi:.0f} K only; errors elsewhere may be larger or smaller")
+        else:
+            out["temperature_note"] = (f"the windows differ by material; check each material's window "
+                                       f"(get_benchmark) before relying on this at {temperature_K:.0f} K")
     if not mat:
-        out["caution"] = "class-level average; for a new material, run check_material to see whether models agree"
+        out["caution"] += "; for a new material, run check_material to see whether models agree"
     return out
 
 
@@ -146,15 +189,25 @@ def check_material(cif: str, models: list[str] | None = None) -> dict:
 
     from ase.io import read
 
-    from chipff.engine import Engine
-    from chipff.models import MODELS, get_model
+    from chipff.models import MODELS
+    from chipff.runner import make_engine
     from chipff.static import symmetry
 
     atoms = read(io.StringIO(cif), format="cif")
-    keys = models or [k for k, m in MODELS.items() if not m.gated]
-    res = {}
+    keys = models or [k for k, m in MODELS.items() if not m.gated and not m.excluded]
+    res, skipped = {}, {}
     for k in keys:
-        eng = Engine(get_model(k))
+        if k not in MODELS:
+            skipped[k] = "unknown model"
+            continue
+        if MODELS[k].excluded:
+            skipped[k] = "excluded from the benchmark: " + MODELS[k].excluded
+            continue
+        try:  # each model on its own backend (kUPS, or its official package for MatterSim)
+            eng = make_engine(k)
+        except ImportError as e:
+            skipped[k] = f"backend not installed here ({e.name}); see the README's Reproduce section"
+            continue
         r = eng.relax([atoms], optimize_cell=True)[0]
         scales = [0.97, 0.985, 1.0, 1.015, 1.03]
         structs = []
@@ -170,6 +223,9 @@ def check_material(cif: str, models: list[str] | None = None) -> dict:
         sym = symmetry(r.atoms)
         res[k] = {"volume_per_atom": sym["volume_per_atom"], "lattice": sym["conventional"],
                   "space_group": sym["symbol"], "B_eos_GPa": float(fit.b0_GPa), "converged": r.converged}
+    if len(res) < 2:
+        return {"models": res, "skipped": skipped,
+                "error": "fewer than two models ran, so there is no disagreement to measure"}
     vols = [v["volume_per_atom"] for v in res.values()]
     bs = [v["B_eos_GPa"] for v in res.values()]
     spread_lat = 100 * ((max(vols) / min(vols)) ** (1 / 3) - 1)
@@ -183,9 +239,11 @@ def check_material(cif: str, models: list[str] | None = None) -> dict:
         warn.append(f"models disagree on stiffness by {spread_b:.0f}%")
     if len({v["space_group"] for v in res.values()}) > 1:
         warn.append("models relax to different space groups")
-    return {"models": res, "lattice_spread_pct": spread_lat, "bulk_modulus_spread_pct": spread_b,
+    return {"models": res, "skipped": skipped, "lattice_spread_pct": spread_lat, "bulk_modulus_spread_pct": spread_b,
             "warnings": warn or ["models agree within the benchmark's 'okay' thresholds"],
-            "note": "B here is a fixed-shape EOS fit (exact for cubic crystals)."}
+            "note": ("B here is a fixed-shape EOS fit (exact for cubic crystals). Disagreement is an exploratory "
+                     "warning signal: agreement does not show that the models are right, since they share "
+                     "training data and its errors.")}
 
 
 def main():

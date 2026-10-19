@@ -15569,6 +15569,152 @@
    "pass": true
   }
  ],
+ "coverage": [
+  {
+   "model": "mace-mpa-0",
+   "property": "lattice",
+   "materials": 33,
+   "computed": 33,
+   "graded": 33,
+   "model_failure": 0,
+   "method_limit": 0,
+   "no_experimental_reference": 0,
+   "pending": false,
+   "model_failure_cases": ""
+  },
+  {
+   "model": "mattersim-5m-native",
+   "property": "lattice",
+   "materials": 33,
+   "computed": 33,
+   "graded": 33,
+   "model_failure": 0,
+   "method_limit": 0,
+   "no_experimental_reference": 0,
+   "pending": false,
+   "model_failure_cases": ""
+  },
+  {
+   "model": "orb-v3",
+   "property": "lattice",
+   "materials": 33,
+   "computed": 33,
+   "graded": 30,
+   "model_failure": 3,
+   "method_limit": 0,
+   "no_experimental_reference": 0,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (relaxed to a different crystal form); SrTiO3 (relaxed to a different crystal form); MoS2 (relaxed to a different crystal form)"
+  },
+  {
+   "model": "mace-mpa-0",
+   "property": "bulk_modulus",
+   "materials": 33,
+   "computed": 33,
+   "graded": 30,
+   "model_failure": 1,
+   "method_limit": 0,
+   "no_experimental_reference": 2,
+   "pending": false,
+   "model_failure_cases": "hBN (elastic tensor not positive definite)"
+  },
+  {
+   "model": "mattersim-5m-native",
+   "property": "bulk_modulus",
+   "materials": 33,
+   "computed": 33,
+   "graded": 29,
+   "model_failure": 2,
+   "method_limit": 0,
+   "no_experimental_reference": 2,
+   "pending": false,
+   "model_failure_cases": "Ti (elastic tensor not positive definite); MoS2 (elastic tensor not positive definite)"
+  },
+  {
+   "model": "orb-v3",
+   "property": "bulk_modulus",
+   "materials": 33,
+   "computed": 33,
+   "graded": 28,
+   "model_failure": 3,
+   "method_limit": 0,
+   "no_experimental_reference": 2,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (relaxed to a different crystal form); SrTiO3 (relaxed to a different crystal form); MoS2 (relaxed to a different crystal form)"
+  },
+  {
+   "model": "mace-mpa-0",
+   "property": "thermal_expansion",
+   "materials": 33,
+   "computed": 33,
+   "graded": 17,
+   "model_failure": 3,
+   "method_limit": 6,
+   "no_experimental_reference": 7,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)"
+  },
+  {
+   "model": "mattersim-5m-native",
+   "property": "thermal_expansion",
+   "materials": 33,
+   "computed": 33,
+   "graded": 18,
+   "model_failure": 2,
+   "method_limit": 4,
+   "no_experimental_reference": 9,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)"
+  },
+  {
+   "model": "orb-v3",
+   "property": "thermal_expansion",
+   "materials": 33,
+   "computed": 7,
+   "graded": 4,
+   "model_failure": 0,
+   "method_limit": 0,
+   "no_experimental_reference": 3,
+   "pending": true,
+   "model_failure_cases": ""
+  },
+  {
+   "model": "mace-mpa-0",
+   "property": "thermal_expansion_300K",
+   "materials": 33,
+   "computed": 33,
+   "graded": 24,
+   "model_failure": 3,
+   "method_limit": 3,
+   "no_experimental_reference": 3,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)"
+  },
+  {
+   "model": "mattersim-5m-native",
+   "property": "thermal_expansion_300K",
+   "materials": 33,
+   "computed": 33,
+   "graded": 24,
+   "model_failure": 2,
+   "method_limit": 3,
+   "no_experimental_reference": 4,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)"
+  },
+  {
+   "model": "orb-v3",
+   "property": "thermal_expansion_300K",
+   "materials": 33,
+   "computed": 7,
+   "graded": 7,
+   "model_failure": 0,
+   "method_limit": 0,
+   "no_experimental_reference": 0,
+   "pending": true,
+   "model_failure_cases": ""
+  }
+ ],
  "pending": {
   "thermal_expansion": [
    "orb-v3"
@@ -16673,7 +16819,9 @@
     "MAPE_a": 0.7418193776,
     "MAPE_b": 0.7971113928,
     "MAPE_average_of_two": 0.7450173867,
-    "corr_disagreement_vs_average_error": -0.3070247181
+    "corr_disagreement_vs_average_error": -0.3070247181,
+    "disagreement_corr_ci_low": -0.5501483207,
+    "disagreement_corr_ci_high": 0.0486614119
    },
    {
     "property": "lattice",
@@ -16686,7 +16834,9 @@
     "MAPE_a": 0.7291442539,
     "MAPE_b": 0.7289007238,
     "MAPE_average_of_two": 0.6979060042,
-    "corr_disagreement_vs_average_error": -0.0803965214
+    "corr_disagreement_vs_average_error": -0.0803965214,
+    "disagreement_corr_ci_low": -0.4195708449,
+    "disagreement_corr_ci_high": 0.3293782603
    },
    {
     "property": "lattice",
@@ -16699,7 +16849,9 @@
     "MAPE_a": 0.7840931561,
     "MAPE_b": 0.7289007238,
     "MAPE_average_of_two": 0.752518712,
-    "corr_disagreement_vs_average_error": 0.0670054014
+    "corr_disagreement_vs_average_error": 0.0670054014,
+    "disagreement_corr_ci_low": -0.308279782,
+    "disagreement_corr_ci_high": 0.3269704731
    },
    {
     "property": "bulk_modulus",
@@ -16712,7 +16864,9 @@
     "MAPE_a": 9.8552666243,
     "MAPE_b": 12.6378936231,
     "MAPE_average_of_two": 8.8612143994,
-    "corr_disagreement_vs_average_error": 0.3829803875
+    "corr_disagreement_vs_average_error": 0.3829803875,
+    "disagreement_corr_ci_low": -0.3735754514,
+    "disagreement_corr_ci_high": 0.7228662232
    },
    {
     "property": "bulk_modulus",
@@ -16725,7 +16879,9 @@
     "MAPE_a": 11.313835923,
     "MAPE_b": 11.945861978,
     "MAPE_average_of_two": 8.9019147829,
-    "corr_disagreement_vs_average_error": -0.185829836
+    "corr_disagreement_vs_average_error": -0.185829836,
+    "disagreement_corr_ci_low": -0.5151175294,
+    "disagreement_corr_ci_high": 0.2151743829
    },
    {
     "property": "bulk_modulus",
@@ -16738,7 +16894,9 @@
     "MAPE_a": 13.4459665036,
     "MAPE_b": 11.9712298433,
     "MAPE_average_of_two": 12.2289717323,
-    "corr_disagreement_vs_average_error": 0.5062741465
+    "corr_disagreement_vs_average_error": 0.5062741465,
+    "disagreement_corr_ci_low": -0.4175468338,
+    "disagreement_corr_ci_high": 0.7753621728
    },
    {
     "property": "thermal_expansion",
@@ -16751,7 +16909,9 @@
     "MAPE_a": 35.7715796718,
     "MAPE_b": 35.4869215549,
     "MAPE_average_of_two": 31.2814927574,
-    "corr_disagreement_vs_average_error": 0.2530581094
+    "corr_disagreement_vs_average_error": 0.2530581094,
+    "disagreement_corr_ci_low": -0.1495833253,
+    "disagreement_corr_ci_high": 0.6395280786
    },
    {
     "property": "thermal_expansion_300K",
@@ -16764,7 +16924,9 @@
     "MAPE_a": 34.3587501632,
     "MAPE_b": 29.1781377226,
     "MAPE_average_of_two": 25.9014334897,
-    "corr_disagreement_vs_average_error": 0.422848533
+    "corr_disagreement_vs_average_error": 0.422848533,
+    "disagreement_corr_ci_low": -0.0342684956,
+    "disagreement_corr_ci_high": 0.7933158418
    }
   ],
   "md_variants": [],
