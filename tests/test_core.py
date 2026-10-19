@@ -108,3 +108,22 @@ def test_provenance_detects_stale_results():
     stale["provenance"]["code"] = "0" * 16
     assert "code" in check("lattice", "mace-mpa-0", "Si", stale)
     assert check("lattice", "mace-mpa-0", "Si", {k: v for k, v in rec.items() if k != "provenance"})  # unstamped
+
+
+def test_model_agreement_and_pending():
+    import pandas as pd
+
+    from chipff.robustness import model_agreement
+
+    ref = [10.0, 20.0, 30.0, 40.0, 50.0, 60.0]
+    rows = []
+    for mk, scale, pending in (("a", [1.1, 1.2, 0.9, 1.0, 1.3, 0.8], False), ("b", [1.1, 1.2, 0.9, 1.0, 1.3, 0.8], False),
+                               ("c", [1.5] * 6, True)):
+        for i, (r, f) in enumerate(zip(ref, scale)):
+            rows.append({"model": mk, "material": f"m{i}", "class": "metals", "alpha_V": r * f, "alpha_V_exp": r,
+                         "alpha_V_300K": None, "alpha_V_300K_exp": None, "err_exp_pct": 100 * (f - 1),
+                         "err_300K_pct": None, "pending": pending})
+    out = model_agreement(pd.DataFrame(), pd.DataFrame(), pd.DataFrame(rows), n=200)
+    assert list(zip(out.model_a, out.model_b)) == [("a", "b")]  # the pending model is left out
+    r = out.iloc[0]
+    assert abs(r.error_correlation - 1) < 1e-9 and abs(r.MAPE_average_of_two - r.MAPE_a) < 1e-9

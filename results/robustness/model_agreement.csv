@@ -1,0 +1,9 @@
+property,model_a,model_b,n_common,error_correlation,corr_ci_low,corr_ci_high,MAPE_a,MAPE_b,MAPE_average_of_two,corr_disagreement_vs_average_error
+lattice,mace-mpa-0,mattersim-5m-native,30,0.8766,0.7248,0.9604,0.7418,0.7971,0.745,-0.307
+lattice,mace-mpa-0,orb-v3,28,0.8337,0.6533,0.9275,0.7291,0.7289,0.6979,-0.0804
+lattice,mattersim-5m-native,orb-v3,28,0.9547,0.9011,0.9837,0.7841,0.7289,0.7525,0.06701
+bulk_modulus,mace-mpa-0,mattersim-5m-native,27,0.1058,-0.209,0.4232,9.855,12.64,8.861,0.383
+bulk_modulus,mace-mpa-0,orb-v3,26,0.191,-0.165,0.5327,11.31,11.95,8.902,-0.1858
+bulk_modulus,mattersim-5m-native,orb-v3,25,0.6065,0.2275,0.8806,13.45,11.97,12.23,0.5063
+thermal_expansion,mace-mpa-0,mattersim-5m-native,17,0.2167,-0.2954,0.7234,35.77,35.49,31.28,0.2531
+thermal_expansion_300K,mace-mpa-0,mattersim-5m-native,24,-0.1123,-0.429,0.3628,34.36,29.18,25.9,0.4228

@@ -245,7 +245,11 @@ def thermal_table(tag: str = "thermal_qha") -> pd.DataFrame:
     """Thermal expansion vs experiment. Default source: QHA (docs/thermal_method.md)."""
     exp = experimental()
     rows = []
-    for mat in load_materials():
+    mats = load_materials()
+    # a model whose run has not covered every material is reported per material but kept out
+    # of class averages, rankings and model comparisons until it is complete
+    pending = {mk for mk in MODELS if 0 < len(load_raw(mk, tag)) < len(mats)}
+    for mat in mats:
         e = exp.get(mat.id, {})
         T_exp, aV_exp = exp_alpha_V(e, mat)
         for mk in MODELS:
@@ -283,6 +287,7 @@ def thermal_table(tag: str = "thermal_qha") -> pd.DataFrame:
                 "err_300K_pct": None if (ex300 or r.get("alpha_V_300K_1e6") is None) else pct(r["alpha_V_300K_1e6"], a300_exp),
                 "excluded_300K": ex300,
                 "excluded": excluded, "provenance": prov, "method": r.get("method", "MD"),
+                "pending": mk in pending,
                 **{f"check_{k}": v for k, v in checks.items()},
             })
     return pd.DataFrame(rows)
@@ -307,6 +312,8 @@ def trust_map(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame) -> pd.
     for prop, df, col, ref in specs:
         if df.empty or col not in df:
             continue
+        if "pending" in df:
+            df = df[~df["pending"].astype(bool)]
         for (mk, cls), g in df.groupby(["model", "class"]):
             vals = g[col].dropna().astype(float)
             if vals.empty:
@@ -377,6 +384,8 @@ def build_tables(tag: str = "thermal_qha") -> dict:
                        "mp_id": (mp_record(m.id) or {}).get("material_id")} for m in load_materials()],
         "lattice": _records(lat), "bulk_modulus": _records(bulk), "thermal_expansion": _records(therm),
         "trust_map": _records(tm), "checks": _records(chk),
+        "pending": {"thermal_expansion": sorted(therm.loc[therm["pending"].astype(bool), "model"].unique())
+                    if "pending" in therm else []},
     }
     from chipff.robustness import build as build_robustness
 

@@ -58,7 +58,9 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
                 r = next((x for x in tm if x["model"] == m and x["class"] == c and x["property"] == p), None)
                 if r is None:
                     ax.add_patch(plt.Rectangle((j, i), 0.96, 0.92, color="#f0efec"))
-                    ax.text(j + 0.48, i + 0.46, "n/a", ha="center", va="center", color=INK2, fontsize=7.5)
+                    pending = p.startswith("thermal") and m in s.get("pending", {}).get("thermal_expansion", [])
+                    ax.text(j + 0.48, i + 0.46, "pending" if pending else "n/a", ha="center", va="center", color=INK2,
+                            fontsize=7.5)
                     continue
                 ax.add_patch(plt.Rectangle((j, i), 0.96, 0.92, color=STATUS[r["grade"]], alpha=0.9))
                 val = f"{r['MAPE']:.2f}%" if r["MAPE"] < 10 else f"{r['MAPE']:.0f}%"
@@ -77,6 +79,9 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
     note = "; ".join(f"{PROP_LABEL[p].lower()} good ≤{th[p.replace('_300K', '')]['good']:g}%, okay ≤{th[p.replace('_300K', '')]['okay']:g}%"
                      for p in props if not p.endswith("_300K"))
     star = " *not run through kUPS (official package)." if any(not MODELS[m].via_kups for m in models) else ""
+    pend = [short(m) for m in s.get("pending", {}).get("thermal_expansion", [])]
+    if pend and any(p.startswith("thermal") for p in props):
+        star += f" Thermal expansion for {', '.join(pend)}: run in progress, shown once complete."
     fig.text(0.0, -0.02, f"Mean absolute % error vs {reference}. Green good, amber okay, red poor; thresholds fixed in "
              f"advance ({note}).{star}", fontsize=7.5, color=INK2, wrap=True)
     _save(fig, f"trust_map_{reference}")
@@ -86,7 +91,7 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
 def parity_figure(s: dict, prop: str, model_col: str, ref_col: str, label: str, unit: str, log=False, name=None,
                   err_col: str | None = None):
     rows = [r for r in s[prop] if r.get(model_col) is not None and r.get(ref_col) is not None
-            and (err_col is None or r.get(err_col) is not None)]
+            and (err_col is None or r.get(err_col) is not None) and not r.get("pending")]
     if not rows:
         return None
     fig, ax = plt.subplots(figsize=(4.6, 4.4))
@@ -121,7 +126,7 @@ def parity_figure(s: dict, prop: str, model_col: str, ref_col: str, label: str, 
 
 
 def signed_error_figure(s: dict, prop: str, col: str, title: str, name: str):
-    rows = [r for r in s[prop] if r.get(col) is not None]
+    rows = [r for r in s[prop] if r.get(col) is not None and not r.get("pending")]
     if not rows:
         return None
     classes = [c for c in CLASS_LABELS if any(r["class"] == c for r in rows)]

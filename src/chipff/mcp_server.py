@@ -82,10 +82,14 @@ def recommend_model(material: str, property: str, temperature_K: float | None = 
                 "benchmarked": [m.id for m in load_materials()]}
     if not _rows(prop):
         return {"error": f"no {prop.replace('_', ' ')} results in this benchmark yet"}
-    rows = [r for r in _rows(prop) if r.get(col) is not None and (r["material"] == mat.id if mat else r["class"] == cls)]
+    # models whose run is still in progress are not ranked (results/summary.json "pending")
+    pending = set(summary().get("pending", {}).get(prop, []))
+    rows = [r for r in _rows(prop) if r.get(col) is not None and r["model"] not in pending
+            and (r["material"] == mat.id if mat else r["class"] == cls)]
     basis = f"material {mat.id}" if mat else f"class {CLASS_LABELS[cls]}"
     if mat and not rows:  # no experimental comparison for this material: fall back to its class
-        rows = [r for r in _rows(prop) if r.get(col) is not None and r["class"] == mat.cls]
+        rows = [r for r in _rows(prop) if r.get(col) is not None and r["model"] not in pending
+                and r["class"] == mat.cls]
         basis = f"class {CLASS_LABELS[mat.cls]} (no experimental reference for {mat.id})"
     if not rows:
         return {"error": f"no benchmark results for {property} in {basis}"}
@@ -99,6 +103,8 @@ def recommend_model(material: str, property: str, temperature_K: float | None = 
     )
     out = {"basis": basis, "property": prop, "reference": "experiment", "recommended": ranking[0], "ranking": ranking,
            "thresholds_pct": summary()["thresholds"][prop]}
+    if pending:
+        out["pending"] = f"not yet ranked (run in progress): {', '.join(sorted(pending))}"
     if prop == "thermal_expansion" and temperature_K is not None and mat:
         win = [r for r in rows if r["material"] == mat.id]
         if win:

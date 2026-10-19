@@ -46,6 +46,31 @@ real differences: MatterSim reproduces PBE most closely (lattices for semiconduc
 barriers; bulk moduli for semiconductors, metals, barriers), and Orb is closer than MACE for barrier
 bulk moduli. Being closer to the training data does not make a model closer to experiment.
 
+**Do the models make the same mistakes?** (`model_agreement.csv`) For each pair of models we
+correlate their signed errors against experiment over the materials both have, with a bootstrap
+95% interval. This separates two reasons why "closer to PBE" fails to mean "closer to experiment":
+
+| property | MACE vs MatterSim | MACE vs Orb | Orb vs MatterSim |
+|---|---|---|---|
+| lattice constant | 0.88 (0.72 to 0.96) | 0.83 (0.65 to 0.93) | 0.95 (0.90 to 0.98) |
+| bulk modulus | 0.11 (−0.21 to 0.42) | 0.19 (−0.17 to 0.53) | 0.61 (0.23 to 0.88) |
+| thermal expansion, 300 K | −0.11 (−0.43 to 0.36) | Orb pending | Orb pending |
+| thermal expansion, window | 0.22 (−0.30 to 0.72) | Orb pending | Orb pending |
+
+- Lattice constants: one shared error, PBE's. The training functional is the ceiling.
+- Bulk moduli: the two models that track PBE closely (Orb, MatterSim) share their errors; MACE's
+  are its own. PBE's error is about as large as MACE's departure from PBE, so PBE limits the models
+  that reproduce it but is not a common ceiling.
+- Thermal expansion: the errors are independent. The average of MACE and MatterSim has a 25.9%
+  error at 300 K (against 34.4% and 29.2% alone), and the models' relative disagreement correlates
+  with that average's error (0.42 at 300 K, 0.25 over the window). Disagreement between models is a
+  usable warning sign, which is what the MCP `check_material` tool relies on.
+
+**Incomplete runs are not compared.** A model whose thermal run has not covered every material
+(currently Orb v3, 7 of 33) is marked `pending` in `results/thermal_expansion.csv` and left out of
+the trust map, the bootstrap, the pairwise tests and the MCP rankings, so a partial sample cannot
+look better or worse than a complete one.
+
 **Statistical power.** With ~26-30 materials, differences of about 3-5 percentage points in
 bulk-modulus error and about 0.1 points in lattice error can be resolved; within a class
 (4-9 materials) only much larger ones. Smaller real differences appear as ties.
@@ -57,11 +82,12 @@ information. We still check it: a subset is rerun from scratch in a differently 
 batch, and the result must match the stored value (`lattice_rerun_pct` in
 `static_sensitivity.json`; tiny differences come only from floating-point summation order).
 
-Thermal expansion does involve randomness: random starting velocities, and random thermostat
-and barostat kicks. Each run reports a statistical error bar from block averaging. To test
-whether those error bars are honest, we rerun six materials with two different random seeds
-(`md_variants.csv`). Agreement within about two combined error bars means the error bars can
-be trusted.
+Thermal expansion, as published, is also deterministic: the quasi-harmonic calculation has no
+random element ([`thermal_method.md`](thermal_method.md)). Its sensitivity to settings (supercell
+size, q-mesh, volume range, displacement size) was tested directly and is 2–7%. The MD route, kept
+as a cross-check, does involve randomness (starting velocities, thermostat and barostat kicks);
+for it, six materials are rerun with two other random seeds (`md_variants.csv`), and agreement
+within about two combined error bars means its error bars can be trusted.
 
 ## 3. Do the results depend on arbitrary settings? Sensitivity tests
 

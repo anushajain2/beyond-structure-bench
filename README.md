@@ -17,8 +17,9 @@ whose kUPS export is currently broken (see Findings) and which runs through its 
 ## Findings so far
 
 Status: lattice constants and bulk moduli are complete for MACE-MPA-0, Orb v3 and MatterSim v1.
-Thermal expansion (GPU) and UMA (awaiting license access) are still to come; these findings will be
-updated when they land.
+Thermal expansion is complete for MACE-MPA-0 and MatterSim v1; **Orb v3's thermal run is in progress
+(7 of 33 materials) and is left out of every thermal average and comparison until it finishes.** UMA
+is awaiting license access. These findings will be updated when the rest lands.
 
 1. **Lattice constants of non-layered chip materials are effectively solved.** All three models are
    within 0.73–0.80 % of experiment on average across the 30 non-layered materials (worst case:
@@ -38,8 +39,13 @@ updated when they land.
    bootstrap interval includes zero (`results/robustness/pairwise.csv`), and the same holds within every
    material class (`pairwise_by_class.csv`, Holm-corrected). Against DFT the differences are real:
    MatterSim reproduces PBE most closely, especially for metals and semiconductors, yet is no closer to
-   experiment. **Fidelity to the PBE training data doesn't buy accuracy against reality: for these
-   properties the limit is the training functional, not the architecture.**
+   experiment. **Fidelity to the PBE training data doesn't buy accuracy against reality, but for
+   different reasons for the two properties.** For lattice constants the models make the same error
+   (correlation of their errors 0.83–0.95): it is PBE's, and the training functional is the ceiling.
+   For bulk moduli their errors are largely their own (MACE vs MatterSim: 0.11, 95 % interval −0.21
+   to 0.42), because PBE's error is about as large as each model's departure from PBE; only Orb and
+   MatterSim, which both track PBE closely, share theirs (0.61). So a closer fit to PBE is no sign of
+   a better bulk modulus (`results/robustness/model_agreement.csv`).
 4. **Symmetry is not guaranteed.** Orb, which is not built to be exactly equivariant, relaxes rutile
    TiO₂ and cubic SrTiO₃ into lower-symmetry polar structures; MACE and MatterSim keep them. Those
    cases are excluded from the averages and reported as findings.
@@ -48,8 +54,26 @@ updated when they land.
    `scripts/repro_mattersim_export.py`), so MatterSim is benchmarked through its official package and
    starred in every figure. Self-checks also caught two frame-convention bugs in this project's own
    stress handling before any number was published.
+6. **Thermal expansion is the hardest property, and the two finished models fail in different
+   places.** Computed in the quasi-harmonic approximation, MACE and MatterSim are off from experiment
+   by 34 % and 29 % on average at 300 K (36 % and 35 % over each material's pre-registered
+   temperature window), both too large on average, and statistically tied. But MACE overshoots
+   refractory and hcp metals (Ta +177 %, Mo +99 %, Ru +53 %, W +49 % at 300 K) where MatterSim is
+   mostly within 16 %, while MatterSim overshoots semiconductors (InP +123 %, Si +85 %, GaAs +69 %)
+   where MACE gets Si within 1 %. Their errors are uncorrelated (−0.11 at 300 K), so **averaging the
+   two models cuts the error to 26 %**, and the size of their disagreement tracks the error of that
+   average (0.42): when two models disagree, distrust both. Rutile TiO₂ and cubic SrTiO₃ are
+   dynamically unstable in both models and are excluded, as are a few results where QHA itself breaks
+   down at high temperature (`results/thermal_expansion.csv` gives the reason for each).
 
-*Thermal expansion: pending the GPU run (`notebooks/thermal_expansion_gpu.ipynb`).*
+| Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 |
+|---|---|---|---|
+| mean abs. error at 300 K (95 % CI) | 34.4 % (22–55), n = 24 | 29.2 % (20–45), n = 24 | in progress |
+| mean abs. error over the window (95 % CI) | 35.8 % (23–53), n = 17 | 35.1 % (23–55), n = 18 | in progress |
+| within 20 % / 40 % at 300 K | 11 / 18 | 14 / 18 | in progress |
+
+\* MatterSim runs through its official package (finding 5). Class-by-class results are in the
+trust map above and `results/trust_map.csv`.
 
 ## What's measured
 
@@ -79,8 +103,9 @@ bulk modulus good ≤ 10 %, okay ≤ 25 %; thermal expansion good ≤ 20 %, okay
   binding. Both appear in the results; if they didn't, the pipeline would be suspect.
 * **Automatic self-checks** (`results/checks.csv`): relaxation converged; space group unchanged;
   elastic tensor positive definite; Birch–Murnaghan fit clean; for cubic crystals, EOS bulk modulus
-  within 5 % of the elastic-tensor value; elastic fit symmetric; MD temperature and pressure on
-  target; mean volume converged. Two invariance checks every model must pass ship as scripts:
+  within 5 % of the elastic-tensor value; elastic fit symmetric; for thermal expansion, dynamically
+  stable at the relaxed volume, enough stable volumes for the fit, few phonon-interpolation
+  artefacts, and the predicted volume inside the scanned range. Two invariance checks every model must pass ship as scripts:
   stress equals the strain derivative of the model's own energy, and a structure's energy does not
   depend on what else is in its batch.
 * **Every result is fingerprinted** with the code, settings and inputs that produced it
@@ -104,9 +129,15 @@ arbitrary settings. So every headline comparison is backed by three kinds of che
 * **Sensitivity to settings.** On eight representative materials, one setting is changed at a time:
   strain size for the elastic tensor, a 10x tighter force tolerance, and starting cells 3 % smaller
   or larger. The results must not move (`static_sensitivity.json`, `chipff robustness --what static`).
-* **Reproducibility of MD.** Six materials are rerun with two extra random seeds, and three with a
-  bigger supercell and half the time step, to show that thermal-expansion error bars are honest
-  (`md_variants.csv`, `chipff robustness --what md`, run in the Kaggle notebook).
+* **Do models make the same mistakes?** The correlation of two models' errors against experiment,
+  the error of their average, and whether their disagreement predicts that error
+  (`model_agreement.csv`). Shared errors point at the training data; independent ones mean a second
+  model is worth running.
+* **Convergence of thermal expansion.** QHA is deterministic; its settings (supercell size, q-mesh,
+  volume range) were checked on Si and Cu and change α by 2–7 %; a 3x larger displacement changes
+  it by < 5 %
+  ([`docs/thermal_method.md`](docs/thermal_method.md)). The MD seed and time-step reruns
+  (`chipff robustness --what md`) belong to the MD cross-check route.
 
 Static properties are deterministic, so "pass@k"-style repeated sampling doesn't apply to them; the
 questions above are its counterparts here.

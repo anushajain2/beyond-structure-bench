@@ -37,7 +37,7 @@ log = logging.getLogger("chipff")
 
 # typical 1-sigma relative uncertainty of an experimental reference, used to perturb
 # references inside the bootstrap (documented in docs/robustness.md)
-REF_SIGMA = {"lattice": 0.001, "bulk_modulus": 0.05, "thermal_expansion": 0.10}
+REF_SIGMA = {"lattice": 0.001, "bulk_modulus": 0.05, "thermal_expansion": 0.10, "thermal_expansion_300K": 0.10}
 STATIC_SUBSET = ["Si", "GaN", "Cu", "W", "HfO2", "TiN", "Al2O3", "NiSi"]
 MD_SEED_SUBSET = ["Si", "Cu", "MgO", "GaN", "W", "TiN"]
 MD_SIZE_SUBSET = ["Si", "Cu", "MgO"]
@@ -54,17 +54,28 @@ def _errors(df: pd.DataFrame, prop: str, ref: str, rng, perturb: bool) -> pd.Ser
     if prop == "bulk_modulus":
         v, r = (df["K_for_exp"], df["B_exp"]) if ref == "experiment" else (df["K_vrh"], df["K_vrh_dft"])
     else:
-        v, r = df["alpha_V"], df["alpha_V_exp"]
+        v, r = _thermal_cols(df, prop)
     if perturb and ref == "experiment":
         r = r * (1 + REF_SIGMA[prop] * rng.standard_normal(len(r)))
     return 100 * (v / r - 1)
 
 
-def _usable(df: pd.DataFrame, prop: str, ref: str) -> pd.DataFrame:
-    col = {"lattice": {"experiment": "err_lin_exp_pct", "dft": "err_lin_dft_pct"},
+def _thermal_cols(df: pd.DataFrame, prop: str):
+    return ((df["alpha_V"], df["alpha_V_exp"]) if prop == "thermal_expansion"
+            else (df["alpha_V_300K"], df["alpha_V_300K_exp"]))
+
+
+ERR_COL = {"lattice": {"experiment": "err_lin_exp_pct", "dft": "err_lin_dft_pct"},
            "bulk_modulus": {"experiment": "err_exp_pct", "dft": "err_dft_pct"},
-           "thermal_expansion": {"experiment": "err_exp_pct"}}[prop][ref]
-    return df[df[col].notna()]
+           "thermal_expansion": {"experiment": "err_exp_pct"},
+           "thermal_expansion_300K": {"experiment": "err_300K_pct"}}
+
+
+def _usable(df: pd.DataFrame, prop: str, ref: str) -> pd.DataFrame:
+    d = df[df[ERR_COL[prop][ref]].notna()]
+    if "pending" in d:  # incomplete runs are not compared (analysis.thermal_table)
+        d = d[~d["pending"].astype(bool)]
+    return d
 
 
 def bootstrap_tables(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame, n: int = 5000, seed: int = 0,
@@ -72,10 +83,11 @@ def bootstrap_tables(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame,
     """95% CIs of MAPE per model, and paired win probabilities between models."""
     rng = np.random.default_rng(seed)
     specs = [("lattice", lat, "experiment"), ("lattice", lat, "dft"), ("bulk_modulus", bulk, "experiment"),
-             ("bulk_modulus", bulk, "dft"), ("thermal_expansion", therm, "experiment")]
+             ("bulk_modulus", bulk, "dft"), ("thermal_expansion", therm, "experiment"),
+             ("thermal_expansion_300K", therm, "experiment")]
     ci_rows, pair_rows = [], []
     for prop, df, ref in specs:
-        if df is None or df.empty or (prop == "thermal_expansion" and "alpha_V_exp" not in df):
+        if df is None or df.empty or (prop.startswith("thermal") and "alpha_V_exp" not in df):
             continue
         d = _usable(df, prop, ref)
         if exclude_layered:
@@ -184,8 +196,66 @@ def _perturbed(g: pd.DataFrame, prop: str, ref: str, noise) -> pd.Series:
     if prop == "lattice":
         r = g["V_atom_exp"].to_numpy() * (1 + 3 * REF_SIGMA["lattice"] * noise)
         return 100 * ((g["V_atom"].to_numpy() / r) ** (1 / 3) - 1)
-    v, r = (g["K_for_exp"], g["B_exp"]) if prop == "bulk_modulus" else (g["alpha_V"], g["alpha_V_exp"])
+    v, r = (g["K_for_exp"], g["B_exp"]) if prop == "bulk_modulus" else _thermal_cols(g, prop)
     return 100 * (v.to_numpy() / (r.to_numpy() * (1 + REF_SIGMA[prop] * noise)) - 1)
+
+
+def model_agreement(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame, n: int = 5000, seed: int = 2,
+                    exclude_layered: bool = True) -> pd.DataFrame:
+    """Do two models make the same mistakes? And does their disagreement flag their errors?
+
+    For each pair of models and each property vs experiment, on the materials both have:
+    - Pearson correlation of their signed errors (with a bootstrap 95% CI over materials).
+      High correlation means a shared error, which for models trained on the same PBE data
+      points at the functional; low correlation means each model's error is its own.
+    - MAPE of the two-model average (the "ensemble"), next to each model's own MAPE.
+    - correlation between the models' disagreement |a - b| / mean(a, b) and the ensemble's
+      absolute error: if positive, disagreement is a usable warning sign for a new material.
+    """
+    rng = np.random.default_rng(seed)
+    specs = [("lattice", lat, "V_atom", "V_atom_exp"), ("bulk_modulus", bulk, "K_for_exp", "B_exp"),
+             ("thermal_expansion", therm, "alpha_V", "alpha_V_exp"),
+             ("thermal_expansion_300K", therm, "alpha_V_300K", "alpha_V_300K_exp")]
+    rows = []
+    for prop, df, vcol, rcol in specs:
+        if df is None or df.empty or vcol not in df:
+            continue
+        d = _usable(df, prop, "experiment")
+        if exclude_layered:
+            d = d[d["class"] != "layered"]
+        models = sorted(d.model.unique())
+        for i, a in enumerate(models):
+            for b in models[i + 1:]:
+                A = d[d.model == a].set_index("material")
+                B = d[d.model == b].set_index("material")
+                common = sorted(set(A.index) & set(B.index))
+                if len(common) < 5:
+                    continue
+                va, vb, ref = A.loc[common, vcol].to_numpy(float), B.loc[common, vcol].to_numpy(float), \
+                    A.loc[common, rcol].to_numpy(float)
+                if prop == "lattice":  # effective linear error, as everywhere else
+                    ea, eb = 100 * ((va / ref) ** (1 / 3) - 1), 100 * ((vb / ref) ** (1 / 3) - 1)
+                    ens = (va + vb) / 2
+                    ee = 100 * ((ens / ref) ** (1 / 3) - 1)
+                else:
+                    ea, eb = 100 * (va / ref - 1), 100 * (vb / ref - 1)
+                    ee = 100 * ((va + vb) / 2 / ref - 1)
+                disagree = np.abs(va - vb) / ((va + vb) / 2)
+                k = len(common)
+                boot = []
+                for _ in range(n):
+                    idx = rng.integers(0, k, k)
+                    if np.std(ea[idx]) > 0 and np.std(eb[idx]) > 0:
+                        boot.append(np.corrcoef(ea[idx], eb[idx])[0, 1])
+                lo, hi = np.percentile(boot, [2.5, 97.5])
+                rows.append({"property": prop, "model_a": a, "model_b": b, "n_common": k,
+                             "error_correlation": float(np.corrcoef(ea, eb)[0, 1]),
+                             "corr_ci_low": float(lo), "corr_ci_high": float(hi),
+                             "MAPE_a": float(np.abs(ea).mean()), "MAPE_b": float(np.abs(eb).mean()),
+                             "MAPE_average_of_two": float(np.abs(ee).mean()),
+                             "corr_disagreement_vs_average_error": (float(np.corrcoef(disagree, np.abs(ee))[0, 1])
+                                                                    if np.std(disagree) > 0 else None)})
+    return pd.DataFrame(rows)
 
 
 # -- 2. static sensitivity -------------------------------------------------------------
@@ -363,6 +433,8 @@ def build(lat, bulk, therm) -> dict:
     pairs.to_csv(OUT / "pairwise.csv", index=False, float_format="%.4g")
     by_class = class_pairwise(lat, bulk)
     by_class.to_csv(OUT / "pairwise_by_class.csv", index=False, float_format="%.4g")
+    agree = model_agreement(lat, bulk, therm)
+    agree.to_csv(OUT / "model_agreement.csv", index=False, float_format="%.4g")
     md = md_variant_table()
     md.to_csv(OUT / "md_variants.csv", index=False, float_format="%.4g")
     sens_p = OUT / "static_sensitivity.json"
@@ -370,6 +442,7 @@ def build(lat, bulk, therm) -> dict:
     return {"bootstrap_ci": json.loads(ci.to_json(orient="records")),
             "pairwise": json.loads(pairs.to_json(orient="records")),
             "pairwise_by_class": json.loads(by_class.to_json(orient="records")),
+            "model_agreement": json.loads(agree.to_json(orient="records")),
             "md_variants": json.loads(md.to_json(orient="records")), "static_sensitivity": sens}
 
 
