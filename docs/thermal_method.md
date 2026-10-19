@@ -52,6 +52,18 @@ QHA result was compared with experiment):
   those volumes corrupt the free-energy fit. The fit now uses only the contiguous run of
   dynamically stable volumes around V0, at least 5 of them. A crystal unstable *at V0 itself*
   is genuinely unstable in that model and is excluded.
+* **Stability judged where the forces are sampled.** Imaginary frequencies that appear only
+  *between* the q-points a supercell samples are Fourier-interpolation artefacts. They are common
+  in polar crystals, whose long-range forces a finite supercell truncates. For monoclinic HfO₂ with
+  MACE, a 2×2×2 → 3×3×3 test shrank the lowest interpolated mode from −1.7 to −1.1 THz while every
+  sampled (commensurate) q-point stayed real. Stability is therefore judged at the commensurate
+  q-points, force constants are symmetrised, and the share of interpolated imaginary modes is
+  recorded and must stay below 2%.
+  Genuine instabilities remain flagged: cubic SrTiO₃ is unstable at sampled q-points, as
+  PBE-trained models are expected to find for its octahedral-rotation mode.
+* **Reference forces subtracted.** The undisplaced supercell's forces are subtracted from every
+  displaced one. This was tested together with a 3× larger displacement: α changed by < 5%, so
+  force noise was not the cause of the large errors some models show (e.g. GaAs).
 * **Symmetrised cells.** Models that are not exactly equivariant leave ~10⁻⁴ noise in relaxed cells
   (e.g. 89.997° instead of 90°), which breaks phonopy's Brillouin-zone setup. Each relaxed cell is
   symmetrised to its own space group at 10⁻³ Å before the phonon step. That removes only noise of

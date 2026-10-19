@@ -54,6 +54,7 @@ class QhaResult:
     checks: dict
     min_frequency_by_volume_THz: list | None = None
     volumes_used: list | None = None   # the contiguous stable volumes around V0 that enter the QHA fit
+    interpolation_imaginary_fraction: list | None = None  # share of mesh modes imaginary, per volume
     method: str = "QHA (isotropic volume scan, fixed cell shape)"
 
 
@@ -145,12 +146,29 @@ def run_qha(engine, material, model_key: str, relaxed: Atoms, window: list[float
         ph.generate_displacements(distance=q["displacement_A"])
         scs = [Atoms(symbols=sc.symbols, cell=sc.cell, scaled_positions=sc.scaled_positions, pbc=True)
                for sc in ph.supercells_with_displacements]
-        ph.forces = np.array(_forces_batched(engine, scs, q["max_pairs_per_call"], q["edge_cutoff_A"]))
+        if q.get("subtract_reference_forces", False):
+            # forces of the undisplaced supercell (residual relaxation forces and the model's
+            # numerical noise) are subtracted from every displaced one
+            ref = Atoms(symbols=ph.supercell.symbols, cell=ph.supercell.cell,
+                        scaled_positions=ph.supercell.scaled_positions, pbc=True)
+            f_all = _forces_batched(engine, [ref] + scs, q["max_pairs_per_call"], q["edge_cutoff_A"])
+            ph.forces = np.array(f_all[1:]) - f_all[0][None]
+        else:
+            ph.forces = np.array(_forces_batched(engine, scs, q["max_pairs_per_call"], q["edge_cutoff_A"]))
         ph.produce_force_constants()
+        ph.symmetrize_force_constants()  # translational invariance and index symmetry
+        # stability is judged at the q-points the supercell actually samples (commensurate);
+        # imaginary modes that appear only between them are Fourier-interpolation artefacts
+        # (common in polar crystals, whose long-range forces a finite supercell truncates)
+        comm = np.array([[i / reps[0], j / reps[1], k / reps[2]]
+                         for i in range(reps[0]) for j in range(reps[1]) for k in range(reps[2])])
+        ph.run_qpoints(comm)
+        fmin = float(np.min(ph.get_qpoints_dict()["frequencies"]))
         ph.run_mesh(q["mesh_length"])
-        fmin = float(np.min(ph.get_mesh_dict()["frequencies"]))
+        mesh_f = ph.get_mesh_dict()["frequencies"]
+        interp_imag = float(np.mean(mesh_f < -abs(q["imaginary_tolerance_THz"])))
         ph.run_thermal_properties(t_min=0, t_max=t_max, t_step=q["t_step_K"])
-        per_volume.append((ph.get_thermal_properties_dict(), fmin, len(scs)))
+        per_volume.append((ph.get_thermal_properties_dict(), fmin, len(scs), interp_imag))
     n_disp = per_volume[0][2]
     fmins = [pv[1] for pv in per_volume]
     tol = -abs(q["imaginary_tolerance_THz"])
@@ -169,6 +187,7 @@ def run_qha(engine, material, model_key: str, relaxed: Atoms, window: list[float
         keep = list(range(lo_i, hi_i + 1))
     lo, hi = min(window), max(window)
     checks = {"dynamically_stable": bool(stable_at_eq), "enough_stable_volumes": len(keep) >= q["min_volumes"]}
+    interp = [pv[3] for pv in per_volume]
     if not all(checks.values()):
         checks.update(volume_inside_scan=False, window_covered=False)
         return QhaResult(
@@ -176,7 +195,9 @@ def run_qha(engine, material, model_key: str, relaxed: Atoms, window: list[float
             alpha_V_err_1e6=0.0, alpha_V_300K_1e6=None, curve_T=[], curve_alpha_V_1e6=[], volume_scales=scales,
             supercell=reps, n_displacements=n_disp, min_frequency_THz=float(min(fmins)), checks=checks,
             min_frequency_by_volume_THz=fmins, volumes_used=[scales[i] for i in keep],
+            interpolation_imaginary_fraction=interp,
         )
+    checks["interpolation_artefacts_small"] = bool(max(interp[i] for i in keep) < q.get("max_interp_imaginary_fraction", 0.02))
     tps = [per_volume[i][0] for i in keep]
     temps = tps[0]["temperatures"]
     # 3. quasi-harmonic minimisation over the stable volumes
@@ -201,6 +222,7 @@ def run_qha(engine, material, model_key: str, relaxed: Atoms, window: list[float
         curve_alpha_V_1e6=[float(np.interp(t, T, alpha)) for t in grid], volume_scales=scales, supercell=reps,
         n_displacements=n_disp, min_frequency_THz=float(min(fmins[i] for i in keep)), checks=checks,
         min_frequency_by_volume_THz=fmins, volumes_used=[scales[i] for i in keep],
+        interpolation_imaginary_fraction=interp,
     )
 
 

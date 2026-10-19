@@ -254,6 +254,24 @@ def run_thermal(model_key: str, materials: list[str] | None = None, force=False,
 
 
 # -- thermal expansion, quasi-harmonic ---------------------------------------------
+def run_thermal_qha_isolated(model_key: str, materials: list[str] | None = None, force=False):
+    """Run each pending material in its own process. JAX keeps a compiled program for every new
+    supercell shape, so one long process grows until the OS kills it; a process per material frees
+    everything after each one. Results are saved per material either way."""
+    import subprocess
+    import sys
+
+    done = load_raw(model_key, "thermal_qha")
+    todo = [m.id for m in select(materials) if force or m.id not in done]
+    for mid in todo:
+        cmd = [sys.executable, "-m", "chipff.cli", "qha", "-m", model_key, "--materials", mid, "--no-isolate"]
+        if force:
+            cmd.append("--force")
+        rc = subprocess.run(cmd).returncode
+        if rc != 0:
+            log.warning("%s %s: QHA process exited with %d", model_key, mid, rc)
+
+
 def run_thermal_qha(model_key: str, materials: list[str] | None = None, force=False, tag: str = "thermal_qha"):
     """QHA thermal expansion for each material (see chipff.qha); results go to <tag>.json."""
     from chipff.qha import run_qha, to_record

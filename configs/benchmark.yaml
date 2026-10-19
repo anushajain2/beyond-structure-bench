@@ -78,7 +78,9 @@ thermal:
 # QHA result existed): quasi-harmonic approximation. NPT MD (the `thermal` section above) is
 # kept for reference and cross-checks; see docs/thermal_method.md for why it was replaced.
 thermal_qha:
-  # Amended 2026-10-19 after the first QHA pass, before results were compared with experiment:
+  # Amended 2026-10-19 after the first QHA passes (diagnostics, before grading): judge stability at
+  # commensurate q-points and symmetrise force constants (a 2x2x2 -> 3x3x3 test on HfO2 showed
+  # mesh-only imaginary modes shrinking, i.e. interpolation artefacts); also:
   # use only the contiguous dynamically stable volumes around V0 (stretched cells can soften into
   # spurious instabilities that corrupt the free-energy fit).
   volume_scales: [0.96, 0.975, 0.99, 1.0, 1.015, 1.03, 1.045, 1.06, 1.08]   # V / V0, cell shape fixed
@@ -89,7 +91,9 @@ thermal_qha:
   t_max_K: 2000
   t_step_K: 10
   eos: vinet
-  imaginary_tolerance_THz: 0.1  # a volume with any mode below -0.1 THz is unstable; unstable at V0 = excluded
+  imaginary_tolerance_THz: 0.1  # a volume with any mode below -0.1 THz at the supercell's commensurate q-points is unstable; unstable at V0 = excluded
+  max_interp_imaginary_fraction: 0.02  # interpolation artefacts (imaginary only between commensurate q) must affect < 2% of mesh modes
+  subtract_reference_forces: true  # subtract the undisplaced supercell's forces (tested: changes alpha by < 5%)
   min_volumes: 5                # stable volumes needed around V0 for the QHA fit
   max_pairs_per_call: 12000     # memory budget for batched force calls (performance only)
   edge_cutoff_A: 6.0

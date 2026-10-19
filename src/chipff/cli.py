@@ -34,6 +34,7 @@ def main(argv=None):
     ap.add_argument("--steps", nargs="*", default=["lattice", "elastic", "eos"],
                     help="static steps to run (lattice, elastic, eos)")
     ap.add_argument("--max-edges", type=int, help="memory budget per MD batch, in neighbour pairs (default from config)")
+    ap.add_argument("--no-isolate", action="store_true", help="qha: run all materials in this process")
     ap.add_argument("--smoke", action="store_true", help="tiny thermal run that only tests the code path")
     ap.add_argument("-v", "--verbose", action="store_true")
     a = ap.parse_args(argv)
@@ -60,10 +61,13 @@ def main(argv=None):
             run_thermal(m, a.materials, force=a.force, max_prod_ps=a.max_prod_ps, tag=a.tag, smoke=a.smoke,
                         max_edges=a.max_edges)
     if a.step in ("qha", "all"):
-        from chipff.runner import run_thermal_qha
+        from chipff.runner import run_thermal_qha, run_thermal_qha_isolated
 
         for m in models:
-            run_thermal_qha(m, a.materials, force=a.force)
+            if a.no_isolate:
+                run_thermal_qha(m, a.materials, force=a.force)
+            else:
+                run_thermal_qha_isolated(m, a.materials, force=a.force)
     if a.step == "robustness":
         from chipff import robustness
 
