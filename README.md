@@ -19,7 +19,8 @@ whose kUPS export is currently broken (see Findings) and which runs through its 
 Status: lattice constants and bulk moduli are complete for MACE-MPA-0, Orb v3 and MatterSim v1.
 Thermal expansion is complete for MACE-MPA-0 and MatterSim v1; **Orb v3's thermal run is in progress
 (7 of 33 materials, computed before the Γ-mode fix described under Robustness and to be recomputed) and
-is left out of every thermal average and comparison until it finishes.** UMA is awaiting license access.
+is left out of every thermal average and comparison until it finishes.** Orb has been run on the six cases of the
+thermal-failure study. UMA is awaiting license access.
 These findings will be updated when the rest lands.
 
 1. **Lattice constants of non-layered chip materials are accurate to under 1 % on average.** The
@@ -68,10 +69,13 @@ These findings will be updated when the rest lands.
    where MACE gets Si within 1 %. The sample correlation of their errors is small (−0.10 at 300 K,
    95 % interval −0.42 to +0.37), and **averaging the two models lowers the error to 25.7 %** on these
    materials. Their disagreement correlates with the error of that average (0.41, interval −0.06 to
-   +0.78): an exploratory warning signal, not a calibrated uncertainty estimate. A controlled study of
-   six cases ([`docs/thermal_failure_study.md`](docs/thermal_failure_study.md)) rules out the software
-   route and the QHA settings as causes. By elimination, it places the large errors in the models'
-   Grüneisen parameters (for MatterSim's semiconductors, also a too-soft bulk modulus). The cases were
+   +0.78): an exploratory warning signal, not a calibrated uncertainty estimate. In a controlled study of
+   six cases ([`docs/thermal_failure_study.md`](docs/thermal_failure_study.md)), backend comparisons and
+   the numerical checks performed do not explain the large errors. By elimination, the study places
+   them in the models' Grüneisen parameters (for MatterSim's semiconductors, also a too-soft bulk modulus).
+   Orb v3, run on the same cases as a third model, shares some of these failures and avoids one. It shares the
+   soft semiconductor bulk moduli and a too-high Ta Grüneisen parameter (Ta +70 %). It avoids the wrong-signed
+   semiconductor acoustic modes. The cases were
    chosen after the failures were seen, so this explains those cases rather than establishing a general rule. Rutile TiO₂ and cubic SrTiO₃ are
    dynamically unstable in both models and are excluded, as are a few results where QHA itself breaks
    down at high temperature (`results/thermal_expansion.csv` gives the reason for each).

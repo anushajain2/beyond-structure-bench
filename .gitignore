@@ -12,3 +12,4 @@ logs/
 dist/
 .venv-mace/
 results/thermal_failure/logs/
+.venv-orb/

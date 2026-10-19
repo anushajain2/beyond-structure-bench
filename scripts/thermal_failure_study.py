@@ -19,6 +19,8 @@ Backends:
   mace-torch32      the same in float32 (points only)                                        [.venv-mace]
   mattersim-native  MatterSim v1 5M, official mattersim package (what the benchmark used)    [.venv-mattersim]
   mattersim-kups    MatterSim v1 5M, kUPS tojax export (excluded from the benchmark; contrast)[.venv]
+  orb-kups          Orb v3 conservative (OMat), CuspAI tojax export through kUPS (the benchmark) [.venv]
+  orb-torch         Orb v3 conservative (OMat), official orb-models package, float64            [.venv-orb]
 
 Phonon variants (all other settings from configs/benchmark.yaml thermal_qha):
   grid    volumes 0.94-1.12 V0 (the benchmark's 9 plus 0.94, 0.985, 1.10, 1.12), 10 A, 0.01 A
@@ -49,7 +51,7 @@ from chipff.materials import ROOT
 
 OUT = ROOT / "results" / "thermal_failure"
 CASES = ["Si", "GaAs", "Cu", "Ta", "InP", "HfO2"]
-BENCH_MODEL = {"mace": "mace-mpa-0", "mattersim": "mattersim-5m-native"}  # whose relaxed cells are used
+BENCH_MODEL = {"mace": "mace-mpa-0", "mattersim": "mattersim-5m-native", "orb": "orb-v3"}  # whose relaxed cells are used
 BASE_SCALES = [0.96, 0.975, 0.99, 1.0, 1.015, 1.03, 1.045, 1.06, 1.08]
 GRID_SCALES = sorted(set(BASE_SCALES) | {0.94, 0.985, 1.10, 1.12})
 VARIANTS = {
@@ -104,7 +106,7 @@ EV_TO_KJMOL = 96.48533212
 
 
 def family(backend: str) -> str:
-    return "mace" if backend.startswith("mace") else "mattersim"
+    return next(f for f in BENCH_MODEL if backend.startswith(f))
 
 
 def cfg_qha() -> dict:
@@ -123,6 +125,22 @@ def make_engine(backend: str):
         from chipff.engine import Engine
 
         return Engine(get_model("mace-mpa-0"))
+    if backend == "orb-kups":
+        from chipff.engine import Engine
+
+        return Engine(get_model("orb-v3"))
+    if backend == "orb-torch":
+        from orb_models.forcefield import pretrained
+        from orb_models.forcefield.inference.calculator import ORBCalculator
+
+        from chipff.ase_engine import AseEngine
+
+        eng = AseEngine.__new__(AseEngine)
+        model, adapter = pretrained.orb_v3_conservative_inf_omat(device="cpu", precision="float64")
+        eng.calc = ORBCalculator(model, adapter, device="cpu")
+        eng.device = "cpu"
+        eng.model = SimpleNamespace(model_path="orb-models orb_v3_conservative_inf_omat", via_kups=False)
+        return eng
     if backend == "mattersim-kups":
         from chipff.engine import Engine
 
@@ -149,7 +167,7 @@ def backend_versions(backend: str) -> dict:
     from importlib.metadata import PackageNotFoundError, version
 
     out = {}
-    for p in ("kups", "jax", "torch", "mace-torch", "mattersim", "phonopy", "ase"):
+    for p in ("kups", "jax", "torch", "mace-torch", "mattersim", "orb-models", "phonopy", "ase"):
         try:
             out[p] = version(p)
         except PackageNotFoundError:
@@ -173,10 +191,12 @@ def cmd_structures(_a):
     supercell rattled by 0.03 A (seed 0)."""
     from chipff.qha import _make_phonopy, _supercell_reps
 
-    for fam in BENCH_MODEL:
+    for fam in BENCH_MODEL:  # existing files are kept (they are deterministic; regenerate by deleting them)
         d = OUT / "structures" / fam
         d.mkdir(parents=True, exist_ok=True)
         for mid in CASES:
+            if (d / f"{mid}.extxyz").exists():
+                continue
             prim = relaxed_cell(fam, mid)
             reps = _supercell_reps(prim, 10.0)
             ph = _make_phonopy(prim, reps)
@@ -263,21 +283,59 @@ def run_phonons(eng, prim: Atoms, scales, width, disp, q) -> dict:
 
 
 def cmd_phonons(a):
+    """Phonon data for one variant. With --chunk N, each process handles at most N volumes and the parts
+    are merged afterwards: JAX keeps a compiled program per shape, so a long run on a low-symmetry cell
+    (many displacements) can grow until the OS kills it."""
+    import subprocess
+    import sys
+
     q = cfg_qha()
     v = VARIANTS[a.variant]
-    eng = make_engine(a.backend)
     d = OUT / "phonons" / a.backend
     d.mkdir(parents=True, exist_ok=True)
+    scales = [float(x) for x in a.scales] if a.scales else v["scales"]
+    eng = None
     for mid in a.materials or CASES:
-        f = d / f"{mid}_{a.variant}.npz"
+        f = d / (f"{mid}_{a.variant}.npz" if not a.scales else f"{mid}_{a.variant}_part{min(scales)}.npz")
         if f.exists() and not a.force:
             continue
+        if a.chunk and not a.scales:
+            parts = [scales[i:i + a.chunk] for i in range(0, len(scales), a.chunk)]
+            for sc in parts:
+                cmd = [sys.executable, __file__, "phonons", "--backend", a.backend, "--variant", a.variant,
+                       "--materials", mid, "--scales", *map(str, sc)] + (["--force"] if a.force else [])
+                if subprocess.run(cmd).returncode != 0:
+                    raise SystemExit(f"{a.backend} {mid}: part {sc} failed")
+            _merge_parts(d, mid, a.variant, v)
+            continue
+        eng = eng or make_engine(a.backend)
         t = time.time()
-        data = run_phonons(eng, relaxed_cell(family(a.backend), mid), v["scales"], v["width"], v["disp"], q)
+        data = run_phonons(eng, relaxed_cell(family(a.backend), mid), scales, v["width"], v["disp"], q)
         np.savez_compressed(f, width=v["width"], disp=v["disp"], wall_s=time.time() - t,
                             versions=json.dumps(backend_versions(a.backend)), **data)
         log.info("%s %s %s: %d volumes x %s displacements, supercell %s, %.0f s", a.backend, mid, a.variant,
-                 len(v["scales"]), sorted(set(data["n_disp"].tolist())), data["reps"].tolist(), time.time() - t)
+                 len(scales), sorted(set(data["n_disp"].tolist())), data["reps"].tolist(), time.time() - t)
+
+
+def _merge_parts(d, mid, variant, v):
+    """Join the per-chunk files of one material into the usual <material>_<variant>.npz."""
+    parts = sorted(d.glob(f"{mid}_{variant}_part*.npz"))
+    data = [dict(np.load(f, allow_pickle=False)) for f in parts]
+    assert all(np.array_equal(x["reps"], data[0]["reps"]) for x in data), "supercells differ between parts"
+    out = {k: data[0][k] for k in ("width", "disp", "versions", "reps", "numbers")}
+    out["wall_s"] = float(sum(float(x["wall_s"]) for x in data))
+    rows = sorted(((float(s), x, i) for x in data for i, s in enumerate(x["scales"])), key=lambda r: r[0])
+    for key in ("scales", "V", "E", "cells", "frac", "relax_fmax", "n_disp"):
+        out[key] = np.array([x[key][i] for _, x, i in rows])
+    for j, (_, x, i) in enumerate(rows):
+        for key in ("forces", "disp_atoms", "disp_vecs"):
+            out[f"{key}_{j}"] = x[f"{key}_{i}"]
+    assert [round(s, 4) for s in out["scales"]] == [round(s, 4) for s in v["scales"]], "missing volumes"
+    np.savez_compressed(d / f"{mid}_{variant}.npz", **out)
+    for f in parts:
+        f.unlink()
+    log.info("%s %s: merged %d parts, %s displacements, %.0f s in total", mid, variant, len(parts),
+             sorted(set(out["n_disp"].tolist())), out["wall_s"])
 
 
 def cmd_determinism(a):
@@ -368,7 +426,8 @@ def mode_thermo(freqs_thz, weights, T, mode: str, gamma_acoustic=None):
                   The three acoustic modes at Gamma (ideally exactly 0) come out as ~1e-5 THz of
                   random sign, and each one that happens to be positive adds kT ln(h nu / kT) / N_q.
     mode "clean": the same, with the Gamma acoustic modes excluded (phonopy's exclude_gamma_acoustic).
-    mode "abs":   as "clean", with imaginary modes entering at |frequency| (bounds what dropping hides).
+    mode "abs":   as "clean", with imaginary modes entering at |frequency|. A sensitivity test only: phonopy's docs say this
+                  treatment (PRETEND_REAL) gives false thermal properties, so it is not a bound.
     gamma_acoustic: (q index, band indices) of the acoustic modes at Gamma.
     """
     fr = np.array(freqs_thz, dtype=float)
@@ -543,7 +602,7 @@ def cmd_analyze(_a):
     q = cfg_qha()
     plan = thermal_plan(select(CASES))
     rows_conv, rows_phys, rows_imag = [], [], []
-    for backend in ("mace-kups", "mattersim-native", "mace-torch"):
+    for backend in ("mace-kups", "mattersim-native", "orb-kups", "mace-torch"):
         for mid in CASES:
             window = plan[mid].temperatures
             for variant in VARIANTS:
@@ -609,7 +668,7 @@ def agreement():
     """Native-vs-export differences on identical structures."""
     pts = {f.stem: json.loads(f.read_text()) for f in (OUT / "points").glob("*.json")}
     pairs = [("mace-kups", "mace-torch"), ("mace-kups", "mace-torch32"), ("mace-torch", "mace-torch32"),
-             ("mattersim-native", "mattersim-kups")]
+             ("mattersim-native", "mattersim-kups"), ("orb-kups", "orb-torch")]
     rows = []
     for a, b in pairs:
         if a not in pts or b not in pts:
@@ -659,32 +718,48 @@ def _f(x, nd=1):
     return "–" if not np.isfinite(v) else f"{v:.{nd}f}"
 
 
-def tables():
-    """Markdown tables for docs/thermal_failure_study.md -> results/thermal_failure/tables.md."""
-    from chipff.runner import load_raw
+PRE_FIX_COMMIT = "4265a65"  # last commit whose QHA results predate the Gamma-acoustic fix
+DOC = ROOT / "docs" / "thermal_failure_study.md"
+BACKENDS_SHOWN = ("mace-kups", "mattersim-native", "orb-kups")
 
-    L = []
+
+def _pre_fix(model: str) -> dict:
+    """The benchmark's QHA results as published before the Gamma-acoustic fix (from git history)."""
+    import subprocess
+
+    try:
+        txt = subprocess.run(["git", "show", f"{PRE_FIX_COMMIT}:results/raw/{model}/thermal_qha.json"], cwd=ROOT,
+                             capture_output=True, text=True, check=True).stdout
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return {}
+    return {r["material"]: r for r in json.loads(txt)["results"]}
+
+
+def tables() -> dict:
+    """Markdown tables from the CSVs: written to results/thermal_failure/tables.md and into the marked
+    blocks (<!-- table:NAME --> ... <!-- /table:NAME -->) of docs/thermal_failure_study.md."""
+    from chipff.runner import select, thermal_plan
+
+    T = {}
     ag = _csv("agreement")
     if ag:
-        L += ["### Native vs export (identical structures)", "",
-              "| model | reference → other | material | max ΔE (meV/atom) | Δ[E(1.06 V0) − E(0.96 V0)] (meV/atom) | max ΔF (meV/Å) | max Δσ (GPa) | Δ displacement response | NaN frames |",
-              "|---|---|---|---|---|---|---|---|---|"]
+        L = ["| model | reference → other | material | max ΔE (meV/atom) | Δ[E(1.06 V0) − E(0.96 V0)] (meV/atom) | max ΔF (meV/Å) | max Δσ (GPa) | Δ displacement response | NaN frames |",
+             "|---|---|---|---|---|---|---|---|---|"]
         for r in ag:
+            if r["reference"] == "mace-torch":
+                continue  # float64 vs float32 of the same package: in agreement.csv
             L.append(f"| {family(r['reference'])} | {r['reference']} → {r['other']} | {r['material']} | {_f(r['max_dE_meV_per_atom'], 3)} | "
                      f"{_f(r['d(E_1.06-E_0.96)_meV_per_atom'], 3)} | {_f(r['max_dF_meV_per_A'], 3)} | {_f(r['max_dStress_GPa'], 4)} | "
                      f"{float(r['rel_diff_displacement_response']) * 100:.3g} % | {r['frames_nan']} |")
-        L.append("")
+        T["agreement"] = L
     conv = _csv("convergence")
     if conv:
-        L += ["### QHA convergence, α_V(300 K) in 10⁻⁶ K⁻¹", "",
-              "*published*: results/raw (benchmark run). *rerun*: same settings, this study's data. *Γ fixed*: Γ-point acoustic modes "
-              "excluded from F_vib; every column right of it also has them excluded. Percentages are relative to *Γ fixed*.", "",
-              "| model | material | published | rerun (as benchmark) | Γ fixed | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | imaginary modes kept as abs(ν) |",
-              "|---|---|---|---|---|---|---|---|---|---|"]
         idx = {(r["backend"], r["material"], r["variant"], r["scan"], r["imaginary"]): r for r in conv}
-        pub_model = {"mace-kups": "mace-mpa-0", "mattersim-native": "mattersim-5m-native", "mace-torch": None}
-        for backend in ("mace-kups", "mace-torch", "mattersim-native"):
-            pub = load_raw(pub_model[backend], "thermal_qha") if pub_model[backend] else {}
+        model = {"mace-kups": "mace-mpa-0", "mattersim-native": "mattersim-5m-native", "orb-kups": "orb-v3"}
+        L = ["| model | material | published before the fix | rerun as the benchmark ran it | **Γ fixed** | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | sensitivity: imaginary modes at abs(ν) |",
+             "|---|---|---|---|---|---|---|---|---|---|"]
+        for backend in BACKENDS_SHOWN:
+            pub = _pre_fix(model[backend])
             for mid in CASES:
                 ref = idx.get((backend, mid, "grid", "bench", "clean"))
                 if ref is None:
@@ -701,20 +776,17 @@ def tables():
                     flag = "" if r["inside"] == "True" else "†"
                     return f"{v:.2f} ({(v / a0 - 1) * 100:+.0f} %){flag}"
                 p = pub.get(mid, {}).get("alpha_V_300K_1e6")
-                L.append(f"| {backend} | {mid} | {_f(p, 2)} | {cell((backend, mid, 'grid', 'bench', 'drop'))} | **{a0:.2f}** | "
+                L.append(f"| {backend} | {mid} | {_f(p, 2) if mid in pub else 'not run'} | {cell((backend, mid, 'grid', 'bench', 'drop'))} | **{a0:.2f}** | "
                          f"{cell((backend, mid, 'disp03', 'bench', 'clean'))} | {cell((backend, mid, 'sc14', 'bench', 'clean'))} | "
                          f"{cell((backend, mid, 'grid', 'narrow', 'clean'))} | {cell((backend, mid, 'grid', 'wide', 'clean'))} | "
                          f"{cell((backend, mid, 'grid', 'bench', 'abs'))} |")
-        L += ["", "† V(T) leaves the stable scanned range inside the material's window (the benchmark's check fails).", ""]
-        L += ["### Same, averaged over each material's pre-registered window", "",
-              "| model | material | window (K) | Γ fixed | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | imaginary modes kept |",
-              "|---|---|---|---|---|---|---|---|---|"]
-        from chipff.runner import select, thermal_plan
+        T["convergence"] = L
         plan = thermal_plan(select(CASES))
-        for backend in ("mace-kups", "mace-torch", "mattersim-native"):
+        L = ["| model | material | window (K) | **Γ fixed** | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | sensitivity: imaginary modes at abs(ν) |",
+             "|---|---|---|---|---|---|---|---|---|"]
+        for backend in BACKENDS_SHOWN:
             for mid in CASES:
-                ref = idx.get((backend, mid, "grid", "bench", "clean"))
-                if ref is None:
+                if (backend, mid, "grid", "bench", "clean") not in idx:
                     continue
 
                 def cw(key):
@@ -723,43 +795,64 @@ def tables():
                         return "not run"
                     return _f(r["alpha_win"], 2) + ("" if r["inside"] == "True" else "†")
                 w = plan[mid].temperatures
-                L.append(f"| {backend} | {mid} | {min(w):.0f}–{max(w):.0f} | {cw((backend, mid, 'grid', 'bench', 'clean'))} | "
+                L.append(f"| {backend} | {mid} | {min(w):.0f}–{max(w):.0f} | **{cw((backend, mid, 'grid', 'bench', 'clean'))}** | "
                          f"{cw((backend, mid, 'disp03', 'bench', 'clean'))} | {cw((backend, mid, 'sc14', 'bench', 'clean'))} | "
                          f"{cw((backend, mid, 'grid', 'narrow', 'clean'))} | {cw((backend, mid, 'grid', 'wide', 'clean'))} | "
                          f"{cw((backend, mid, 'grid', 'bench', 'abs'))} |")
-        L.append("")
+        T["window"] = L
     im = _csv("imaginary_modes")
     if im:
-        L += ["### What the free energy leaves out at V0 and at the largest benchmark volume (1.08 V0), 300 K", "",
-              "| model | material | V/V0 | mesh modes with ν < 0 | lowest mesh ν (THz) | F_vib (meV/atom) | Γ acoustic modes: F they add (meV/atom) | imaginary modes kept as abs(ν): ΔF (meV/atom) |",
-              "|---|---|---|---|---|---|---|---|"]
+        L = ["| model | material | V/V0 | mesh modes with ν < 0 | lowest mesh ν (THz) | F_vib (meV/atom) | Γ acoustic modes: F they add (meV/atom) | imaginary modes at abs(ν): ΔF (meV/atom) |",
+             "|---|---|---|---|---|---|---|---|"]
         for r in im:
-            if float(r["scale"]) in (1.0, 1.08):
+            if float(r["scale"]) in (1.0, 1.08) and (float(r["share_modes_below_0"]) > 5e-4 or r["material"] in ("HfO2", "Ta")):
                 L.append(f"| {r['backend']} | {r['material']} | {float(r['scale']):.2f} | {float(r['share_modes_below_0']) * 100:.2f} % | "
                          f"{_f(r['mesh_min_THz'], 2)} | {_f(r['Fvib300_meV_per_atom'], 2)} | {_f(r['dF300_gamma_acoustic_meV_per_atom'], 3)} | "
                          f"{_f(r['dF300_imaginary_meV_per_atom'], 3)} |")
-        L.append("")
-    ph = _csv("physics")
+        T["imaginary"] = L
+    ph = [r for r in _csv("physics") if r["backend"] in BACKENDS_SHOWN]
     if ph:
-        L += ["### Ingredients of α_V ≈ γ C_V / (K_T V) at 300 K (model / experiment)", "",
-              "| model | material | α_V QHA | α_V from γC_V/K_TV | α_V exp | γ model | γ exp | K_T model (GPa) | K_T exp | C_V model (k_B/atom) | C_V exp | V model (Å³/atom) | V exp | **α ratio** | γ ratio | C_V ratio | 1/K ratio | 1/V ratio |",
-              "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+        L = ["| model | material | α_V QHA | α_V reconstructed | α_V exp | **QHA α / exp** | reconstructed α / exp | reconstruction residual | γ model | γ inferred from exp | K_T model (GPa) | K_T exp | C_V model (k_B/atom) | C_V exp | V model (Å³/atom) | V exp | γ ratio | C_V ratio | 1/K ratio | 1/V ratio |",
+             "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
         for r in ph:
-            L.append(f"| {r['backend']} | {r['material']} | {_f(r['alpha300_qha'])} | {_f(r['alpha300_from_gamma'])} | {_f(r['exp_alpha_V'])} | "
-                     f"{_f(r['gamma'], 2)} | {_f(r['exp_gamma'], 2)} | {_f(r['KT300_GPa'], 0)} | {_f(r['exp_KT_GPa'], 0)} | "
-                     f"{_f(r['cv_kB_per_atom'], 2)} | {_f(r['exp_Cv_kB'], 2)} | {_f(r['V300_A3_per_atom'], 2)} | {_f(r['exp_V_atom'], 2)} | "
-                     f"**{_f(r['r_alpha'], 2)}** | {_f(r['r_gamma'], 2)} | {_f(r['r_Cv'], 2)} | {_f(1 / float(r['r_K']), 2)} | {_f(1 / float(r['r_V']), 2)} |")
-        L += ["", "### Where γ comes from (C_V-weighted mode Grüneisen parameters at 300 K, 0.985/1.0/1.015 V0)", "",
-              "| model | material | γ | acoustic branches | optical branches | contribution of modes with γ < 0 | share of modes with γ < 0 | lowest mode γ | γ TA(X) | γ TA(L) | γ optical at Γ |",
-              "|---|---|---|---|---|---|---|---|---|---|---|"]
+            q, rec, e = float(r["alpha300_qha"]), float(r["alpha300_from_gamma"]), float(r["exp_alpha_V"])
+            L.append(f"| {r['backend']} | {r['material']} | {_f(q)} | {_f(rec)} | {_f(e)} | **{_f(q / e, 2)}** | {_f(rec / e, 2)} | "
+                     f"{(rec / q - 1) * 100:+.0f} % | {_f(r['gamma'], 2)} | {_f(r['exp_gamma'], 2)} | {_f(r['KT300_GPa'], 0)} | "
+                     f"{_f(r['exp_KT_GPa'], 0)} | {_f(r['cv_kB_per_atom'], 2)} | {_f(r['exp_Cv_kB'], 2)} | {_f(r['V300_A3_per_atom'], 2)} | "
+                     f"{_f(r['exp_V_atom'], 2)} | {_f(r['r_gamma'], 2)} | {_f(r['r_Cv'], 2)} | {_f(1 / float(r['r_K']), 2)} | "
+                     f"{_f(1 / float(r['r_V']), 2)} |")
+        T["physics"] = L
+        L = ["| model | material | γ | acoustic branches | optical branches | contribution of modes with γ < 0 | share of modes with γ < 0 | lowest mode γ | γ TA(X) | γ TA(L) | γ optical at Γ |",
+             "|---|---|---|---|---|---|---|---|---|---|---|"]
         for r in ph:
             L.append(f"| {r['backend']} | {r['material']} | {_f(r['gamma'], 2)} | {_f(r['gamma_acoustic'], 2)} | {_f(r['gamma_optical'], 2)} | "
                      f"{_f(r['gamma_neg_part'], 2)} | {float(r['share_negative_modes']) * 100:.0f} % | {_f(r['lowest_gamma'], 2)} | "
                      f"{_f(r.get('gamma_TA_X'), 2)} | {_f(r.get('gamma_TA_L'), 2)} | {_f(r.get('gamma_O_Gamma'), 2)} |")
-        L += ["", "Experiment: Si γ TA(X) = −1.4, γ TA(L) = −1.3 (as quoted by Rignanese, Michenaud & Gonze, arXiv:mtrl-th/9509002); "
-              "γ TO(Γ) = 1.39 (GaAs), 1.44 (InP) (Aoki, Anastassakis & Cardona 1984, as tabulated in arXiv:1107.0196, Table 4)."]
-        L.append("")
-    (OUT / "tables.md").write_text("\n".join(L))
+        T["gamma"] = L
+    det = _csv("determinism")
+    if det:
+        L = ["| backend | material | fresh processes | max ΔF, same process (eV/Å) | max ΔF, across processes (eV/Å) | α_V(300 K) as the benchmark computed it | α_V(300 K), Γ acoustic modes excluded |",
+             "|---|---|---|---|---|---|---|"]
+        for r in det:
+            L.append(f"| {r['backend']} | {r['material']} | {r['processes']} | {r['max_dF_same_process_eV_per_A']} | "
+                     f"{r['max_dF_any_run_eV_per_A']} | {r['alpha300_as_benchmark'].replace(' ', ' / ')} | {r['alpha300_gamma_fixed'].replace(' ', ' / ')} |")
+        T["determinism"] = L
+    (OUT / "tables.md").write_text("\n\n".join(f"### {k}\n\n" + "\n".join(v) for k, v in T.items()) + "\n")
+    sync_doc(T)
+    return T
+
+
+def sync_doc(T: dict):
+    """Replace each marked table block in the study doc with the freshly generated table."""
+    import re
+
+    if not DOC.exists():
+        return
+    text = DOC.read_text()
+    for name, lines in T.items():
+        pat = re.compile(rf"(<!-- table:{name} -->\n).*?(\n<!-- /table:{name} -->)", re.S)
+        text = pat.sub(lambda m: m.group(1) + "\n".join(lines) + m.group(2), text)
+    DOC.write_text(text)
 
 
 def main():
@@ -771,6 +864,8 @@ def main():
     ap.add_argument("--materials", nargs="*")
     ap.add_argument("--force", action="store_true")
     ap.add_argument("--tag", default="0", help="determinism: label of this process's run")
+    ap.add_argument("--chunk", type=int, default=0, help="phonons: at most this many volumes per process")
+    ap.add_argument("--scales", nargs="*", help="phonons: only these volume scales (used by --chunk)")
     a = ap.parse_args()
     {"structures": cmd_structures, "points": cmd_points, "phonons": cmd_phonons, "determinism": cmd_determinism,
      "analyze": cmd_analyze}[a.step](a)

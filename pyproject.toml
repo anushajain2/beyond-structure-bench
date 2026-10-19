@@ -15,7 +15,7 @@ dependencies = [
   "scipy",
   "pyyaml",
   "matplotlib",
-  "phonopy>=2.30",   # quasi-harmonic thermal expansion (chipff qha)
+  "phonopy>=4.6",    # quasi-harmonic thermal expansion (chipff qha); 4.6 added exclude_gamma_acoustic
 ]
 
 [project.optional-dependencies]

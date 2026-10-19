@@ -1,4 +1,4 @@
-### Native vs export (identical structures)
+### agreement
 
 | model | reference → other | material | max ΔE (meV/atom) | Δ[E(1.06 V0) − E(0.96 V0)] (meV/atom) | max ΔF (meV/Å) | max Δσ (GPa) | Δ displacement response | NaN frames |
 |---|---|---|---|---|---|---|---|---|
@@ -14,24 +14,22 @@
 | mace | mace-kups → mace-torch32 | Ta | 0.005 | 0.001 | 0.022 | 0.0009 | 0.0413 % | 0 |
 | mace | mace-kups → mace-torch32 | InP | 0.001 | 0.000 | 0.018 | 0.0000 | 0.0238 % | 0 |
 | mace | mace-kups → mace-torch32 | HfO2 | 0.002 | 0.001 | 0.039 | 0.0002 | 0.0193 % | 0 |
-| mace | mace-torch → mace-torch32 | Si | 0.001 | 0.000 | 0.025 | 0.0000 | 0.019 % | 0 |
-| mace | mace-torch → mace-torch32 | GaAs | 0.003 | 0.000 | 0.017 | 0.0001 | 0.0158 % | 0 |
-| mace | mace-torch → mace-torch32 | Cu | 0.003 | 0.001 | 0.007 | 0.0001 | 0.0125 % | 0 |
-| mace | mace-torch → mace-torch32 | Ta | 0.006 | 0.002 | 0.020 | 0.0006 | 0.0384 % | 0 |
-| mace | mace-torch → mace-torch32 | InP | 0.001 | 0.001 | 0.010 | 0.0000 | 0.0141 % | 0 |
-| mace | mace-torch → mace-torch32 | HfO2 | 0.010 | 0.000 | 0.028 | 0.0001 | 0.0174 % | 0 |
 | mattersim | mattersim-native → mattersim-kups | Si | 554.700 | – | 650.700 | 1.4210 | 14.1 % | 3 |
 | mattersim | mattersim-native → mattersim-kups | GaAs | 716.200 | – | 1036.000 | 6.5480 | 54.2 % | 3 |
 | mattersim | mattersim-native → mattersim-kups | Cu | 34.470 | – | 226.600 | 1.9070 | 4.82 % | 2 |
 | mattersim | mattersim-native → mattersim-kups | Ta | 2.369 | – | 340.500 | 2.2180 | 17.3 % | 3 |
 | mattersim | mattersim-native → mattersim-kups | InP | 628.800 | – | 717.900 | 3.6230 | 17.5 % | 3 |
 | mattersim | mattersim-native → mattersim-kups | HfO2 | 24.140 | – | 1218.000 | 13.7700 | 23.6 % | 2 |
+| orb | orb-kups → orb-torch | Si | 0.012 | 0.011 | 2.453 | 0.0084 | 0.0848 % | 0 |
+| orb | orb-kups → orb-torch | GaAs | 0.004 | 0.003 | 1.556 | 0.0117 | 0.0921 % | 0 |
+| orb | orb-kups → orb-torch | Cu | 0.007 | 0.003 | 0.398 | 0.0039 | 0.0547 % | 0 |
+| orb | orb-kups → orb-torch | Ta | 0.009 | 0.009 | 2.970 | 0.0117 | 0.294 % | 0 |
+| orb | orb-kups → orb-torch | InP | 0.022 | 0.013 | 1.326 | 0.0068 | 0.099 % | 0 |
+| orb | orb-kups → orb-torch | HfO2 | 0.068 | 0.044 | 5.213 | 0.0187 | 0.104 % | 0 |
 
-### QHA convergence, α_V(300 K) in 10⁻⁶ K⁻¹
+### convergence
 
-*published*: results/raw (benchmark run). *rerun*: same settings, this study's data. *Γ fixed*: Γ-point acoustic modes excluded from F_vib; every column right of it also has them excluded. Percentages are relative to *Γ fixed*.
-
-| model | material | published | rerun (as benchmark) | Γ fixed | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | imaginary modes kept as abs(ν) |
+| model | material | published before the fix | rerun as the benchmark ran it | **Γ fixed** | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | sensitivity: imaginary modes at abs(ν) |
 |---|---|---|---|---|---|---|---|---|---|
 | mace-kups | Si | 7.83 | 7.66 (-1 %) | **7.77** | 7.77 (-0 %) | 7.81 (+0 %) | 7.59 (-2 %) | 7.09 (-9 %) | 7.77 (+0 %) |
 | mace-kups | GaAs | 36.03 | 36.85 (+1 %) | **36.30** | 36.19 (-0 %) | 36.29 (-0 %) | 36.52 (+1 %) | 35.41 (-2 %) | 36.30 (+0 %) |
@@ -45,73 +43,77 @@
 | mattersim-native | Ta | 15.96 | 16.19 (-0 %) | **16.26** | 16.41 (+1 %) | 16.32 (+0 %) | 16.66 (+2 %) | 15.71 (-3 %) | 16.26 (+0 %) |
 | mattersim-native | InP | 28.06 | 26.72 (-3 %) | **27.49** | 27.37 (-0 %) | 27.56 (+0 %) | 28.20 (+3 %) | 26.55 (-3 %) | 27.49 (+0 %) |
 | mattersim-native | HfO2 | 20.33 | 20.03 (-1 %) | **20.23** | 20.24 (+0 %) | 19.88 (-2 %) | 19.37 (-4 %) | 21.46 (+6 %) | 20.04 (-1 %) |
+| orb-kups | Si | 8.25 | 7.63 (+0 %) | **7.61** | not run | not run | 5.92 (-22 %) | 9.06 (+19 %) | 7.61 (+0 %) |
+| orb-kups | GaAs | 21.10 | 22.27 (+3 %) | **21.55** | not run | not run | 22.57 (+5 %) | 22.69 (+5 %) | 21.55 (+0 %) |
+| orb-kups | Cu | not run | 53.29 (-1 %) | **53.85** | not run | not run | 53.74 (-0 %) | 54.03 (+0 %) | 53.85 (+0 %) |
+| orb-kups | Ta | not run | 31.90 (-1 %) | **32.18** | not run | not run | 31.36 (-3 %)† | 32.61 (+1 %) | 31.37 (-3 %) |
+| orb-kups | InP | 19.45 | 17.85 (-4 %) | **18.63** | not run | not run | 19.37 (+4 %) | 18.06 (-3 %) | 18.63 (+0 %) |
+| orb-kups | HfO2 | not run | 20.98 (+2 %) | **20.61** | not run | not run | 19.80 (-4 %)† | 21.89 (+6 %) | 21.15 (+3 %) |
 
-† V(T) leaves the stable scanned range inside the material's window (the benchmark's check fails).
+### window
 
-### Same, averaged over each material's pre-registered window
-
-| model | material | window (K) | Γ fixed | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | imaginary modes kept |
+| model | material | window (K) | **Γ fixed** | disp 0.03 Å | supercell 14 Å | scan 0.975–1.045 | scan 0.94–1.12 | sensitivity: imaginary modes at abs(ν) |
 |---|---|---|---|---|---|---|---|---|
-| mace-kups | Si | 500–800 | 11.05 | 11.07 | 11.07 | 11.02 | 10.30 | 11.05 |
-| mace-kups | GaAs | 300–750 | 37.79 | 37.74 | 37.82 | 37.61 | 37.42 | 37.79 |
-| mace-kups | Cu | 300–650 | 57.49 | 57.43 | not run | 58.80 | 56.64 | 57.49 |
-| mace-kups | Ta | 300–1600 | 46.70 | 46.25 | not run | 69.57† | 41.41 | 49.04† |
-| mace-kups | InP | 350–650 | 13.24 | 13.28 | 14.09 | 12.94 | 13.18 | 13.24 |
-| mace-kups | HfO2 | 400–1500 | 19.47 | 19.52 | not run | 22.04 | 19.57 | 24.29 |
-| mattersim-native | Si | 500–800 | 19.91 | 19.76 | 19.88 | 19.96 | 19.75 | 19.91 |
-| mattersim-native | GaAs | 300–750 | 31.82 | 31.80 | 31.93 | 32.00 | 31.78 | 31.82 |
-| mattersim-native | Cu | 300–650 | 49.71 | 49.81 | 49.71 | 49.58 | 49.74 | 49.71 |
-| mattersim-native | Ta | 300–1600 | 13.84 | 14.01 | 13.89 | 13.54 | 14.22 | 13.84 |
-| mattersim-native | InP | 350–650 | 28.75 | 28.68 | 28.89 | 29.10 | 28.14 | 28.75 |
-| mattersim-native | HfO2 | 400–1500 | 24.38 | 24.40 | 24.71 | 26.70 | 23.55 | 28.37 |
+| mace-kups | Si | 500–800 | **11.05** | 11.07 | 11.07 | 11.02 | 10.30 | 11.05 |
+| mace-kups | GaAs | 300–750 | **37.79** | 37.74 | 37.82 | 37.61 | 37.42 | 37.79 |
+| mace-kups | Cu | 300–650 | **57.49** | 57.43 | not run | 58.80 | 56.64 | 57.49 |
+| mace-kups | Ta | 300–1600 | **46.70** | 46.25 | not run | 69.57† | 41.41 | 49.04† |
+| mace-kups | InP | 350–650 | **13.24** | 13.28 | 14.09 | 12.94 | 13.18 | 13.24 |
+| mace-kups | HfO2 | 400–1500 | **19.47** | 19.52 | not run | 22.04 | 19.57 | 24.29 |
+| mattersim-native | Si | 500–800 | **19.91** | 19.76 | 19.88 | 19.96 | 19.75 | 19.91 |
+| mattersim-native | GaAs | 300–750 | **31.82** | 31.80 | 31.93 | 32.00 | 31.78 | 31.82 |
+| mattersim-native | Cu | 300–650 | **49.71** | 49.81 | 49.71 | 49.58 | 49.74 | 49.71 |
+| mattersim-native | Ta | 300–1600 | **13.84** | 14.01 | 13.89 | 13.54 | 14.22 | 13.84 |
+| mattersim-native | InP | 350–650 | **28.75** | 28.68 | 28.89 | 29.10 | 28.14 | 28.75 |
+| mattersim-native | HfO2 | 400–1500 | **24.38** | 24.40 | 24.71 | 26.70 | 23.55 | 28.37 |
+| orb-kups | Si | 500–800 | **11.30** | not run | not run | 10.35 | 13.28 | 11.30 |
+| orb-kups | GaAs | 300–750 | **24.01** | not run | not run | 23.62 | 25.08 | 24.01 |
+| orb-kups | Cu | 300–650 | **57.10** | not run | not run | 53.61 | 58.80 | 57.10 |
+| orb-kups | Ta | 300–1600 | **39.82** | not run | not run | 47.30† | 38.88 | 40.80 |
+| orb-kups | InP | 350–650 | **21.74** | not run | not run | 22.30 | 20.79 | 21.74 |
+| orb-kups | HfO2 | 400–1500 | **25.90** | not run | not run | 29.81† | 25.10 | 29.86 |
 
-### What the free energy leaves out at V0 and at the largest benchmark volume (1.08 V0), 300 K
+### imaginary
 
-| model | material | V/V0 | mesh modes with ν < 0 | lowest mesh ν (THz) | F_vib (meV/atom) | Γ acoustic modes: F they add (meV/atom) | imaginary modes kept as abs(ν): ΔF (meV/atom) |
+| model | material | V/V0 | mesh modes with ν < 0 | lowest mesh ν (THz) | F_vib (meV/atom) | Γ acoustic modes: F they add (meV/atom) | imaginary modes at abs(ν): ΔF (meV/atom) |
 |---|---|---|---|---|---|---|---|
-| mace-kups | Si | 1.00 | 0.00 % | 0.00 | 24.92 | -0.163 | 0.000 |
-| mace-kups | Si | 1.08 | 0.01 % | -0.00 | 21.52 | -0.069 | 0.000 |
-| mace-kups | GaAs | 1.00 | 0.00 % | -0.00 | -23.54 | -0.139 | 0.000 |
-| mace-kups | GaAs | 1.08 | 0.00 % | 0.00 | -31.28 | -0.210 | 0.000 |
-| mace-kups | Cu | 1.00 | 0.00 % | 0.00 | -24.64 | -0.097 | 0.000 |
-| mace-kups | Cu | 1.08 | 0.00 % | -0.00 | -37.34 | -0.077 | 0.000 |
 | mace-kups | Ta | 1.00 | 0.00 % | 0.00 | -57.95 | -0.157 | 0.000 |
 | mace-kups | Ta | 1.08 | 0.09 % | -0.19 | -83.03 | -0.157 | -0.242 |
-| mace-kups | InP | 1.00 | 0.02 % | -0.00 | -17.91 | 0.000 | 0.000 |
-| mace-kups | InP | 1.08 | 0.01 % | -0.00 | -23.05 | 0.000 | 0.000 |
 | mace-kups | HfO2 | 1.00 | 0.29 % | -1.69 | 33.73 | -0.082 | -0.413 |
 | mace-kups | HfO2 | 1.08 | 1.11 % | -2.34 | 25.61 | -0.092 | -1.515 |
-| mattersim-native | Si | 1.00 | 0.00 % | 0.00 | 32.99 | -0.165 | 0.000 |
-| mattersim-native | Si | 1.08 | 0.00 % | 0.00 | 26.64 | -0.196 | 0.000 |
-| mattersim-native | GaAs | 1.00 | 0.01 % | -0.00 | -23.92 | 0.000 | 0.000 |
-| mattersim-native | GaAs | 1.08 | 0.01 % | -0.00 | -30.43 | -0.069 | 0.000 |
-| mattersim-native | Cu | 1.00 | 0.01 % | -0.00 | -23.78 | 0.000 | 0.000 |
-| mattersim-native | Cu | 1.08 | 0.00 % | -0.00 | -36.12 | -0.076 | 0.000 |
 | mattersim-native | Ta | 1.00 | 0.01 % | -0.00 | -69.32 | -0.051 | 0.000 |
 | mattersim-native | Ta | 1.08 | 0.01 % | -0.00 | -76.68 | 0.000 | 0.000 |
-| mattersim-native | InP | 1.00 | 0.00 % | -0.00 | -20.08 | -0.137 | 0.000 |
-| mattersim-native | InP | 1.08 | 0.01 % | -0.00 | -26.40 | -0.089 | 0.000 |
 | mattersim-native | HfO2 | 1.00 | 0.10 % | -1.24 | 38.16 | -0.084 | -0.160 |
 | mattersim-native | HfO2 | 1.08 | 0.52 % | -1.66 | 28.00 | -0.094 | -0.800 |
+| orb-kups | Ta | 1.00 | 0.09 % | -0.25 | -52.96 | -0.149 | -0.225 |
+| orb-kups | Ta | 1.08 | 0.09 % | -0.23 | -68.78 | -0.156 | -0.232 |
+| orb-kups | HfO2 | 1.00 | 0.10 % | -1.14 | 38.14 | 0.000 | -0.162 |
+| orb-kups | HfO2 | 1.08 | 0.45 % | -1.76 | 27.37 | -0.049 | -0.685 |
 
-### Ingredients of α_V ≈ γ C_V / (K_T V) at 300 K (model / experiment)
+### physics
 
-| model | material | α_V QHA | α_V from γC_V/K_TV | α_V exp | γ model | γ exp | K_T model (GPa) | K_T exp | C_V model (k_B/atom) | C_V exp | V model (Å³/atom) | V exp | **α ratio** | γ ratio | C_V ratio | 1/K ratio | 1/V ratio |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| mace-kups | Si | 7.8 | 7.2 | 7.9 | 0.37 | 0.46 | 87 | 98 | 2.52 | 2.40 | 20.54 | 20.02 | **0.91** | 0.79 | 1.05 | 1.13 | 0.97 |
-| mace-kups | GaAs | 36.3 | 35.3 | 17.2 | 1.30 | 0.74 | 60 | 75 | 2.81 | 2.86 | 23.92 | 22.58 | **2.06** | 1.77 | 0.98 | 1.25 | 0.94 |
-| mace-kups | Cu | 51.7 | 49.8 | 49.7 | 1.85 | 1.99 | 120 | 134 | 2.85 | 2.86 | 12.25 | 11.81 | **1.00** | 0.93 | 1.00 | 1.12 | 0.96 |
-| mace-kups | Ta | 52.8 | 49.5 | 19.0 | 4.09 | 1.56 | 181 | 190 | 2.94 | 3.02 | 18.56 | 18.06 | **2.61** | 2.62 | 0.97 | 1.05 | 0.97 |
-| mace-kups | InP | 11.1 | 10.0 | 12.6 | 0.46 | 0.60 | 65 | 71 | 2.74 | 2.71 | 26.84 | 25.27 | **0.79** | 0.77 | 1.01 | 1.08 | 0.94 |
-| mace-kups | HfO2 | 18.4 | 19.9 | 16.9 | 1.46 | 1.14 | 201 | 185 | 2.35 | 2.30 | 11.85 | 11.53 | **1.18** | 1.29 | 1.02 | 0.92 | 0.97 |
-| mattersim-native | Si | 14.5 | 13.5 | 7.9 | 0.67 | 0.46 | 81 | 98 | 2.44 | 2.40 | 20.60 | 20.02 | **1.71** | 1.44 | 1.02 | 1.20 | 0.97 |
-| mattersim-native | GaAs | 28.9 | 28.3 | 17.2 | 0.92 | 0.74 | 53 | 75 | 2.83 | 2.86 | 23.91 | 22.58 | **1.65** | 1.25 | 0.99 | 1.41 | 0.94 |
-| mattersim-native | Cu | 49.1 | 50.7 | 49.7 | 2.16 | 1.99 | 139 | 134 | 2.85 | 2.86 | 12.04 | 11.81 | **1.02** | 1.09 | 1.00 | 0.96 | 0.98 |
-| mattersim-native | Ta | 16.3 | 18.7 | 19.0 | 1.68 | 1.56 | 199 | 190 | 2.95 | 3.02 | 18.43 | 18.06 | **0.99** | 1.07 | 0.98 | 0.96 | 0.98 |
-| mattersim-native | InP | 27.5 | 28.0 | 12.6 | 1.08 | 0.60 | 55 | 71 | 2.75 | 2.71 | 26.76 | 25.27 | **2.23** | 1.79 | 1.02 | 1.30 | 0.94 |
-| mattersim-native | HfO2 | 20.2 | 19.4 | 16.9 | 1.46 | 1.14 | 202 | 185 | 2.31 | 2.30 | 11.82 | 11.53 | **1.15** | 1.28 | 1.00 | 0.92 | 0.97 |
+| model | material | α_V QHA | α_V reconstructed | α_V exp | **QHA α / exp** | reconstructed α / exp | reconstruction residual | γ model | γ inferred from exp | K_T model (GPa) | K_T exp | C_V model (k_B/atom) | C_V exp | V model (Å³/atom) | V exp | γ ratio | C_V ratio | 1/K ratio | 1/V ratio |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| mace-kups | Si | 7.8 | 7.2 | 7.9 | **0.99** | 0.91 | -8 % | 0.37 | 0.46 | 87 | 98 | 2.52 | 2.40 | 20.54 | 20.02 | 0.79 | 1.05 | 1.13 | 0.97 |
+| mace-kups | GaAs | 36.3 | 35.3 | 17.2 | **2.11** | 2.06 | -3 % | 1.30 | 0.74 | 60 | 75 | 2.81 | 2.86 | 23.92 | 22.58 | 1.77 | 0.98 | 1.25 | 0.94 |
+| mace-kups | Cu | 51.7 | 49.8 | 49.7 | **1.04** | 1.00 | -4 % | 1.85 | 1.99 | 120 | 134 | 2.85 | 2.86 | 12.25 | 11.81 | 0.93 | 1.00 | 1.12 | 0.96 |
+| mace-kups | Ta | 52.8 | 49.5 | 19.0 | **2.79** | 2.61 | -6 % | 4.09 | 1.56 | 181 | 190 | 2.94 | 3.02 | 18.56 | 18.06 | 2.62 | 0.97 | 1.05 | 0.97 |
+| mace-kups | InP | 11.1 | 10.0 | 12.6 | **0.88** | 0.79 | -10 % | 0.46 | 0.60 | 65 | 71 | 2.74 | 2.71 | 26.84 | 25.27 | 0.77 | 1.01 | 1.08 | 0.94 |
+| mace-kups | HfO2 | 18.4 | 19.9 | 16.9 | **1.09** | 1.18 | +8 % | 1.46 | 1.14 | 201 | 185 | 2.35 | 2.30 | 11.85 | 11.53 | 1.29 | 1.02 | 0.92 | 0.97 |
+| mattersim-native | Si | 14.5 | 13.5 | 7.9 | **1.85** | 1.71 | -7 % | 0.67 | 0.46 | 81 | 98 | 2.44 | 2.40 | 20.60 | 20.02 | 1.44 | 1.02 | 1.20 | 0.97 |
+| mattersim-native | GaAs | 28.9 | 28.3 | 17.2 | **1.68** | 1.65 | -2 % | 0.92 | 0.74 | 53 | 75 | 2.83 | 2.86 | 23.91 | 22.58 | 1.25 | 0.99 | 1.41 | 0.94 |
+| mattersim-native | Cu | 49.1 | 50.7 | 49.7 | **0.99** | 1.02 | +3 % | 2.16 | 1.99 | 139 | 134 | 2.85 | 2.86 | 12.04 | 11.81 | 1.09 | 1.00 | 0.96 | 0.98 |
+| mattersim-native | Ta | 16.3 | 18.7 | 19.0 | **0.86** | 0.99 | +15 % | 1.68 | 1.56 | 199 | 190 | 2.95 | 3.02 | 18.43 | 18.06 | 1.07 | 0.98 | 0.96 | 0.98 |
+| mattersim-native | InP | 27.5 | 28.0 | 12.6 | **2.19** | 2.23 | +2 % | 1.08 | 0.60 | 55 | 71 | 2.75 | 2.71 | 26.76 | 25.27 | 1.79 | 1.02 | 1.30 | 0.94 |
+| mattersim-native | HfO2 | 20.2 | 19.4 | 16.9 | **1.20** | 1.15 | -4 % | 1.46 | 1.14 | 202 | 185 | 2.31 | 2.30 | 11.82 | 11.53 | 1.28 | 1.00 | 0.92 | 0.97 |
+| orb-kups | Si | 7.6 | 6.1 | 7.9 | **0.97** | 0.78 | -20 % | 0.32 | 0.46 | 84 | 98 | 2.41 | 2.40 | 20.47 | 20.02 | 0.68 | 1.00 | 1.17 | 0.98 |
+| orb-kups | GaAs | 21.5 | 22.9 | 17.2 | **1.25** | 1.33 | +6 % | 0.79 | 0.74 | 56 | 75 | 2.81 | 2.86 | 24.00 | 22.58 | 1.08 | 0.98 | 1.34 | 0.94 |
+| orb-kups | Cu | 53.9 | 55.0 | 49.7 | **1.08** | 1.11 | +2 % | 2.14 | 1.99 | 127 | 134 | 2.84 | 2.86 | 12.01 | 11.81 | 1.08 | 0.99 | 1.05 | 0.98 |
+| orb-kups | Ta | 32.2 | 29.3 | 19.0 | **1.70** | 1.55 | -9 % | 2.19 | 1.56 | 163 | 190 | 2.92 | 3.02 | 18.43 | 18.06 | 1.40 | 0.97 | 1.16 | 0.98 |
+| orb-kups | InP | 18.6 | 18.2 | 12.6 | **1.48** | 1.45 | -2 % | 0.71 | 0.60 | 55 | 71 | 2.74 | 2.71 | 26.62 | 25.27 | 1.17 | 1.01 | 1.29 | 0.95 |
+| orb-kups | HfO2 | 20.6 | 20.3 | 16.9 | **1.22** | 1.20 | -2 % | 1.47 | 1.14 | 196 | 185 | 2.31 | 2.30 | 11.78 | 11.53 | 1.29 | 1.00 | 0.94 | 0.98 |
 
-### Where γ comes from (C_V-weighted mode Grüneisen parameters at 300 K, 0.985/1.0/1.015 V0)
+### gamma
 
 | model | material | γ | acoustic branches | optical branches | contribution of modes with γ < 0 | share of modes with γ < 0 | lowest mode γ | γ TA(X) | γ TA(L) | γ optical at Γ |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -127,5 +129,16 @@
 | mattersim-native | Ta | 1.68 | 1.68 | – | -0.00 | 1 % | -1.30 | – | – | – |
 | mattersim-native | InP | 1.08 | 0.77 | 1.44 | 0.00 | 0 % | 0.25 | 0.75 | 0.27 | 1.38 |
 | mattersim-native | HfO2 | 1.46 | 2.19 | 1.37 | -0.03 | 4 % | -4.71 | – | – | – |
+| orb-kups | Si | 0.32 | -0.40 | 1.28 | -0.38 | 33 % | -2.21 | -2.23 | -1.68 | 0.93 |
+| orb-kups | GaAs | 0.79 | 0.23 | 1.40 | -0.09 | 21 % | -1.04 | -1.06 | -1.03 | 1.22 |
+| orb-kups | Cu | 2.14 | 2.14 | – | 0.00 | 0 % | 1.75 | 2.05 | 1.76 | – |
+| orb-kups | Ta | 2.19 | 2.19 | – | -0.04 | 1 % | -35.01 | – | – | – |
+| orb-kups | InP | 0.71 | 0.09 | 1.42 | -0.15 | 27 % | -1.49 | -0.96 | -0.85 | 1.35 |
+| orb-kups | HfO2 | 1.47 | 2.12 | 1.39 | -0.02 | 3 % | -3.43 | – | – | – |
 
-Experiment: Si γ TA(X) = −1.4, γ TA(L) = −1.3 (as quoted by Rignanese, Michenaud & Gonze, arXiv:mtrl-th/9509002); γ TO(Γ) = 1.39 (GaAs), 1.44 (InP) (Aoki, Anastassakis & Cardona 1984, as tabulated in arXiv:1107.0196, Table 4).
+### determinism
+
+| backend | material | fresh processes | max ΔF, same process (eV/Å) | max ΔF, across processes (eV/Å) | α_V(300 K) as the benchmark computed it | α_V(300 K), Γ acoustic modes excluded |
+|---|---|---|---|---|---|---|
+| mattersim-native | GaAs | 3 | 0.0 | 7.9e-07 | 28.48 / 29.94 / 28.69 | 28.91 / 28.92 / 28.92 |
+| mattersim-native | Si | 3 | 0.0 | 3.72e-06 | 14.32 / 14.38 / 14.34 | 14.50 / 14.51 / 14.50 |
