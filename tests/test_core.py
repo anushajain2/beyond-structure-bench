@@ -156,3 +156,36 @@ def test_coverage_counts_model_failures():
     cov = coverage_table(lat, pd.DataFrame(), pd.DataFrame())
     r = cov.iloc[0]
     assert (r.graded, r.model_failure, r.method_limit) == (1, 1, 0) and "y" in r.model_failure_cases
+
+
+def test_qha_free_energy_ignores_gamma_acoustic_modes():
+    """The acoustic modes at Gamma come out as ~1e-7 THz of random sign. Left in the free energy, they
+    make alpha depend on force noise far below any physical scale (docs/thermal_failure_study.md).
+    A coarse q-mesh (larger Gamma weight) makes the effect unmistakable on a model-free EMT copper crystal."""
+    from types import SimpleNamespace
+
+    from ase.calculators.emt import EMT
+
+    from chipff.ase_engine import AseEngine
+    from chipff.qha import run_qha
+    from chipff.runner import config
+
+    class NoisyEMT(AseEngine):
+        def __init__(self, seed):
+            self.calc, self.device, self.rng = EMT(), "cpu", np.random.default_rng(seed)
+
+        def forces(self, structures):
+            E, F = super().forces(structures)
+            return E, [f + self.rng.normal(0, 3e-6, f.shape) for f in F]
+
+    def alphas(exclude):
+        q = dict(config()["thermal_qha"], exclude_gamma_acoustic=exclude, mesh_length=10.0)
+        return [run_qha(NoisyEMT(seed), SimpleNamespace(id="Cu"), "emt", bulk("Cu", "fcc", a=3.61), [300, 600], q)
+                .alpha_V_300K_1e6 for seed in range(3)]
+
+    assert config()["thermal_qha"]["exclude_gamma_acoustic"] is True
+    fixed = alphas(True)
+    assert max(fixed) - min(fixed) < 0.005 * np.mean(fixed)  # 3e-6 eV/Å of noise: agreement to 0.5 %
+    assert 40 < np.mean(fixed) < 80  # EMT Cu expands like a metal (about 62e-6/K)
+    unfixed = alphas(False)
+    assert max(unfixed) - min(unfixed) > 0.05 * np.mean(fixed)  # the defect the setting removes

@@ -198,25 +198,25 @@ mace-mpa-0,graphite,bulk modulus: fingerprint matches current code,True
 orb-v3,graphite,bulk modulus: fingerprint matches current code,True
 mattersim-5m-native,graphite,bulk modulus: fingerprint matches current code,True
 mace-mpa-0,Si,thermal expansion: fingerprint matches current code,True
-orb-v3,Si,thermal expansion: fingerprint matches current code,True
+orb-v3,Si,thermal expansion: fingerprint matches current code,False
 mattersim-5m-native,Si,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Ge,thermal expansion: fingerprint matches current code,True
-orb-v3,Ge,thermal expansion: fingerprint matches current code,True
+orb-v3,Ge,thermal expansion: fingerprint matches current code,False
 mattersim-5m-native,Ge,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,SiC,thermal expansion: fingerprint matches current code,True
-orb-v3,SiC,thermal expansion: fingerprint matches current code,True
+orb-v3,SiC,thermal expansion: fingerprint matches current code,False
 mattersim-5m-native,SiC,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,GaAs,thermal expansion: fingerprint matches current code,True
-orb-v3,GaAs,thermal expansion: fingerprint matches current code,True
+orb-v3,GaAs,thermal expansion: fingerprint matches current code,False
 mattersim-5m-native,GaAs,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,GaN,thermal expansion: fingerprint matches current code,True
-orb-v3,GaN,thermal expansion: fingerprint matches current code,True
+orb-v3,GaN,thermal expansion: fingerprint matches current code,False
 mattersim-5m-native,GaN,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,InP,thermal expansion: fingerprint matches current code,True
-orb-v3,InP,thermal expansion: fingerprint matches current code,True
+orb-v3,InP,thermal expansion: fingerprint matches current code,False
 mattersim-5m-native,InP,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,AlN,thermal expansion: fingerprint matches current code,True
-orb-v3,AlN,thermal expansion: fingerprint matches current code,True
+orb-v3,AlN,thermal expansion: fingerprint matches current code,False
 mattersim-5m-native,AlN,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,SiO2_quartz,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,SiO2_quartz,thermal expansion: fingerprint matches current code,True
@@ -1074,7 +1074,7 @@ mattersim-5m-native,Ti,thermal: window covered,True
 mace-mpa-0,Ta,thermal: dynamically stable,True
 mace-mpa-0,Ta,thermal: enough stable volumes,True
 mace-mpa-0,Ta,thermal: interpolation artefacts small,True
-mace-mpa-0,Ta,thermal: volume inside scan,False
+mace-mpa-0,Ta,thermal: volume inside scan,True
 mace-mpa-0,Ta,thermal: window covered,True
 mattersim-5m-native,Ta,thermal: dynamically stable,True
 mattersim-5m-native,Ta,thermal: enough stable volumes,True

@@ -167,7 +167,10 @@ def run_qha(engine, material, model_key: str, relaxed: Atoms, window: list[float
         ph.run_mesh(q["mesh_length"])
         mesh_f = ph.get_mesh_dict()["frequencies"]
         interp_imag = float(np.mean(mesh_f < -abs(q["imaginary_tolerance_THz"])))
-        ph.run_thermal_properties(t_min=0, t_max=t_max, t_step=q["t_step_K"])
+        # the three acoustic modes at Gamma come out as ~1e-7 THz of random sign; left in, each positive one
+        # adds kT ln(h nu / kT) / N_q to F_vib, which varies at random between volumes (docs/thermal_failure_study.md)
+        ph.run_thermal_properties(t_min=0, t_max=t_max, t_step=q["t_step_K"],
+                                  exclude_gamma_acoustic=bool(q.get("exclude_gamma_acoustic", False)))
         per_volume.append((ph.get_thermal_properties_dict(), fmin, len(scs), interp_imag))
     n_disp = per_volume[0][2]
     fmins = [pv[1] for pv in per_volume]

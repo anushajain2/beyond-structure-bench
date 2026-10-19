@@ -17,29 +17,44 @@ Everything is reproduced by `scripts/thermal_failure_study.py`, and the raw data
 
 ## Summary
 
+The six cases were chosen after the benchmark had shown where the models fail, with Cu (and MatterSim on Ta,
+MACE on Si) as the only cases that work. What follows explains these cases and gives hypotheses to test on
+other materials; it does not establish rules that hold beyond them.
+
 * **The software route is not the cause for MACE.** On identical structures the kUPS export and the official
   `mace-torch` package agree to ≤ 0.01 meV/atom in energy and ≤ 0.04 meV/Å in force. The force response to a phonon
   displacement agrees to 0.04 %. **MatterSim's kUPS export is unusable**: it returns NaN on primitive cells, is off by up
   to 0.7 eV/atom elsewhere, and gets the displacement response wrong by 5–54 %. That confirms the benchmark's
   decision to run MatterSim through its official package.
-* **The published QHA contains a numerical defect, but it is small next to the model errors.** `chipff.qha` lets the
+* **The published QHA contained a numerical defect, but it is small next to the model errors.** `chipff.qha` let the
   three acoustic modes at Γ into the vibrational free energy whenever their computed frequency (≈ 10⁻⁷ THz, sign random)
-  happens to be positive. That adds random 0.05–0.2 meV/atom jumps between volumes, so repeated runs scatter by up to
-  ±8 % in α(300 K) (MatterSim Si; MACE InP +6 %). It also makes MatterSim results irreproducible: GaAs gave 28.5 / 29.9 /
+  happened to be positive. At the benchmark's q-mesh that adds random 0.05–0.2 meV/atom jumps between volumes, so
+  repeated runs scatter by up to ±8 % in α(300 K) (MatterSim Si; MACE InP +6 %). The size depends on the conditions:
+  the Γ point's weight in the mesh (1/N_q), force noise large enough to flip the near-zero modes, and a quantity
+  built from small free-energy differences, as thermal expansion is. A denser mesh shrinks it (section 2). It also makes MatterSim results irreproducible: GaAs gave 28.5 / 29.9 /
   28.7 in three fresh processes. With the modes excluded, the runs agree to 0.1 %. For these six cases the published
   values happen to lie within ±2 % of the corrected ones.
 * **Once that is fixed, the other numerical settings are converged at the level that matters.** A 3× larger
   displacement and a 14 Å supercell move α(300 K) by ≤ 2 %, except MACE InP at 14 Å (+7 %). The volume-scan range moves it
   by up to 9 % (MACE Si) and 12 % (MACE HfO₂). Keeping the imaginary modes that phonopy drops moves it by ≤ 1 %, except
   HfO₂ (+6 % MACE). None of these comes near the 70–180 % errors.
-* **The large errors are the models' Grüneisen parameters, sometimes compounded by a soft bulk modulus.**
-  Heat capacity and volume are right to within 6 % everywhere.
-  * **MACE on Ta:** γ = 4.1 against 1.56 from experiment, and every phonon mode has γ ≥ 2.1. The whole 2.6× error is γ.
-    An independent check agrees: MACE's static equation of state for Ta has K′ = 7.7, against a measured 3.1.
-  * **The semiconductors (MACE GaAs; MatterSim Si, GaAs, InP):** the optical modes are right (γ_TO at Γ within 5 % of
-    experiment). The error is in the zone-edge transverse acoustic (TA) modes, whose negative γ normally cancels
-    much of the expansion. MatterSim's TA modes are barely negative (Si TA(X) −0.64 vs −1.4 measured) or positive
-    (InP). MACE's GaAs TA(L) is +1.8. On top of this, MatterSim's K_T is 17–29 % too soft for these three.
+* **By elimination, the large errors sit in the models' Grüneisen parameters, sometimes compounded by a soft bulk
+  modulus.** Heat capacity, volume and bulk modulus are each compared with independent experimental values: heat
+  capacity and volume are within 6 % everywhere. The models' γ is computed independently from phonons at three
+  volumes, and with C_V and K_T it rebuilds the model's own α to within 10–15 %. The experimental γ, however, is
+  *inferred* from the measured α with the same relation, so the γ ratio is what remains once K, C_V and V are
+  accounted for, not an independent measurement. The direct experimental checks on γ are a few mode values: TA(X) and
+  TA(L) for Si, and TO(Γ) for GaAs and InP. All comparisons are with experiment; whether the errors are the models'
+  own or inherited from PBE is not tested here (section 6).
+  * **MACE on Ta:** γ = 4.1 against 1.56 inferred from experiment. On the full phonon mesh every mode has γ ≥ 2.1, above
+    the measured average; there is no mode-resolved experimental γ to compare with. MACE's static equation of state
+    (K′ = 7.7 against a measured 3.1) corroborates an energy-volume curve that stiffens too fast under compression.
+  * **The semiconductors (MACE GaAs; MatterSim Si, GaAs, InP):** the optical modes match experiment (γ_TO at Γ within
+    5 %). Over the whole Brillouin zone, the difference between models sits in the acoustic branches, whose
+    negative-γ modes normally cancel much of the expansion. The transverse acoustic modes at the zone edge illustrate
+    it: MatterSim's are barely negative (Si TA(X) −0.64 vs −1.4 measured) or positive (InP), and MACE's GaAs TA(L) is
+    +1.8. Two q-points per material illustrate the mechanism; they do not measure the zone-edge share of the
+    integrated error. On top of this, MatterSim's K_T is 17–29 % too soft for these three.
   * **MACE gets Si right partly by cancellation:** its γ is 21 % too *low* (TA(X) −2.84, too negative) while its K_T
     is 11 % too soft.
 * **HfO₂ is the case where numerics and reference data matter as much as the model.** Both models give γ = 1.46
@@ -135,6 +150,24 @@ isolated.
 and should be fixed; passing `exclude_gamma_acoustic=True` changes nothing else. It does not explain any of the large
 errors. In the rest of this study, "Γ fixed" values are the reference.
 
+**When it matters.** The effect needs three things together. First, a Γ point with enough weight in the q-mesh: each
+Γ mode carries 1/N_q, so denser meshes shrink it. Second, force noise large enough to flip the signs of the near-zero
+modes. Third, a quantity built from small free-energy differences between volumes, as thermal expansion is. The
+regression test in `tests/test_core.py` shows the range on a model-free EMT copper crystal with 3 × 10⁻⁶ eV/Å of
+force noise. At the benchmark's mesh density, α(300 K) scatters by 0.4 % across noise seeds; on a coarse mesh
+(mesh length 10 Å) it comes out as −33, +15 and −1.7 × 10⁻⁶ K⁻¹, against 61.9 ± 0.05 with the modes excluded. phonopy
+itself warns when Γ acoustic modes enter its sums. So the defect is specific to these conditions, not to every use of
+phonopy's thermal properties.
+
+**Applied (2026-10-20).** `thermal_qha.exclude_gamma_acoustic: true` is now the benchmark's setting, and the QHA
+was rerun for MACE-MPA-0 and MatterSim v1 (all 33 materials each; Orb v3's partial run is left as it was and
+is now marked stale). Across the 33 materials, α(300 K) changed by a median of 0.7 % (largest: GaN, −3.7 % MACE and
++3.9 % MatterSim). The window averages changed by a median of 0.4–0.8 %. The rerun reproduces this study's
+"Γ fixed" values (e.g. Ta window 46.70, Si window 19.91 and 11.04). Headline effects: mean absolute error at 300 K
+moves 34.4 → 34.5 % (MACE) and 29.2 → 28.7 % (MatterSim), and the benchmark still does not resolve a difference
+between them. MACE Ta now passes
+the "volume inside scan" check, and MatterSim's metals at 300 K move from 20.3 % (okay) to 19.4 % (good).
+
 ## 3. Convergence on the hard cases
 
 α_V(300 K) in 10⁻⁶ K⁻¹. *published*: `results/raw` (benchmark run). *rerun*: same settings, this study's data. *Γ fixed*:
@@ -218,7 +251,10 @@ material and model:
   for HfO₂ (57.73 J K⁻¹ mol⁻¹ at 298.15 K, NIST ThermoML). Adiabatic moduli are converted to K_T, and C_p to C_V; both
   corrections are 0.3–3 %.
 
-The γ C_V/(K_T V) estimate reproduces the full QHA α to within 10 % (15 % for MatterSim Ta), so the split is meaningful.
+The model's γ C_V/(K_T V) estimate reproduces its full QHA α to within 10 % (15 % for MatterSim Ta), so the model side
+of the split is self-consistent. On the experimental side γ is not measured but inferred from α_exp with the same
+relation. The γ ratio is therefore the part of the α error left after the independently checked C_V, K_T and V; the
+mode values below are the only direct experimental check on γ itself.
 The ratios multiply: **α ratio ≈ γ ratio × C_V ratio × (1/K ratio) × (1/V ratio)**.
 
 | model | material | α_V QHA | α_V from γC_V/K_TV | α_V exp | γ model | γ exp | K_T model (GPa) | K_T exp | C_V model (k_B/atom) | C_V exp | V model (Å³/atom) | V exp | **α ratio** | γ ratio | C_V ratio | 1/K ratio | 1/V ratio |
@@ -260,7 +296,8 @@ but its column alignment is garbled in the text, so only the sign is used here. 
 LO–TO splitting, as in the QHA, so they compare with TO. TA(X) and TA(L) are computed for the fcc-lattice crystals
 only (for Cu they are the two lowest branches at those points), not for bcc Ta or monoclinic HfO₂.
 
-A second, independent check on γ for the metals comes from the benchmark's static equation-of-state fits
+A corroborating check on γ for the metals, from a separate calculation, comes from the benchmark's static
+equation-of-state fits
 (`results/bulk_modulus.csv`, Birch–Murnaghan over 0.94–1.06 V0). The Slater estimate γ ≈ K′/2 − 1/6 holds roughly for
 simple metals:
 
@@ -293,12 +330,15 @@ accounts for more of the log-error than γ does. All convergence checks move α 
 **Cu.** *Both models within 4 %.* All ingredients are within 12 %. MACE's γ is 7 % low and its K_T 11 % soft, so these
 cancel. Cu is the control case and behaves as one.
 
-**Ta.** *MACE +179 %: model, entirely γ.* γ = 4.09 against 1.56. Every mode has γ ≥ 2.1, so the whole phonon spectrum
-stiffens too fast under compression. K_T, C_V and V are each within 5 %. The static EOS confirms this independently:
-MACE's K′ = 7.7 against 3.1 measured, while MatterSim (K′ = 3.6) reproduces Ta's γ. The 0.03 Å and volume-scan checks
+**Ta.** *MACE +179 %: by elimination, γ.* K_T, C_V and V are each within 5 %, so the residual is γ: 4.09 against 1.56
+inferred from experiment. On the full phonon mesh every mode has γ ≥ 2.1, above the measured average. There is no
+mode-resolved experimental γ for Ta, so "every mode exceeds the measured average" is established, while "the error is
+spread across the spectrum" is an inference. The static EOS corroborates an energy-volume curve that stiffens too fast:
+MACE's K′ = 7.7 against 3.1 measured, while MatterSim (K′ = 3.6) gives γ close to the inferred value. The 0.03 Å and volume-scan checks
 move α(300 K) by ≤ 1 %, and the exported model matches `mace-torch` exactly. So this is a property of the MACE-MPA-0
-potential, not of the pipeline (the 14 Å supercell check was skipped; see Scope). The window average (300–1600 K) is
-not usable: the predicted volume runs out of the stable scan. *MatterSim −14 %:* all ingredients within 7 %. The
+potential, not of the pipeline (the 14 Å supercell check was skipped; see Scope). With the Γ fix the 300–1600 K
+window passes the benchmark's volume check (it failed in the published run), but it has no experimental value to be
+graded against. *MatterSim −14 %:* all ingredients within 7 %. The
 residual sits mostly between the γ formula and the full QHA (18.7 vs 16.3), i.e. in the volume dependence of γ.
 
 **InP.** *MACE −12 %: γ too low.* MACE has strong negative TA modes (TA(X) −1.03, TA(L) −1.46), so γ is 23 % low.
@@ -321,22 +361,45 @@ reasons alone.**
 
 **Pattern.** Heat capacity and volume are not the problem (within 6 % everywhere). The bulk modulus matters for
 MatterSim's semiconductors, where it is 17–29 % soft (consistent with the benchmark's static K errors of −22 to −26 % for
-GaAs and InP). The dominant error is the volume dependence of the phonons, γ. For tetrahedral semiconductors, the
-models get the optical-mode γ right but not the delicate negative γ of the zone-edge TA (bond-bending) modes, which
+GaAs and InP). With C_V, V and K accounted for, what remains is the volume dependence of the phonons, γ. For the
+tetrahedral semiconductors, the models get the optical-mode γ right (the direct check), and the model-to-model
+differences sit in the acoustic branches. Their negative-γ modes, illustrated by the zone-edge TA (bond-bending) points,
 partly cancel the positive contributions in real Si, GaAs and InP. MatterSim makes those modes too weakly negative and
 gets α too large. MACE makes them too strongly negative in Si and InP and too weakly negative in GaAs. It gets α about
 right for Si (helped by a soft K), too small for InP and too large for GaAs. For Ta, MACE's whole phonon spectrum has γ ≈ 4.
 
 ## 6. Recommendations
 
-1. Pass `exclude_gamma_acoustic=True` to `run_thermal_properties` in `src/chipff/qha.py` and rerun the QHA. That makes
-   MatterSim results reproducible and removes a ±8 % noise term from all models. This study did not change the
-   benchmark code or any committed result.
+1. Exclude the Γ acoustic modes from the free energy. Done: `thermal_qha.exclude_gamma_acoustic`, applied and rerun
+   (section 2).
 2. Report HfO₂ (and other low-symmetry polar oxides) with the larger methodological uncertainty above, or compare at
    300 K only.
-3. For a paper built around explaining the failures, the γ split above is the controlled explanation. The zone-edge
-   TA γ of tetrahedral semiconductors, and K′ for metals, are cheap diagnostics that predict the thermal-expansion error
-   without a full QHA.
+3. Treat the TA-mode γ of tetrahedral semiconductors and the static K′ of metals as **candidate** screening diagnostics.
+   They were found by inspecting these six cases, so they explain these failures; they are not a validated warning
+   system. To validate them, fix the diagnostic and any threshold first, then test on separate materials, including
+   ones the models get right. Report missed failures, false alarms and the compute actually saved. The saving is
+   smaller than it looks for the TA diagnostic: it still needs force constants at three volumes, about a third of a
+   QHA. Only K′, from a static energy-volume curve, avoids phonons entirely, and it is the weaker signal, with no
+   reason to transfer from metals to semiconductors or oxides.
+
+## 7. Limitations and open questions
+
+* **Model error or PBE error?** Every comparison here is with experiment. Matched PBE references would separate the
+  models' own error from the training functional's, case by case. To be comparable, they need the same phase and
+  volume convention (ideally both the model's equilibrium volume and a common reference volume), the same mode
+  identification, and a signed, heat-capacity-weighted γ (an average of |γ| is a different quantity, since thermal
+  expansion depends on the cancellation between signs).
+* **Case selection.** The six cases were picked around observed failures, with few controls. A follow-up should fix
+  the cases in advance and include more materials the models get right.
+* **What a third model can show.** If Orb v3 fails the same way, that supports a failure shared by the three tested
+  models, but it would not identify PBE or the training data as the cause, since all three share this QHA pipeline. If
+  it succeeds, the failure is avoidable here, without saying which design choice avoids it.
+* **Disagreement as a warning.** More models add comparisons, but the evidence is still the materials tested. A
+  disagreement rule should be validated on separate materials before the MCP tool relies on it.
+* **Prior work.** Harmonic phonons of universal potentials are already benchmarked extensively. An external review
+  also points out that atomate2 documents thermal expansion from mode Grüneisen parameters (not yet checked here). This study's contribution is the controlled comparison
+  across models on chip materials and the failure analysis, not the method. A close comparison with that work is
+  still to be done.
 
 ## Reproduce
 

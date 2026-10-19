@@ -78,6 +78,24 @@ QHA result was compared with experiment):
   We also report α_V at 300 K against experiment, a standard reference point where QHA is reliable.
   It is labelled as a secondary comparison added with the method change.
 
+**Bug fix: Γ-point acoustic modes left out of the free energy** (2026-10-19, made *after* the QHA results
+had been compared with experiment, so it is recorded as a correction, not a tuning). The three acoustic
+modes at Γ should have zero frequency; after symmetrisation they come out at about 10⁻⁷ THz, of random sign.
+With phonopy's default cutoff of zero, each one that happened to be positive entered the vibrational free
+energy, adding kT ln(hν/kT)/N_q (about 0.05–0.2 meV/atom at 300 K). The amount changed at random from one
+volume to the next. Repeated runs therefore scattered by up to ±8 % in α(300 K). MatterSim runs were not
+reproducible across processes, because its CPU forces differ by ~10⁻⁶ eV/Å between processes and that is
+enough to flip the signs (GaAs: 28.5 / 29.9 / 28.7). The QHA now passes `exclude_gamma_acoustic=True`
+(config `thermal_qha.exclude_gamma_acoustic`), phonopy's option for exactly this. Repeated runs then agree
+to 0.1 %. The size of the effect depends on the conditions: the Γ point's weight in the q-mesh (1/N_q), force
+noise large enough to flip the near-zero modes, and a quantity built from small free-energy differences. On a
+model-free test it was 0.4 % at the benchmark's mesh density and catastrophic on a coarse mesh
+(`tests/test_core.py`). For the six materials checked in
+[`docs/thermal_failure_study.md`](thermal_failure_study.md), the previously published α(300 K) lie within
+±2 % of the corrected values. The convergence numbers below were measured before the fix, so part of their
+2–7 % spread is this noise. With the fix, the study measured ≤ 2 % for displacement amplitude and supercell
+size (except +7 % for MACE InP at 14 Å) and up to 9–12 % for the volume-scan range.
+
 **Limitations.**
 - It treats vibrations as harmonic at each volume, so it misses higher-order anharmonicity,
   which grows near melting. The temperature windows stay below half the melting point.

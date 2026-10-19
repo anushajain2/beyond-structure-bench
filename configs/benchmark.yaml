@@ -83,6 +83,14 @@ thermal_qha:
   # mesh-only imaginary modes shrinking, i.e. interpolation artefacts); also:
   # use only the contiguous dynamically stable volumes around V0 (stretched cells can soften into
   # spurious instabilities that corrupt the free-energy fit).
+  # Amended 2026-10-19, AFTER the QHA results had been compared with experiment, as a bug fix rather than
+  # a tuning: exclude the three acoustic modes at Gamma from the vibrational free energy. They come out
+  # as ~1e-7 THz of random sign, and phonopy's default (cutoff 0) let each positive one add
+  # kT ln(h nu / kT) / N_q, which changed at random between volumes. Repeated runs scattered by up to
+  # +-8 % in alpha(300 K), and MatterSim runs were not reproducible across processes
+  # (docs/thermal_failure_study.md, section 2). For the six materials checked there, the published values
+  # lie within +-2 % of the corrected ones. Results computed before this change are stale.
+  exclude_gamma_acoustic: true
   volume_scales: [0.96, 0.975, 0.99, 1.0, 1.015, 1.03, 1.045, 1.06, 1.08]   # V / V0, cell shape fixed
   fmax_eV_per_A: 0.001          # atom relaxation at each volume
   min_supercell_width_A: 10.0
