@@ -15,6 +15,7 @@ dependencies = [
   "scipy",
   "pyyaml",
   "matplotlib",
+  "phonopy>=2.30",   # quasi-harmonic thermal expansion (chipff qha)
 ]
 
 [project.optional-dependencies]

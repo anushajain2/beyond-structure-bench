@@ -210,7 +210,8 @@ def model_agreement(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame, 
       points at the functional; low correlation means each model's error is its own.
     - MAPE of the two-model average (the "ensemble"), next to each model's own MAPE.
     - correlation between the models' disagreement |a - b| / mean(a, b) and the ensemble's
-      absolute error: if positive, disagreement is a usable warning sign for a new material.
+      absolute error, with its bootstrap interval: a candidate warning signal for new
+      materials, not a calibrated uncertainty estimate.
     """
     rng = np.random.default_rng(seed)
     specs = [("lattice", lat, "V_atom", "V_atom_exp"), ("bulk_modulus", bulk, "K_for_exp", "B_exp"),
@@ -242,19 +243,24 @@ def model_agreement(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame, 
                     ee = 100 * ((va + vb) / 2 / ref - 1)
                 disagree = np.abs(va - vb) / ((va + vb) / 2)
                 k = len(common)
-                boot = []
+                boot, boot_d = [], []
                 for _ in range(n):
                     idx = rng.integers(0, k, k)
                     if np.std(ea[idx]) > 0 and np.std(eb[idx]) > 0:
                         boot.append(np.corrcoef(ea[idx], eb[idx])[0, 1])
+                    if np.std(disagree[idx]) > 0 and np.std(ee[idx]) > 0:
+                        boot_d.append(np.corrcoef(disagree[idx], np.abs(ee[idx]))[0, 1])
                 lo, hi = np.percentile(boot, [2.5, 97.5])
+                dlo, dhi = np.percentile(boot_d, [2.5, 97.5]) if boot_d else (None, None)
                 rows.append({"property": prop, "model_a": a, "model_b": b, "n_common": k,
                              "error_correlation": float(np.corrcoef(ea, eb)[0, 1]),
                              "corr_ci_low": float(lo), "corr_ci_high": float(hi),
                              "MAPE_a": float(np.abs(ea).mean()), "MAPE_b": float(np.abs(eb).mean()),
                              "MAPE_average_of_two": float(np.abs(ee).mean()),
                              "corr_disagreement_vs_average_error": (float(np.corrcoef(disagree, np.abs(ee))[0, 1])
-                                                                    if np.std(disagree) > 0 else None)})
+                                                                    if np.std(disagree) > 0 else None),
+                             "disagreement_corr_ci_low": None if dlo is None else float(dlo),
+                             "disagreement_corr_ci_high": None if dhi is None else float(dhi)})
     return pd.DataFrame(rows)
 
 

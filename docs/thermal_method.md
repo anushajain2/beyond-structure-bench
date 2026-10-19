@@ -53,12 +53,15 @@ QHA result was compared with experiment):
   dynamically stable volumes around V0, at least 5 of them. A crystal unstable *at V0 itself*
   is genuinely unstable in that model and is excluded.
 * **Stability judged where the forces are sampled.** Imaginary frequencies that appear only
-  *between* the q-points a supercell samples are Fourier-interpolation artefacts. They are common
-  in polar crystals, whose long-range forces a finite supercell truncates. For monoclinic HfO₂ with
+  *between* the q-points a supercell samples are often Fourier-interpolation artefacts, common in
+  polar crystals, whose long-range forces a finite supercell truncates. Stability at the sampled
+  points does not prove stability between them, so this is a judgement, backed by one test: For monoclinic HfO₂ with
   MACE, a 2×2×2 → 3×3×3 test shrank the lowest interpolated mode from −1.7 to −1.1 THz while every
   sampled (commensurate) q-point stayed real. Stability is therefore judged at the commensurate
   q-points, force constants are symmetrised, and the share of interpolated imaginary modes is
-  recorded and must stay below 2%.
+  recorded and must stay below 2%. Phonopy leaves imaginary modes out of the free energy, so even
+  a small share can shift α; how much has not yet been measured (it is part of a study of the
+  hardest cases now under way).
   Genuine instabilities remain flagged: cubic SrTiO₃ is unstable at sampled q-points, as
   PBE-trained models are expected to find for its octahedral-rotation mode.
 * **Reference forces subtracted.** The undisplaced supercell's forces are subtracted from every
@@ -108,7 +111,9 @@ size (except +7 % for MACE InP at 14 Å) and up to 9–12 % for the volume-scan 
 | q-mesh density ×2 | +2% | −0.2% |
 | volume scan widened from −4…+8% to −6…+12% | −7% | −1.4% |
 
-The methodological uncertainty is therefore about 5–8%, well below the 20% "good" threshold.
+For Si and Cu the methodological uncertainty is therefore about 5–8%, well below the 20% "good"
+threshold. That figure has not been established for other materials, in particular polar or
+non-cubic ones, where the fixed-shape scan and the phonon interpolation are harder tests.
 Si is the most delicate case, because positive and negative mode contributions nearly cancel
 in its expansion.
 
