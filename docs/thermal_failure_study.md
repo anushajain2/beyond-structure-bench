@@ -44,7 +44,7 @@ other materials; it does not establish rules that hold beyond them.
 * **By elimination, the large errors sit in the models' Grüneisen parameters, sometimes compounded by a soft bulk
   modulus.** Heat capacity, volume and bulk modulus are each compared with independent experimental values: heat
   capacity and volume are within 6 % everywhere. The models' γ is computed independently from phonons at three
-  volumes, and with C_V and K_T it rebuilds the model's own α to within 10–15 %. The experimental γ, however, is
+  volumes, and with C_V and K_T it rebuilds the model's own α to within 10–15 %, except Orb's Si (20 %). The experimental γ, however, is
   *inferred* from the measured α with the same relation, so the γ ratio is what remains once K, C_V and V are
   accounted for, not an independent measurement. The direct experimental checks on γ are a few mode values: TA(X) and
   TA(L) for Si, and TO(Γ) for GaAs and InP. All comparisons are with experiment; whether the errors are the models'
@@ -69,12 +69,17 @@ other materials; it does not establish rules that hold beyond them.
     GaAs).
   * **The Ta γ error is shared, in different sizes.** Orb's γ for Ta is 2.19 against 1.56 (+40 %), with K_T 14 % soft,
     giving +70 %. MACE's is 4.09, while MatterSim's (1.68) is close.
-  * **Si right by cancellation is shared too.** Like MACE, Orb has a γ that is too low (0.32; TA(X) −2.23) and a K_T that
-    is too soft (84 GPa), and still gets α within 4 %. Two of three models reach the right Si expansion through
-    compensating errors.
-  * **One candidate diagnostic already fails.** Orb's static K′ for Ta is normal (3.16, measured 3.07), yet its phonon γ
-    is 40 % too high. So K′ would have missed Orb's +70 % Ta error. This is a false negative for the K′ diagnostic of
-    section 6.
+  * **Orb's apparent Si accuracy is fragile.** Like MACE, Orb has a γ that is too low (0.32; TA(X) −2.23) and a K_T
+    that is too soft (84 GPa). But the two only partly compensate: the γ C_V/(K_T V) reconstruction gives 6.1, still
+    22 % below experiment. The full QHA reaches 7.6, within 4 %, only through a 20 % reconstruction residual, and the
+    volume-scan range moves it from 5.9 to 9.1. Compensating ingredient errors and numerical sensitivity together
+    leave Orb's Si unresolved. It is a caution, not a second clean case of cancellation; MACE's Si remains the clean one.
+  * **A counterexample to the K′ shortcut.** Orb's static K′ for Ta is normal (3.16, measured 3.07), yet its phonon γ
+    is 40 % too high, so K′ gives no warning of Orb's +70 % Ta error. The γ is robust to how the displacements are
+    generated and to the export (≤ 0.6 % in α, section 3). This is a counterexample on an additional model,
+    using the previously selected cases; it is not a validation set, and no decision threshold had been fixed. The
+    static properties are not reassuring either: Orb's bulk modulus for Ta is already 11–14 % soft. That hints at a
+    problem, but would explain only about 14 % of extra expansion, not 70 %.
 * **HfO₂ is the case where numerics and reference data matter as much as the model.** All three models give γ ≈ 1.46–1.47
   against 1.14 (+28 %), partly offset by a 6–9 % stiff K. But at 400–1500 K, α depends on how imaginary
   interpolation modes are treated (+16 to +25 %) and on the volume-scan range (±13 %). The experimental reference is
@@ -105,8 +110,10 @@ other materials; it does not establish rules that hold beyond them.
   decided before its results were seen: the volume grid (benchmark scan, narrower and wider scans, the imaginary-mode
   sensitivity), the Grüneisen split and the native-vs-export single points. The 0.03 Å and 14 Å checks were not run
   for Orb. Orb is not built to be exactly equivariant: its relaxed cells carry slightly broken symmetry, so phonopy
-  needs more displacements (Si 4–6 instead of 1; HfO₂ 72 per volume). That changes the cost, not the physics, since the
-  force constants are symmetrised. Orb's HfO₂ run was split across processes, a few volumes each, to stay within
+  needs more displacements (Si 4–6 instead of 1; HfO₂ 72 per volume). phonopy's displacement scheme also assumes that
+  symmetry-equivalent displacements give equivalent forces, which a non-equivariant model need not satisfy, and
+  symmetrising the force constants afterwards does not prove that harmless. This was tested on Ta, the key Orb case
+  (section 3): α changes by ≤ 0.6 %. Si and the other Orb cases were not tested this way. Orb's HfO₂ run was split across processes, a few volumes each, to stay within
   memory (`--chunk`). Orb's benchmark-wide thermal results (7 of 33 materials) still predate the Γ fix and are not
   used here.
 
@@ -150,9 +157,11 @@ The MatterSim export returns NaN for most primitive-cell frames (2–3 of the 3 
 differences cannot be formed. The maxima are over the frames that are finite. The MACE export is effectively exact, including
 in float32. Its "_32" suffix does not cost precision at the level phonons need. The mace-torch float64 vs float32
 comparison (not shown, in `agreement.csv`) is of the same size. Orb's export is less exact than MACE's. Forces differ
-by up to 5 meV/Å (HfO₂), but energies agree to ≤ 0.07 meV/atom and the displacement response to ≤ 0.3 %. That changes
-the force constants by about 0.3 % and the frequencies by about half that, far below the γ differences discussed
-below. **Conclusion: on these cases, the backends the benchmark used do not explain the thermal-expansion errors.**
+by up to 5 meV/Å (HfO₂), but energies agree to ≤ 0.07 meV/atom and the displacement response to ≤ 0.3 %. That is
+reassuring, but it does not rigorously bound the error in frequencies or γ. γ is a difference between volumes, and soft
+modes can amplify small force differences. For Orb's Ta, the key Orb case, γ and α were therefore also computed through
+the official package directly (section 3). **Conclusion: on these cases, the backends the benchmark used do not
+explain the thermal-expansion errors.**
 
 ## 2. A numerical defect: Γ-point acoustic modes in the free energy
 
@@ -285,6 +294,8 @@ The same checks, averaged over each material's pre-registered window:
 | orb-kups | Ta | 1.08 | 0.09 % | -0.23 | -68.78 | -0.156 | -0.232 |
 | orb-kups | HfO2 | 1.00 | 0.10 % | -1.14 | 38.14 | 0.000 | -0.162 |
 | orb-kups | HfO2 | 1.08 | 0.45 % | -1.76 | 27.37 | -0.049 | -0.685 |
+| orb-torch | Ta | 1.00 | 0.10 % | -0.25 | -52.99 | 0.000 | -0.224 |
+| orb-torch | Ta | 1.08 | 0.09 % | -0.23 | -68.80 | -0.154 | -0.231 |
 <!-- /table:imaginary -->
 
 In the other cubic cases, ≤ 0.02 % of mesh modes fall below zero, and keeping them changes F by < 0.001 meV/atom (full
@@ -294,6 +305,26 @@ explains). They grow with volume, so dropping them biases the volume dependence 
 (+6 % for MACE, −1 % for MatterSim) but adds +16 % (MatterSim) to +25 % (MACE) to the 400–1500 K window average. The
 14 Å (3×3×3) supercell, run for MatterSim, leaves α(300 K) within 2 % and the window within 1.4 %. So most of the
 window sensitivity comes from how the leftover artefacts are treated, not from truncating the force constants.
+
+**Orb: displacement handling and the official package.** Orb is not exactly equivariant. phonopy's default scheme uses
+the crystal's symmetry to compute forces for a few displacements and rebuilds the rest by rotation, so for Orb that
+assumption needs a test. For bcc Ta it rests on a single displacement per volume. The check reruns Orb's Ta three
+ways: with explicit ± displacements; with ± displacements and no symmetry reduction (x, y and z displaced separately,
+only the exact lattice translations used); and through the official `orb-models` package instead of the kUPS export.
+
+<!-- table:orb_checks -->
+| material | route | displacements per volume | α_V(300 K) | Δ vs benchmark route | window α_V | γ | K_T (GPa) | lowest mesh ν at V0 (THz) |
+|---|---|---|---|---|---|---|---|---|
+| Ta | kUPS export, phonopy symmetry reduction (benchmark) | 1 | 32.18 | — | 39.82 | 2.187 | 163.4 | -0.25 |
+| Ta | kUPS export, explicit ± displacements, symmetry reduction | 2 | 32.18 | -0.0 % | 39.84 | 2.187 | 163.4 | -0.25 |
+| Ta | kUPS export, explicit ± displacements, no symmetry reduction | 6 | 32.37 | +0.6 % | 39.38 | 2.194 | 163.3 | -0.25 |
+| Ta | official orb-models package, symmetry reduction | 1 | 32.14 | -0.1 % | 39.83 | 2.185 | 163.5 | -0.25 |
+<!-- /table:orb_checks -->
+
+Every route gives the same Ta physics to within 0.6 % in α(300 K) and 0.3 % in γ. Orb's Ta γ being 40 % too high (and
+so the K′ counterexample) does not come from symmetry reduction or from the export. The small imaginary mode
+(−0.25 THz) appears in every route, so it belongs to the model, not to the displacement scheme. The same check was not
+run for Orb's other materials; Si would be next, if a mechanistic claim about it were wanted.
 
 **Reading.** Displacement amplitude and supercell size are converged everywhere they were tested. Of the 14 Å checks,
 only MACE InP moved (+7 %; 5×5×5 vs 3×3×3, which is only just over 10 Å). The volume-scan range matters by up to 9 % at 300 K for
@@ -319,8 +350,8 @@ material and model:
   for HfO₂ (57.73 J K⁻¹ mol⁻¹ at 298.15 K, NIST ThermoML). Adiabatic moduli are converted to K_T, and C_p to C_V; both
   corrections are 0.3–3 %.
 
-The model's γ C_V/(K_T V) estimate reproduces its full QHA α to within 10 % (15 % for MatterSim Ta), so the model side
-of the split is self-consistent. On the experimental side γ is not measured but inferred from α_exp with the same
+The model's γ C_V/(K_T V) estimate reproduces its full QHA α to within 10 % (15 % for MatterSim Ta, 20 % for Orb Si),
+so the model side of the split is mostly self-consistent. On the experimental side γ is not measured but inferred from α_exp with the same
 relation. The γ ratio is therefore the part of the α error left after the independently checked C_V, K_T and V; the
 mode values below are the only direct experimental check on γ itself.
 The table gives both comparisons with experiment. *QHA α / exp* is the benchmark's actual error. *Reconstructed α / exp*
@@ -402,7 +433,7 @@ simple metals:
 The measured K₀′ of Ta is 3.07 ± 0.14 (Vinet fit to diamond-anvil-cell data; Dewaele, Loubeyre & Mezouar,
 arXiv:cond-mat/0403080). Their fit gives K₀ = 198 GPa, in line with the 194 GPa ultrasonic value. For MACE, K′
 and the phonon γ agree that Ta stiffens too fast. For Orb they disagree: K′ is normal while the phonon γ is 40 % too
-high. So K′ does not reliably flag a γ error (section 6).
+high. So K′ alone cannot certify a reliable thermal expansion (section 6).
 
 ## 5. Per-material conclusions
 
@@ -412,10 +443,10 @@ Errors at 300 K, Γ-fixed QHA, against the benchmark's experimental α_V.
 its γ is 21 % low. Its K_T is 11 % soft and its C_V 5 % high, and these offset the low γ. *MatterSim +84 %: model (γ and K).*
 Its TA modes are barely negative (TA(X) −0.64), so γ is 44 % high, and K_T is 17 % soft. Roughly two-thirds of the log-error
 is γ and one-third is K. The numerical part is small: the Γ-acoustic defect made one MatterSim rerun 8 % low (the published value is
-within 1 %), and the wider volume scan gives −9 % for MACE. *Orb −3 %: right, partly by cancellation, and not well
-determined.* Like MACE, Orb has strongly negative TA modes (TA(X) −2.23, TA(L) −1.68) and a γ 32 % low, offset by a K_T
-14 % soft. Its α moves by −22 % / +19 % with the volume-scan range, and the γ formula reconstructs only 80 % of its
-full-QHA α. Si's cancellation makes the split least reliable here.
+within 1 %), and the wider volume scan gives −9 % for MACE. *Orb −3 %: apparently right, but fragile and unresolved.*
+Like MACE, Orb has strongly negative TA modes (TA(X) −2.23, TA(L) −1.68) and a γ 32 % low. Its K_T is 14 % soft, which
+only partly offsets this: the reconstruction gives 6.1, 22 % below experiment. The full QHA's 7.6 depends on a 20 %
+reconstruction residual and moves by −22 % / +19 % with the volume-scan range. No mechanistic claim is made for Orb's Si.
 
 **GaAs.** *MACE +111 %: model, mostly γ.* γ is 1.77× too large, and roughly 80 % of the log-error is γ. The optical γ
 is right (1.38 vs 1.39); the acoustic branches are wrong. Only 3 % of modes have negative γ (Si and InP have 33 %), and
@@ -439,9 +470,10 @@ potential, not of the pipeline (the 14 Å supercell check was skipped; see Scope
 window passes the benchmark's volume check (it failed in the published run), but it has no experimental value to be
 graded against. *MatterSim −14 %:* all ingredients within 7 %. The
 residual sits mostly between the γ formula and the full QHA (18.7 vs 16.3), i.e. in the volume dependence of γ.
-*Orb +70 %: γ and K.* γ is 2.19 against 1.56 (+40 %) and K_T is 14 % soft (163 vs 190 GPa). γ carries roughly three
-quarters of the log-error. Unlike MACE, Orb's static K′ is normal (3.16), so the static energy-volume curve gives no
-warning. Orb's Ta also has a few imaginary mesh modes (0.09 %), which change α by 3 % in the sensitivity test.
+*Orb +70 %: γ and K.* γ is 2.19 against 1.56 (+40 %) and K_T is 14 % soft (163 vs 190 GPa). This is unchanged, to
+within 0.6 %, with explicit ± displacements, without symmetry reduction, and through the official package (section 3). γ carries roughly three
+quarters of the log-error. Unlike MACE, Orb's static K′ is normal (3.16), so K′ gives no warning. Its static bulk
+modulus is 11 % soft (171 vs 192 GPa), which hints at a problem but not at its size. Orb's Ta also has a few imaginary mesh modes (0.09 %), which change α by 3 % in the sensitivity test.
 
 **InP.** *MACE −12 %: γ too low.* MACE has strong negative TA modes (TA(X) −1.03, TA(L) −1.46), so γ is 23 % low.
 The experimental reference is the 300–910 K average recommended by Glazov et al. (4.19 × 10⁻⁶ K⁻¹ linear). The Ioffe
@@ -454,9 +486,10 @@ TA(L) −0.85) and γ is 17 % high; K_T is 23 % soft (55 vs 71 GPa). Roughly two
 is γ. With the Ioffe room-temperature reference, Orb's error would be about +35 %.
 
 **HfO₂.** *MACE +9 %, MatterSim +20 %, Orb +22 % at 300 K, all against a weak reference.* All three models give γ ≈
-1.46–1.47 against 1.14 (acoustic branches 2.1–3.3, optical 1.25–1.39). A 6–9 % stiff K partly offsets the high γ. That the
-three agree so closely on γ, while the reference is this uncertain, is itself a hint that the reference may be the weak
-point here. The reference
+1.46–1.47 against 1.14 (acoustic branches 2.1–3.3, optical 1.25–1.39). A 6–9 % stiff K partly offsets the high γ. The three
+predictions cluster closely, but that does not show where the discrepancy comes from. It could be the reference, a bias
+the models share, or the isotropic treatment. The models share this computational protocol and possibly correlated
+training data, and the experimental reference is uncertain. HfO₂ is a case that shows the limits of attribution. The reference
 α_V (16.9 × 10⁻⁶ K⁻¹) is a sum of TPRC axial interval means over 293–400 K (centred at 346 K; TPRC marks it provisional,
 ±10 %). The experimental K (185 ± 23 GPa) is uncertain by 12 %. Together these leave γ_exp uncertain by an indicative ±20 % or so, and only the
 direction (γ too high) is suggestive. The numerical part is large for HfO₂. The volume-scan range moves α(300 K) by −12 %
@@ -474,7 +507,9 @@ carry the errors, and the third model shows which failures are shared:
 * **The acoustic-branch γ of the semiconductors** is model-specific. MatterSim makes the negative-γ TA modes too weakly
   negative (or positive, for InP) and gets α too large. MACE makes them too strongly negative in Si and InP and too
   weakly negative in GaAs. Orb's are negative throughout, and close for GaAs and InP.
-* **Si's right answer is partly cancellation** for two of the three models (MACE, Orb): γ too low, K too soft.
+* **A right answer can hide wrong ingredients.** MACE's Si is right through cancellation: γ too low, K too soft. Orb's Si
+  looks right too, but its ingredients compensate only partly and its result is numerically fragile, so it stays
+  unresolved.
 * **Ta's γ is too high** in two of the three (MACE 4.09, Orb 2.19, against 1.56); MatterSim's is close.
 * **HfO₂'s γ** is the same in all three (≈ 1.46), 28 % above a weak reference.
 
@@ -494,8 +529,8 @@ cause (section 7).
    ones the models get right. Report missed failures, false alarms and the compute actually saved. The saving is
    smaller than it looks for the TA diagnostic: it still needs force constants at three volumes, about a third of a
    QHA. Only K′, from a static energy-volume curve, avoids phonons entirely, and it is the weaker signal, with no
-   reason to transfer from metals to semiconductors or oxides. The first out-of-sample test already shows the
-   weakness: Orb's Ta has a normal K′ but a γ 40 % too high, so K′ misses a +70 % error.
+   reason to transfer from metals to semiconductors or oxides. A counterexample on an additional model already shows
+   the weakness: Orb's Ta has a normal K′ but a γ 40 % too high, so K′ gives no warning of a +70 % error.
 
 ## 7. Limitations and open questions
 
@@ -507,10 +542,11 @@ cause (section 7).
 * **Case selection.** The six cases were picked around observed failures, with few controls. A follow-up should fix
   the cases in advance and include more materials the models get right.
 * **What the third model shows, and what it cannot.** Orb v3 shares some failures (soft semiconductor K with
-  MatterSim, too-high Ta γ with MACE, Si by cancellation with MACE) and avoids another (the wrong-signed semiconductor
+  MatterSim, too-high Ta γ with MACE) and avoids another (the wrong-signed semiconductor
   TA modes). Because all three models share this QHA pipeline, a shared failure does not identify PBE or the training
   data as the cause. An avoided failure shows only that it is avoidable here, not which design choice avoids it. Orb was
-  also run with fewer checks than MACE and MatterSim (no 0.03 Å or 14 Å runs).
+  also run with fewer checks than MACE and MatterSim (no 0.03 Å or 14 Å runs; the displacement-scheme and
+  official-package checks only for Ta).
 * **Disagreement as a warning.** More models add comparisons, but the evidence is still the materials tested. A
   disagreement rule should be validated on separate materials before the MCP tool relies on it.
 * **Prior work.** Harmonic phonons of universal potentials are already benchmarked extensively, and CHIPS-FF and
@@ -549,6 +585,8 @@ for v in grid disp03 sc14; do
 done
 PYTHONPATH=src .venv/bin/python $S phonons --backend orb-kups --variant grid --materials Si GaAs Cu Ta InP
 PYTHONPATH=src .venv/bin/python $S phonons --backend orb-kups --variant grid --materials HfO2 --chunk 3
+for v in pm nosym; do PYTHONPATH=src .venv/bin/python $S phonons --backend orb-kups --variant $v --materials Ta; done
+PYTHONPATH=src .venv-orb/bin/python $S phonons --backend orb-torch --variant grid --materials Ta
 for t in 1 2 3; do PYTHONPATH=src .venv-mattersim/bin/python $S determinism --backend mattersim-native --materials GaAs Si --tag $t; done
 PYTHONPATH=src .venv/bin/python $S analyze            # -> results/thermal_failure/*.csv, tables.md
 ```

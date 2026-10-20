@@ -89,6 +89,17 @@
 | orb-kups | Ta | 1.08 | 0.09 % | -0.23 | -68.78 | -0.156 | -0.232 |
 | orb-kups | HfO2 | 1.00 | 0.10 % | -1.14 | 38.14 | 0.000 | -0.162 |
 | orb-kups | HfO2 | 1.08 | 0.45 % | -1.76 | 27.37 | -0.049 | -0.685 |
+| orb-torch | Ta | 1.00 | 0.10 % | -0.25 | -52.99 | 0.000 | -0.224 |
+| orb-torch | Ta | 1.08 | 0.09 % | -0.23 | -68.80 | -0.154 | -0.231 |
+
+### orb_checks
+
+| material | route | displacements per volume | α_V(300 K) | Δ vs benchmark route | window α_V | γ | K_T (GPa) | lowest mesh ν at V0 (THz) |
+|---|---|---|---|---|---|---|---|---|
+| Ta | kUPS export, phonopy symmetry reduction (benchmark) | 1 | 32.18 | — | 39.82 | 2.187 | 163.4 | -0.25 |
+| Ta | kUPS export, explicit ± displacements, symmetry reduction | 2 | 32.18 | -0.0 % | 39.84 | 2.187 | 163.4 | -0.25 |
+| Ta | kUPS export, explicit ± displacements, no symmetry reduction | 6 | 32.37 | +0.6 % | 39.38 | 2.194 | 163.3 | -0.25 |
+| Ta | official orb-models package, symmetry reduction | 1 | 32.14 | -0.1 % | 39.83 | 2.185 | 163.5 | -0.25 |
 
 ### physics
 

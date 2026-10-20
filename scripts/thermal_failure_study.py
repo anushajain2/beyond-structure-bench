@@ -58,6 +58,10 @@ VARIANTS = {
     "grid": dict(scales=GRID_SCALES, width=10.0, disp=0.01),
     "disp03": dict(scales=BASE_SCALES, width=10.0, disp=0.03),
     "sc14": dict(scales=BASE_SCALES, width=14.0, disp=0.01),
+    # displacement handling, for models that are not exactly equivariant (Orb): explicit +/- displacements,
+    # with and without phonopy's symmetry reduction (without it, every atom is displaced along x, y and z)
+    "pm": dict(scales=GRID_SCALES, width=10.0, disp=0.01, plusminus=True),
+    "nosym": dict(scales=GRID_SCALES, width=10.0, disp=0.01, plusminus=True, symmetry=False),
 }
 # volume scans analysed (subsets of the computed volumes); "bench" is the published setting
 SCANS = {
@@ -247,8 +251,18 @@ def cmd_points(a):
 # --------------------------------------------------------------------------------------------
 # 2. phonon data for QHA (same steps as chipff.qha.run_qha, raw data kept)
 # --------------------------------------------------------------------------------------------
-def run_phonons(eng, prim: Atoms, scales, width, disp, q) -> dict:
-    from chipff.qha import _forces_batched, _make_phonopy, _supercell_reps
+def _phonopy(atoms: Atoms, reps, symmetry: bool = True):
+    from phonopy import Phonopy
+
+    from chipff.qha import _make_phonopy, _phonopy_atoms
+
+    if symmetry:
+        return _make_phonopy(atoms, reps)
+    return Phonopy(_phonopy_atoms(atoms), supercell_matrix=np.diag(reps), is_symmetry=False)
+
+
+def run_phonons(eng, prim: Atoms, scales, width, disp, q, plusminus="auto", symmetry=True) -> dict:
+    from chipff.qha import _forces_batched, _supercell_reps
 
     reps = _supercell_reps(prim, width)
     cells = []
@@ -264,8 +278,8 @@ def run_phonons(eng, prim: Atoms, scales, width, disp, q) -> dict:
                relax_fmax=np.array([r.fmax for r in rel]))
     forces, d_atoms, d_vecs = [], [], []
     for r in rel:
-        ph = _make_phonopy(r.atoms, reps)
-        ph.generate_displacements(distance=disp)
+        ph = _phonopy(r.atoms, reps, symmetry)
+        ph.generate_displacements(distance=disp, is_plusminus=plusminus)
         scs = [Atoms(symbols=sc.symbols, cell=sc.cell, scaled_positions=sc.scaled_positions, pbc=True)
                for sc in ph.supercells_with_displacements]
         ref = Atoms(symbols=ph.supercell.symbols, cell=ph.supercell.cell,
@@ -310,8 +324,10 @@ def cmd_phonons(a):
             continue
         eng = eng or make_engine(a.backend)
         t = time.time()
-        data = run_phonons(eng, relaxed_cell(family(a.backend), mid), scales, v["width"], v["disp"], q)
+        data = run_phonons(eng, relaxed_cell(family(a.backend), mid), scales, v["width"], v["disp"], q,
+                           v.get("plusminus", "auto"), v.get("symmetry", True))
         np.savez_compressed(f, width=v["width"], disp=v["disp"], wall_s=time.time() - t,
+                            symmetry=v.get("symmetry", True), plusminus=str(v.get("plusminus", "auto")),
                             versions=json.dumps(backend_versions(a.backend)), **data)
         log.info("%s %s %s: %d volumes x %s displacements, supercell %s, %.0f s", a.backend, mid, a.variant,
                  len(scales), sorted(set(data["n_disp"].tolist())), data["reps"].tolist(), time.time() - t)
@@ -406,10 +422,8 @@ def determinism_report():
 # --------------------------------------------------------------------------------------------
 def phonopy_at(d, i: int):
     """Phonopy object with symmetrised force constants for volume i of a saved dataset."""
-    from chipff.qha import _make_phonopy
-
     at = Atoms(numbers=d["numbers"], cell=d["cells"][i], scaled_positions=d["frac"][i], pbc=True)
-    ph = _make_phonopy(at, d["reps"].tolist())
+    ph = _phonopy(at, d["reps"].tolist(), bool(d.get("symmetry", True)))
     nsc = len(ph.supercell)
     ph.dataset = {"natom": nsc, "first_atoms": [{"number": int(n), "displacement": np.asarray(v)}
                                                  for n, v in zip(d[f"disp_atoms_{i}"], d[f"disp_vecs_{i}"])]}
@@ -602,7 +616,7 @@ def cmd_analyze(_a):
     q = cfg_qha()
     plan = thermal_plan(select(CASES))
     rows_conv, rows_phys, rows_imag = [], [], []
-    for backend in ("mace-kups", "mattersim-native", "orb-kups", "mace-torch"):
+    for backend in ("mace-kups", "mattersim-native", "orb-kups", "orb-torch", "mace-torch"):
         for mid in CASES:
             window = plan[mid].temperatures
             for variant in VARIANTS:
@@ -634,6 +648,8 @@ def cmd_analyze(_a):
                                               dF300_gamma_acoustic_meV_per_atom=float((Fd[j] - Fc[j]) / EV_TO_KJMOL * 1000 / len(d["numbers"])),
                                               dF300_imaginary_meV_per_atom=float((Fa[j] - Fc[j]) / EV_TO_KJMOL * 1000 / len(d["numbers"])),
                                               Fvib300_meV_per_atom=float(Fc[j] / EV_TO_KJMOL * 1000 / len(d["numbers"]))))
+                if variant in ("grid", "pm", "nosym"):
+                    i0 = list(np.round(d["scales"], 4)).index(1.0)
                     rb = qha_alpha(d, pv, T, BASE_SCALES, q, window, "clean")
                     gr = gruneisen(d, pv)
                     gr.update(special_point_gamma(pv, list(np.round(d["scales"], 4)), mid))
@@ -642,7 +658,9 @@ def cmd_analyze(_a):
                     kt = rb.get("KT300", np.nan)
                     a_est = gr["gamma"] * gr["cv_kB_per_atom"] * KB_EV / (kt / 160.21766208 * v_atom) * 1e6
                     ex = exp_gamma(mid)
-                    rows_phys.append(dict(backend=backend, material=mid, alpha300_qha=rb["alpha300"],
+                    rows_phys.append(dict(backend=backend, material=mid, variant=variant, alpha300_qha=rb["alpha300"],
+                                          alpha_win_qha=rb.get("alpha_win"), n_disp=int(d["n_disp"][i0]),
+                                          mesh_min_THz=float(pv[i0]["freqs"].min()),
                                           alpha300_from_gamma=a_est, KT300_GPa=kt, K0_static_GPa=rb.get("K0"),
                                           V300_A3_per_atom=v_atom, **gr,
                                           exp_alpha_V=ex["alpha_V"], exp_gamma=ex["gamma"], exp_KT_GPa=ex["KT"],
@@ -810,7 +828,29 @@ def tables() -> dict:
                          f"{_f(r['mesh_min_THz'], 2)} | {_f(r['Fvib300_meV_per_atom'], 2)} | {_f(r['dF300_gamma_acoustic_meV_per_atom'], 3)} | "
                          f"{_f(r['dF300_imaginary_meV_per_atom'], 3)} |")
         T["imaginary"] = L
-    ph = [r for r in _csv("physics") if r["backend"] in BACKENDS_SHOWN]
+    allph = _csv("physics")
+    ph = [r for r in allph if r["backend"] in BACKENDS_SHOWN and r.get("variant", "grid") in ("grid", "")]
+    checks = [r for r in allph if r["backend"].startswith("orb") and
+              (r["backend"] == "orb-torch" or r.get("variant") in ("pm", "nosym"))]
+    if checks:
+        route = {("orb-kups", "grid"): "kUPS export, phonopy symmetry reduction (benchmark)",
+                 ("orb-kups", "pm"): "kUPS export, explicit ± displacements, symmetry reduction",
+                 ("orb-kups", "nosym"): "kUPS export, explicit ± displacements, no symmetry reduction",
+                 ("orb-torch", "grid"): "official orb-models package, symmetry reduction"}
+        L = ["| material | route | displacements per volume | α_V(300 K) | Δ vs benchmark route | window α_V | γ | K_T (GPa) | lowest mesh ν at V0 (THz) |",
+             "|---|---|---|---|---|---|---|---|---|"]
+        for mid in CASES:
+            base = next((r for r in allph if r["backend"] == "orb-kups" and r["material"] == mid
+                         and r.get("variant") == "grid"), None)
+            rows = [r for r in checks if r["material"] == mid]
+            if base is None or not rows:
+                continue
+            for r in [base] + rows:
+                da = (float(r["alpha300_qha"]) / float(base["alpha300_qha"]) - 1) * 100
+                L.append(f"| {mid} | {route[(r['backend'], r.get('variant', 'grid'))]} | {r['n_disp']} | {_f(r['alpha300_qha'], 2)} | "
+                         f"{'—' if r is base else f'{da:+.1f} %'} | {_f(r['alpha_win_qha'], 2)} | {_f(r['gamma'], 3)} | "
+                         f"{_f(r['KT300_GPa'], 1)} | {_f(r['mesh_min_THz'], 2)} |")
+        T["orb_checks"] = L
     if ph:
         L = ["| model | material | α_V QHA | α_V reconstructed | α_V exp | **QHA α / exp** | reconstructed α / exp | reconstruction residual | γ model | γ inferred from exp | K_T model (GPa) | K_T exp | C_V model (k_B/atom) | C_V exp | V model (Å³/atom) | V exp | γ ratio | C_V ratio | 1/K ratio | 1/V ratio |",
              "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
@@ -850,8 +890,8 @@ def sync_doc(T: dict):
         return
     text = DOC.read_text()
     for name, lines in T.items():
-        pat = re.compile(rf"(<!-- table:{name} -->\n).*?(\n<!-- /table:{name} -->)", re.S)
-        text = pat.sub(lambda m: m.group(1) + "\n".join(lines) + m.group(2), text)
+        pat = re.compile(rf"(<!-- table:{name} -->\n).*?(<!-- /table:{name} -->)", re.S)
+        text = pat.sub(lambda m: m.group(1) + "\n".join(lines) + "\n" + m.group(2), text)
     DOC.write_text(text)
 
 
