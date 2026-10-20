@@ -1,0 +1,103 @@
+<!-- title: Evaluation design | How the comparisons in ChipFF Bench were constructed and interpreted: two references, several properties, coverage, when a ranking is supported, and what changed after results were seen. -->
+<article class="prose article">
+<p class="eyebrow">Evaluation design</p>
+<h1>How the comparisons were built, and how to read them</h1>
+<p class="standfirst">A benchmark's numbers are only as good as the decisions behind them. These are the
+questions that shaped this one, each with an example from the results.</p>
+
+<div class="table-wrap" style="margin:24px 0">
+<table>
+  <thead><tr><th>Scope</th><th>Published coverage in v1.0.0</th></tr></thead>
+  <tbody>
+    <tr><td>Static properties (lattice constant, bulk modulus)</td><td>Three models across the 33-material collection, with exclusions reported</td></tr>
+    <tr><td>Benchmark-wide thermal expansion</td><td>MACE-MPA-0 and MatterSim v1. Usable comparison counts depend on references and checks: 24 per model at 300 K, 17–18 over the temperature windows</td></tr>
+    <tr><td>Thermal-failure investigation</td><td>Three models on six selected materials</td></tr>
+    <tr><td>UMA</td><td>Not evaluated in this release</td></tr>
+  </tbody>
+</table>
+</div>
+
+<dl class="qa">
+<dt>Why compare with both DFT and experiment?</dt>
+<dd><p>They answer different questions. The comparison with DFT (Materials Project, PBE) asks whether a model learned
+what it was trained on. The comparison with experiment asks what someone using the model would actually get. A
+model can match DFT closely and still be off from experiment, because PBE itself makes crystals about 1 % too large
+and somewhat too soft.</p>
+<p>The data shows why both are needed. MatterSim reproduces PBE bulk moduli most closely (5.4 % against 9.9 % for
+MACE), yet against experiment the benchmark cannot tell the two apart. The comparison with DFT is also an
+in-distribution test, since all three models were trained on DFT data that very likely includes these materials.
+That is why experiment is the primary reference.</p></dd>
+
+<dt>Why several properties instead of one score?</dt>
+<dd><p>Because models fail differently on different properties, and a single score would hide that. The same models
+that reproduce lattice constants to under 1 % miss thermal expansion by 70–180 % on some materials. And the errors
+behave differently: lattice-constant errors are strongly shared between models (correlation 0.83–0.95), consistent
+with a common bias in the training reference, while thermal-expansion errors are only weakly shared. That is why
+averaging two models helps for thermal expansion and does nothing for lattice constants.</p></dd>
+
+<dt>Why report coverage alongside accuracy?</dt>
+<dd><p>An average error covers only the cases that worked. Orb v3 relaxes rutile TiO₂, cubic SrTiO₃ and MoS₂ into
+different crystal forms. Leaving those out of its lattice average is right, since the numbers are not comparable,
+but it means Orb's average describes 30 materials, not 33. Similarly, MatterSim predicts a mechanically unstable
+elastic tensor for titanium, and two or three crystals per model are dynamically unstable in the thermal-expansion
+calculation. Each of these is counted in <code>results/coverage.csv</code>, and every excluded result in the
+<a href="explore.html">explorer</a> says why it was excluded.</p></dd>
+
+<dt>When does the evidence support a ranking?</dt>
+<dd><p>Only when the difference survives the uncertainty. Each average comes from 17 to 30 materials, so it is
+reported with a 95 % interval from a bootstrap over materials, with each experimental reference also perturbed by its
+typical uncertainty. Two models are compared with a paired bootstrap on the materials both have.</p>
+<p>Against experiment, no difference between the models is resolved for any property. For bulk modulus, MACE minus
+Orb is −0.6 percentage points, with an interval of −4.8 to +3.7. That is not evidence that the models are equally
+good: with this many materials, differences below about 3–5 points would go undetected. Within material classes,
+where there are only 4–9 materials, the comparisons are corrected for multiple testing (Holm–Bonferroni), and none
+survives. The explorer therefore labels the best number in a comparison as the "lowest observed error", never as a
+recommendation.</p></dd>
+
+<dt>How were numerical and implementation failures investigated?</dt>
+<dd><p>With checks that run on every model whatever its results look like, because errors that make results look
+better are less likely to be noticed. Three examples:</p>
+<ul>
+<li><strong>Invariance:</strong> a structure's energy must not depend on what else is in its batch or on the order of
+its atoms. MatterSim's kUPS export failed this, and is not used.</li>
+<li><strong>Consistency:</strong> the stress a model reports must equal the derivative of its own energy. This caught
+two frame-convention bugs in this project's own stress code before any result was published.</li>
+<li><strong>Determinism:</strong> rerunning a calculation must give the same answer. That exposed the Γ-mode defect
+in the phonon step, which made repeated runs scatter by up to ±8 %.</li>
+</ul>
+<p>Molecular dynamics, the originally planned route to thermal expansion, was checked the same way. A run at fixed
+volume showed kUPS's isotropic barostat holding the pressure about 0.8 GPa below its target for copper at 650 K,
+which would bias thermal expansion, so the quasi-harmonic method was used instead.</p></dd>
+
+<dt>What was fixed before results, and what changed afterwards?</dt>
+<dd><p>The grading thresholds (lattice good ≤ 1 %, okay ≤ 3 %; bulk modulus 10 % and 25 %; thermal expansion
+20 % and 40 %), the experimental references and the temperature-window rule were fixed before any model result was
+compared with them. Every later change is dated and explained in the configuration file:</p>
+<ul>
+<li>Before any thermal result existed: the lower temperature bound, the MD run lengths, and the switch from MD to the
+quasi-harmonic method.</li>
+<li>After a first quasi-harmonic pass, from phonon diagnostics only: how dynamical stability is judged.</li>
+<li>After results had been compared with experiment, as a bug fix rather than a tuning: excluding the Γ-point acoustic
+modes. The 300 K comparison was also added after the first pass, as a secondary measure; the window average remains
+the pre-registered one.</li>
+<li>Four quality-control rules for static properties were added after the first static results were inspected, for
+example excluding structures that change crystal form. They apply identically to every model and every excluded case
+is reported.</li>
+</ul>
+<p>The six cases in the thermal-failure study were chosen after the failures were seen, so that study explains those
+cases; it is not a test of general rules.</p></dd>
+
+<dt>What is measured, and what is inferred?</dt>
+<dd><p>Lattice constants, bulk moduli and thermal-expansion coefficients are compared with measured values, each stored
+with its source and a short quote. Some references are derived from measurements, such as a bulk modulus averaged
+from published elastic constants, and are labelled as derived. In the thermal-failure study the experimental
+Grüneisen parameter is <em>inferred</em> from the measured expansion, stiffness and heat capacity, so it is not an
+independent check; only a few mode-resolved values are measured directly.</p></dd>
+
+<dt>How can someone reproduce the exact comparison?</dt>
+<dd><p>Every stored result carries a fingerprint of the code, settings and inputs that produced it, and the analysis
+refuses to mix results from different versions. The exact package versions and the checksum of every model file are
+committed, so a rerun can be checked against what was published. Three routes, from reading the results to rerunning
+a calculation, are on the <a href="reproduce.html">Reproduce page</a>.</p></dd>
+</dl>
+</article>

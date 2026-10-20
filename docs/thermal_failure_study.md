@@ -106,8 +106,8 @@ volume-scan ranges; Orb's Si spans −25 % to +15 %.*
   benchmark used) and through its kUPS tojax export (excluded from the benchmark; contrast only). Orb v3
   (conservative, OMat) through the CuspAI tojax export in kUPS (what the benchmark uses) and through the official
   `orb-models` 0.7.0 package in float64.
-* **Skipped by the user's decision on compute time:** the 14 Å supercell check for MACE on HfO₂, Cu and Ta (the user
-  approved a reduced ~45 min run instead of the full ~2 h one). The 14 Å check was run for every other case (MACE Si,
+* **Not run, to limit compute time:** the 14 Å supercell check for MACE on HfO₂, Cu and Ta (it would have roughly
+  tripled the study's run time, to about 2 h on a laptop CPU). The 14 Å check was run for every other case (MACE Si,
   GaAs, InP; MatterSim all six). For MACE Cu and Ta, the 0.03 Å displacement and volume-scan checks were run and moved
   α by ≤ 1 % at 300 K. A full QHA through `mace-torch` was not run either: the single-point agreement
   (0.04 % in the displacement response) makes it redundant. The MatterSim export was compared on single points only,
@@ -255,8 +255,8 @@ thermal properties and is for testing only.
 <!-- /table:convergence -->
 
 † V(T) leaves the stable scanned range inside the material's window (the benchmark's "volume inside scan" check fails).
-The 300 K value is unaffected, but the window average is not usable. "skipped": not run, by the user's decision on
-compute time (see Scope).
+The 300 K value is unaffected, but the window average is not usable. "skipped": not run, to limit compute time
+(see Scope).
 
 The same checks, averaged over each material's pre-registered window:
 

@@ -1,0 +1,36 @@
+<!-- title: Explore the evidence | Look up any material and property: each model's value, the experimental reference with its source, the error, and why a result is missing. -->
+<div class="wrap explorer">
+  <p class="eyebrow">Explore the evidence</p>
+  <h1 class="section-title" style="font-size:34px">One material, one property, every model</h1>
+  <p class="section-lead">Pick a material and a property to see each model's value next to the reference, the error,
+  its source, the checks it passed and, when a result is missing, why. Everything here is read from the committed
+  results of release v1.0.0; nothing is computed in your browser.</p>
+  <form class="controls" onsubmit="return false" aria-label="Choose what to inspect">
+    <div class="control">
+      <label for="material">Material</label>
+      <select id="material"></select>
+    </div>
+    <fieldset class="control">
+      <legend>Property</legend>
+      <div class="seg">
+        <input type="radio" name="prop" id="p-lat" value="lattice"><label for="p-lat">Lattice</label>
+        <input type="radio" name="prop" id="p-bulk" value="bulk_modulus"><label for="p-bulk">Bulk modulus</label>
+        <input type="radio" name="prop" id="p-th" value="thermal_expansion"><label for="p-th">Expansion</label>
+      </div>
+    </fieldset>
+    <fieldset class="control">
+      <legend>Thermal comparison <span id="cmp-hint" class="muted" style="font-weight:400"></span></legend>
+      <div class="seg">
+        <input type="radio" name="cmp" id="c-300" value="300K"><label for="c-300">At 300 K</label>
+        <input type="radio" name="cmp" id="c-win" value="window"><label for="c-win">Window</label>
+      </div>
+    </fieldset>
+  </form>
+  <p class="examples">Try:
+    <button type="button" data-example="Ta/thermal_expansion/300K">tantalum, expansion at 300 K</button> ·
+    <button type="button" data-example="Si/thermal_expansion/300K">silicon, expansion at 300 K</button> ·
+    <button type="button" data-example="SrTiO3/thermal_expansion/300K">SrTiO₃, an excluded case</button> ·
+    <button type="button" data-example="graphite/lattice">graphite, lattice</button></p>
+  <div id="explorer-out" aria-live="polite"><p class="empty">Loading the evidence…</p></div>
+</div>
+<script src="assets/explore.js"></script>

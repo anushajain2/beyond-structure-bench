@@ -1,0 +1,73 @@
+<!-- title: How it was built | The product decisions behind ChipFF Bench: who it is for, what it shows and leaves out, how failures were caught, and what changed after an outside review. -->
+<article class="prose article">
+<p class="eyebrow">How it was built</p>
+<h1>Building a tool for deciding whether to trust a simulation</h1>
+<p class="standfirst">The benchmark and the study are the evidence. This page is about the product decisions:
+who the evidence is for, what it shows, what it deliberately leaves out, and what changed along the way.</p>
+
+<h2>The user and the question</h2>
+<p>The person this is for is a researcher or engineer about to rely on a number from an AI force field: the
+lattice mismatch between two layers, a candidate barrier's stiffness, how much a film will expand during an anneal.
+Their question is narrow and practical: <em>for this material and this property, how far off is this model likely to
+be, and how do I know?</em></p>
+<p>What existed answered a different question. Leaderboards rank models with one score over many materials, and most
+benchmarks compare models with the DFT data they were trained on. Neither tells you how far off a model is from
+experiment for the material in front of you, or what to do when no comparison exists.</p>
+
+<h2>Decisions</h2>
+<ol>
+<li><strong>Show evidence, not recommendations.</strong> The explorer shows each model's value, the reference and its
+source, and the error, for one material at a time. The best number is labelled "lowest observed error in this
+comparison" because the benchmark cannot statistically separate the models, and saying "use model X" would claim more
+than the data supports.</li>
+<li><strong>Make missing results explain themselves.</strong> Every empty cell carries a reason: excluded because the
+model changed the crystal form, dynamically unstable, no experimental reference, the method breaks down at that
+temperature, or not computed in this release. Coverage is reported next to accuracy for the same reason.</li>
+<li><strong>Keep two references side by side.</strong> DFT answers "did the model learn its training data?" and
+experiment answers "what will I actually get?". Showing both is what reveals that closer agreement with DFT does not
+mean closer agreement with experiment.</li>
+<li><strong>Fix the rules before seeing the results.</strong> Grading thresholds, references and temperature windows
+were set before any comparison, and every later change is dated in the configuration with its reason. That makes the
+grades hard to tune, even unintentionally.</li>
+<li><strong>No live inference on the site.</strong> Everything you can explore is read from committed results, so it
+loads instantly, needs no GPU or API key, and shows exactly what was published. Rerunning is a separate,
+documented path.</li>
+<li><strong>Offer only the inputs the evidence supports.</strong> Thermal expansion can be explored at 300 K or over each
+material's pre-registered window, not at an arbitrary temperature, because there is no evidence at arbitrary
+temperatures.</li>
+</ol>
+
+<h2>What I cut</h2>
+<p>A universal "best model" score; more models and materials added only to raise the count; a chat interface; a
+temperature slider; and calibrated uncertainty claims. Two models' disagreement does weakly track their error for
+thermal expansion, but its confidence interval reaches zero, so it is shown as an exploratory signal rather than built
+into a feature. The molecular-dynamics route to thermal expansion was cut too, after a cross-check showed a barostat
+bias, and the quasi-harmonic method replaced it.</p>
+
+<h2>Catching failures</h2>
+<p>The most useful engineering decision was to run checks on every model whatever its results looked like. They
+caught four problems, two of them in the toolchain and two in this project's own code:</p>
+<ul>
+<li>a model export whose energy depends on the order of its input (invariance check);</li>
+<li>a barostat that holds the pressure off its target (a fixed-volume cross-check);</li>
+<li>two frame-convention errors in my stress code (stress against the energy's own derivative);</li>
+<li>a free-energy defect that made repeated phonon runs disagree by up to 8 % (determinism check).</li>
+</ul>
+<p>Each is documented with a reproducer. The two toolkit findings are written up for the kUPS developers.</p>
+
+<h2>Feedback changed the product</h2>
+<p>An outside review of an earlier version found real problems, and they were fixed rather than argued with. The agent
+interface, an MCP server that lets an AI assistant query the benchmark, used an excluded model export by default,
+ignored the temperature it was asked about, and described errors outside the tested range as a "lower bound" without
+basis. It now uses each model's correct backend, matches the comparison to the temperature, says plainly when there is
+no evidence, and returns the evidence behind every ranking. The review also led to softer wording where the
+statistics did not support a claim ("not resolved" instead of "tied"), a coverage table, pinned package versions and
+model checksums, and an explicit comparison with the two closest published benchmarks.</p>
+
+<h2>What's next</h2>
+<p>Orb v3's benchmark-wide thermal expansion with the corrected method; UMA once its licence is granted; and the two
+toolkit issues, once they have been reviewed. The six-case study leaves two cases open, Orb's silicon and HfO₂, and
+they stay open until there is evidence to close them.</p>
+<p><a href="explore.html">Try the explorer</a> · <a href="study.html">Read the study</a> ·
+<a href="https://github.com/anushajain2/chipff-bench">See the code</a></p>
+</article>

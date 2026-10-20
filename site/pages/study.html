@@ -1,0 +1,200 @@
+<!-- title: A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models | Why universal machine-learned force fields that get a crystal's structure right can still badly mispredict how it expands, and how six cases were narrowed down. -->
+<article class="prose article">
+<p class="eyebrow">The study · release v1.0.0 · 20 October 2026</p>
+<h1>A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models</h1>
+<p class="standfirst">Three widely used AI force fields reproduce the size of chip-material crystals to within
+1 %, then miss how much some of them expand on heating by 70–180 %. This is an account of how six of those
+failures were traced: first ruling out the software and the numerics, then splitting the error into its
+physical ingredients.</p>
+<p class="byline">Anusha Jain</p>
+
+<nav class="toc" aria-label="Contents"><strong>Contents</strong><ol>
+  <li><a href="#puzzle">A puzzle in tantalum</a></li>
+  <li><a href="#why">Why thermal expansion matters</a></li>
+  <li><a href="#what">What was evaluated</a></li>
+  <li><a href="#explanations">Ruling out the workflow</a></li>
+  <li><a href="#ingredients">The physical ingredients</a></li>
+  <li><a href="#shortcut">A shortcut that failed</a></li>
+  <li><a href="#unresolved">What remains unresolved</a></li>
+  <li><a href="#use">What to take from it</a></li>
+</ol></nav>
+
+<h2 id="puzzle">A puzzle in tantalum</h2>
+<p>Tantalum is one of the metals in a chip's wiring: thin tantalum and tantalum-nitride layers line the copper
+interconnects and stop copper from diffusing into the insulator around it. Ask MACE-MPA-0, a widely used AI force
+field, about bulk tantalum and its first answers are excellent. The lattice it relaxes to is within 0.4 % of the
+measured one. Its bulk modulus, a measure of how hard the crystal is to compress, is within 6 %.</p>
+<p>Then ask how much tantalum expands when it is heated. At room temperature MACE predicts a volumetric expansion
+coefficient of 53 × 10⁻⁶ per kelvin. The measured value is 19 × 10⁻⁶. The model expands tantalum 2.8 times too
+much.</p>
+<p>This is not an isolated case. Across a benchmark of 33 chip materials, the same model overshoots several other
+metals, while a different model, MatterSim, gets tantalum nearly right but overshoots silicon by 85 % and indium
+phosphide by 119 %. A model can get a crystal's structure and stiffness right and still badly mispredict how it
+expands. Why? And is the failure in the model, or in how it was run?</p>
+
+<h2 id="why">Why thermal expansion matters</h2>
+<p>A chip is a stack of thin layers of very different materials: silicon or compound-semiconductor channels, oxide
+insulators, metal wiring, barrier and contact layers. During manufacturing the stack is heated, often to several
+hundred degrees, and it heats up again in use. Neighbouring materials that expand by different amounts strain each
+other, and enough strain cracks, peels or bends a film.</p>
+<p>Simulation is increasingly used to screen candidate materials before anyone makes them, so how far a force
+field's thermal expansion can be trusted matters. One caution: this study computes the expansion of perfect bulk
+crystals. That is an ingredient of how a film stack behaves, not a prediction of it. Real layers are thin, often
+polycrystalline, and have interfaces and defects.</p>
+
+<h2 id="what">What was evaluated</h2>
+<p>Two pieces of work feed this article, and they should be kept apart.</p>
+<p><strong>The benchmark</strong> tests MACE-MPA-0, Orb v3 and MatterSim v1 on 33 materials in five classes,
+for lattice constant, bulk modulus and thermal expansion. Every result is compared with an experimental value,
+each stored with its source and a short quote, and where possible with the DFT value the models were trained to
+reproduce. Grading thresholds were fixed before any comparison was made. Thermal expansion is computed in the
+quasi-harmonic approximation: the crystal's vibration frequencies are computed at nine volumes, and the volume
+that minimises the free energy at each temperature gives the expansion. Benchmark-wide thermal results exist for
+MACE and MatterSim (24 graded materials each at 300 K). Their average errors are 34.5 % and 28.7 %, and the
+benchmark cannot tell the two apart on average. They fail in different places.</p>
+<p><strong>The six-case study</strong> takes Si, GaAs, InP, Cu, Ta and monoclinic HfO₂ and asks what causes each
+error. These cases were chosen <em>after</em> the benchmark had shown where the models fail, with copper as the
+case that works for everyone. So the study explains these cases; it does not establish rules that hold beyond
+them. Orb v3 was added afterwards as a third model on the same six materials, with its settings fixed before its
+results were seen.</p>
+
+<figure>
+  <div class="fig-frame"><img src="figures/study_errors.png" width="1239" height="694" loading="lazy"
+    alt="Thermal-expansion error at 300 K for six materials and three models; the largest are MACE on tantalum (about +180 %), MatterSim on indium phosphide (about +120 %) and MACE on gallium arsenide (about +110 %)."></div>
+  <figcaption>Figure 1. Thermal-expansion error at 300 K in the six cases. The bar behind each point is the spread
+  across three volume-scan settings: a sensitivity range, not a confidence interval. *MatterSim runs through its
+  official package.</figcaption>
+</figure>
+
+<h2 id="explanations">Ruling out the workflow</h2>
+<p>A large error has three kinds of possible cause: the software that runs the model, the numerical method that
+turns the model's forces into an expansion coefficient, and the model itself. The first two had to be ruled out
+before blaming the third.</p>
+
+<h3>Is it the software?</h3>
+<p>The benchmark runs MACE and Orb through CuspAI's open-source kUPS toolkit, using exported versions of the
+models. If an export changed a model's behaviour, the error would belong to the export. So identical structures,
+including the slightly displaced atoms a phonon calculation uses, were sent both through kUPS and through each
+model's official package. For MACE the two agree to 0.01 meV per atom in energy, and the force response to a
+displaced atom agrees to 0.04 %. For Orb it agrees to 0.3 %. The software is not the cause.</p>
+<p>The same check had already disqualified one export. MatterSim's kUPS export returns energies that change when
+the same atoms are listed in a different order, returns no number at all for some small cells, and is off from
+the official package by up to 0.7 eV per atom. MatterSim is therefore run through Microsoft's own package
+throughout, and marked with an asterisk in every figure.</p>
+
+<h3>Is it the numerics?</h3>
+<p>Here the investigation found a real bug, in this project's own code. In a phonon calculation the three
+acoustic vibrations at the centre of the Brillouin zone should have exactly zero frequency. Numerically they come
+out at about 10⁻⁷ THz with a random sign, and the free-energy code counted them whenever the sign happened to be
+positive. That added small random jumps between volumes. The effect only became visible when the same MatterSim
+calculation for GaAs gave 28.5, 29.9 and 28.7 in three fresh runs. With those modes excluded, the runs agree to
+0.1 %. The fix moved the published room-temperature values by a median of 0.7 % and at most 4 %, so it explains none of
+the large errors, but every number here comes from the corrected run.</p>
+<p>The other numerical settings were then varied one at a time. A three times larger atomic displacement and a
+14 Å supercell change the room-temperature expansion by 2 % or less, with one exception at 7 %. The range of
+volumes scanned changes it by up to 9 % for silicon and 12 % for HfO₂. Putting back the unstable modes that the
+phonon code leaves out changes it by 1 % or less, except for HfO₂. None of this comes near errors of 70–180 %. Not
+every check was run for every case, to limit compute time, and the study lists which.</p>
+
+<h2 id="ingredients">The physical ingredients</h2>
+<p>With the workflow ruled out, the error belongs to the models. To see which part of a model is wrong, the
+expansion can be written as a product of four physical quantities:</p>
+<p class="equation">α<sub>V</sub> ≈ γ C<sub>V</sub> / (K<sub>T</sub> V)</p>
+<ul>
+  <li><strong>γ, the Grüneisen parameter,</strong> describes how strongly the crystal's vibration frequencies drop
+  as it expands. It is the main measure of the anharmonicity that drives expansion.</li>
+  <li><strong>C<sub>V</sub>, the heat capacity,</strong> is how much vibrational energy the crystal holds at a
+  given temperature.</li>
+  <li><strong>K<sub>T</sub>, the bulk modulus,</strong> is the stiffness: a softer crystal expands more for the
+  same push.</li>
+  <li><strong>V</strong> is the volume per atom.</li>
+</ul>
+<p>Each ingredient was computed from the model and compared with experiment. Because the terms multiply, each
+model's error splits into a factor per ingredient (Figure 2).</p>
+
+<figure>
+  <div class="fig-frame"><img src="figures/study_ingredients.png" width="1443" height="1117" loading="lazy"
+    alt="For each material and model, the factor each ingredient contributes to the thermal-expansion error, on a logarithmic scale. The Grüneisen parameter dominates the largest errors: MACE on tantalum and GaAs, MatterSim on silicon and InP."></div>
+  <figcaption>Figure 2. How each ingredient multiplies the predicted expansion relative to experiment (log scale;
+  segments multiply). The black diamond is the full quasi-harmonic error; the hatched segment is what the
+  four-ingredient reconstruction leaves unexplained.</figcaption>
+</figure>
+
+<p>Heat capacity and volume are within 6 % of experiment in every case, so they cannot explain large errors. The
+action is in γ and, for some materials, in the stiffness.</p>
+<ul>
+  <li><strong>MACE on tantalum:</strong> γ is 4.1 against 1.56. That alone accounts for the 2.8-fold error. Every
+  vibration mode of MACE's tantalum has γ of at least 2.1, above the measured average.</li>
+  <li><strong>The semiconductors</strong> (MACE on GaAs; MatterSim on Si, GaAs and InP) fail more subtly. Their
+  optical vibrations are right, with γ within 5 % of measured values. The problem is in the acoustic branches.
+  In these crystals, some shear vibrations at the edge of the Brillouin zone (short-wavelength transverse acoustic
+  modes) soften as the crystal expands. That gives them a negative γ, which partly cancels the expansion. MatterSim's are barely negative (silicon −0.64, against −1.4
+  measured) or even positive (InP), so the cancellation is lost. On top of that, MatterSim's semiconductors are
+  17–29 % too soft.</li>
+  <li><strong>MACE gets silicon right partly by luck:</strong> its γ is 21 % too low and its bulk modulus 11 %
+  too soft, and the two errors largely cancel.</li>
+  <li><strong>Orb separates shared failures from model-specific ones.</strong> Its acoustic modes in the
+  semiconductors are clearly negative, as they should be. Its overshoots there (+25 % for GaAs, +48 % for InP) come
+  mostly from a bulk modulus 22–25 % too soft, the same softness MatterSim shows. A too-high γ for tantalum,
+  meanwhile, is shared with MACE in a smaller form: Orb's γ is 40 % too high, MACE's 160 %.</li>
+</ul>
+
+<div class="callout"><p><strong>An honest limit on these numbers.</strong> The experimental γ is not measured
+directly. It is inferred from the measured expansion, stiffness and heat capacity using the same relation. So a γ
+ratio says what is left over once stiffness, heat capacity and volume are accounted for. The direct checks on γ are
+a handful of measured mode values: two acoustic modes in silicon and an optical mode in GaAs and InP. Whether the
+errors are the models' own or inherited from the DFT data they learned from is not tested here.</p></div>
+
+<h2 id="shortcut">A shortcut that failed</h2>
+<p>Phonon calculations are expensive. A static equation of state, the energy at a few compressed and expanded
+volumes, is cheap, and a classic relation due to Slater links its pressure derivative K′ to γ: roughly
+γ ≈ K′/2 − 1/6. MACE's tantalum fits that story. Its K′ is 7.7 against a measured 3.1, an equation of state that
+stiffens far too fast under compression, consistent with its huge γ. It is tempting to screen models this way and
+skip the phonons.</p>
+
+<figure>
+  <div class="fig-frame"><img src="figures/study_kprime.png" width="1002" height="705" loading="lazy"
+    alt="Static K-prime against phonon Grüneisen parameter for copper and tantalum in three models. MACE's tantalum lies far up and right; Orb's tantalum has a normal K-prime of about 3.2 but a Grüneisen parameter of 2.2, well above the experimental 1.56."></div>
+  <figcaption>Figure 3. Static K′ against the phonon γ for the two metals. The dashed line is Slater's relation.
+  Orb's tantalum (square, left) has a normal K′ but a γ 40 % above experiment.</figcaption>
+</figure>
+
+<p>Orb breaks the shortcut. Its K′ for tantalum is 3.16, almost exactly the measured 3.07, yet its phonon γ is
+40 % too high and its expansion 70 % too large. The γ does not depend on how the displacements were generated or
+on the export. The static properties are not fully reassuring either, since Orb's bulk modulus for tantalum is
+11–14 % soft, but that would explain only about 12–16 % of extra expansion, not 70 %. This is one counterexample,
+on cases already selected, not a validation. It is enough to say that a normal static equation of state does not
+certify a model's thermal expansion.</p>
+
+<h2 id="unresolved">What remains unresolved</h2>
+<p>Two cases do not resolve cleanly, and it is more useful to say so than to force an explanation.</p>
+<p><strong>Orb's silicon</strong> lands within 4 % of experiment, but not for a robust reason. Like MACE, Orb's γ
+is too low and its stiffness too soft. These compensate only partly: the four-ingredient reconstruction is still
+22 % low, and the full calculation reaches the right answer only through a 20 % residual. Changing the volume range
+moves the result from 5.9 to 9.1. A correct number built on shifting ground is a caution, not a success.</p>
+<p><strong>HfO₂,</strong> the high-k gate oxide, shows all three models with a γ about 28 % too high, partly offset by
+a 6–9 % stiff bulk modulus. But at 400–1500 K its expansion depends on how unstable interpolated vibrations are
+treated (+16 to +25 %) and on the volume range (±13 %), and the experimental reference is a provisional compilation.
+For HfO₂, method and reference uncertainty are as large as the model error.</p>
+
+<h2 id="use">What to take from it</h2>
+<p><strong>For anyone using these models:</strong> structural accuracy does not certify thermal properties. If
+expansion matters, compute it, ideally with more than one model, and look at the stiffness and the Grüneisen
+parameter rather than only the final number. In the benchmark, the average of two models was more accurate than
+either, and their disagreement weakly tracked the error. That is an exploratory signal, not a calibrated
+uncertainty.</p>
+<p><strong>For anyone building or benchmarking models:</strong> the large errors here sit in how vibration
+frequencies change with volume, a property that training on energies and forces near equilibrium constrains only
+indirectly. That is a hypothesis to test on other materials, not a conclusion from six cases.</p>
+<p><strong>For anyone running simulation workflows:</strong> two of the four suspects were real. An export changed
+a model's behaviour, and this project's own post-processing added noise until a determinism check exposed it. Checks
+that run whether or not a result looks wrong are what caught both.</p>
+<div class="callout">
+<p><strong>Go further.</strong> <a href="explore.html#m=Ta&amp;p=thermal_expansion&amp;c=300K">Inspect tantalum
+and every other material in the explorer</a>, read the
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/thermal_failure_study.md">full technical
+write-up</a> with every table, or download the raw phonon data in
+<a href="https://github.com/anushajain2/chipff-bench/tree/v1.0.0/results/thermal_failure"><code>results/thermal_failure/</code></a>.
+The study reruns with <code>python scripts/thermal_failure_study.py</code> (<a href="reproduce.html">details</a>).</p>
+</div>
+</article>

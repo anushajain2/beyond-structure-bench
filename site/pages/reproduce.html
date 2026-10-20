@@ -1,0 +1,110 @@
+<!-- title: Methods and reproduction | Three ways to check ChipFF Bench: read the published results, rebuild every table and figure from committed data, or rerun a calculation. Methods, environments, checksums and sources. -->
+<article class="prose article">
+<p class="eyebrow">Methods and reproduction</p>
+<h1>Read it, reanalyse it, or run it</h1>
+<p class="standfirst">Three routes, depending on how far you want to check. Every published number comes from
+committed files in the <a href="https://github.com/anushajain2/chipff-bench/tree/v1.0.0">v1.0.0 release</a>.</p>
+
+<div class="table-wrap" style="margin:22px 0">
+<table>
+  <thead><tr><th>Route</th><th>Your goal</th><th>What you need</th></tr></thead>
+  <tbody>
+    <tr><td><a href="#read">Read</a></td><td>See the results and download them</td><td>A browser</td></tr>
+    <tr><td><a href="#reanalyse">Reanalyse</a></td><td>Rebuild every table and figure from the stored raw results</td><td>Python 3.12, a few minutes</td></tr>
+    <tr><td><a href="#run">Run</a></td><td>Recompute a result for one model and one material</td><td>Python 3.12, about two minutes on a laptop CPU</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="read">Read</h2>
+<ul>
+<li>The <a href="explore.html">evidence explorer</a> shows any material and property.</li>
+<li>Merged tables: <a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/results/lattice.csv">lattice.csv</a>,
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/results/bulk_modulus.csv">bulk_modulus.csv</a>,
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/results/thermal_expansion.csv">thermal_expansion.csv</a>,
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/results/coverage.csv">coverage.csv</a>, and everything at once in
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/results/summary.json">summary.json</a>.</li>
+<li>Raw results per model and step in <a href="https://github.com/anushajain2/chipff-bench/tree/v1.0.0/results/raw">results/raw/</a>;
+the six-case study's phonon data in <a href="https://github.com/anushajain2/chipff-bench/tree/v1.0.0/results/thermal_failure">results/thermal_failure/</a>.</li>
+<li>Experimental references, each with its source, citation and a short quote, in
+<a href="https://github.com/anushajain2/chipff-bench/tree/v1.0.0/data/experimental">data/experimental/</a>.</li>
+</ul>
+
+<h2 id="reanalyse">Reanalyse</h2>
+<p>Rebuild every table, statistic and figure from the committed raw results, with no new calculations:</p>
+<pre><code>git clone https://github.com/anushajain2/chipff-bench && cd chipff-bench
+uv venv --python 3.12 && uv pip install -e ".[dev]"
+chipff analyze      # results/*.csv, summary.json, bootstrap statistics
+chipff report       # figures and report/index.html
+python scripts/build_site.py   # this website, into _site/</code></pre>
+<p>To use exactly the package versions the results were computed with, install from
+<code>env/requirements-lock.txt</code> first.</p>
+
+<h2 id="run">Run</h2>
+<p>Start with one available model on one material. This recomputes the stored silicon results for MACE-MPA-0; they
+should agree with the committed ones to about 0.2 %. It takes about two minutes on an Apple-silicon laptop CPU. The
+Materials Project structures are committed, so no API key is needed.</p>
+<pre><code>chipff static -m mace-mpa-0 --materials Si --force   # lattice, elastic tensor, equation of state
+chipff qha    -m mace-mpa-0 --materials Si --force   # thermal expansion, quasi-harmonic
+chipff analyze</code></pre>
+<p>kUPS logs "Fixing failed assertions" while it enlarges its neighbour-list buffers; that is expected. To check that
+the model files match the ones the results used, run <code>python scripts/verify_checkpoints.py</code>.</p>
+<p><strong>The full pipeline</strong>, measured on the same laptop CPU: static properties take about an hour for each
+kUPS model, and thermal expansion about 45 minutes for MACE-MPA-0 and 15 minutes for MatterSim. MatterSim runs through
+its official package in a separate environment
+(<code>env/requirements-mattersim-lock.txt</code>), with
+<code>PYTHONPATH=src .venv-mattersim/bin/python -m chipff.cli static -m mattersim-5m-native</code>. The six-case
+study reruns with <code>python scripts/thermal_failure_study.py</code>, about 45 minutes. UMA needs Meta's licence on
+Hugging Face and is not part of this release.</p>
+
+<h2>Methods in brief</h2>
+<div class="table-wrap">
+<table>
+  <thead><tr><th>Property</th><th>How it is computed</th><th>References</th></tr></thead>
+  <tbody>
+    <tr><td>Lattice constant</td><td>Atoms and cell relaxed together from the Materials Project structure (L-BFGS with a Fréchet cell filter, forces below 0.001 eV/Å). Error: effective linear error (V/V<sub>ref</sub>)<sup>1/3</sup> − 1.</td><td>Materials Project PBE structure; room-temperature diffraction</td></tr>
+    <tr><td>Bulk modulus</td><td>Full elastic tensor from 24 strains (each Voigt component at ±0.5 % and ±1 %), ions relaxed, giving K<sub>Voigt</sub>, K<sub>Reuss</sub> and K<sub>VRH</sub>; a Birch–Murnaghan equation of state as a cross-check.</td><td>Materials Project PBE elastic tensor; ultrasonic, Brillouin or compression measurements, compared like for like</td></tr>
+    <tr><td>Thermal expansion</td><td>Quasi-harmonic approximation: phonons (phonopy, finite displacements of 0.01 Å, supercells at least 10 Å across) at nine volumes from 0.96 to 1.08 V<sub>0</sub>, Vinet fit of the free energy, Γ-point acoustic modes excluded. Compared at 300 K and averaged over a pre-registered temperature window.</td><td>Dilatometry and diffraction compilations, averaged over the same window</td></tr>
+  </tbody>
+</table>
+</div>
+<p>Every setting, threshold and dated amendment is in
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/configs/benchmark.yaml">configs/benchmark.yaml</a>.
+Fuller detail: <a href="https://github.com/anushajain2/chipff-bench/blob/main/docs/details.md">findings, methods and
+limits</a>, <a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/robustness.md">statistics</a>,
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/thermal_method.md">why quasi-harmonic and not MD</a>,
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/provenance.md">result fingerprints</a> and the
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/thermal_failure_study.md">six-case study</a>.</p>
+
+<h2>Exact versions</h2>
+<ul>
+<li>kups 1.0.8, jax 0.11.2, phonopy 4.8.3, Python 3.12; MatterSim through mattersim 1.2.5 and torch 2.14.1.
+Full lists: <code>env/requirements-lock.txt</code> and <code>env/requirements-mattersim-lock.txt</code>.</li>
+<li>Model files: MACE-MPA-0 medium (CuspAI export <code>CuspAI/kUPS-mace-jax</code>, revision aa54c05), Orb v3
+conservative OMat (<code>CuspAI/kUPS-orb-jax</code>, revision 33127c6) and MatterSim v1 5M (Microsoft's checkpoint).
+SHA-256 checksums for each are in
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/configs/checkpoints.json">configs/checkpoints.json</a>.</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li>Toolkit: <a href="https://github.com/cusp-ai-oss/kups">kUPS</a> (CuspAI), with
+<a href="https://phonopy.github.io/phonopy/">phonopy</a>, <a href="https://pymatgen.org">pymatgen</a> and
+<a href="https://wiki.fysik.dtu.dk/ase/">ASE</a>.</li>
+<li>Structures and DFT references: <a href="https://next-gen.materialsproject.org">Materials Project</a>, with the ID of
+each material recorded.</li>
+<li>Experimental values: one cited source per value. Main compilations: the
+<a href="http://www.ioffe.ru/SVA/NSM/Semicond/">Ioffe semiconductor database</a>, NBS Circular 539 (lattice
+parameters), Touloukian et al., TPRC Data Series vols 12–13 (thermal expansion), and Kaye &amp; Laby (metals), plus
+primary papers for bulk moduli and layered materials.</li>
+<li>Related benchmarks: <a href="https://arxiv.org/abs/2412.10516">CHIPS-FF</a> (Wines and Choudhary) and
+<a href="https://arxiv.org/abs/2508.05762">UniFFBench</a> (Mannan et al.). The full reference list, each entry checked
+against its publisher or arXiv record, is in
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/references_verified.json">docs/references_verified.json</a>.</li>
+</ul>
+
+<h2>Cite</h2>
+<pre><code>A. Jain, ChipFF Bench: how reliably universal machine-learned force fields predict the
+structure, stiffness and thermal expansion of semiconductor-device materials, v1.0.0 (2026).
+https://github.com/anushajain2/chipff-bench</code></pre>
+</article>

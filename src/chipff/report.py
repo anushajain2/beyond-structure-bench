@@ -59,7 +59,7 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
                 if r is None:
                     ax.add_patch(plt.Rectangle((j, i), 0.96, 0.92, color="#f0efec"))
                     pending = p.startswith("thermal") and m in s.get("pending", {}).get("thermal_expansion", [])
-                    ax.text(j + 0.48, i + 0.46, "pending" if pending else "n/a", ha="center", va="center", color=INK2,
+                    ax.text(j + 0.48, i + 0.46, "not run" if pending else "n/a", ha="center", va="center", color=INK2,
                             fontsize=7.5)
                     continue
                 ax.add_patch(plt.Rectangle((j, i), 0.96, 0.92, color=STATUS[r["grade"]], alpha=0.9))
@@ -81,7 +81,7 @@ def trust_map_figure(s: dict, reference: str = "experiment"):
     star = " *not run through kUPS (official package)." if any(not MODELS[m].via_kups for m in models) else ""
     pend = [short(m) for m in s.get("pending", {}).get("thermal_expansion", [])]
     if pend and any(p.startswith("thermal") for p in props):
-        star += f" Thermal expansion for {', '.join(pend)}: run in progress, shown once complete."
+        star += f" Thermal expansion for {', '.join(pend)}: not computed in this release."
     fig.text(0.0, -0.02, f"Mean absolute % error vs {reference}. Green good, amber okay, red poor; thresholds fixed in "
              f"advance ({note}).{star}", fontsize=7.5, color=INK2, wrap=True)
     _save(fig, f"trust_map_{reference}")
@@ -276,18 +276,58 @@ def study_kprime_figure():
     return "figures/study_kprime.svg"
 
 
-def _table(rows, cols, fmt):
+def row_status(r: dict, err_col: str, excluded_col: str = "excluded") -> str:
+    """One plain-language status per result, so an empty cell never needs explaining."""
+    if r.get("pending") or r.get("provenance"):
+        return "not computed in this release"
+    if r.get(excluded_col):
+        return "excluded: " + str(r[excluded_col])
+    if r.get(err_col) is None:
+        return "no experimental reference"
+    return "compared"
+
+
+def is_historical(r: dict) -> bool:
+    return bool(r.get("pending") or r.get("provenance"))
+
+
+def _table(rows, cols, fmt, err_col: str, extra_status: tuple | None = None):
+    cols = cols + [("Status", "_status")] + ([("Status at 300 K", "_status300")] if extra_status else []) + \
+        [("Source", "exp_source")]
     head = "".join(f"<th>{html.escape(c)}</th>" for c, _ in cols)
     body = []
     for r in rows:
+        r = {**r, "_status": row_status(r, err_col)}
+        if extra_status:
+            r["_status300"] = row_status(r, *extra_status)
         tds = []
         for _, k in cols:
             v = r.get(k)
+            if k == "exp_source":
+                tds.append(f"<td><a href='{html.escape(v)}'>source</a></td>" if v else "<td></td>")
+                continue
             if isinstance(v, float):
                 v = "" if math.isnan(v) else fmt.get(k, "{:.2f}").format(v)
             tds.append(f"<td>{html.escape(str(v if v is not None else ''))}</td>")
         body.append("<tr>" + "".join(tds) + "</tr>")
     return f"<table><thead><tr>{head}</tr></thead><tbody>{''.join(body)}</tbody></table>"
+
+
+def _tables(rows, cols, fmt, err_col, extra_status=None):
+    """Current results first; results from older code or settings only in a collapsed section."""
+    cur = [r for r in rows if not is_historical(r)]
+    old = [r for r in rows if is_historical(r)]
+    out = _table(cur, cols, fmt, err_col, extra_status)
+    if old:
+        out += (f"<details><summary>{len(old)} historical results, computed with older code or settings and not "
+                f"used anywhere in this release</summary>" + _table(old, cols, fmt, err_col, extra_status) + "</details>")
+    return out
+
+
+def _version() -> str:
+    import tomllib
+
+    return "v" + tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]["version"]
 
 
 def build_report():
@@ -335,12 +375,15 @@ def build_report():
               ("B (EOS)", "B_eos"), ("K_VRH DFT", "K_vrh_dft"), ("B exp", "B_exp"), ("err vs DFT %", "err_dft_pct"),
               ("err vs exp %", "err_exp_pct")]
     t_cols = [("Model", "model"), ("Material", "material"), ("T low", "T_low"), ("T high", "T_high"),
-              ("α_V", "alpha_V"), ("±", "alpha_V_err"), ("α_V exp", "alpha_V_exp"), ("err %", "err_exp_pct")]
+              ("α_V window", "alpha_V"), ("α_V exp window", "alpha_V_exp"), ("err window %", "err_exp_pct"),
+              ("α_V 300 K", "alpha_V_300K"), ("α_V exp 300 K", "alpha_V_300K_exp"), ("err 300 K %", "err_300K_pct")]
     fmt = {"T_low": "{:.0f}", "T_high": "{:.0f}"}
     sections += [
-        "<h2>Lattice data (Å³ per atom; error is the effective linear error)</h2>" + _table(s["lattice"], lat_cols, fmt),
-        "<h2>Bulk modulus data (GPa)</h2>" + _table(s["bulk_modulus"], b_cols, fmt),
-        "<h2>Thermal expansion data (volumetric, 10⁻⁶/K)</h2>" + _table(s["thermal_expansion"], t_cols, fmt),
+        "<h2>Lattice data (Å³ per atom; error is the effective linear error vs experiment)</h2>"
+        + _tables(s["lattice"], lat_cols, fmt, "err_lin_exp_pct"),
+        "<h2>Bulk modulus data (GPa)</h2>" + _tables(s["bulk_modulus"], b_cols, fmt, "err_exp_pct"),
+        "<h2>Thermal expansion data (volumetric α_V, 10⁻⁶/K)</h2>"
+        + _tables(s["thermal_expansion"], t_cols, fmt, "err_exp_pct", ("err_300K_pct", "excluded_300K")),
     ]
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ChipFF Bench results</title><style>
@@ -349,7 +392,9 @@ img{{max-width:100%;height:auto}} table{{border-collapse:collapse;font-size:12px
 td,th{{border-bottom:1px solid #e6e5e1;padding:3px 6px;text-align:right}} td:nth-child(-n+2),th:nth-child(-n+2){{text-align:left}}
 h2{{margin-top:32px;font-size:18px}} .wrap{{overflow-x:auto}}</style></head><body>
 <h1>ChipFF Bench: results</h1>
-<p>Generated by <code>chipff report</code> from <code>results/summary.json</code>. See README.md for method and limits.</p>
+<p>Release {_version()}. Generated by <code>chipff report</code> from <code>results/summary.json</code>. See README.md for
+method and limits. In the figures, error bars on the six-case study are sensitivity ranges across volume-scan settings,
+not confidence intervals.</p>
 {''.join(f"<div class='wrap'>{x}</div>" for x in sections)}
 </body></html>"""
     REPORT.mkdir(exist_ok=True)

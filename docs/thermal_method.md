@@ -60,8 +60,9 @@ QHA result was compared with experiment):
   sampled (commensurate) q-point stayed real. Stability is therefore judged at the commensurate
   q-points, force constants are symmetrised, and the share of interpolated imaginary modes is
   recorded and must stay below 2%. Phonopy leaves imaginary modes out of the free energy, so even
-  a small share can shift α; how much has not yet been measured (it is part of a study of the
-  hardest cases now under way).
+  a small share can shift α. The six-case study measured it: putting those modes back changes
+  α(300 K) by ≤ 1 %, except HfO₂ (+6 % for MACE), and by 16–25 % for HfO₂ at 400–1500 K
+  ([`thermal_failure_study.md`](thermal_failure_study.md), section 3).
   Genuine instabilities remain flagged: cubic SrTiO₃ is unstable at sampled q-points, as
   PBE-trained models are expected to find for its octahedral-rotation mode.
 * **Reference forces subtracted.** The undisplaced supercell's forces are subtracted from every

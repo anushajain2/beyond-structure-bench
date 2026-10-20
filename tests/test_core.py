@@ -189,3 +189,18 @@ def test_qha_free_energy_ignores_gamma_acoustic_modes():
     assert 40 < np.mean(fixed) < 80  # EMT Cu expands like a metal (about 62e-6/K)
     unfixed = alphas(False)
     assert max(unfixed) - min(unfixed) > 0.05 * np.mean(fixed)  # the defect the setting removes
+
+
+def test_site_evidence_builds():
+    import importlib.util
+
+    from chipff.materials import ROOT
+
+    spec = importlib.util.spec_from_file_location("build_site", ROOT / "scripts" / "build_site.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    ev = mod.evidence()
+    assert len(ev["materials"]) == 33 and ev["study_materials"] == sorted(["Si", "GaAs", "InP", "Cu", "Ta", "HfO2"])
+    # Orb's benchmark-wide thermal results are not part of this release, so no stale values are published
+    th = ev["results"]["thermal_expansion"]
+    assert all(set(r) == {"stale"} for m in th.values() for k, r in m.items() if k == "orb-v3")
