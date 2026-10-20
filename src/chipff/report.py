@@ -148,6 +148,134 @@ def signed_error_figure(s: dict, prop: str, col: str, title: str, name: str):
     return f"figures/{name}.svg"
 
 
+# -- thermal-failure study (docs/thermal_failure_study.md) ---------------------------------------------
+STUDY = ROOT / "results" / "thermal_failure"
+STUDY_MODELS = {"mace-kups": "mace-mpa-0", "mattersim-native": "mattersim-5m-native", "orb-kups": "orb-v3"}
+STUDY_CASES = ["Si", "GaAs", "InP", "Cu", "Ta", "HfO2"]
+# ingredient colours: categorical slots 7, 4, 5, 6 of the validated palette, kept apart from the model colours
+INGREDIENTS = [("γ", "r_gamma", +1, "#6250d6"), ("1/K", "r_K", -1, "#eda100"), ("1/V", "r_V", -1, "#e87ba4"),
+               ("C_V", "r_Cv", +1, "#008300")]
+TA_KPRIME_EXP = 3.07  # Dewaele, Loubeyre & Mezouar, arXiv:cond-mat/0403080 (Vinet fit to DAC data)
+
+
+def _study_rows(name):
+    import csv
+
+    f = STUDY / f"{name}.csv"
+    return list(csv.DictReader(open(f))) if f.exists() else []
+
+
+def study_error_figure():
+    """alpha_V(300 K) error per material and model, with the spread across volume-scan choices."""
+    phys = [r for r in _study_rows("physics") if r["backend"] in STUDY_MODELS and r.get("variant", "grid") in ("grid", "")]
+    conv = _study_rows("convergence")
+    if not phys:
+        return None
+    fig, ax = plt.subplots(figsize=(7.2, 3.4))
+    for j, (backend, mk) in enumerate(STUDY_MODELS.items()):
+        for i, mid in enumerate(STUDY_CASES):
+            r = next((x for x in phys if x["backend"] == backend and x["material"] == mid), None)
+            if r is None:
+                continue
+            e = float(r["exp_alpha_V"])
+            y = i + (j - 1) * 0.22
+            scans = [float(c["alpha300"]) for c in conv if c["backend"] == backend and c["material"] == mid
+                     and c["variant"] == "grid" and c["imaginary"] == "clean" and c["alpha300"] not in ("", "nan")]
+            if scans:
+                ax.plot([(min(scans) / e - 1) * 100, (max(scans) / e - 1) * 100], [y, y], color=MODELS[mk].color,
+                        lw=2, alpha=0.45, solid_capstyle="round", zorder=2)
+            ax.scatter([(float(r["alpha300_qha"]) / e - 1) * 100], [y], s=40, marker=MARKERS[mk], color=MODELS[mk].color,
+                       edgecolor=SURF, linewidth=1, zorder=3, label=short(mk) if i == 0 else None)
+    ax.axvline(0, color=INK2, lw=1)
+    ax.set_yticks(range(len(STUDY_CASES)), [m.replace("HfO2", "HfO₂") for m in STUDY_CASES])
+    ax.set_ylim(len(STUDY_CASES) - 0.5, -0.5)
+    ax.set_xlabel("α_V(300 K) error vs experiment (%) · bar: spread across volume-scan ranges")
+    ax.grid(axis="y", visible=False)
+    ax.legend(frameon=False, fontsize=8, ncol=3, loc="lower center", bbox_to_anchor=(0.5, 1.0))
+    _save(fig, "study_errors")
+    return "figures/study_errors.svg"
+
+
+def study_ingredient_figure():
+    """ln(alpha_model / alpha_exp) split into gamma, 1/K, 1/V, C_V and the reconstruction residual."""
+    phys = [r for r in _study_rows("physics") if r["backend"] in STUDY_MODELS and r.get("variant", "grid") in ("grid", "")]
+    if not phys:
+        return None
+    rows = [(mid, b) for mid in STUDY_CASES for b in STUDY_MODELS
+            if any(r["backend"] == b and r["material"] == mid for r in phys)]
+    fig, ax = plt.subplots(figsize=(7.4, 0.26 * len(rows) + 1.3))
+    for y, (mid, b) in enumerate(rows):
+        r = next(x for x in phys if x["backend"] == b and x["material"] == mid)
+        e = float(r["exp_alpha_V"])
+        parts = [(lab, sign * math.log(float(r[col])), c) for lab, col, sign, c in INGREDIENTS]
+        recon = math.log(float(r["alpha300_from_gamma"]) / e)
+        total = math.log(float(r["alpha300_qha"]) / e)
+        parts.append(("residual (full QHA − reconstruction)", total - recon, None))
+        pos = neg = 0.0
+        for lab, v, c in parts:
+            left = pos if v >= 0 else neg + v
+            kw = dict(color=c, edgecolor=SURF, linewidth=1) if c else dict(color=SURF, edgecolor=INK2, hatch="////", linewidth=0.6)
+            ax.barh(y, abs(v), left=left, height=0.62, label=lab if y == 0 else None, zorder=2, **kw)
+            if v >= 0:
+                pos += v
+            else:
+                neg += v
+        ax.scatter([total], [y], marker="D", s=22, color=INK, zorder=4, label="full-QHA error" if y == 0 else None)
+    ax.axvline(0, color=INK2, lw=1)
+    ticks = [0.5, 0.75, 1, 1.5, 2, 3]
+    ax.set_xticks([math.log(t) for t in ticks], [f"×{t:g}" for t in ticks])
+    ax.set_yticks(range(len(rows)), [f"{m.replace('HfO2', 'HfO₂')} · {short(STUDY_MODELS[b])}" for m, b in rows], fontsize=8)
+    ax.set_ylim(len(rows) - 0.5, -0.5)
+    ax.set_xlabel("contribution to α_model / α_exp (log scale; segments multiply)")
+    ax.grid(axis="y", visible=False)
+    h, lab = ax.get_legend_handles_labels()
+    order = [lab.index(x) for x in [i[0] for i in INGREDIENTS] + ["residual (full QHA − reconstruction)", "full-QHA error"]]
+    ax.legend([h[i] for i in order], [lab[i] for i in order], frameon=False, fontsize=7.5, ncol=3, loc="lower center",
+              bbox_to_anchor=(0.5, 1.0))
+    _save(fig, "study_ingredients")
+    return "figures/study_ingredients.svg"
+
+
+def study_kprime_figure():
+    """Static K' against the phonon Grueneisen parameter for the metals, with the Slater estimate."""
+    import csv
+
+    phys = [r for r in _study_rows("physics") if r["backend"] in STUDY_MODELS and r.get("variant", "grid") in ("grid", "")]
+    bm = {(r["model"], r["material"]): r for r in csv.DictReader(open(ROOT / "results" / "bulk_modulus.csv"))}
+    if not phys:
+        return None
+    fig, ax = plt.subplots(figsize=(5.6, 3.8))
+    k = np.linspace(2.8, 8.2, 50)
+    ax.plot(k, k / 2 - 1 / 6, color=INK2, lw=1, ls="--", zorder=1)
+    ax.text(7.9, 7.9 / 2 - 1 / 6 + 0.12, "Slater: γ ≈ K′/2 − 1/6", color=INK2, fontsize=7.5, ha="right")
+    for mid in ("Ta", "Cu"):
+        for b, mk in STUDY_MODELS.items():
+            r = next((x for x in phys if x["backend"] == b and x["material"] == mid), None)
+            kp = bm.get((mk, mid), {}).get("B_eos_prime")
+            if r is None or not kp:
+                continue
+            x, y = float(kp), float(r["gamma"])
+            ax.scatter([x], [y], s=46, marker=MARKERS[mk], color=MODELS[mk].color, edgecolor=SURF, linewidth=1, zorder=3,
+                       label=short(mk) if mid == "Ta" else None)
+            ax.annotate(mid, (x, y), xytext=(6, -3), textcoords="offset points", fontsize=8, color=INK)
+            if mid == "Ta" and b == "orb-kups":
+                ax.annotate("Orb, Ta: normal K′,\nγ 40 % above experiment", (x, y), xytext=(22, 48),
+                            textcoords="offset points", fontsize=7.5, color=INK2,
+                            arrowprops=dict(arrowstyle="-", color=INK2, lw=0.8))
+    ta_exp = next((float(x["exp_gamma"]) for x in phys if x["material"] == "Ta"), None)
+    if ta_exp:
+        ax.scatter([TA_KPRIME_EXP], [ta_exp], marker="*", s=90, color=INK, zorder=4, label="Ta, experiment (K′ measured, γ inferred)")
+    cu_exp = next((float(x["exp_gamma"]) for x in phys if x["material"] == "Cu"), None)
+    if cu_exp:
+        ax.axhline(cu_exp, color=INK2, lw=0.8, ls=":", zorder=1)
+        ax.text(8.2, cu_exp - 0.13, "Cu, γ inferred from experiment", fontsize=7, color=INK2, ha="right")
+    ax.set_xlabel("K′ from the static equation of state")
+    ax.set_ylabel("phonon Grüneisen parameter γ (300 K)")
+    ax.legend(frameon=False, fontsize=8, loc="upper left")
+    _save(fig, "study_kprime")
+    return "figures/study_kprime.svg"
+
+
 def _table(rows, cols, fmt):
     head = "".join(f"<th>{html.escape(c)}</th>" for c, _ in cols)
     body = []
@@ -182,7 +310,19 @@ def build_report():
         "cte_err": signed_error_figure(s, "thermal_expansion", "err_exp_pct", "Thermal expansion vs experiment",
                                        "signed_cte_exp"),
     }
+    study = {"errors": study_error_figure(), "ingredients": study_ingredient_figure(), "kprime": study_kprime_figure()}
     sections = []
+    if any(study.values()):
+        sections.append(
+            "<h2>Why thermal expansion fails: six-case study</h2><p>Si, GaAs, InP, Cu, Ta and HfO₂ for MACE-MPA-0, "
+            "MatterSim v1* and Orb v3, at 300 K with the Γ-mode fix. The full analysis, its checks and its limits are in "
+            "<a href='../docs/thermal_failure_study.md'>docs/thermal_failure_study.md</a>; the numbers are in "
+            "<code>results/thermal_failure/</code>. Orb's benchmark-wide thermal expansion is not computed in this "
+            "release, so Orb appears here only.</p>"
+            + "".join(f"<img src='{v}' alt='{a}'>" for v, a in (
+                (study["errors"], "Thermal-expansion error by material and model"),
+                (study["ingredients"], "Ingredients of the thermal-expansion error"),
+                (study["kprime"], "Static K-prime against the phonon Grüneisen parameter")) if v))
     for key, title in (("tm_exp", "Trust map vs experiment"), ("tm_dft", "Trust map vs DFT (Materials Project PBE)"),
                        ("lat", "Lattice: model vs experiment"), ("lat_err", "Lattice errors by class"),
                        ("bulk", "Bulk modulus: model vs experiment"), ("bulk_err", "Bulk modulus errors by class"),
@@ -214,4 +354,5 @@ h2{{margin-top:32px;font-size:18px}} .wrap{{overflow-x:auto}}</style></head><bod
 </body></html>"""
     REPORT.mkdir(exist_ok=True)
     (REPORT / "index.html").write_text(page)
-    print(f"wrote report/index.html and {sum(1 for v in figs.values() if v)} figures")
+    n = sum(1 for v in list(figs.values()) + list(study.values()) if v)
+    print(f"wrote report/index.html and {n} figures")

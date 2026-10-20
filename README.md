@@ -17,11 +17,10 @@ whose kUPS export is currently broken (see Findings) and which runs through its 
 ## Findings so far
 
 Status: lattice constants and bulk moduli are complete for MACE-MPA-0, Orb v3 and MatterSim v1.
-Thermal expansion is complete for MACE-MPA-0 and MatterSim v1; **Orb v3's thermal run is in progress
-(7 of 33 materials, computed before the Γ-mode fix described under Robustness and to be recomputed) and
-is left out of every thermal average and comparison until it finishes.** Orb has been run on the six cases of the
-thermal-failure study. UMA is awaiting license access.
-These findings will be updated when the rest lands.
+Thermal expansion is complete for MACE-MPA-0 and MatterSim v1. **Orb v3's benchmark-wide thermal expansion is not
+computed in this release.** A partial run (7 of 33 materials) predates the Γ-mode fix described under Robustness and is
+left out of every thermal average and comparison. Orb does appear in the six-case thermal-failure study
+([`docs/thermal_failure_study.md`](docs/thermal_failure_study.md)). UMA is awaiting license access.
 
 1. **Lattice constants of non-layered chip materials are accurate to under 1 % on average.** The
    effective linear error of all three models is 0.73–0.80 % against experiment across the 30
@@ -82,9 +81,12 @@ These findings will be updated when the rest lands.
 
 | Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 |
 |---|---|---|---|
-| mean abs. error at 300 K (95 % CI) | 34.5 % (22–56), n = 24 | 28.7 % (20–44), n = 24 | in progress |
-| mean abs. error over the window (95 % CI) | 35.5 % (23–53), n = 17 | 34.5 % (23–54), n = 18 | in progress |
-| within 20 % / 40 % at 300 K | 11 / 19 | 13 / 18 | in progress |
+| mean abs. error at 300 K (95 % CI) | 34.5 % (22–56), n = 24 | 28.7 % (20–44), n = 24 | not computed† |
+| mean abs. error over the window (95 % CI) | 35.5 % (23–53), n = 17 | 34.5 % (23–54), n = 18 | not computed† |
+| within 20 % / 40 % at 300 K | 11 / 19 | 13 / 18 | not computed† |
+
+† Orb's benchmark-wide thermal expansion was not recomputed after the Γ-mode fix (status note above); its results on
+the six study cases are in [`docs/thermal_failure_study.md`](docs/thermal_failure_study.md).
 
 7. **Accuracy averages cover only the cases that worked.** Coverage is reported next to them
    (`results/coverage.csv`): Orb changes the crystal form of 3 of 33 materials; MatterSim predicts a

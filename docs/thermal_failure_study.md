@@ -79,12 +79,18 @@ other materials; it does not establish rules that hold beyond them.
     generated and to the export (≤ 0.6 % in α, section 3). This is a counterexample on an additional model,
     using the previously selected cases; it is not a validation set, and no decision threshold had been fixed. The
     static properties are not reassuring either: Orb's bulk modulus for Ta is already 11–14 % soft. That hints at a
-    problem, but would explain only about 14 % of extra expansion, not 70 %.
+    problem, but with everything else fixed it would explain only about 12–16 % of extra expansion (1/0.89 to 1/0.86),
+    not 70 %.
 * **HfO₂ is the case where numerics and reference data matter as much as the model.** All three models give γ ≈ 1.46–1.47
   against 1.14 (+28 %), partly offset by a 6–9 % stiff K. But at 400–1500 K, α depends on how imaginary
   interpolation modes are treated (+16 to +25 %) and on the volume-scan range (±13 %). The experimental reference is
   a provisional TPRC compilation. These sensitivities suggest the HfO₂ window comparison could move by about ±20 % for
   reasons unrelated to the models; that is an indication, not a calibrated uncertainty.
+
+![α_V(300 K) error by material and model, with the spread across volume-scan ranges](../report/figures/study_errors.png)
+
+*α_V(300 K) error against experiment for each material and model (Γ fixed). The bar is the spread across the three
+volume-scan ranges; Orb's Si spans −25 % to +15 %.*
 
 ## Scope, settings, and what was not run
 
@@ -323,7 +329,8 @@ only the exact lattice translations used); and through the official `orb-models`
 
 Every route gives the same Ta physics to within 0.6 % in α(300 K) and 0.3 % in γ. Orb's Ta γ being 40 % too high (and
 so the K′ counterexample) does not come from symmetry reduction or from the export. The small imaginary mode
-(−0.25 THz) appears in every route, so it belongs to the model, not to the displacement scheme. The same check was not
+(−0.25 THz) persists across all tested routes, so the export and the displacement handling do not explain it. All
+routes still share the 10 Å supercell and the q-mesh, so this does not show that the mode is a property of the model. The same check was not
 run for Orb's other materials; Si would be next, if a mechanistic claim about it were wanted.
 
 **Reading.** Displacement amplitude and supercell size are converged everywhere they were tested. Of the 14 Å checks,
@@ -359,7 +366,9 @@ uses γ C_V/(K_T V) and factors exactly into **γ ratio × C_V ratio × (1/K rat
 residual* is the difference between the two. It arises because γ and C_V are evaluated at V0 while K_T and V come from the
 300 K equilibrium, and because the formula ignores how γ changes with volume. Where the residual is large (MatterSim Ta:
 reconstructed 18.7, full QHA 16.3, experiment 19.0), the two ratios tell different stories, and statements below about
-which share of the error each ingredient carries are approximate.
+which share of the error each ingredient carries are approximate. Such shares are quoted as fractions of the
+*reconstructed* log-error, ln(reconstructed α / exp), which the four ratios split exactly. Where the residual is
+small, the share of the full-QHA log-error is close; where it differs by more than a few points, both are given.
 
 <!-- table:physics -->
 | model | material | α_V QHA | α_V reconstructed | α_V exp | **QHA α / exp** | reconstructed α / exp | reconstruction residual | γ model | γ inferred from exp | K_T model (GPa) | K_T exp | C_V model (k_B/atom) | C_V exp | V model (Å³/atom) | V exp | γ ratio | C_V ratio | 1/K ratio | 1/V ratio |
@@ -383,6 +392,12 @@ which share of the error each ingredient carries are approximate.
 | orb-kups | InP | 18.6 | 18.2 | 12.6 | **1.48** | 1.45 | -2 % | 0.71 | 0.60 | 55 | 71 | 2.74 | 2.71 | 26.62 | 25.27 | 1.17 | 1.01 | 1.29 | 0.95 |
 | orb-kups | HfO2 | 20.6 | 20.3 | 16.9 | **1.22** | 1.20 | -2 % | 1.47 | 1.14 | 196 | 185 | 2.31 | 2.30 | 11.78 | 11.53 | 1.29 | 1.00 | 0.94 | 0.98 |
 <!-- /table:physics -->
+
+![Ingredients of the thermal-expansion error](../report/figures/study_ingredients.png)
+
+*Each bar splits ln(α_model/α_exp) into γ, 1/K, 1/V and C_V (coloured; they multiply to the reconstructed ratio). The
+hatched segment is the reconstruction residual, and the diamond is the full-QHA error. A long hatched segment (Orb Si,
+MatterSim Ta) means the split explains that case less well.*
 
 Where γ comes from (C_V-weighted mode Grüneisen parameters at 300 K):
 
@@ -435,26 +450,31 @@ arXiv:cond-mat/0403080). Their fit gives K₀ = 198 GPa, in line with the 194 GP
 and the phonon γ agree that Ta stiffens too fast. For Orb they disagree: K′ is normal while the phonon γ is 40 % too
 high. So K′ alone cannot certify a reliable thermal expansion (section 6).
 
+![Static K′ against the phonon Grüneisen parameter](../report/figures/study_kprime.png)
+
+*Static K′ against the phonon γ for the two metals. MACE's Ta sits near the Slater line at high K′, so K′ and γ agree
+that it stiffens too fast. Orb's Ta has a normal K′ but a γ 40 % above the experimental value.*
+
 ## 5. Per-material conclusions
 
 Errors at 300 K, Γ-fixed QHA, against the benchmark's experimental α_V.
 
 **Si.** *MACE −1 %: right, partly by cancellation.* MACE's TA modes are too strongly negative (TA(X) −2.84 vs −1.4), so
 its γ is 21 % low. Its K_T is 11 % soft and its C_V 5 % high, and these offset the low γ. *MatterSim +84 %: model (γ and K).*
-Its TA modes are barely negative (TA(X) −0.64), so γ is 44 % high, and K_T is 17 % soft. Roughly two-thirds of the log-error
-is γ and one-third is K. The numerical part is small: the Γ-acoustic defect made one MatterSim rerun 8 % low (the published value is
+Its TA modes are barely negative (TA(X) −0.64), so γ is 44 % high, and K_T is 17 % soft. γ is the larger contribution: about
+two-thirds of the reconstructed log-error (60 % of the full-QHA one), with K about a third. The numerical part is small: the Γ-acoustic defect made one MatterSim rerun 8 % low (the published value is
 within 1 %), and the wider volume scan gives −9 % for MACE. *Orb −3 %: apparently right, but fragile and unresolved.*
 Like MACE, Orb has strongly negative TA modes (TA(X) −2.23, TA(L) −1.68) and a γ 32 % low. Its K_T is 14 % soft, which
 only partly offsets this: the reconstruction gives 6.1, 22 % below experiment. The full QHA's 7.6 depends on a 20 %
 reconstruction residual and moves by −22 % / +19 % with the volume-scan range. No mechanistic claim is made for Orb's Si.
 
-**GaAs.** *MACE +111 %: model, mostly γ.* γ is 1.77× too large, and roughly 80 % of the log-error is γ. The optical γ
+**GaAs.** *MACE +111 %: model, mostly γ.* γ is 1.77× too large, about 80 % of the reconstructed log-error (76 % of the full-QHA one). The optical γ
 is right (1.38 vs 1.39); the acoustic branches are wrong. Only 3 % of modes have negative γ (Si and InP have 33 %), and
-TA(L) is +1.8 where experiment is negative. A 20 % soft K_T adds the rest. *MatterSim +68 %: model, γ and K about
-equally.* γ is +25 % (weak negative TA modes: TA(X) −0.22, TA(L) −0.42). K_T is 29 % too soft (53 vs 75 GPa), which
-accounts for more of the log-error than γ does. All convergence checks move α by ≤ 2 %. *Orb +25 %: mostly a soft
+TA(L) is +1.8 where experiment is negative. A 20 % soft K_T adds the rest. *MatterSim +68 %: model, K then γ.* γ is +25 % (weak negative TA modes: TA(X) −0.22, TA(L) −0.42). K_T is 29 % too soft (53 vs 75 GPa), which
+is the larger contribution (about 68 % of the reconstructed log-error, against 45 % for γ). All convergence checks move α by ≤ 2 %. *Orb +25 %: mostly a soft
 bulk modulus.* γ is within 8 % of the inferred value and the TA modes are negative (TA(X) −1.06, TA(L) −1.03). K_T is
-25 % soft (56 vs 75 GPa), which carries roughly all of the log-error. Orb's optical γ at Γ is 12 % below experiment
+25 % soft (56 vs 75 GPa), by far the larger contribution. On its own it matches the whole reconstructed log-error;
+γ adds about a quarter, and Orb's larger volume takes some back. Orb's optical γ at Γ is 12 % below experiment
 (1.22 vs 1.39).
 
 **Cu.** *MACE and MatterSim within 4 %, Orb +8 %.* All ingredients are within 12 % for all three models. MACE's γ is
@@ -471,19 +491,20 @@ window passes the benchmark's volume check (it failed in the published run), but
 graded against. *MatterSim −14 %:* all ingredients within 7 %. The
 residual sits mostly between the γ formula and the full QHA (18.7 vs 16.3), i.e. in the volume dependence of γ.
 *Orb +70 %: γ and K.* γ is 2.19 against 1.56 (+40 %) and K_T is 14 % soft (163 vs 190 GPa). This is unchanged, to
-within 0.6 %, with explicit ± displacements, without symmetry reduction, and through the official package (section 3). γ carries roughly three
-quarters of the log-error. Unlike MACE, Orb's static K′ is normal (3.16), so K′ gives no warning. Its static bulk
+within 0.6 %, with explicit ± displacements, without symmetry reduction, and through the official package (section 3). γ is the larger of the two identified
+contributions: 77 % of the reconstructed log-error and 63 % of the full-QHA one; the reconstruction residual accounts
+for the difference. Unlike MACE, Orb's static K′ is normal (3.16), so K′ gives no warning. Its static bulk
 modulus is 11 % soft (171 vs 192 GPa), which hints at a problem but not at its size. Orb's Ta also has a few imaginary mesh modes (0.09 %), which change α by 3 % in the sensitivity test.
 
 **InP.** *MACE −12 %: γ too low.* MACE has strong negative TA modes (TA(X) −1.03, TA(L) −1.46), so γ is 23 % low.
 The experimental reference is the 300–910 K average recommended by Glazov et al. (4.19 × 10⁻⁶ K⁻¹ linear). The Ioffe
 room-temperature value (4.60) would make MACE −20 %. *MatterSim +119 %: model, mostly γ.* MatterSim has no negative-γ
-modes at all (TA(X) +0.75, TA(L) +0.27), so γ is 79 % too large. K_T 23 % soft adds the rest; about three-quarters of
-the log-error is γ. The optical γ is right (1.38 vs 1.44). Numerical part: for MACE, a rerun differed by +6 % through the Γ-acoustic defect (the published value is within
+modes at all (TA(X) +0.75, TA(L) +0.27), so γ is 79 % too large. K_T 23 % soft adds the rest; γ is about three-quarters of
+the reconstructed log-error (the same for the full QHA). The optical γ is right (1.38 vs 1.44). Numerical part: for MACE, a rerun differed by +6 % through the Γ-acoustic defect (the published value is within
 1 % of the corrected one), the 14 Å supercell adds +7 %, and the narrow scan −4 %. That is about ±7 % in total, small next
 to MatterSim's error but a large share of MACE's. *Orb +48 %: soft K, then γ.* The TA modes are negative (TA(X) −0.96,
-TA(L) −0.85) and γ is 17 % high; K_T is 23 % soft (55 vs 71 GPa). Roughly two-thirds of the log-error is K and the rest
-is γ. With the Ioffe room-temperature reference, Orb's error would be about +35 %.
+TA(L) −0.85) and γ is 17 % high; K_T is 23 % soft (55 vs 71 GPa). K is the larger contribution, about two-thirds of the
+reconstructed log-error, and γ about 40 % (the larger volume offsets some). With the Ioffe room-temperature reference, Orb's error would be about +35 %.
 
 **HfO₂.** *MACE +9 %, MatterSim +20 %, Orb +22 % at 300 K, all against a weak reference.* All three models give γ ≈
 1.46–1.47 against 1.14 (acoustic branches 2.1–3.3, optical 1.25–1.39). A 6–9 % stiff K partly offsets the high γ. The three

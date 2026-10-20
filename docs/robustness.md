@@ -57,8 +57,8 @@ correlate their signed errors against experiment over the materials both have, w
 |---|---|---|---|
 | lattice constant | 0.88 (0.72 to 0.96) | 0.83 (0.65 to 0.93) | 0.95 (0.90 to 0.98) |
 | bulk modulus | 0.11 (−0.21 to 0.42) | 0.19 (−0.17 to 0.53) | 0.61 (0.23 to 0.88) |
-| thermal expansion, 300 K | −0.10 (−0.42 to 0.37) | Orb pending | Orb pending |
-| thermal expansion, window | 0.23 (−0.29 to 0.73) | Orb pending | Orb pending |
+| thermal expansion, 300 K | −0.10 (−0.42 to 0.37) | Orb not computed | Orb not computed |
+| thermal expansion, window | 0.23 (−0.29 to 0.73) | Orb not computed | Orb not computed |
 
 - Lattice constants: strongly shared errors. This is consistent with the limits of the PBE
   reference and training data (plus the 0 K vs room-temperature mismatch), but correlation alone
@@ -80,7 +80,8 @@ constants and bulk moduli, so its disagreement flag is a heuristic that this ben
 validate: agreement between models that share training data does not show they are right.
 
 **Incomplete runs are not compared.** A model whose thermal run has not covered every material
-(currently Orb v3, 7 of 33) is marked `pending` in `results/thermal_expansion.csv` and left out of
+(currently Orb v3: 7 of 33, computed before the Γ-mode fix and so also stale by provenance) is marked `pending` in
+`results/thermal_expansion.csv` and left out of
 the trust map, the bootstrap, the pairwise tests and the MCP rankings, so a partial sample cannot
 look better or worse than a complete one.
 
