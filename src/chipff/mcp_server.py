@@ -1,4 +1,4 @@
-"""ChipFF Bench as an agent tool (MCP server).
+"""BeyondStructure Bench as an agent tool (MCP server).
 
 Tools
   recommend_model(material, property, temperature_K=None)
@@ -80,7 +80,7 @@ def _pairwise_note(prop_key: str, a: str, b: str, cls: str | None) -> str | None
 
 
 def recommend_model(material: str, property: str, temperature_K: float | None = None) -> dict:
-    """Rank the ML force fields by their measured ChipFF Bench errors for a material or class.
+    """Rank the ML force fields by their measured BeyondStructure Bench errors for a material or class.
 
     This retrieves benchmark evidence; it is not a calibrated prediction of the error for
     another material. Each ranking entry lists the per-material errors it averages.
@@ -164,7 +164,7 @@ def recommend_model(material: str, property: str, temperature_K: float | None = 
 
 
 def get_benchmark(query: str) -> dict:
-    """Stored ChipFF Bench results for one material (e.g. "Ru") or a class (e.g. "metals"),
+    """Stored BeyondStructure Bench results for one material (e.g. "Ru") or a class (e.g. "metals"),
     with model values, DFT and experimental references, errors and sources."""
     mat = _find_material(query)
     cls = None if mat else _find_class(query)

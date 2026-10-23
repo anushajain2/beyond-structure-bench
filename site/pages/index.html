@@ -1,17 +1,17 @@
-<!-- title: A good crystal structure is not enough | How reliably AI force fields predict the structure, stiffness and thermal expansion of semiconductor-device materials, and why they fail. -->
+<!-- title: A good crystal structure is not enough | How reliably ML force fields predict the structure, stiffness and thermal expansion of semiconductor-device materials, and why they fail. -->
 <div class="wrap hero">
-  <p class="eyebrow">ChipFF Bench · an independent benchmark and study</p>
+  <p class="eyebrow">BeyondStructure Bench · an independent benchmark and study</p>
   <h1>A good crystal structure is not enough</h1>
-  <p class="lead">How reliably do today's open AI force fields predict the structure, stiffness and thermal
+  <p class="lead">How reliably do today's open ML force fields predict the structure, stiffness and thermal
   expansion of materials used in chips, and when they are wrong, what causes it?</p>
   <p class="finding">MACE-MPA-0 places tantalum's lattice within <strong>0.4 %</strong> of experiment and its
-  stiffness within <strong>6 %</strong>, yet predicts that it expands <strong>2.8 times</strong> as much as it
+  stiffness within <strong>about 6 %</strong>, yet predicts that it expands <strong>2.8 times</strong> as much as it
   does when heated. The software and the numerics turned out not to be the cause. The model's vibrations change
   far too strongly with volume: its Grüneisen parameter is 4.1, against 1.6 inferred from experiment.</p>
   <div class="cta">
     <a class="btn primary" href="explore.html#m=Ta&amp;p=thermal_expansion&amp;c=300K">Explore the evidence</a>
     <a class="btn" href="study.html">Read the study</a>
-    <a class="btn" href="https://github.com/anushajain2/chipff-bench">Code and data</a>
+    <a class="btn" href="https://github.com/anushajain2/beyond-structure-bench">Code and data</a>
   </div>
   <p class="byline">Anusha Jain · results release v1.1.0 · 23 October 2026</p>
 </div>
@@ -72,8 +72,8 @@
   </table></div>
   <p style="margin-top:14px">Every experimental reference is audited into a core tier (primary measurements and
   evaluated compilations) and an extended tier, with its own uncertainty, and the 495 values are released as a
-  <a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/data/release">standalone dataset</a>. Results hold
-  for both tiers. <a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/README.md#what-changed-in-v110">What
+  <a href="https://github.com/anushajain2/beyond-structure-bench/tree/v1.1.0/data/release">standalone dataset</a>. Results hold
+  for both tiers. <a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/README.md#what-changed-in-v110">What
   changed in v1.1.0</a>.</p>
   <p class="muted" style="margin-top:12px">These are bulk-crystal properties relevant to device materials. They are
   ingredients of how a film stack behaves, not predictions of it: real layers are thin, often polycrystalline, and

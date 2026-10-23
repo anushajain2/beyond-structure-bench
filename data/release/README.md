@@ -1,6 +1,6 @@
-# ChipFF Bench experimental reference dataset
+# BeyondStructure Bench experimental reference dataset
 
-`chipff_references.csv` holds the experimental values ChipFF Bench compares against, for 33 materials used
+`chipff_references.csv` holds the experimental values BeyondStructure Bench compares against, for 33 materials used
 in semiconductor devices: 495 values of lattice parameters, bulk moduli and linear thermal-expansion
 coefficients. It is meant to be reusable without the rest of the project. Every value carries its source,
 a citation, a short verbatim quote where one could be taken, and a quality audit.
@@ -41,5 +41,5 @@ conversions and conflicts, are in `data/experimental/*.json`; the audit is in `d
 ## Licence and citation
 
 The values are facts reported by the cited sources; cite those sources when you use them. The compilation,
-audit and code are MIT-licensed. To cite the compilation: A. Jain, *ChipFF Bench*, v1.1.0 (2026),
-https://github.com/anushajain2/chipff-bench.
+audit and code are MIT-licensed. To cite the compilation: A. Jain, *BeyondStructure Bench*, v1.1.0 (2026),
+https://github.com/anushajain2/beyond-structure-bench.

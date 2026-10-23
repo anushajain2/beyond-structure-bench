@@ -1,4 +1,4 @@
-# ChipFF Bench material set: 33 chip materials in 5 classes.
+# BeyondStructure Bench material set: 33 chip materials in 5 classes.
 # Each entry names the intended crystal form by formula + space group number.
 # `mp_hint` is the Materials Project ID we expect; scripts/fetch_mp.py verifies
 # formula and space group against Materials Project and records the ID it used

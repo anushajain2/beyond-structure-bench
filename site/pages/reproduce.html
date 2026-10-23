@@ -1,9 +1,9 @@
-<!-- title: Methods and reproduction | Three ways to check ChipFF Bench: read the published results, rebuild every table and figure from committed data, or rerun a calculation. Methods, environments, checksums and sources. -->
+<!-- title: Methods and reproduction | Three ways to check BeyondStructure Bench: read the published results, rebuild every table and figure from committed data, or rerun a calculation. Methods, environments, checksums and sources. -->
 <article class="prose article">
 <p class="eyebrow">Methods and reproduction</p>
 <h1>Read it, reanalyse it, or run it</h1>
 <p class="standfirst">Three routes, depending on how far you want to check. Every published number comes from
-committed files in the <a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0">v1.1.0 release</a>.</p>
+committed files in the <a href="https://github.com/anushajain2/beyond-structure-bench/tree/v1.1.0">v1.1.0 release</a>.</p>
 
 <div class="table-wrap" style="margin:22px 0">
 <table>
@@ -19,20 +19,20 @@ committed files in the <a href="https://github.com/anushajain2/chipff-bench/tree
 <h2 id="read">Read</h2>
 <ul>
 <li>The <a href="explore.html">evidence explorer</a> shows any material and property.</li>
-<li>Merged tables: <a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/results/lattice.csv">lattice.csv</a>,
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/results/bulk_modulus.csv">bulk_modulus.csv</a>,
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/results/thermal_expansion.csv">thermal_expansion.csv</a>,
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/results/coverage.csv">coverage.csv</a>, and everything at once in
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/results/summary.json">summary.json</a>.</li>
-<li>Raw results per model and step in <a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/results/raw">results/raw/</a>;
-the six-case study's phonon data in <a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/results/thermal_failure">results/thermal_failure/</a>.</li>
+<li>Merged tables: <a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/results/lattice.csv">lattice.csv</a>,
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/results/bulk_modulus.csv">bulk_modulus.csv</a>,
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/results/thermal_expansion.csv">thermal_expansion.csv</a>,
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/results/coverage.csv">coverage.csv</a>, and everything at once in
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/results/summary.json">summary.json</a>.</li>
+<li>Raw results per model and step in <a href="https://github.com/anushajain2/beyond-structure-bench/tree/v1.1.0/results/raw">results/raw/</a>;
+the six-case study's phonon data in <a href="https://github.com/anushajain2/beyond-structure-bench/tree/v1.1.0/results/thermal_failure">results/thermal_failure/</a>.</li>
 <li>Experimental references, each with its source, citation and a short quote, in
-<a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/data/experimental">data/experimental/</a>.</li>
+<a href="https://github.com/anushajain2/beyond-structure-bench/tree/v1.1.0/data/experimental">data/experimental/</a>.</li>
 </ul>
 
 <h2 id="reanalyse">Reanalyse</h2>
 <p>Rebuild every table, statistic and figure from the committed raw results, with no new calculations:</p>
-<pre><code>git clone https://github.com/anushajain2/chipff-bench && cd chipff-bench
+<pre><code>git clone https://github.com/anushajain2/beyond-structure-bench && cd beyond-structure-bench
 uv venv --python 3.12 && uv pip install -e ".[dev]"
 chipff analyze      # results/*.csv, summary.json, bootstrap statistics
 chipff report       # figures and report/index.html
@@ -69,12 +69,12 @@ Hugging Face and is not part of this release.</p>
 </table>
 </div>
 <p>Every setting, threshold and dated amendment is in
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/configs/benchmark.yaml">configs/benchmark.yaml</a>.
-Fuller detail: <a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/details.md">findings, methods and
-limits</a>, <a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/robustness.md">statistics</a>,
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/thermal_method.md">why quasi-harmonic and not MD</a>,
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/provenance.md">result fingerprints</a> and the
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/thermal_failure_study.md">six-case study</a>.</p>
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/configs/benchmark.yaml">configs/benchmark.yaml</a>.
+Fuller detail: <a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/docs/details.md">findings, methods and
+limits</a>, <a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/docs/robustness.md">statistics</a>,
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/docs/thermal_method.md">why quasi-harmonic and not MD</a>,
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/docs/provenance.md">result fingerprints</a> and the
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/docs/thermal_failure_study.md">six-case study</a>.</p>
 
 <h2>Exact versions</h2>
 <ul>
@@ -83,7 +83,7 @@ Full lists: <code>env/requirements-lock.txt</code> and <code>env/requirements-ma
 <li>Model files: MACE-MPA-0 medium (CuspAI export <code>CuspAI/kUPS-mace-jax</code>, revision aa54c05), Orb v3
 conservative OMat (<code>CuspAI/kUPS-orb-jax</code>, revision 33127c6) and MatterSim v1 5M (Microsoft's checkpoint).
 SHA-256 checksums for each are in
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/configs/checkpoints.json">configs/checkpoints.json</a>.</li>
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/configs/checkpoints.json">configs/checkpoints.json</a>.</li>
 </ul>
 
 <h2>Sources</h2>
@@ -100,11 +100,11 @@ primary papers for bulk moduli and layered materials.</li>
 <li>Related benchmarks: <a href="https://arxiv.org/abs/2412.10516">CHIPS-FF</a> (Wines and Choudhary) and
 <a href="https://arxiv.org/abs/2508.05762">UniFFBench</a> (Mannan et al.). The full reference list, each entry checked
 against its publisher or arXiv record, is in
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/references_verified.json">docs/references_verified.json</a>.</li>
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/docs/references_verified.json">docs/references_verified.json</a>.</li>
 </ul>
 
 <h2>Cite</h2>
-<pre><code>A. Jain, ChipFF Bench: how reliably universal machine-learned force fields predict the
+<pre><code>A. Jain, BeyondStructure Bench: how reliably universal machine-learned force fields predict the
 structure, stiffness and thermal expansion of semiconductor-device materials, v1.1.0 (2026).
-https://github.com/anushajain2/chipff-bench</code></pre>
+https://github.com/anushajain2/beyond-structure-bench</code></pre>
 </article>

@@ -6,7 +6,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
+        with:
+          # pinned: uv 0.13.5 made `uv run` re-sync the environment before running, which on the
+          # runner left `six.moves` unimportable (pandas -> dateutil); 0.13.3 was the last that passed
+          version: "0.13.3"
       - run: uv venv --python 3.12 && uv pip install -e ".[dev,mcp]"
-      - run: uv run pytest -q
+      # --no-sync: test the environment installed in the step above, as installed
+      - run: uv run --no-sync pytest -q
       - name: results and report rebuild from committed raw data
-        run: uv run chipff analyze && uv run chipff report
+        run: uv run --no-sync chipff analyze && uv run --no-sync chipff report

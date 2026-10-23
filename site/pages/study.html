@@ -1,8 +1,8 @@
-<!-- title: A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models | Why universal machine-learned force fields that get a crystal's structure right can still badly mispredict how it expands, and how six cases were narrowed down. -->
+<!-- title: A good crystal structure is not enough: investigating thermal-expansion errors in machine-learned force fields | Why universal machine-learned force fields that get a crystal's structure right can still badly mispredict how it expands, and how six cases were narrowed down. -->
 <article class="prose article">
 <p class="eyebrow">The study · release v1.1.0 · 23 October 2026</p>
-<h1>A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models</h1>
-<p class="standfirst">Three widely used AI force fields reproduce the size of chip-material crystals to within
+<h1>A good crystal structure is not enough: investigating thermal-expansion errors in machine-learned force fields</h1>
+<p class="standfirst">Three widely used ML force fields reproduce the size of chip-material crystals to within
 1 %, then miss how much some of them expand on heating by 70–180 %. This is an account of how six of those
 failures were traced: first ruling out the software and the numerics, then splitting the error into its
 physical ingredients.</p>
@@ -21,9 +21,9 @@ physical ingredients.</p>
 
 <h2 id="puzzle">A puzzle in tantalum</h2>
 <p>Tantalum is one of the metals in a chip's wiring: thin tantalum and tantalum-nitride layers line the copper
-interconnects and stop copper from diffusing into the insulator around it. Ask MACE-MPA-0, a widely used AI force
+interconnects and stop copper from diffusing into the insulator around it. Ask MACE-MPA-0, a widely used ML force
 field, about bulk tantalum and its first answers are excellent. The lattice it relaxes to is within 0.4 % of the
-measured one. Its bulk modulus, a measure of how hard the crystal is to compress, is within 6 %.</p>
+measured one. Its bulk modulus, a measure of how hard the crystal is to compress, is within about 6 %.</p>
 <p>Then ask how much tantalum expands when it is heated. At room temperature MACE predicts a volumetric expansion
 coefficient of 53 × 10⁻⁶ per kelvin. The measured value is 19 × 10⁻⁶. The model expands tantalum 2.8 times too
 much.</p>
@@ -176,7 +176,7 @@ is too low and its stiffness too soft. These compensate only partly: the four-in
 moves the result from 5.9 to 9.1. A correct number built on shifting ground is a caution, not a success.</p>
 <p><strong>HfO₂,</strong> the high-k gate oxide, shows all three models with a γ about 28 % too high, partly offset by
 a 6–9 % stiff bulk modulus. But at 400–1500 K its expansion depends on how unstable interpolated vibrations are
-treated (+16 to +25 %) and on the volume range (±13 %), and the experimental reference is a provisional compilation.
+treated (+15 to +25 %) and on the volume range (±13 %), and the experimental reference is a provisional compilation.
 For HfO₂, method and reference uncertainty are as large as the model error.</p>
 
 <h2 id="use">What to take from it</h2>
@@ -195,9 +195,9 @@ that run whether or not a result looks wrong are what caught both.</p>
 <div class="callout">
 <p><strong>Go further.</strong> <a href="explore.html#m=Ta&amp;p=thermal_expansion&amp;c=300K">Inspect tantalum
 and every other material in the explorer</a>, read the
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/thermal_failure_study.md">full technical
+<a href="https://github.com/anushajain2/beyond-structure-bench/blob/v1.1.0/docs/thermal_failure_study.md">full technical
 write-up</a> with every table, or download the raw phonon data in
-<a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/results/thermal_failure"><code>results/thermal_failure/</code></a>.
+<a href="https://github.com/anushajain2/beyond-structure-bench/tree/v1.1.0/results/thermal_failure"><code>results/thermal_failure/</code></a>.
 The study reruns with <code>python scripts/thermal_failure_study.py</code> (<a href="reproduce.html">details</a>).</p>
 </div>
 </article>

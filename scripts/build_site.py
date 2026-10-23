@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "site"
 OUT = ROOT / "_site"
-REPO = "https://github.com/anushajain2/chipff-bench"
+REPO = "https://github.com/anushajain2/beyond-structure-bench"
 RELEASE_DATE = "2026-10-23"
 
 MODELS = ["mace-mpa-0", "orb-v3", "mattersim-5m-native"]
@@ -186,7 +186,7 @@ def evidence() -> dict:
 def render(page: Path, layout: str, version: str) -> str:
     body = page.read_text()
     m = re.match(r"<!--\s*title:\s*(.*?)\s*\|\s*(.*?)\s*-->\n", body)
-    title, desc = (m.group(1), m.group(2)) if m else ("ChipFF Bench", "")
+    title, desc = (m.group(1), m.group(2)) if m else ("BeyondStructure Bench", "")
     body = body[m.end():] if m else body
     current = ' aria-current="page"'
     nav = "".join(f'<a href="{href}"{current if href == page.name else ""}>{label}</a>' for href, label in NAV)
