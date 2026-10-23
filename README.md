@@ -1,6 +1,6 @@
 # BeyondStructure Bench
 
-[![tests](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml)
+[![tests](https://github.com/anushajain2/beyond-structure-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/anushajain2/beyond-structure-bench/actions/workflows/ci.yml)
 
 **When a machine-learned force field gets a chip material's crystal structure right, does it also get
 its stiffness and thermal expansion right? And when it doesn't, why?**
@@ -29,11 +29,11 @@ worst predictions go wrong.
 Averages leave out layered materials such as graphite, which every model gets wrong, and Orb v3's
 thermal expansion, which was not computed in this release.
 
-**[Project site](https://anushajain2.github.io/chipff-bench/)** ·
-[Explore the evidence](https://anushajain2.github.io/chipff-bench/explore.html) ·
-[Read the study](https://anushajain2.github.io/chipff-bench/study.html) ·
-[Evaluation design](https://anushajain2.github.io/chipff-bench/design.html) ·
-[Reproduce](https://anushajain2.github.io/chipff-bench/reproduce.html)
+**[Project site](https://anushajain2.github.io/beyond-structure-bench/)** ·
+[Explore the evidence](https://anushajain2.github.io/beyond-structure-bench/explore.html) ·
+[Read the study](https://anushajain2.github.io/beyond-structure-bench/study.html) ·
+[Evaluation design](https://anushajain2.github.io/beyond-structure-bench/design.html) ·
+[Reproduce](https://anushajain2.github.io/beyond-structure-bench/reproduce.html)
 
 ## What it measures
 
@@ -195,7 +195,7 @@ Not every result can be graded, so coverage is reported next to accuracy
 
 There are three ways in, from no setup at all to rerunning the simulations.
 
-**1. Explore (no install).** The [site](https://anushajain2.github.io/chipff-bench/), or the committed
+**1. Explore (no install).** The [site](https://anushajain2.github.io/beyond-structure-bench/), or the committed
 tables in `results/` (`summary.json` and the CSVs) and `report/index.html`.
 
 **2. Reanalyse (Python only, no simulations).** Rebuild every table and figure from the committed raw
@@ -219,7 +219,7 @@ chipff analyze
 
 The full pipeline (roughly an hour on CPU for the static properties and one to two hours per model for
 thermal expansion), the MatterSim environment and UMA access are on the
-[Reproduce page](https://anushajain2.github.io/chipff-bench/reproduce.html) and in
+[Reproduce page](https://anushajain2.github.io/beyond-structure-bench/reproduce.html) and in
 [`docs/details.md`](docs/details.md#reproduce).
 
 ## Scientific details and reproducibility
@@ -248,7 +248,7 @@ retrieve the same evidence. Its answers are benchmark evidence, not calibrated e
 
 > A. Jain, *BeyondStructure Bench: how reliably universal machine-learned force fields predict the structure,
 > stiffness and thermal expansion of semiconductor-device materials*, v1.0.0 (2026).
-> https://github.com/anushajain2/chipff-bench
+> https://github.com/anushajain2/beyond-structure-bench
 
 ## Licence
 

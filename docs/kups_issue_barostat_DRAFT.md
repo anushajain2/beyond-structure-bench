@@ -23,7 +23,7 @@ time constant 1000 fs, compressibility 1/(130 GPa). The pressure uses the same e
 `StochasticCellRescalingStep` (`instantaneous_pressure`: 2K/(dV) + Tr σ / d, with `stress_via_virial_theorem`).
 
 **Reproducer** (about 30 min on a laptop CPU; it uses a thin wrapper around kUPS from the same repository):
-[`scripts/repro_kups_barostat_bias.py`](https://github.com/anushajain2/chipff-bench/blob/v1.0.0/scripts/repro_kups_barostat_bias.py).
+[`scripts/repro_kups_barostat_bias.py`](https://github.com/anushajain2/beyond-structure-bench/blob/v1.0.0/scripts/repro_kups_barostat_bias.py).
 I can turn it into a kUPS-only script if that is more useful.
 
 **Possibly related**, from reading `StochasticCellRescalingStep`:
@@ -33,7 +33,7 @@ I can turn it into a kUPS-only script if that is more useful.
 
 **Why it matters:** because the offset grows with T, it adds a spurious thermal expansion of about
 k_B/(v·K) to the volumetric coefficient (v = volume per atom, K = bulk modulus): about 8 × 10⁻⁶ K⁻¹ for Cu, a sixth of its measured value (about 50 × 10⁻⁶ K⁻¹).
-More detail: [`docs/thermal_method.md`](https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/thermal_method.md).
+More detail: [`docs/thermal_method.md`](https://github.com/anushajain2/beyond-structure-bench/blob/v1.0.0/docs/thermal_method.md).
 
 **Environment:** kups 1.0.8, jax/jaxlib 0.11.2, Python 3.12, macOS arm64 (CPU), float64; MACE-MPA-0 export
 `CuspAI/kUPS-mace-jax` revision `aa54c05`.

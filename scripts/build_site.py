@@ -21,7 +21,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "site"
 OUT = ROOT / "_site"
-REPO = "https://github.com/anushajain2/chipff-bench"
+REPO = "https://github.com/anushajain2/beyond-structure-bench"
 RELEASE_DATE = "2026-10-20"
 
 MODELS = ["mace-mpa-0", "orb-v3", "mattersim-5m-native"]

@@ -6,7 +6,7 @@
 **Title:** MatterSim JAX export: energy depends on edge order and supercell size
 
 Hi, and thanks for kUPS and the model exports. They made it straightforward to benchmark universal force
-fields on semiconductor-device materials ([BeyondStructure Bench](https://github.com/anushajain2/chipff-bench)).
+fields on semiconductor-device materials ([BeyondStructure Bench](https://github.com/anushajain2/beyond-structure-bench)).
 
 While validating results I found that the MatterSim export on the Hub returns energies that change when the
 edges of the input graph are reordered, and per-atom energies that change with supercell size. The MACE
@@ -18,7 +18,7 @@ export, run through the same code path, does not.
 
 **Reproducer** (about 5 s on a laptop CPU). It calls `TojaxedMliap.call` directly on a clean
 `AtomGraphInput` built with ASE's neighbour list, so kUPS's neighbour-list padding is not involved:
-[`scripts/repro_mattersim_export.py`](https://github.com/anushajain2/chipff-bench/blob/v1.0.0/scripts/repro_mattersim_export.py)
+[`scripts/repro_mattersim_export.py`](https://github.com/anushajain2/beyond-structure-bench/blob/v1.0.0/scripts/repro_mattersim_export.py)
 
 Output for diamond Si (a = 5.47 Å):
 
@@ -41,7 +41,7 @@ structures sent to the export (through kUPS) and to the official package:
 
 The same comparison for the MACE and Orb exports agrees with `mace-torch` and `orb-models` to ≤ 0.07 meV/atom
 and 0.3 % in the displacement response, so the comparison code itself looks sound. Tables and data:
-[`docs/thermal_failure_study.md`, section 1](https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/thermal_failure_study.md#1-native-vs-export-on-identical-structures).
+[`docs/thermal_failure_study.md`, section 1](https://github.com/anushajain2/beyond-structure-bench/blob/v1.0.0/docs/thermal_failure_study.md#1-native-vs-export-on-identical-structures).
 
 **Effects seen through kUPS:**
 - inside `kups_relax` and `kups_md` batches, the same structure gets different energies depending on what else
@@ -55,6 +55,6 @@ three-body (angle) part of the exported graph may assume a particular edge layou
 export time.
 
 **Environment:** kups 1.0.8, jax/jaxlib 0.11.2, Python 3.12, macOS arm64 (CPU), float64 as set by the kUPS
-apps. Exact versions: [`env/requirements-lock.txt`](https://github.com/anushajain2/chipff-bench/blob/v1.0.0/env/requirements-lock.txt).
+apps. Exact versions: [`env/requirements-lock.txt`](https://github.com/anushajain2/beyond-structure-bench/blob/v1.0.0/env/requirements-lock.txt).
 
 Happy to test a re-export or run more cases.
