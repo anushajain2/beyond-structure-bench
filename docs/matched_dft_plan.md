@@ -1,6 +1,6 @@
 # Model error or PBE error? Matched PBE references for thermal expansion
 
-*Written 2026-10-23. A plan, not a result: no DFT has been run for it, and nothing in the benchmark code or results was changed.*
+*Written 2026-10-23. A plan, not a result: only two short timing calibrations have been run (section 5), and nothing in the benchmark code or results was changed.*
 
 The thermal-failure study ([thermal_failure_study.md](thermal_failure_study.md)) compares each model's
 quasi-harmonic (QHA) thermal expansion with experiment, and traces the large errors to the Grüneisen parameter γ,
@@ -34,10 +34,11 @@ anything, to run (sections 5 and 6).
 * **Cu "works" partly by departing from PBE.** PBE overshoots Cu by 11–15 %. All three models fall 2–14 % *below* PBE,
   which puts them closer to experiment than their training functional.
 * **Running our own:** the supercell route that matches `configs/benchmark.yaml` exactly is affordable only for Si
-  (about 2–4 h). For Cu and Ta it would take about 75–250 h of laptop CPU each, and published PBE QHA is already better
-  converged than what we could afford. The recommendation (section 6) is a GaAs PBE calculation with density-functional
-  perturbation theory (DFPT), about 2–9 h, with a Si control of about 2–4 h. That needs Quantum ESPRESSO installed (about
-  270 MB download), which is waiting for your approval.
+  (about 4–5 h, calibrated). For Cu and Ta it would take hundreds of hours of laptop CPU each, and published PBE QHA is
+  already better converged than what we could afford. The recommendation (section 6) is a GaAs PBE calculation with
+  density-functional perturbation theory (DFPT): about 3–7 h for γ at 3 volumes, calibrated, or 9–20 h for the full
+  QHA. A Si control adds about 4–5 h. Quantum ESPRESSO is now installed and calibrated (section 5); the production
+  runs have not been started.
 
 ## 1. What the models were trained on
 
@@ -203,11 +204,12 @@ lattice constants are within 0.2 % of MP's, except MACE Cu (+0.5 %), which chang
 
 ## 5. Cost of running our own PBE QHA on this laptop
 
-**Machine:** Apple M4 Pro, 12 cores (8 performance + 4 efficiency), 24 GB RAM. **Software:** Quantum ESPRESSO is not
-installed, and neither is conda. QE 7.6 exists on conda-forge for osx-arm64, about 241 MB for the package plus about
-20 MB of dependencies (openmpi, fftw, openblas, scalapack, hdf5, elpa). The unpacked size was not measured; it is
-probably 0.6–1 GB. Homebrew has no QE formula. The SSSP 1.3 PBE efficiency pseudopotential set adds 60 MB
-([Materials Cloud](https://archive.materialscloud.org/records/rcyfm-68h65)).
+**Machine:** Apple M4 Pro, 12 cores (8 performance + 4 efficiency), 24 GB RAM. **Software** (installed 2026-10-23,
+outside the repository):
+* Miniforge 26.7.2 in `~/miniforge3`, checksum verified against the GitHub release. The shell profile was not changed.
+* Quantum ESPRESSO 7.6 (conda-forge, openmpi build) in the conda env `qe`. Miniforge and the env take 1.3 GB on disk.
+* SSSP 1.3.0 PBE efficiency in `~/chipff-dft/sssp_1.3.0_pbe_eff`, md5 verified against the
+  [Materials Cloud record](https://archive.materialscloud.org/records/rcyfm-68h65).
 
 **Matched settings** (`configs/benchmark.yaml` `thermal_qha`, as the benchmark actually ran them):
 
@@ -225,23 +227,49 @@ symmetry, so subtracting them only removes the models' numerical noise.
 benchmark: 112 Au atoms, about 800 bands. It takes 917 s for two SCF iterations on a Ryzen 9 5900HX laptop
 ([OpenBenchmarking pts/qe](https://mail.openbenchmarking.org/test/pts/qe)), and the M4 Pro is assumed to be 1–1.5× as
 fast. The estimate also assumes 12–20 iterations per SCF and 4 k-points (semiconductors) or 8 (metals) after symmetry
-reduction of the displaced cell. **This is an order-of-magnitude estimate, uncertain by about a factor of 3.** No Apple
-silicon QE timings were found.
+reduction of the displaced cell. Before the calibration below, this was an order-of-magnitude estimate. The Si run
+landed at its upper end per k-point, so the **upper ends of the ranges are the realistic figures**.
 
 | | plane waves | bands | per SCF | **supercell QHA, 9 volumes** | wavefunction memory |
 |---|---|---|---|---|---|
-| Si | 49 k | 256 | 0.2–0.4 h | **2–4 h** | ~1 GB |
-| GaAs | 203 k | 576 | 4–9 h | **70–170 h** | ~8 GB |
-| Cu | 144 k | ~825 | 11–28 h | **100–250 h** | ~15 GB (tight in 24 GB) |
-| Ta | 79 k | ~975 | 8–21 h | **75–190 h** | ~10 GB |
+| Si | 49 k | 256 | **≈ 0.45 h measured** (estimate 0.2–0.4 h) | **≈ 4–4.5 h** | 13 GB total measured (8 ranks) |
+| GaAs | 203 k | 576 | 4–9 h | **70–170 h** | ~8 GB (wavefunctions only) |
+| Cu | 144 k | ~825 | 11–28 h | **100–250 h** | ~15 GB (wavefunctions only; will not fit with 8 ranks) |
+| Ta | 79 k | ~975 | 8–21 h | **75–190 h** | ~10 GB (wavefunctions only) |
+
+**Calibration runs (2026-10-23, QE 7.6, 8 MPI ranks, 1 thread each).** Inputs and outputs are in
+`~/chipff-dft/calib/`. During both runs, another session's Python jobs were using about 3–4 cores and ~5 GB, so these
+timings are somewhat pessimistic.
+
+* **Si, 128-atom supercell, one 0.01 Å displacement** (phonopy's own displacement; 30/240 Ry; 2×2×2 k, i.e. 6 k-points
+  after symmetry):
+  * The first attempt, with QE's default parallel subspace diagonalisation and 2 k-pools, gave NaN energies at
+    iteration 1 and stopped at 6 min. A 2-atom Si test on 1 and 4 ranks gave identical, normal energies, so the build
+    is fine. With serial subspace diagonalisation (`-nd 1`) and no pools, the 128-atom SCF behaves normally.
+  * Setup takes 70 s and the first iteration 220 s; later iterations take ≈ 110 s each. The run reached 3 × 10⁻⁵ Ry
+    accuracy after 6 iterations, at the 14-minute cap.
+  * A converged SCF (about 13 iterations to 10⁻⁹ Ry) is therefore ≈ 25–30 min. Nine volumes come to ≈ 4–4.5 h, or
+    about twice that if the undisplaced reference supercells are also computed.
+* **GaAs, primitive cell, DFPT** (70/560 Ry, 8×8×8 k):
+  * The SCF takes 19 s.
+  * The calibration q-point is the 4×4×4 grid's lowest-symmetry one, (0.75, −0.25, 0.75) 2π/a: 6 irreducible
+    representations of 1 mode each. Three of them took 13.5 min, so the whole q-point takes ≈ 27 min.
+  * The other 7 irreducible q-points of the grid have higher symmetry and need fewer k-points and representations.
+    Weighting them by the order of their point groups gives ≈ **1.7 h per volume** (range 1–2.5 h). That is about
+    twice the earlier guess.
+  * A 6×6×6 k-mesh, if a ≤ 15-min convergence test on this q-point allows it, would cut this by up to about 2×.
+
+Both calibrations confirm the scale of the cost: the GaAs supercell route would take ≈ 18 h per volume (two displaced
+128-atom SCFs), against ≈ 1.7 h with DFPT.
 
 **The cheaper matched alternative: DFPT on the primitive cell.** DFPT on a q-grid equal to the supercell (4×4×4 for
 Si and GaAs, 5×5×5 for Cu and Ta) gives the same harmonic force constants at the q-points the supercell samples, which
 are the only ones the finite-displacement method computes exactly. The two routes then share phonopy's interpolation.
-phonopy can read QE `q2r.x` force constants. The rough cost per volume is about 10–20 min for Si and 30–60 min for
-GaAs, at the SSSP cutoffs with Ga 3d. For Cu and Ta it is about 20–60 min. That gives roughly **1.5–3 h (Si), 5–9 h
-(GaAs) and 3–9 h each (Cu, Ta) for 9 volumes, and a third of that for a γ-only run at 3 volumes**. These numbers are
-less certain than the supercell ones and need a calibration run.
+phonopy can read QE `q2r.x` force constants. Per volume, the GaAs cost is calibrated at ≈ 1.7 h (above). Si should
+be roughly 5–10× cheaper (30 Ry, 4 instead of 9 occupied bands), so 10–20 min per volume. The Cu and Ta figures are
+uncalibrated guesses, which would probably need doubling as GaAs did: about 1–2 h per volume. That gives roughly
+**9–20 h (GaAs), 1.5–3 h (Si) and 9–18 h each (Cu, Ta) for 9 volumes, and a third of that for a γ-only run at 3
+volumes**.
 For GaAs, the matched comparison drops the LO–TO non-analytic term, as the MLIP pipeline does; the corrected value would
 be reported alongside.
 
@@ -255,18 +283,18 @@ be reported alongside.
    contains a U-free PBE QHA for GaAs, the GaAs gap may close at no cost.
 3. **If GaAs remains open, compute it with DFPT, γ first.** Use QE with SSSP-efficiency PBE (Ga with 3d, no U), a 4×4×4
    q-grid, and the model-relaxed and PBE-relaxed volumes. Step one is 3 volumes (0.985 / 1.0 / 1.015 V0) for γ, TA(X),
-   TA(L) and TO(Γ), at an estimated **2–3 h**. Step two, 9 volumes for α(T) through `PhonopyQHA`, is worth adding only
-   if step one leaves the GaAs attribution unclear: about **5–9 h** in total. This is the one material where the PBE
+   TA(L) and TO(Γ): **≈ 3–7 h (calibrated)**, or less if a 6×6×6 k-mesh passes a short convergence test. Step two,
+   9 volumes for α(T) through `PhonopyQHA`, is worth adding only if step one leaves the GaAs attribution unclear:
+   **≈ 9–20 h** in total. This is the one material where the PBE
    reference is missing, and it tests the study's semiconductor TA-mode mechanism (MACE's TA(L) +1.8) at the mode
    level.
-4. **Add Si as a matched-pipeline control: the exact supercell route, about 2–4 h.** It is the only material for which
-   the benchmark's own settings (128-atom supercell, 0.01 Å, 9 volumes, Γ fix) are affordable with DFT. It checks the
+4. **Add Si as a matched-pipeline control: the exact supercell route, ≈ 4–4.5 h (calibrated), with `-nd 1`.** It is
+   the only material for which the benchmark's own settings (128-atom supercell, 0.01 Å, 9 volumes, Γ fix) are affordable with DFT. It checks the
    literature spread (8.0 vs 9.0) and our pipeline against published PBE, and it gives PBE TA(X) and TA(L) computed
    exactly as the models' are.
-5. **Approvals needed before anything runs:** (a) installing Miniforge plus QE 7.6 and SSSP 1.3 in a separate
-   environment (about 300–350 MB download, an estimated 1 GB on disk); (b) one calibration run of 15 minutes or less (a
-   single 128-atom Si SCF and one GaAs DFPT q-point) to replace the order-of-magnitude estimates above; (c) the
-   production runs, about 4–13 h of background CPU in total for steps 3 and 4.
+5. **Approvals.** (a) The install and (b) the calibration were approved and done on 2026-10-23 (section 5). (c) The
+   production runs still need approval: ≈ 7–12 h of background CPU for steps 3 (γ only) and 4, or ≈ 13–25 h with the
+   full GaAs QHA. Running them while other sessions' jobs share the CPU would slow both.
 
 Outputs, if run, would go to a new `results/matched_dft/` with their own provenance. The benchmark's results and the
 study's tables would stay unchanged; the comparison would be added as a new section of the study.
