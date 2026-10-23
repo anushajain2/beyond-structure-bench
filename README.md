@@ -61,7 +61,7 @@ methods are in [`docs/details.md`](docs/details.md#whats-measured).
   report thermal expansion against experiment. This one does, for 24 materials at 300 K with two of the models.
 * **Evidence that accuracy doesn't carry over between properties.** A model can get a crystal's size
   and stiffness right and its thermal expansion badly wrong: MACE-MPA-0 puts tantalum's lattice within
-  0.4 % and its bulk modulus within 6 %, yet overestimates its thermal expansion by 179 %.
+  0.4 % and its bulk modulus within about 6 %, yet overestimates its thermal expansion by 179 %.
 * **An explanation for six of the largest failures**, separating model error from software and
   numerical artefacts.
 * **Sourced reference data.** Every experimental value comes with its citation and a verbatim quote, so
@@ -105,11 +105,11 @@ package, not kUPS.*
 materials, the three models put the crystal size within 0.73–0.80 % of experiment on average and the
 bulk modulus within 11–13 %. At 300 K, thermal expansion is off by 34.5 % on average for MACE-MPA-0 and
 28.7 % for MatterSim (24 materials each). Good structure is no guarantee: MACE-MPA-0 puts tantalum's
-lattice within 0.4 % and its bulk modulus within 6 %, yet overestimates its thermal expansion by 179 %.
+lattice within 0.4 % and its bulk modulus within about 6 %, yet overestimates its thermal expansion by 179 %.
 
 **2. No model is best everywhere.** MACE-MPA-0 overshoots the thermal expansion of refractory metals
 (tantalum +179 %); MatterSim overshoots that of semiconductors (InP +119 %, Si +85 %), where MACE gets
-silicon within 1 %. Against experiment, the benchmark resolves no overall difference between the models
+silicon within about 1 %. Against experiment, the benchmark resolves no overall difference between the models
 for lattice constant or bulk modulus (paired bootstrap, 95 % intervals), nor between MACE-MPA-0 and
 MatterSim for thermal expansion. Some failures are shared: every model overestimates the spacing between
 graphite's layers, by 18–30 %.
