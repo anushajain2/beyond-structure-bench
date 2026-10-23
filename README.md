@@ -4,21 +4,76 @@
 
 **How far can you trust an AI force field's prediction for a material used in chips, and when it is wrong, why?**
 
-ChipFF Bench tests three open, general-purpose machine-learned force fields (MACE-MPA-0, Orb v3 and
-MatterSim v1) on 33 materials used in semiconductor devices, for three bulk properties: lattice
-constant, bulk modulus and thermal expansion. Each result is compared with sourced experimental values
-and, where Materials Project has one, with its DFT value. A separate study of six cases then works out
-what causes the largest thermal-expansion errors. Calculations run through CuspAI's open-source
-[kUPS](https://github.com/cusp-ai-oss/kups) toolkit, except MatterSim, which runs through its official
-package because its kUPS export is broken (finding 3).
+## What this project is, in plain words
 
-**[Project site](https://anushajain2.github.io/chipff-bench/)** ·
-[Explore the evidence](https://anushajain2.github.io/chipff-bench/explore.html) ·
-[Read the study](https://anushajain2.github.io/chipff-bench/study.html) ·
-[Evaluation design](https://anushajain2.github.io/chipff-bench/design.html) ·
-[Reproduce](https://anushajain2.github.io/chipff-bench/reproduce.html)
+Chips are stacks of very thin layers of different materials: silicon, metals for wiring, insulators,
+and more. Before making a new stack, engineers want to know how each material behaves: how big its
+crystal is, how hard it is to squeeze, and how much it grows when it heats up. Measuring every
+material in a lab is slow, so researchers also *simulate* materials on a computer.
 
-## Three findings
+The most accurate simulations ([DFT](#terms-used-here)) are very slow. **AI force fields** are
+machine-learning models trained on many of those slow calculations; they predict how atoms push and
+pull on each other in a fraction of the time. They are increasingly used as a shortcut, but how well do
+they work for chip materials?
+
+**ChipFF Bench answers that question.** It asks three open AI force fields to predict three basic
+properties of 33 materials used in chips, compares every answer with published lab measurements (and
+with DFT where available), and then digs into the cases where the models go badly wrong to find out why.
+
+## Where to start
+
+| If you are… | Go to |
+|---|---|
+| **Just curious** | The [project site](https://anushajain2.github.io/chipff-bench/) and [what we found](#what-we-found) below |
+| **Looking up a material or model** | The [evidence explorer](https://anushajain2.github.io/chipff-bench/explore.html): each prediction next to its reference, source, error and status |
+| **Evaluating the science** | The [evaluation design](https://anushajain2.github.io/chipff-bench/design.html), [`docs/details.md`](docs/details.md) and [`docs/robustness.md`](docs/robustness.md) |
+| **Interested in why models fail** | The [six-case study](https://anushajain2.github.io/chipff-bench/study.html) (about 12 minutes) |
+| **Wanting to rerun it** | [Quick start](#quick-start) below and the [Reproduce page](https://anushajain2.github.io/chipff-bench/reproduce.html) |
+
+## What it measures
+
+| Property | In everyday terms | Why it matters for chips |
+|---|---|---|
+| **Lattice constant** | The size of the crystal's repeating unit: how far apart the atoms sit | Layers grown on top of each other need to fit; a model that gets the size wrong gets everything built on it wrong |
+| **Bulk modulus** | How hard the material is to squeeze; a higher value means stiffer | Sets how much a layer pushes back when its neighbours strain it |
+| **Thermal expansion** | How much the material grows when it heats up | Chips heat and cool constantly; layers that expand by different amounts build up stress, which can bend, crack or peel them |
+
+The three models are **MACE-MPA-0**, **Orb v3** and **MatterSim v1**. The 33 materials fall into five
+groups: semiconductors, insulators and dielectrics, wiring and contact metals, barriers and silicides,
+and layered (2D) materials such as graphite. Exact definitions, units and methods are in
+[`docs/details.md`](docs/details.md#whats-measured).
+
+## How it works
+
+1. **Pick the materials:** 33 materials with a role in semiconductor devices (`data/materials.yaml`).
+2. **Run the models:** each force field finds every crystal's preferred shape, then simulates squeezing it
+   and how its atoms vibrate.
+   Most calculations run through CuspAI's open-source [kUPS](https://github.com/cusp-ai-oss/kups)
+   toolkit; MatterSim runs through its official package, because its kUPS version is broken (finding 3).
+3. **Compute the three properties** from those simulations.
+4. **Compare with references:** sourced lab measurements for every material, each with a citation and a
+   quote, and DFT values from [Materials Project](https://materialsproject.org) where they exist.
+5. **Analyse the errors:** statistics with uncertainty, documented exclusions, checks that the
+   results don't depend on arbitrary settings, and a detailed study of the worst failures.
+
+## What we found
+
+**In short:** the models predict the size of most crystals well, stiffness less well, and how
+materials expand with heat poorly. Layered materials like graphite trip up every model. Each model
+fails on different materials, and with this many materials the data cannot say that one model is
+better overall.
+
+![Average error of each model by material group and property](report/figures/trust_map_experiment.png)
+
+*Average error against lab measurements, by material group (rows), property and model (columns).
+Green, amber and red use thresholds fixed before any result was seen (lattice constant good ≤ 1 %,
+okay ≤ 3 %; bulk modulus good ≤ 10 %, okay ≤ 25 %; thermal expansion good ≤ 20 %, okay ≤ 40 %).
+"Not run" means Orb v3's thermal expansion was not computed in this release; "n/a" means the value was
+computed but not graded, because the method does not apply to layered materials. Neither is a score.
+Numbers: [`results/trust_map.csv`](results/trust_map.csv). \*MatterSim runs through its official
+package, not kUPS.*
+
+The three findings, with the evidence:
 
 1. **Structure is accurate, stiffness less so, and the data can't rank the models.** Across the 30
    non-layered materials, all three models put the crystal size within 0.73–0.80 % of experiment on
@@ -43,6 +98,9 @@ package because its kUPS export is broken (finding 3).
 across three volume-scan settings: a sensitivity range, not a confidence interval. \*MatterSim runs
 through its official package, not kUPS.*
 
+Every number above comes from the committed tables in `results/`; the full findings, with confidence
+intervals and sample sizes, are in [`docs/details.md`](docs/details.md#findings-in-detail).
+
 ## What this release covers
 
 | Scope | Coverage in v1.0.0 |
@@ -52,9 +110,50 @@ through its official package, not kUPS.*
 | Thermal-failure study | MACE-MPA-0, MatterSim v1 and Orb v3 on six selected materials (Si, GaAs, InP, Cu, Ta, HfO₂) |
 | UMA | Not evaluated in this release (gated licence) |
 
-Coverage is reported next to accuracy, because not every result can be graded: for example, Orb changes
-the crystal form of 3 of the 33 materials (`results/coverage.csv`). These are bulk-crystal properties
-relevant to device materials, not predictions of how a real thin-film stack behaves.
+Not every result can be graded, so coverage is reported next to accuracy
+([`results/coverage.csv`](results/coverage.csv)). Each model–material–property result is one of:
+
+* **Graded:** the model gave a valid answer and it is compared with the reference.
+* **Model failure:** the model gave an answer that can't be compared, for example Orb changes the crystal
+  form of 3 of the 33 materials. These are findings in their own right and are left out of the averages.
+* **Method limit:** the calculation method itself doesn't apply, for example thermal expansion of layered
+  materials, which grow differently in different directions, or at temperatures where the method breaks down.
+* **No reference:** there is no trustworthy lab measurement to compare with.
+* **Not computed:** the calculation was not run in this release (Orb v3's benchmark-wide thermal expansion).
+
+These are properties of perfect bulk crystals relevant to device materials, not predictions of how a
+real thin-film stack behaves.
+
+## Terms used here
+
+<details>
+<summary>Short explanations of the scientific terms (click to expand)</summary>
+
+* **Force field:** a model of how atoms push and pull on each other, used to simulate how a material
+  behaves. A **machine-learned** (AI) force field learns this from many quantum-mechanical calculations;
+  a **universal** one is meant to work across most of the periodic table rather than for one material.
+* **DFT (density functional theory):** the standard quantum-mechanical way to calculate material
+  properties. Accurate but slow; it is what the AI force fields are trained to imitate.
+* **PBE:** the specific DFT approximation behind most training data. It is known to make crystals about
+  1 % too large and to miss the weak forces that hold layered materials together.
+* **Materials Project:** a public database of DFT calculations, used here as the DFT reference.
+* **kUPS:** CuspAI's open-source toolkit for running simulations with these models.
+* **Layered (2D) materials:** materials such as graphite, made of sheets held together by weak van der
+  Waals forces. PBE misses those forces, so models trained on it get the spacing between sheets wrong.
+* **Phonons:** the collective vibrations of atoms in a crystal. Heat is stored in them, and how they
+  change with volume decides how much a material expands.
+* **Quasi-harmonic approximation (QHA):** the method used here to compute thermal expansion: calculate
+  the vibrations at several crystal sizes and find which size is preferred at each temperature
+  ([why this method](docs/thermal_method.md)).
+* **Grüneisen parameter:** how strongly a material's vibration frequencies change when it expands or is
+  squeezed. Too large a value means too much thermal expansion.
+* **Barostat:** the part of a simulation that holds pressure constant by letting the crystal change size.
+* **Mean absolute % error:** the average size of the error, ignoring whether it is too high or too low.
+* **Bootstrap confidence interval:** an uncertainty range obtained by recomputing a result many times on
+  random resamples of the materials. A **paired bootstrap** compares two models on the same resamples to
+  see whether the difference between them is real or could be chance ([details](docs/robustness.md)).
+
+</details>
 
 ## Who can use it
 
@@ -67,20 +166,23 @@ relevant to device materials, not predictions of how a real thin-film stack beha
 
 ## Quick start
 
-**Read.** No install needed: the [site](https://anushajain2.github.io/chipff-bench/), or the committed
+There are three ways in, from no setup at all to rerunning the simulations.
+
+**1. Explore (no install).** The [site](https://anushajain2.github.io/chipff-bench/), or the committed
 tables in `results/` (`summary.json` and the CSVs) and `report/index.html`.
 
-**Reanalyse.** Rebuild every table and figure from the committed raw results, with no new calculations:
+**2. Reanalyse (Python only, no simulations).** Rebuild every table and figure from the committed raw
+results:
 
 ```bash
 uv venv --python 3.12 && uv pip install -e ".[dev]"
 chipff analyze && chipff report
 ```
 
-**Run.** One model on one material, in about two minutes on a laptop CPU (measured on an Apple-silicon
-MacBook). This recomputes the stored silicon results for MACE-MPA-0; they should agree with the
-committed ones to about 0.2 %. kUPS logs "Fixing failed assertions" while it enlarges its neighbour-list
-buffers; that is expected, not an error.
+**3. Run simulations.** One model on one material, in about two minutes on a laptop CPU (measured on an
+Apple-silicon MacBook). This recomputes the stored silicon results for MACE-MPA-0; they should agree
+with the committed ones to about 0.2 %. kUPS logs "Fixing failed assertions" while it enlarges its
+neighbour-list buffers; that is expected, not an error.
 
 ```bash
 chipff static -m mace-mpa-0 --materials Si --force
@@ -88,19 +190,32 @@ chipff qha -m mace-mpa-0 --materials Si --force
 chipff analyze
 ```
 
-The full pipeline, the exact environments and the model checksums are on the
-[Reproduce page](https://anushajain2.github.io/chipff-bench/reproduce.html).
+The full pipeline (roughly an hour on CPU for the static properties and one to two hours per model for
+thermal expansion), the MatterSim environment and UMA access are on the
+[Reproduce page](https://anushajain2.github.io/chipff-bench/reproduce.html) and in
+[`docs/details.md`](docs/details.md#reproduce).
 
-## More
+## Scientific details and reproducibility
 
-* **Full detail:** findings, methods and limits in [`docs/details.md`](docs/details.md); statistics in
-  [`docs/robustness.md`](docs/robustness.md); the six-case study in
-  [`docs/thermal_failure_study.md`](docs/thermal_failure_study.md).
-* **Related benchmarks:** [CHIPS-FF](https://arxiv.org/abs/2412.10516) compares 16 force fields with DFT
-  on 104 semiconductor-relevant materials, and [UniFFBench](https://arxiv.org/abs/2508.05762) compares
-  six with experiment on minerals. Neither reports thermal expansion against experiment.
-* **Agent interface:** `chipff-mcp` is a Model Context Protocol server that lets an AI assistant
-  retrieve the same evidence. Its answers are benchmark evidence, not calibrated error estimates.
+| What | Where |
+|---|---|
+| Full findings, methods and limits | [`docs/details.md`](docs/details.md) |
+| Statistics and robustness checks | [`docs/robustness.md`](docs/robustness.md) |
+| The six-case thermal-failure study | [`docs/thermal_failure_study.md`](docs/thermal_failure_study.md) |
+| Why thermal expansion uses QHA, not molecular dynamics | [`docs/thermal_method.md`](docs/thermal_method.md) |
+| Every setting, the pre-registered thresholds and rules, and dated changes | [`configs/benchmark.yaml`](configs/benchmark.yaml) |
+| Experimental references, each with a source, citation and quote | [`data/experimental/`](data/experimental) |
+| Exact package versions | [`env/requirements-lock.txt`](env/requirements-lock.txt), [`env/requirements-mattersim-lock.txt`](env/requirements-mattersim-lock.txt) |
+| Model files and checksums | [`configs/checkpoints.json`](configs/checkpoints.json), checked by `scripts/verify_checkpoints.py` |
+| How each result is tied to the code and settings that made it | [`docs/provenance.md`](docs/provenance.md) |
+| Automatic self-checks on every result | [`results/checks.csv`](results/checks.csv) |
+
+**Related benchmarks.** [CHIPS-FF](https://arxiv.org/abs/2412.10516) compares 16 force fields with DFT
+on 104 semiconductor-relevant materials, and [UniFFBench](https://arxiv.org/abs/2508.05762) compares
+six with experiment on minerals. Neither reports thermal expansion against experiment.
+
+**Agent interface.** `chipff-mcp` is a Model Context Protocol server that lets an AI assistant
+retrieve the same evidence. Its answers are benchmark evidence, not calibrated error estimates.
 
 ## Citation
 
