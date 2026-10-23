@@ -162,6 +162,29 @@ MACE's and MatterSim's on the same materials.
 
 None of these outcomes changes the benchmark's grading rules or thresholds, which stay as registered on 2026-10-17.
 
+## Amendment 1 (2026-10-23, before the run): run scope
+
+Written after a timing probe and before any blind result existed. The probe was InP, an already-seen study case: 12
+displacements × 9 volumes, 81 s, ≈ 2.7 k neighbour pairs/s. It showed the full run would take 12–14 h on the laptop
+CPU, not the 4–5 h assumed earlier. Orb's slightly broken symmetry multiplies the displacements; Y₂O₃ alone needs
+about 240, roughly 4 h. The scope is therefore split by cost, without reference to any result:
+
+* **Core run (now), 22 materials:** the 14 blind materials gradable at 300 K except Y₂O₃ (SiO₂ quartz, Al₂O₃, MgO, Al,
+  W, Co, Ru, Mo, Ti, TiN, CoSi₂, NiSi, TiSi₂, WSi₂); the six seen semiconductors still stale (Si, Ge, SiC, GaAs, GaN,
+  AlN); and Cu and Ta. InP is the probe, run with the registered settings and code. Settings, exclusions and
+  references are unchanged.
+* **Deferred, 10 materials,** run later for benchmark coverage: Y₂O₃, β-Si₃N₄, TaN, ZrO₂, HfO₂, TiO₂ (rutile), SrTiO₃,
+  MoS₂, hBN, graphite. Y₂O₃ is the only blind material gradable at 300 K among them. Si₃N₄ and TaN are blind but
+  gradable over the window only, so they enter only window secondaries. The rest are seen or cannot be graded for Orb.
+* **Verdicts come from the core run only.** The primary blind set becomes the 22 blind materials minus Y₂O₃, of which
+  at most 14 are gradable at 300 K. When the deferred materials are run, their results are reported as an addendum,
+  with the tests recomputed for information; the verdicts are not revised.
+* **Operational:** the core run uses two worker processes at once, each running one material per process as
+  `chipff qha` does. A driver outside `src/` serialises writes to `results/raw/orb-v3/thermal_qha.json` with a file
+  lock. `save_raw` is not part of the code fingerprint, so this changes neither numbers nor fingerprints.
+* `scripts/prereg_orb_thermal_eval.py` restricts Orb to the core materials by default (`--all` lifts it for the
+  addendum); MACE and MatterSim rows are used for all materials, as registered.
+
 ---
 
 ## Results (added after the run)

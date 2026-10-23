@@ -28,6 +28,8 @@ STUDY = {"Si", "GaAs", "Cu", "Ta", "InP", "HfO2"}
 STALE = {"Si", "Ge", "SiC", "GaAs", "GaN", "InP", "AlN"}
 SEEN = STUDY | STALE
 SEMICONDUCTORS = ["Si", "Ge", "SiC", "GaAs", "GaN", "InP", "AlN"]
+# Amendment 1 (before the run): verdicts use Orb's core run only; the deferred materials enter an addendum (--all)
+DEFERRED = {"Y2O3", "Si3N4_beta", "TaN", "ZrO2", "HfO2", "TiO2_rutile", "SrTiO3", "MoS2", "hBN", "graphite"}
 SEED = 0
 N_RANDOM = 100_000
 MAX_EXACT = 200_000
@@ -85,10 +87,12 @@ def spearman_perm_p(x, y):
 
 
 # -- inputs --------------------------------------------------------------------------------------------
-def load(thermal_csv, bulk_csv):
+def load(thermal_csv, bulk_csv, core_only=True):
     th = pd.read_csv(thermal_csv)
     bk = pd.read_csv(bulk_csv).drop_duplicates(["model", "material"])
     th = th[th["model"].isin(MODELS)]
+    if core_only:
+        th = th[~((th["model"] == ORB) & th["material"].isin(DEFERRED))]
     bk = bk[bk["model"].isin(MODELS)][["model", "material", "err_exp_pct", "B_exp", "K_for_exp", "B_eos_prime",
                                         "eos_fit_ok", "excluded"]]
     bk = bk.rename(columns={"err_exp_pct": "K_err_pct", "excluded": "K_excluded"})
@@ -269,8 +273,9 @@ def main():
     ap.add_argument("--thermal", default=str(ROOT / "results" / "thermal_expansion.csv"))
     ap.add_argument("--bulk", default=str(ROOT / "results" / "bulk_modulus.csv"))
     ap.add_argument("--out", default=str(ROOT / "results" / "preregistration_orb_thermal.json"))
+    ap.add_argument("--all", action="store_true", help="include Orb's deferred materials (addendum, not verdicts)")
     a = ap.parse_args()
-    res = evaluate(load(a.thermal, a.bulk))
+    res = evaluate(load(a.thermal, a.bulk, core_only=not a.all))
     Path(a.out).write_text(json.dumps(res, indent=1, default=float))
     for k, v in res.items():
         if isinstance(v, dict) and "verdict" in v:
