@@ -266,11 +266,28 @@ decisive.
   with no shared term, ρ = 0.06.
 * **Secondaries:** all materials ρ = 0.23, p = 0.14 (n = 23). Window, blind: ρ = −0.19, n = 8, which the rule would call
   refuted, but it is a secondary.
-* **Pattern:** on several blind materials Orb agrees closely with the other two models (D < 0.05), and the shared
-  answer is wrong by 17–36 %: Mo, Ru, Co, W, MgO. Al₂O₃ is the one blind case where the three agree and are right.
+* **What a small D means** (corrected 2026-10-23; an earlier version of this paragraph misread it): D is Orb's
+  distance from the *mean* of MACE and MatterSim, not agreement between the three.
+  * **Mo, Co, Ru and W:** D < 0.05 because MACE and MatterSim miss in opposite directions or by very different amounts
+    (Mo +97 % / −8 %, Co +31 % / −52 %, Ru +52 % / +6 %, W +48 % / −10 %), and Orb falls between them. The models
+    disagree strongly there.
+  * **MgO** is the one genuinely shared miss (+19 to +22 % for all three).
+  * **Al₂O₃** is shared and right (−1 to −2 %).
 
-So there is no evidence that Orb's disagreement signals error, and agreement between the three models does not imply
-accuracy.
+  This is a weakness of the registered D: it cannot tell "all three agree" from "Orb sits between two models that
+  disagree".
+
+So Orb's distance from the other two does not signal error.
+
+**Exploratory, not registered:** replacing D with the spread of the three models (standard deviation of their log
+predictions) gives a different picture. On the blind materials it correlates with the three-model mean's error:
+
+| references | with Al | without Al |
+|---|---|---|
+| registered | ρ = 0.57, p = 0.02, n = 14 | ρ = 0.46, p = 0.06 |
+| v1.1.0 | ρ = 0.60, p = 0.02, n = 13 | ρ = 0.49, p = 0.06 |
+
+This measure was chosen after seeing the data, so it is a hypothesis for the next prospective test, not a finding.
 
 ### H4: refuted (partly prospective)
 
@@ -334,7 +351,8 @@ With Al included, Orb's 300 K mean is 941 %; its 300 K median absolute error on 
 * Orb's transition-metal overshoots follow its soft static bulk modulus (H1, at the threshold).
 * Static K′ caught the one blind case where Orb's equation of state is abnormal, but missed Orb's largest seen
   errors.
-* Model agreement is not evidence of accuracy (H3 gave no signal, and the five shared misses).
+* Orb's distance from the other two models' mean is not an error signal (H3 gave none). Exploratory: the spread of
+  all three may be one, which is a hypothesis for the next test.
 * "Right at 300 K through compensation" did not predict degradation over the window (H4).
 
 **Not established:**
