@@ -1,4 +1,4 @@
-# ChipFF Bench: findings, methods and limits in detail
+# BeyondStructure Bench: findings, methods and limits in detail
 
 The [README](../README.md) is the short guide; this page keeps the full detail it links to. Paths in
 backticks are relative to the repository root unless they name a file in this folder.
@@ -100,7 +100,7 @@ Two published benchmarks overlap closely, and this one should be read alongside 
   constants, and reports a gap between computational-benchmark and experimental accuracy. It does
   not evaluate thermal expansion.
 
-What ChipFF Bench adds is narrower: sourced experimental references (with quotes) for a set of
+What BeyondStructure Bench adds is narrower: sourced experimental references (with quotes) for a set of
 device materials, thermal expansion against experiment, side-by-side DFT and experiment for every
 result, and investigations of simulation failures (a model export whose energies depend on
 neighbour-list order, a barostat bias, and where each model's thermal expansion breaks down).

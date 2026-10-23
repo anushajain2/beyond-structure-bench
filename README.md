@@ -1,27 +1,33 @@
-# ChipFF Bench
+# BeyondStructure Bench
 
 [![tests](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml)
 
-**When an AI force field gets a chip material's crystal structure right, does it also get its stiffness
-and thermal expansion right? And when it doesn't, why?**
+**When a machine-learned force field gets a chip material's crystal structure right, does it also get
+its stiffness and thermal expansion right? And when it doesn't, why?**
 
-ChipFF Bench is a benchmark of three AI force fields: machine-learning models that predict how the atoms
-in a material push and pull on each other, used as fast stand-ins for quantum-mechanical calculations.
-It tests MACE-MPA-0, Orb v3 and MatterSim v1 on 33 materials used in chips, from silicon and copper to
-hafnium oxide, and compares every prediction with published lab measurements (and with
+BeyondStructure Bench is a benchmark of three machine-learned (ML) force fields: models that predict how
+the atoms in a material push and pull on each other, used as fast stand-ins for quantum-mechanical
+calculations. It tests MACE-MPA-0, Orb v3 and MatterSim v1 on 33 materials used in chips, from silicon
+and copper to hafnium oxide, and compares every prediction with published lab measurements (and with
 [DFT](#terms-used-here) calculations where they exist). A follow-up study of six cases looks at why the
 worst predictions go wrong.
 
-**What we found, in brief:**
+**Key findings:**
 
-* All three models get the size of most crystals right, to within about 1 % on average.
-* They are less accurate on stiffness, off by 11–13 % on average, and the data can't tell which model is best.
-* They are worst at thermal expansion: the two models tested on it across all materials are off by
-  29–35 % on average, and each fails on different materials.
-* Layered materials such as graphite trip up every model.
-* In the six cases studied, the thermal-expansion errors trace to the models misjudging how the atoms'
-  vibrations change as the crystal expands. Those cases were picked after the failures were seen, so this
-  explains them; it is not shown to be a general rule.
+1. **Getting the structure right doesn't mean getting the rest right.** Accuracy falls as the property
+   gets harder: on average the models are off by under 1 % on crystal size, 11–13 % on stiffness and
+   29–35 % on thermal expansion. MACE-MPA-0, for example, gets tantalum's crystal size within 0.4 % but
+   overestimates its thermal expansion by 179 %.
+2. **No model is best everywhere.** Each fails on different materials: MACE-MPA-0 on metals such as
+   tantalum, MatterSim on semiconductors such as silicon and indium phosphide. On structure and
+   stiffness, the data can't tell the three models apart.
+3. **The thermal-expansion errors come from how the models handle vibrations.** In six cases studied in
+   depth, the models misjudge how strongly the atoms' vibrations change as the crystal expands. These
+   cases were picked after the failures were seen, so this explains them rather than proving a general
+   rule.
+
+Averages leave out layered materials such as graphite, which every model gets wrong, and Orb v3's
+thermal expansion, which was not computed in this release.
 
 **[Project site](https://anushajain2.github.io/chipff-bench/)** ·
 [Explore the evidence](https://anushajain2.github.io/chipff-bench/explore.html) ·
@@ -63,7 +69,7 @@ methods are in [`docs/details.md`](docs/details.md#whats-measured).
 
 ## What it doesn't tell you
 
-This is not a general verdict on whether AI force fields can be trusted for chip materials. It covers
+This is not a general verdict on whether ML force fields can be trusted for chip materials. It covers
 three bulk properties, three models and perfect crystals. Real chip layers are thin films with
 interfaces, defects and often disordered structure, and many properties that matter for devices, such as
 heat conduction, diffusion and adhesion, are not tested. The results say how these models do on these
@@ -83,7 +89,7 @@ properties; for anything else they are at most a warning sign.
 5. **Analyse the errors:** statistics with uncertainty, documented exclusions, checks that the
    results don't depend on arbitrary settings, and a detailed study of the worst failures.
 
-## What we found
+## The evidence
 
 ![Average error of each model by material group and property](report/figures/trust_map_experiment.png)
 
@@ -95,28 +101,32 @@ computed but not graded, because the method does not apply to layered materials.
 Numbers: [`results/trust_map.csv`](results/trust_map.csv). \*MatterSim runs through its official
 package, not kUPS.*
 
-The three findings, with the evidence:
+**1. Getting the structure right doesn't mean getting the rest right.** Across the 30 non-layered
+materials, the three models put the crystal size within 0.73–0.80 % of experiment on average and the
+bulk modulus within 11–13 %. At 300 K, thermal expansion is off by 34.5 % on average for MACE-MPA-0 and
+28.7 % for MatterSim (24 materials each). Good structure is no guarantee: MACE-MPA-0 puts tantalum's
+lattice within 0.4 % and its bulk modulus within 6 %, yet overestimates its thermal expansion by 179 %.
 
-1. **Structure is accurate, stiffness less so, and the data can't rank the models.** Across the 30
-   non-layered materials, all three models put the crystal size within 0.73–0.80 % of experiment on
-   average, and the bulk modulus within 11–13 %. Against experiment the benchmark resolves no
-   difference between the models for either property (paired bootstrap, 95 % intervals). Layered
-   materials fail for every model.
-2. **Thermal expansion is where the models fail, and each fails in different places.** At 300 K,
-   MACE-MPA-0 is off by 34.5 % on average and MatterSim by 28.7 %. MACE overshoots refractory metals
-   (tantalum +179 %), MatterSim overshoots semiconductors (InP +119 %, Si +85 %). A model can get a
-   crystal's size and stiffness right and still badly mispredict how it expands: MACE puts tantalum's
-   lattice within 0.4 % and its bulk modulus within 6 %.
-3. **The six-case study traces the large errors to the models' Grüneisen parameters**, which describe how
-   vibration frequencies change as a crystal expands; for several semiconductors a too-soft bulk modulus
-   adds to it. The six cases were chosen after the failures were seen, so the study explains them; it
-   does not establish a general rule.
+**2. No model is best everywhere.** MACE-MPA-0 overshoots the thermal expansion of refractory metals
+(tantalum +179 %); MatterSim overshoots that of semiconductors (InP +119 %, Si +85 %), where MACE gets
+silicon within 1 %. Against experiment, the benchmark resolves no overall difference between the models
+for lattice constant or bulk modulus (paired bootstrap, 95 % intervals), nor between MACE-MPA-0 and
+MatterSim for thermal expansion. Some failures are shared: every model overestimates the spacing between
+graphite's layers, by 18–30 %.
 
 ![Thermal-expansion error at 300 K by material and model](report/figures/study_errors.png)
 
 *Thermal-expansion error at 300 K against experiment in the six-case study. Each bar is the spread
 across three volume-scan settings: a sensitivity range, not a confidence interval. \*MatterSim runs
 through its official package, not kUPS.*
+
+**3. The thermal-expansion errors come from how the models handle vibrations.** How much a material
+expands depends mainly on its stiffness and its Grüneisen parameter, which measures how strongly its
+vibrations change as the crystal expands. In six cases (Si, GaAs, InP, Cu, Ta and HfO₂), checks of the
+software and numerical settings did not explain the large errors; they trace to the models' Grüneisen
+parameters, with a too-soft bulk modulus adding to it for several semiconductors. For tantalum,
+MACE-MPA-0's Grüneisen parameter is 4.1, against 1.6 inferred from experiment. The six cases were chosen
+after the failures were seen, so the study explains them; it does not establish a general rule.
 
 Every number above comes from the committed tables in `results/`; the full findings, with confidence
 intervals and sample sizes, are in [`docs/details.md`](docs/details.md#findings-in-detail).
@@ -147,10 +157,10 @@ Not every result can be graded, so coverage is reported next to accuracy
 <summary>Short explanations of the scientific terms (click to expand)</summary>
 
 * **Force field:** a model of how atoms push and pull on each other, used to simulate how a material
-  behaves. A **machine-learned** (AI) force field learns this from many quantum-mechanical calculations;
+  behaves. A **machine-learned (ML)** force field learns this from many quantum-mechanical calculations;
   a **universal** one is meant to work across most of the periodic table rather than for one material.
 * **DFT (density functional theory):** the standard quantum-mechanical way to calculate material
-  properties. Accurate but slow; it is what the AI force fields are trained to imitate.
+  properties. Accurate but slow; it is what ML force fields are trained to imitate.
 * **PBE:** the specific DFT approximation behind most training data. It is known to make crystals about
   1 % too large and to miss the weak forces that hold layered materials together.
 * **Materials Project:** a public database of DFT calculations, used here as the DFT reference.
@@ -236,7 +246,7 @@ retrieve the same evidence. Its answers are benchmark evidence, not calibrated e
 
 ## Citation
 
-> A. Jain, *ChipFF Bench: how reliably universal machine-learned force fields predict the structure,
+> A. Jain, *BeyondStructure Bench: how reliably universal machine-learned force fields predict the structure,
 > stiffness and thermal expansion of semiconductor-device materials*, v1.0.0 (2026).
 > https://github.com/anushajain2/chipff-bench
 

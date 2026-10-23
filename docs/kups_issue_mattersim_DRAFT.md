@@ -6,7 +6,7 @@
 **Title:** MatterSim JAX export: energy depends on edge order and supercell size
 
 Hi, and thanks for kUPS and the model exports. They made it straightforward to benchmark universal force
-fields on semiconductor-device materials ([ChipFF Bench](https://github.com/anushajain2/chipff-bench)).
+fields on semiconductor-device materials ([BeyondStructure Bench](https://github.com/anushajain2/chipff-bench)).
 
 While validating results I found that the MatterSim export on the Hub returns energies that change when the
 edges of the input graph are reordered, and per-atom energies that change with supercell size. The MACE

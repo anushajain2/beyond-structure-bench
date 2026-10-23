@@ -1,4 +1,4 @@
-# ChipFF Bench settings. Everything that affects a number lives here.
+# BeyondStructure Bench settings. Everything that affects a number lives here.
 #
 # PRE-REGISTERED THRESHOLDS: fixed on 2026-10-17, before any model result was
 # compared with a reference value. They define the trust map's colours and are

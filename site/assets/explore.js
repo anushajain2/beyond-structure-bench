@@ -203,7 +203,7 @@
       <div class="model-cards">${cards}</div>
       ${best ? '<p class="muted" style="margin-top:12px">The lowest observed error here describes this one comparison. It is not a recommendation: across the benchmark, against experiment, no difference between the models is resolved for any of the three properties.</p>' : ''}
       ${studyPanel}${classPanel}${refPanel}${dataPanel}`;
-    document.title = `${uni(m.formula)}, ${PROPS[prop].toLowerCase()} · Explore evidence · ChipFF Bench`;
+    document.title = `${uni(m.formula)}, ${PROPS[prop].toLowerCase()} · Explore evidence · BeyondStructure Bench`;
   }
   function go(push = true) { sync(); if (push) write(); render(); }
   go();

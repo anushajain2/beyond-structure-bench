@@ -1,4 +1,4 @@
-# How robust are ChipFF Bench's conclusions?
+# How robust are BeyondStructure Bench's conclusions?
 
 A benchmark makes two kinds of claim: *how accurate* each model is, and *which model is
 more accurate*. Both can be wrong for reasons that have nothing to do with the models: too

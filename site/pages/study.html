@@ -1,8 +1,8 @@
-<!-- title: A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models | Why universal machine-learned force fields that get a crystal's structure right can still badly mispredict how it expands, and how six cases were narrowed down. -->
+<!-- title: A good crystal structure is not enough: investigating thermal-expansion errors in machine-learned force fields | Why universal machine-learned force fields that get a crystal's structure right can still badly mispredict how it expands, and how six cases were narrowed down. -->
 <article class="prose article">
 <p class="eyebrow">The study · release v1.0.0 · 20 October 2026</p>
-<h1>A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models</h1>
-<p class="standfirst">Three widely used AI force fields reproduce the size of chip-material crystals to within
+<h1>A good crystal structure is not enough: investigating thermal-expansion errors in machine-learned force fields</h1>
+<p class="standfirst">Three widely used ML force fields reproduce the size of chip-material crystals to within
 1 %, then miss how much some of them expand on heating by 70–180 %. This is an account of how six of those
 failures were traced: first ruling out the software and the numerics, then splitting the error into its
 physical ingredients.</p>
@@ -21,7 +21,7 @@ physical ingredients.</p>
 
 <h2 id="puzzle">A puzzle in tantalum</h2>
 <p>Tantalum is one of the metals in a chip's wiring: thin tantalum and tantalum-nitride layers line the copper
-interconnects and stop copper from diffusing into the insulator around it. Ask MACE-MPA-0, a widely used AI force
+interconnects and stop copper from diffusing into the insulator around it. Ask MACE-MPA-0, a widely used ML force
 field, about bulk tantalum and its first answers are excellent. The lattice it relaxes to is within 0.4 % of the
 measured one. Its bulk modulus, a measure of how hard the crystal is to compress, is within 6 %.</p>
 <p>Then ask how much tantalum expands when it is heated. At room temperature MACE predicts a volumetric expansion
