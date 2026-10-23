@@ -2,26 +2,26 @@
 
 [![tests](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/anushajain2/chipff-bench/actions/workflows/ci.yml)
 
-**How far can you trust an AI force field's prediction for a material used in chips, and when it is wrong, why?**
+**When an AI force field gets a chip material's crystal structure right, does it also get its stiffness
+and thermal expansion right? And when it doesn't, why?**
 
-ChipFF Bench tests three AI force fields, machine-learning models that predict how the atoms in a
-material push and pull on each other: MACE-MPA-0, Orb v3 and MatterSim v1. They are tested on 33 materials
-used in chips, from silicon and copper to hafnium oxide. For each material, each model predicts three
-things: how big its crystal is, how hard it is to compress, and how much it expands when heated. Every
-prediction is checked against published lab measurements, and against standard quantum-mechanical
-calculations ([DFT](#terms-used-here)) where they exist. Where a model is badly wrong, a separate study
-of six cases works out why.
+ChipFF Bench is a benchmark of three AI force fields: machine-learning models that predict how the atoms
+in a material push and pull on each other, used as fast stand-ins for quantum-mechanical calculations.
+It tests MACE-MPA-0, Orb v3 and MatterSim v1 on 33 materials used in chips, from silicon and copper to
+hafnium oxide, and compares every prediction with published lab measurements (and with
+[DFT](#terms-used-here) calculations where they exist). A follow-up study of six cases looks at why the
+worst predictions go wrong.
 
 **What we found, in brief:**
 
-* All three models get the size of most crystals right, to within about 1 %.
+* All three models get the size of most crystals right, to within about 1 % on average.
 * They are less accurate on stiffness, off by 11–13 % on average, and the data can't tell which model is best.
 * They are worst at thermal expansion: the two models tested on it across all materials are off by
   29–35 % on average, and each fails on different materials.
 * Layered materials such as graphite trip up every model.
-* In the six cases studied, the large thermal-expansion errors come from the models misjudging how the
-  atoms' vibrations change as the crystal expands. The checks along the way also found two problems in
-  the simulation toolkit and one in this project's own code, now fixed.
+* In the six cases studied, the thermal-expansion errors trace to the models misjudging how the atoms'
+  vibrations change as the crystal expands. Those cases were picked after the failures were seen, so this
+  explains them; it is not shown to be a general rule.
 
 **[Project site](https://anushajain2.github.io/chipff-bench/)** ·
 [Explore the evidence](https://anushajain2.github.io/chipff-bench/explore.html) ·
@@ -37,9 +37,37 @@ of six cases works out why.
 | **Bulk modulus** | How hard the material is to squeeze; a higher value means stiffer | Sets how much a layer pushes back when its neighbours strain it |
 | **Thermal expansion** | How much the material grows when it heats up | Chips heat and cool constantly; layers that expand by different amounts build up stress, which can bend, crack or peel them |
 
+The three properties get harder to predict in turn. Crystal size
+depends only on where the atoms sit at rest. Stiffness depends on how the energy changes when the
+crystal is squeezed. Thermal expansion depends on how the atoms' vibrations change as the crystal grows,
+a subtler feature of the model that structure and stiffness don't test. So the benchmark asks whether
+accuracy on the easier properties carries over to the harder one.
+
 The 33 materials fall into five groups: semiconductors, insulators and dielectrics, wiring and contact
-metals, barriers and silicides, and layered (2D) materials such as graphite. Exact definitions, units and methods are in
-[`docs/details.md`](docs/details.md#whats-measured).
+metals, barriers and silicides, and layered (2D) materials such as graphite. Exact definitions, units and
+methods are in [`docs/details.md`](docs/details.md#whats-measured).
+
+## What it adds
+
+* **Thermal expansion against experiment.** Force-field benchmarks mostly test structure and stiffness,
+  often against DFT alone. The two closest benchmarks for these kinds of materials,
+  [CHIPS-FF](https://arxiv.org/abs/2412.10516) and [UniFFBench](https://arxiv.org/abs/2508.05762), don't
+  report thermal expansion against experiment. This one does, for 24 materials at 300 K with two of the models.
+* **Evidence that accuracy doesn't carry over between properties.** A model can get a crystal's size
+  and stiffness right and its thermal expansion badly wrong: MACE-MPA-0 puts tantalum's lattice within
+  0.4 % and its bulk modulus within 6 %, yet overestimates its thermal expansion by 179 %.
+* **An explanation for six of the largest failures**, separating model error from software and
+  numerical artefacts.
+* **Sourced reference data.** Every experimental value comes with its citation and a verbatim quote, so
+  others can check and reuse it.
+
+## What it doesn't tell you
+
+This is not a general verdict on whether AI force fields can be trusted for chip materials. It covers
+three bulk properties, three models and perfect crystals. Real chip layers are thin films with
+interfaces, defects and often disordered structure, and many properties that matter for devices, such as
+heat conduction, diffusion and adhesion, are not tested. The results say how these models do on these
+properties; for anything else they are at most a warning sign.
 
 ## How it works
 
@@ -47,7 +75,8 @@ metals, barriers and silicides, and layered (2D) materials such as graphite. Exa
 2. **Run the models:** each force field finds every crystal's preferred shape, then simulates squeezing it
    and how its atoms vibrate.
    Most calculations run through CuspAI's open-source [kUPS](https://github.com/cusp-ai-oss/kups)
-   toolkit; MatterSim runs through its official package, because its kUPS version is broken (finding 3).
+   toolkit; MatterSim runs through its official package, because its kUPS version gives inconsistent
+   energies ([details](docs/details.md#findings-in-detail)).
 3. **Compute the three properties** from those simulations.
 4. **Compare with references:** sourced lab measurements for every material, each with a citation and a
    quote, and DFT values from [Materials Project](https://materialsproject.org) where they exist.
@@ -80,10 +109,8 @@ The three findings, with the evidence:
    lattice within 0.4 % and its bulk modulus within 6 %.
 3. **The six-case study traces the large errors to the models' Grüneisen parameters**, which describe how
    vibration frequencies change as a crystal expands; for several semiconductors a too-soft bulk modulus
-   adds to it. Checks of the workflow itself found a model export whose energy depends on the order of its
-   input (MatterSim through kUPS), a bias in kUPS's isotropic barostat, and a numerical defect in this
-   project's own phonon step, now fixed. The six cases were chosen after the failures were seen, so the
-   study explains them; it does not establish a general rule.
+   adds to it. The six cases were chosen after the failures were seen, so the study explains them; it
+   does not establish a general rule.
 
 ![Thermal-expansion error at 300 K by material and model](report/figures/study_errors.png)
 
@@ -113,9 +140,6 @@ Not every result can be graded, so coverage is reported next to accuracy
   materials, which grow differently in different directions, or at temperatures where the method breaks down.
 * **No reference:** there is no trustworthy lab measurement to compare with.
 * **Not computed:** the calculation was not run in this release (Orb v3's benchmark-wide thermal expansion).
-
-These are properties of perfect bulk crystals relevant to device materials, not predictions of how a
-real thin-film stack behaves.
 
 ## Terms used here
 
@@ -154,7 +178,7 @@ real thin-film stack behaves.
   reference, with its source, error and any exclusion reason.
 * **Building or evaluating force fields:** the study's per-ingredient comparisons and workflow checks
   show where to look when a property comes out wrong.
-* **Running kUPS:** two of the findings concern the toolkit itself; write-ups with reproducers are in
+* **Running kUPS:** two problems found in the toolkit are written up with reproducers in
   `docs/kups_issue_*_DRAFT.md`.
 
 ## Quick start
