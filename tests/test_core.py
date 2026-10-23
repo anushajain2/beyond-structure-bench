@@ -204,3 +204,34 @@ def test_site_evidence_builds():
     # Orb's benchmark-wide thermal results are not part of this release, so no stale values are published
     th = ev["results"]["thermal_expansion"]
     assert all(set(r) == {"stale"} for m in th.values() for k, r in m.items() if k == "orb-v3")
+
+
+def test_every_reference_is_audited():
+    import yaml
+
+    from chipff.materials import ROOT
+
+    q = yaml.safe_load((ROOT / "data" / "reference_quality.yaml").read_text())
+    exp = experimental()
+    missing = []
+    for m in load_materials():
+        e = exp.get(m.id, {})
+        has = {"lattice": (e.get("lattice") or {}).get("a") is not None,
+               "bulk_modulus": (e.get("bulk_modulus") or {}).get("value_GPa") is not None,
+               "thermal_expansion": bool((e.get("thermal_expansion") or {}).get("values"))}
+        for prop, present in has.items():
+            entry = (q.get(m.id) or {}).get(prop)
+            if present and not entry:
+                missing.append(f"{m.id}/{prop}")
+            if entry:
+                assert entry["tier"] in ("core", "extended") and entry.get("why"), f"{m.id}/{prop}"
+    assert not missing, missing
+
+
+def test_range_average_is_not_a_300K_value():
+    import pandas as pd
+
+    from chipff.materials import ROOT
+
+    t = pd.read_csv(ROOT / "results" / "thermal_expansion.csv")
+    assert t.loc[t.material.isin(["InP", "NiSi"]), "alpha_V_300K_exp"].isna().all()

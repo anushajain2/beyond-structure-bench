@@ -8,6 +8,6 @@ orb-v3,bulk_modulus,33,33,28,3,0,2,False,TiO2_rutile (relaxed to a different cry
 mace-mpa-0,thermal_expansion,33,33,17,3,5,8,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)
 mattersim-5m-native,thermal_expansion,33,33,18,2,4,9,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)
 orb-v3,thermal_expansion,33,23,13,0,2,8,True,
-mace-mpa-0,thermal_expansion_300K,33,33,24,3,3,3,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)
-mattersim-5m-native,thermal_expansion_300K,33,33,24,2,3,4,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)
-orb-v3,thermal_expansion_300K,33,23,23,0,0,0,True,
+mace-mpa-0,thermal_expansion_300K,33,33,22,3,3,5,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)
+mattersim-5m-native,thermal_expansion_300K,33,33,22,2,3,6,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)
+orb-v3,thermal_expansion_300K,33,23,21,0,0,2,True,

@@ -410,7 +410,12 @@
    "err_a_exp_pct": 0.6704409181,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.0001,
+   "ref_why": "CODATA 2018 value at 22.5 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -439,7 +444,12 @@
    "err_a_exp_pct": 0.5475117397,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.0001,
+   "ref_why": "CODATA 2018 value at 22.5 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -468,7 +478,12 @@
    "err_a_exp_pct": 0.6865705073,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.0001,
+   "ref_why": "CODATA 2018 value at 22.5 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -497,7 +512,12 @@
    "err_a_exp_pct": 1.0812832791,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "orb-v3",
@@ -526,7 +546,12 @@
    "err_a_exp_pct": 1.7696682752,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -555,7 +580,12 @@
    "err_a_exp_pct": 1.7559381592,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mace-mpa-0",
@@ -584,7 +614,12 @@
    "err_a_exp_pct": 0.6177763153,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation citing Taylor & Jones 1960"
   },
   {
    "model": "orb-v3",
@@ -613,7 +648,12 @@
    "err_a_exp_pct": 0.4411088231,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation citing Taylor & Jones 1960"
   },
   {
    "model": "mattersim-5m-native",
@@ -642,7 +682,12 @@
    "err_a_exp_pct": 0.4489028701,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation citing Taylor & Jones 1960"
   },
   {
    "model": "mace-mpa-0",
@@ -671,7 +716,12 @@
    "err_a_exp_pct": 1.5179248668,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "orb-v3",
@@ -700,7 +750,12 @@
    "err_a_exp_pct": 1.7847800924,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -729,7 +784,12 @@
    "err_a_exp_pct": 1.578673049,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mace-mpa-0",
@@ -758,7 +818,12 @@
    "err_a_exp_pct": 0.4945736869,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 1.2432194286,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "orb-v3",
@@ -787,7 +852,12 @@
    "err_a_exp_pct": 0.910294499,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 1.1430916038,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -816,7 +886,12 @@
    "err_a_exp_pct": 0.903737646,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.9903067964,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mace-mpa-0",
@@ -845,7 +920,12 @@
    "err_a_exp_pct": 1.8826371166,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "orb-v3",
@@ -874,7 +954,12 @@
    "err_a_exp_pct": 1.508313983,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -903,7 +988,12 @@
    "err_a_exp_pct": 1.5876611029,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe compilation, 300 K"
   },
   {
    "model": "mace-mpa-0",
@@ -932,7 +1022,12 @@
    "err_a_exp_pct": 0.6578902671,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.900518409,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Kr\u00f6ncke et al. 2008 HRXRD, 300 K"
   },
   {
    "model": "orb-v3",
@@ -961,7 +1056,12 @@
    "err_a_exp_pct": 0.6544934726,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.5341467115,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Kr\u00f6ncke et al. 2008 HRXRD, 300 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -990,7 +1090,12 @@
    "err_a_exp_pct": 0.4543339485,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.8165011947,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Kr\u00f6ncke et al. 2008 HRXRD, 300 K"
   },
   {
    "model": "mace-mpa-0",
@@ -1019,7 +1124,12 @@
    "err_a_exp_pct": 2.1266518693,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 2.1115213769,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Kihara 1990 single crystal at 298 K"
   },
   {
    "model": "orb-v3",
@@ -1048,7 +1158,12 @@
    "err_a_exp_pct": 2.5847954449,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 2.1929357431,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Kihara 1990 single crystal at 298 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -1077,7 +1192,12 @@
    "err_a_exp_pct": 2.2003502238,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 2.2448246438,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Kihara 1990 single crystal at 298 K"
   },
   {
    "model": "mace-mpa-0",
@@ -1106,7 +1226,12 @@
    "err_a_exp_pct": 0.6983787243,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.3844031358,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "du Boulay et al. 2004 synchrotron, 295 K"
   },
   {
    "model": "orb-v3",
@@ -1135,7 +1260,12 @@
    "err_a_exp_pct": 0.7617016947,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.6298301018,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "du Boulay et al. 2004 synchrotron, 295 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -1164,7 +1294,12 @@
    "err_a_exp_pct": 0.6044998709,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.655525435,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "du Boulay et al. 2004 synchrotron, 295 K"
   },
   {
    "model": "mace-mpa-0",
@@ -1193,7 +1328,12 @@
    "err_a_exp_pct": 0.9281994882,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.957750806,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NIST SRM 676a, 22.5 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -1222,7 +1362,12 @@
    "err_a_exp_pct": 0.9829244887,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 1.0704205474,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NIST SRM 676a, 22.5 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -1251,7 +1396,12 @@
    "err_a_exp_pct": 1.0025349755,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.8918214199,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NIST SRM 676a, 22.5 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -1280,7 +1430,12 @@
    "err_a_exp_pct": 0.9197561314,
    "err_b_exp_pct": 0.1323161749,
    "err_c_exp_pct": 1.0890868067,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Ruh & Corfield 1970 single crystal (room temperature implied)"
   },
   {
    "model": "orb-v3",
@@ -1309,7 +1464,12 @@
    "err_a_exp_pct": 0.4989224196,
    "err_b_exp_pct": 0.2527451843,
    "err_c_exp_pct": 0.6552965,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Ruh & Corfield 1970 single crystal (room temperature implied)"
   },
   {
    "model": "mattersim-5m-native",
@@ -1338,7 +1498,12 @@
    "err_a_exp_pct": 0.9059850117,
    "err_b_exp_pct": -0.2444734564,
    "err_c_exp_pct": 1.2107206091,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Ruh & Corfield 1970 single crystal (room temperature implied)"
   },
   {
    "model": "mace-mpa-0",
@@ -1367,7 +1532,12 @@
    "err_a_exp_pct": 1.6100574048,
    "err_b_exp_pct": 1.0897048916,
    "err_c_exp_pct": 2.2310024796,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Howard et al. 1988 neutron powder, room temperature"
   },
   {
    "model": "orb-v3",
@@ -1396,7 +1566,12 @@
    "err_a_exp_pct": 0.7287047204,
    "err_b_exp_pct": 0.548038192,
    "err_c_exp_pct": 1.2819278792,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Howard et al. 1988 neutron powder, room temperature"
   },
   {
    "model": "mattersim-5m-native",
@@ -1425,7 +1600,12 @@
    "err_a_exp_pct": 1.733621246,
    "err_b_exp_pct": 0.6305987881,
    "err_c_exp_pct": 2.3499855321,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Howard et al. 1988 neutron powder, room temperature"
   },
   {
    "model": "mace-mpa-0",
@@ -1454,7 +1634,12 @@
    "err_a_exp_pct": 0.9406864105,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "synchrotron powder at 295 K"
   },
   {
    "model": "orb-v3",
@@ -1483,7 +1668,12 @@
    "err_a_exp_pct": 0.4747630651,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "synchrotron powder at 295 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -1512,7 +1702,12 @@
    "err_a_exp_pct": 0.9328267917,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "synchrotron powder at 295 K"
   },
   {
    "model": "mace-mpa-0",
@@ -1541,7 +1736,12 @@
    "err_a_exp_pct": 1.1524179211,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.2897482096,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NIST SRM 674b, 22.5 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -1570,7 +1770,12 @@
    "err_a_exp_pct": null,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NIST SRM 674b, 22.5 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -1599,7 +1804,12 @@
    "err_a_exp_pct": 1.2444682388,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.442965174,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NIST SRM 674b, 22.5 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -1628,7 +1838,12 @@
    "err_a_exp_pct": 1.0802925976,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Dubrovinsky & Saxena 1997, 298 K; agrees with Hazen 1976"
   },
   {
    "model": "orb-v3",
@@ -1657,7 +1872,12 @@
    "err_a_exp_pct": 1.0780842922,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Dubrovinsky & Saxena 1997, 298 K; agrees with Hazen 1976"
   },
   {
    "model": "mattersim-5m-native",
@@ -1686,7 +1906,12 @@
    "err_a_exp_pct": 1.0749651211,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Dubrovinsky & Saxena 1997, 298 K; agrees with Hazen 1976"
   },
   {
    "model": "mace-mpa-0",
@@ -1715,7 +1940,12 @@
    "err_a_exp_pct": 0.9745022303,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "room-temperature refinement"
   },
   {
    "model": "orb-v3",
@@ -1744,7 +1974,12 @@
    "err_a_exp_pct": null,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "room-temperature refinement"
   },
   {
    "model": "mattersim-5m-native",
@@ -1773,7 +2008,12 @@
    "err_a_exp_pct": 0.9821409921,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "room-temperature refinement"
   },
   {
    "model": "mace-mpa-0",
@@ -1802,7 +2042,12 @@
    "err_a_exp_pct": 0.6879627029,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -1831,7 +2076,12 @@
    "err_a_exp_pct": -0.0430804911,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -1860,7 +2110,12 @@
    "err_a_exp_pct": 0.089412378,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -1889,7 +2144,12 @@
    "err_a_exp_pct": -0.2637851078,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -1918,7 +2178,12 @@
    "err_a_exp_pct": -0.6165896665,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -1947,7 +2212,12 @@
    "err_a_exp_pct": -0.4569335287,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -1976,7 +2246,12 @@
    "err_a_exp_pct": 0.3132319564,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -2005,7 +2280,12 @@
    "err_a_exp_pct": 0.6998975849,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -2034,7 +2314,12 @@
    "err_a_exp_pct": 0.843230791,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -2063,7 +2348,12 @@
    "err_a_exp_pct": -0.4176909746,
    "err_b_exp_pct": null,
    "err_c_exp_pct": -1.0828304256,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.002,
+   "ref_why": "taken from Wikipedia citing Arblaster 2018 (not opened)"
   },
   {
    "model": "orb-v3",
@@ -2092,7 +2382,12 @@
    "err_a_exp_pct": -0.3648062816,
    "err_b_exp_pct": null,
    "err_c_exp_pct": -1.4032364787,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.002,
+   "ref_why": "taken from Wikipedia citing Arblaster 2018 (not opened)"
   },
   {
    "model": "mattersim-5m-native",
@@ -2121,7 +2416,12 @@
    "err_a_exp_pct": -0.4448454026,
    "err_b_exp_pct": null,
    "err_c_exp_pct": -1.4197312005,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.002,
+   "ref_why": "taken from Wikipedia citing Arblaster 2018 (not opened)"
   },
   {
    "model": "mace-mpa-0",
@@ -2150,7 +2450,12 @@
    "err_a_exp_pct": 0.8400538066,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.4487764592,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Arblaster 2013 critical review at 20 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -2179,7 +2484,12 @@
    "err_a_exp_pct": 0.5367088954,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.2038283125,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Arblaster 2013 critical review at 20 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -2208,7 +2518,12 @@
    "err_a_exp_pct": 1.0738408656,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.4328108224,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Arblaster 2013 critical review at 20 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -2237,7 +2552,12 @@
    "err_a_exp_pct": 0.1277655018,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -2266,7 +2586,12 @@
    "err_a_exp_pct": 0.4373607451,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -2295,7 +2620,12 @@
    "err_a_exp_pct": 0.688309062,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -2324,7 +2654,12 @@
    "err_a_exp_pct": -1.0633171685,
    "err_b_exp_pct": null,
    "err_c_exp_pct": -0.0412659294,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -2353,7 +2688,12 @@
    "err_a_exp_pct": -0.2607940028,
    "err_b_exp_pct": null,
    "err_c_exp_pct": -1.3748362765,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -2382,7 +2722,12 @@
    "err_a_exp_pct": -1.3121065298,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.2319935554,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -2411,7 +2756,12 @@
    "err_a_exp_pct": 0.387501572,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -2440,7 +2790,12 @@
    "err_a_exp_pct": 0.349766047,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -2469,7 +2824,12 @@
    "err_a_exp_pct": 0.4809524572,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 25 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -2498,7 +2858,12 @@
    "err_a_exp_pct": -0.1308943817,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "EOS intercept read from an abstract; temperature not stated"
   },
   {
    "model": "orb-v3",
@@ -2527,7 +2892,12 @@
    "err_a_exp_pct": 0.2005297572,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "EOS intercept read from an abstract; temperature not stated"
   },
   {
    "model": "mattersim-5m-native",
@@ -2556,7 +2926,12 @@
    "err_a_exp_pct": 0.1506995272,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "EOS intercept read from an abstract; temperature not stated"
   },
   {
    "model": "mace-mpa-0",
@@ -2585,7 +2960,12 @@
    "err_a_exp_pct": -1.7532796503,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 1.9427786795,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Christensen & Lebech 1978 refinement (via COD)"
   },
   {
    "model": "orb-v3",
@@ -2614,7 +2994,12 @@
    "err_a_exp_pct": 0.5015400292,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.7523638014,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Christensen & Lebech 1978 refinement (via COD)"
   },
   {
    "model": "mattersim-5m-native",
@@ -2643,7 +3028,12 @@
    "err_a_exp_pct": 0.8063832818,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.5758212067,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "Christensen & Lebech 1978 refinement (via COD)"
   },
   {
    "model": "mace-mpa-0",
@@ -2672,7 +3062,12 @@
    "err_a_exp_pct": 0.2525931202,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.002,
+   "ref_why": "1950 value; Wittmann 1961 differs by 0.2 %"
   },
   {
    "model": "orb-v3",
@@ -2701,7 +3096,12 @@
    "err_a_exp_pct": 0.1230673136,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.002,
+   "ref_why": "1950 value; Wittmann 1961 differs by 0.2 %"
   },
   {
    "model": "mattersim-5m-native",
@@ -2730,7 +3130,12 @@
    "err_a_exp_pct": -0.0364210481,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.002,
+   "ref_why": "1950 value; Wittmann 1961 differs by 0.2 %"
   },
   {
    "model": "mace-mpa-0",
@@ -2759,7 +3164,12 @@
    "err_a_exp_pct": 0.4812993907,
    "err_b_exp_pct": -2.2646567367,
    "err_c_exp_pct": 1.7096262336,
-   "axis_matching": "bac"
+   "axis_matching": "bac",
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "single-crystal refinement; agrees with Lord et al. 2015"
   },
   {
    "model": "orb-v3",
@@ -2788,7 +3198,12 @@
    "err_a_exp_pct": 0.2624826545,
    "err_b_exp_pct": -0.6990936872,
    "err_c_exp_pct": 1.3187519528,
-   "axis_matching": "bac"
+   "axis_matching": "bac",
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "single-crystal refinement; agrees with Lord et al. 2015"
   },
   {
    "model": "mattersim-5m-native",
@@ -2817,7 +3232,12 @@
    "err_a_exp_pct": -0.3622954321,
    "err_b_exp_pct": -0.3189730545,
    "err_c_exp_pct": 0.842736555,
-   "axis_matching": "bac"
+   "axis_matching": "bac",
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.001,
+   "ref_why": "single-crystal refinement; agrees with Lord et al. 2015"
   },
   {
    "model": "mace-mpa-0",
@@ -2846,7 +3266,12 @@
    "err_a_exp_pct": -1.0203157202,
    "err_b_exp_pct": -0.6557203946,
    "err_c_exp_pct": 0.6406592368,
-   "axis_matching": "bac"
+   "axis_matching": "bac",
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.003,
+   "ref_why": "refinement; other values within 0.2\u20130.4 %"
   },
   {
    "model": "orb-v3",
@@ -2875,7 +3300,12 @@
    "err_a_exp_pct": -0.4029053718,
    "err_b_exp_pct": -0.0047519003,
    "err_c_exp_pct": 0.8085470724,
-   "axis_matching": "bac"
+   "axis_matching": "bac",
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.003,
+   "ref_why": "refinement; other values within 0.2\u20130.4 %"
   },
   {
    "model": "mattersim-5m-native",
@@ -2904,7 +3334,12 @@
    "err_a_exp_pct": -0.2594829604,
    "err_b_exp_pct": -0.1291885963,
    "err_c_exp_pct": 0.2848450776,
-   "axis_matching": "bac"
+   "axis_matching": "bac",
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.003,
+   "ref_why": "refinement; other values within 0.2\u20130.4 %"
   },
   {
    "model": "mace-mpa-0",
@@ -2933,7 +3368,12 @@
    "err_a_exp_pct": -0.1886252364,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.6305041889,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.005,
+   "ref_why": "c axis disagrees with other sources by 0.5 %"
   },
   {
    "model": "orb-v3",
@@ -2962,7 +3402,12 @@
    "err_a_exp_pct": 0.5369278658,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.5148226744,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.005,
+   "ref_why": "c axis disagrees with other sources by 0.5 %"
   },
   {
    "model": "mattersim-5m-native",
@@ -2991,7 +3436,12 @@
    "err_a_exp_pct": 0.6109584831,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 0.4400056964,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "temperature_unstated",
+   "ref_sigma": 0.005,
+   "ref_why": "c axis disagrees with other sources by 0.5 %"
   },
   {
    "model": "mace-mpa-0",
@@ -3020,7 +3470,12 @@
    "err_a_exp_pct": 1.3665721653,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 10.1187381159,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 26 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -3049,7 +3504,12 @@
    "err_a_exp_pct": null,
    "err_b_exp_pct": null,
    "err_c_exp_pct": null,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 26 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -3078,7 +3538,12 @@
    "err_a_exp_pct": 0.8799728327,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 24.39822247,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "NBS Circular 539 at 26 \u00b0C"
   },
   {
    "model": "mace-mpa-0",
@@ -3107,7 +3572,12 @@
    "err_a_exp_pct": 0.1475727166,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 10.7363230455,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe citing Lynch & Drickamer; agrees with Pease 1952"
   },
   {
    "model": "orb-v3",
@@ -3136,7 +3606,12 @@
    "err_a_exp_pct": 0.3660045982,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 19.2027403121,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe citing Lynch & Drickamer; agrees with Pease 1952"
   },
   {
    "model": "mattersim-5m-native",
@@ -3165,7 +3640,12 @@
    "err_a_exp_pct": 0.3608836776,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 23.3661192506,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Ioffe citing Lynch & Drickamer; agrees with Pease 1952"
   },
   {
    "model": "mace-mpa-0",
@@ -3194,7 +3674,12 @@
    "err_a_exp_pct": 0.1015138062,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 18.4324050173,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Nelson & Riley 1945 at 14.6 \u00b0C"
   },
   {
    "model": "orb-v3",
@@ -3223,7 +3708,12 @@
    "err_a_exp_pct": 0.2679108918,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 29.5315740435,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Nelson & Riley 1945 at 14.6 \u00b0C"
   },
   {
    "model": "mattersim-5m-native",
@@ -3252,7 +3742,12 @@
    "err_a_exp_pct": 0.3210938573,
    "err_b_exp_pct": null,
    "err_c_exp_pct": 25.0661688045,
-   "axis_matching": null
+   "axis_matching": null,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "room_temperature",
+   "ref_sigma": 0.001,
+   "ref_why": "Nelson & Riley 1945 at 14.6 \u00b0C"
   }
  ],
  "bulk_modulus": [
@@ -3278,7 +3773,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.3651261054,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K single-crystal elastic constants (Ioffe)"
   },
   {
    "model": "orb-v3",
@@ -3302,7 +3802,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.9090922462,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K single-crystal elastic constants (Ioffe)"
   },
   {
    "model": "mattersim-5m-native",
@@ -3326,7 +3831,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.1075447307,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K single-crystal elastic constants (Ioffe)"
   },
   {
    "model": "mace-mpa-0",
@@ -3350,7 +3860,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.9024892252,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Ioffe lists both 71.3 and 75 GPa; primary ultrasonic value not checked"
   },
   {
    "model": "orb-v3",
@@ -3374,7 +3889,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.0954390095,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Ioffe lists both 71.3 and 75 GPa; primary ultrasonic value not checked"
   },
   {
    "model": "mattersim-5m-native",
@@ -3398,7 +3918,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.1917017933,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Ioffe lists both 71.3 and 75 GPa; primary ultrasonic value not checked"
   },
   {
    "model": "mace-mpa-0",
@@ -3422,7 +3947,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.146812527,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "handbook value; Ioffe's own sources scatter"
   },
   {
    "model": "orb-v3",
@@ -3446,7 +3976,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.1255730881,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "handbook value; Ioffe's own sources scatter"
   },
   {
    "model": "mattersim-5m-native",
@@ -3470,7 +4005,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.1219030495,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "handbook value; Ioffe's own sources scatter"
   },
   {
    "model": "mace-mpa-0",
@@ -3494,7 +4034,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.8054927051,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K single-crystal elastic constants"
   },
   {
    "model": "orb-v3",
@@ -3518,7 +4063,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.127431757,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K single-crystal elastic constants"
   },
   {
    "model": "mattersim-5m-native",
@@ -3542,7 +4092,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.3598194293,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K single-crystal elastic constants"
   },
   {
    "model": "mace-mpa-0",
@@ -3566,7 +4121,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.6332495236,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin elastic constants (Polian et al. 1996)"
   },
   {
    "model": "orb-v3",
@@ -3590,7 +4150,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.2498370912,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin elastic constants (Polian et al. 1996)"
   },
   {
    "model": "mattersim-5m-native",
@@ -3614,7 +4179,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.0833050474,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin elastic constants (Polian et al. 1996)"
   },
   {
    "model": "mace-mpa-0",
@@ -3638,7 +4208,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.3932905789,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K elastic constants (Nichols et al. 1980)"
   },
   {
    "model": "orb-v3",
@@ -3662,7 +4237,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.5421984048,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K elastic constants (Nichols et al. 1980)"
   },
   {
    "model": "mattersim-5m-native",
@@ -3686,7 +4266,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.1326182473,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K elastic constants (Nichols et al. 1980)"
   },
   {
    "model": "mace-mpa-0",
@@ -3710,7 +4295,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 2.617984192,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K elastic constants (McNeil 1993)"
   },
   {
    "model": "orb-v3",
@@ -3734,7 +4324,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.1551598783,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K elastic constants (McNeil 1993)"
   },
   {
    "model": "mattersim-5m-native",
@@ -3758,7 +4353,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.0043128835,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "300 K elastic constants (McNeil 1993)"
   },
   {
    "model": "mace-mpa-0",
@@ -3782,7 +4382,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -3.7281300406,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "Angel et al. 1997 single-crystal EOS (pressure standard)"
   },
   {
    "model": "orb-v3",
@@ -3806,7 +4411,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 11.9403199416,
    "mechanically_stable": true,
-   "eos_fit_ok": false
+   "eos_fit_ok": false,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "Angel et al. 1997 single-crystal EOS (pressure standard)"
   },
   {
    "model": "mattersim-5m-native",
@@ -3830,7 +4440,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 36.2652045617,
    "mechanically_stable": true,
-   "eos_fit_ok": false
+   "eos_fit_ok": false,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "Angel et al. 1997 single-crystal EOS (pressure standard)"
   },
   {
    "model": "mace-mpa-0",
@@ -3854,7 +4469,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.5885025938,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin single-crystal elastic tensor (Vogelgesang et al. 2000)"
   },
   {
    "model": "orb-v3",
@@ -3878,7 +4498,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.1225974895,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin single-crystal elastic tensor (Vogelgesang et al. 2000)"
   },
   {
    "model": "mattersim-5m-native",
@@ -3902,7 +4527,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.0568859553,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin single-crystal elastic tensor (Vogelgesang et al. 2000)"
   },
   {
    "model": "mace-mpa-0",
@@ -3926,7 +4556,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.3569511975,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Tefft 1966 single-crystal resonance, 300 K"
   },
   {
    "model": "orb-v3",
@@ -3950,7 +4585,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.1053932628,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Tefft 1966 single-crystal resonance, 300 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -3974,7 +4614,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.0264630713,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Tefft 1966 single-crystal resonance, 300 K"
   },
   {
    "model": "mace-mpa-0",
@@ -3998,7 +4643,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -1.589866633,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.124,
+   "ref_why": "EOS with K' fixed; literature widely scattered (\u00b123 GPa)"
   },
   {
    "model": "orb-v3",
@@ -4022,7 +4672,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.0287248819,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.124,
+   "ref_why": "EOS with K' fixed; literature widely scattered (\u00b123 GPa)"
   },
   {
    "model": "mattersim-5m-native",
@@ -4046,7 +4701,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.7731312447,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.124,
+   "ref_why": "EOS with K' fixed; literature widely scattered (\u00b123 GPa)"
   },
   {
    "model": "mace-mpa-0",
@@ -4070,7 +4730,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -2.8966117731,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.133,
+   "ref_why": "EOS; literature widely scattered (\u00b128 GPa)"
   },
   {
    "model": "orb-v3",
@@ -4094,7 +4759,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -1.1369686933,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.133,
+   "ref_why": "EOS; literature widely scattered (\u00b128 GPa)"
   },
   {
    "model": "mattersim-5m-native",
@@ -4118,7 +4788,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -1.3610046473,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.133,
+   "ref_why": "EOS; literature widely scattered (\u00b128 GPa)"
   },
   {
    "model": "mace-mpa-0",
@@ -4142,7 +4817,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.0071121036,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin single crystal (Palko et al. 2001)"
   },
   {
    "model": "orb-v3",
@@ -4166,7 +4846,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.046129219,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin single crystal (Palko et al. 2001)"
   },
   {
    "model": "mattersim-5m-native",
@@ -4190,7 +4875,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.2380722793,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Brillouin single crystal (Palko et al. 2001)"
   },
   {
    "model": "mace-mpa-0",
@@ -4214,7 +4904,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 2.0865004221,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "single-crystal sphere resonance"
   },
   {
    "model": "orb-v3",
@@ -4238,7 +4933,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 1.251768605,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "single-crystal sphere resonance"
   },
   {
    "model": "mattersim-5m-native",
@@ -4262,7 +4962,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 2.7451936187,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "single-crystal sphere resonance"
   },
   {
    "model": "mace-mpa-0",
@@ -4286,7 +4991,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.21239809,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.01,
+   "ref_why": "Zha et al. 2000 (converted from adiabatic by the authors); agrees with Li et al. 2006 to 1 %"
   },
   {
    "model": "orb-v3",
@@ -4310,7 +5020,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.185785951,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.01,
+   "ref_why": "Zha et al. 2000 (converted from adiabatic by the authors); agrees with Li et al. 2006 to 1 %"
   },
   {
    "model": "mattersim-5m-native",
@@ -4334,7 +5049,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.1510243771,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.01,
+   "ref_why": "Zha et al. 2000 (converted from adiabatic by the authors); agrees with Li et al. 2006 to 1 %"
   },
   {
    "model": "mace-mpa-0",
@@ -4358,7 +5078,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.2535156537,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.02,
+   "ref_why": "ultrasonic single crystal at 25 \u00b0C (C11, C12 \u00b12.7 GPa)"
   },
   {
    "model": "orb-v3",
@@ -4382,7 +5107,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.2659079289,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.02,
+   "ref_why": "ultrasonic single crystal at 25 \u00b0C (C11, C12 \u00b12.7 GPa)"
   },
   {
    "model": "mattersim-5m-native",
@@ -4406,7 +5136,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.1961937052,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.02,
+   "ref_why": "ultrasonic single crystal at 25 \u00b0C (C11, C12 \u00b12.7 GPa)"
   },
   {
    "model": "mace-mpa-0",
@@ -4430,7 +5165,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.2943829874,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.01,
+   "ref_why": "Ledbetter & Naimon JPCRD recommended single-crystal value"
   },
   {
    "model": "orb-v3",
@@ -4454,7 +5194,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.0015322298,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.01,
+   "ref_why": "Ledbetter & Naimon JPCRD recommended single-crystal value"
   },
   {
    "model": "mattersim-5m-native",
@@ -4478,7 +5223,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.305386045,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.01,
+   "ref_why": "Ledbetter & Naimon JPCRD recommended single-crystal value"
   },
   {
    "model": "mace-mpa-0",
@@ -4502,7 +5252,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.4171402554,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "unspecified",
+   "ref_sigma": 0.05,
+   "ref_why": "Kaye & Laby polycrystal value; agrees with single-crystal (75.8 GPa)"
   },
   {
    "model": "orb-v3",
@@ -4526,7 +5281,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -5.0913458666,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "unspecified",
+   "ref_sigma": 0.05,
+   "ref_why": "Kaye & Laby polycrystal value; agrees with single-crystal (75.8 GPa)"
   },
   {
    "model": "mattersim-5m-native",
@@ -4550,7 +5310,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 1.2062229705,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "unspecified",
+   "ref_sigma": 0.05,
+   "ref_why": "Kaye & Laby polycrystal value; agrees with single-crystal (75.8 GPa)"
   },
   {
    "model": "mace-mpa-0",
@@ -4574,7 +5339,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.2404338178,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.01,
+   "ref_why": "ultrasonic single crystal at 300 K; Bolef & de Klerk within 1 %"
   },
   {
    "model": "orb-v3",
@@ -4598,7 +5368,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.6565272237,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.01,
+   "ref_why": "ultrasonic single crystal at 300 K; Bolef & de Klerk within 1 %"
   },
   {
    "model": "mattersim-5m-native",
@@ -4622,7 +5397,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 3.1609987059,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.01,
+   "ref_why": "ultrasonic single crystal at 300 K; Bolef & de Klerk within 1 %"
   },
   {
    "model": "mace-mpa-0",
@@ -4646,7 +5426,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.2199157866,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Landolt-B\u00f6rnstein single-crystal ultrasonic constants"
   },
   {
    "model": "orb-v3",
@@ -4670,7 +5455,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.247077058,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Landolt-B\u00f6rnstein single-crystal ultrasonic constants"
   },
   {
    "model": "mattersim-5m-native",
@@ -4694,7 +5484,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 11.5784475282,
    "mechanically_stable": true,
-   "eos_fit_ok": false
+   "eos_fit_ok": false,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "Landolt-B\u00f6rnstein single-crystal ultrasonic constants"
   },
   {
    "model": "mace-mpa-0",
@@ -4718,7 +5513,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.1544329072,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "DAC EOS; other XRD value 348 GPa (8 % higher); no ultrasonic value accessed"
   },
   {
    "model": "orb-v3",
@@ -4742,7 +5542,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 1.2389386361,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "DAC EOS; other XRD value 348 GPa (8 % higher); no ultrasonic value accessed"
   },
   {
    "model": "mattersim-5m-native",
@@ -4766,7 +5571,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 1.961747139,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "DAC EOS; other XRD value 348 GPa (8 % higher); no ultrasonic value accessed"
   },
   {
    "model": "mace-mpa-0",
@@ -4790,7 +5600,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.3592745897,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.03,
+   "ref_why": "ultrasonic single crystal; other values 262\u2013268 GPa"
   },
   {
    "model": "orb-v3",
@@ -4814,7 +5629,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.3579112643,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.03,
+   "ref_why": "ultrasonic single crystal; other values 262\u2013268 GPa"
   },
   {
    "model": "mattersim-5m-native",
@@ -4838,7 +5658,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 2.6345543721,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.03,
+   "ref_why": "ultrasonic single crystal; other values 262\u2013268 GPa"
   },
   {
    "model": "mace-mpa-0",
@@ -4862,7 +5687,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.8122276084,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "unspecified",
+   "ref_sigma": 0.05,
+   "ref_why": "Kaye & Laby polycrystal value derived from E and G; Ti is impurity-sensitive"
   },
   {
    "model": "orb-v3",
@@ -4886,7 +5716,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.1732380554,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "unspecified",
+   "ref_sigma": 0.05,
+   "ref_why": "Kaye & Laby polycrystal value derived from E and G; Ti is impurity-sensitive"
   },
   {
    "model": "mattersim-5m-native",
@@ -4910,7 +5745,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 2.4277872942,
    "mechanically_stable": false,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "compilation",
+   "ref_kind": "unspecified",
+   "ref_sigma": 0.05,
+   "ref_why": "Kaye & Laby polycrystal value derived from E and G; Ti is impurity-sensitive"
   },
   {
    "model": "mace-mpa-0",
@@ -4934,7 +5774,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.4660166333,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.02,
+   "ref_why": "ultrasonic single crystal at 300 K; Bolef 196 GPa"
   },
   {
    "model": "orb-v3",
@@ -4958,7 +5803,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.2869864046,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.02,
+   "ref_why": "ultrasonic single crystal at 300 K; Bolef 196 GPa"
   },
   {
    "model": "mattersim-5m-native",
@@ -4982,7 +5832,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.9588705948,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.02,
+   "ref_why": "ultrasonic single crystal at 300 K; Bolef 196 GPa"
   },
   {
    "model": "mace-mpa-0",
@@ -5006,7 +5861,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 1.3954071508,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "laser-heated DAC EOS read from an abstract"
   },
   {
    "model": "orb-v3",
@@ -5030,7 +5890,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.0904951176,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "laser-heated DAC EOS read from an abstract"
   },
   {
    "model": "mattersim-5m-native",
@@ -5054,7 +5919,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.3527544862,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "laser-heated DAC EOS read from an abstract"
   },
   {
    "model": "mace-mpa-0",
@@ -5078,7 +5948,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 2.3119767706,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "single DAC EOS with K' = 4.7(5)"
   },
   {
    "model": "orb-v3",
@@ -5102,7 +5977,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.2517298573,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "single DAC EOS with K' = 4.7(5)"
   },
   {
    "model": "mattersim-5m-native",
@@ -5126,7 +6006,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.391045687,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "single DAC EOS with K' = 4.7(5)"
   },
   {
    "model": "mace-mpa-0",
@@ -5150,7 +6035,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -1.4435930497,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.05,
+   "ref_why": null
   },
   {
    "model": "orb-v3",
@@ -5174,7 +6064,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.2920426429,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.05,
+   "ref_why": null
   },
   {
    "model": "mattersim-5m-native",
@@ -5198,7 +6093,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -0.8916289367,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.05,
+   "ref_why": null
   },
   {
    "model": "mace-mpa-0",
@@ -5222,7 +6122,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 2.4680039373,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "EOS with K' and V0 fixed, quenched samples"
   },
   {
    "model": "orb-v3",
@@ -5246,7 +6151,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.3498448015,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "EOS with K' and V0 fixed, quenched samples"
   },
   {
    "model": "mattersim-5m-native",
@@ -5270,7 +6180,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.490065645,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "EOS with K' and V0 fixed, quenched samples"
   },
   {
    "model": "mace-mpa-0",
@@ -5294,7 +6209,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 3.6521991078,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "single-crystal elastic constants (Nakamura 1994, as tabulated)"
   },
   {
    "model": "orb-v3",
@@ -5318,7 +6238,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 1.6831387604,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "single-crystal elastic constants (Nakamura 1994, as tabulated)"
   },
   {
    "model": "mattersim-5m-native",
@@ -5342,7 +6267,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 1.999887522,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "core",
+   "ref_quality": "compilation",
+   "ref_kind": "adiabatic",
+   "ref_sigma": 0.05,
+   "ref_why": "single-crystal elastic constants (Nakamura 1994, as tabulated)"
   },
   {
    "model": "mace-mpa-0",
@@ -5366,7 +6296,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": -1.0727449259,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.05,
+   "ref_why": null
   },
   {
    "model": "orb-v3",
@@ -5390,7 +6325,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.0915430023,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.05,
+   "ref_why": null
   },
   {
    "model": "mattersim-5m-native",
@@ -5414,7 +6354,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 0.4372529426,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.05,
+   "ref_why": null
   },
   {
    "model": "mace-mpa-0",
@@ -5438,7 +6383,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 60.794359109,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.019,
+   "ref_why": "layered; DAC EOS"
   },
   {
    "model": "orb-v3",
@@ -5462,7 +6412,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 93.2879423571,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.019,
+   "ref_why": "layered; DAC EOS"
   },
   {
    "model": "mattersim-5m-native",
@@ -5486,7 +6441,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 99.0960628278,
    "mechanically_stable": false,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.019,
+   "ref_why": "layered; DAC EOS"
   },
   {
    "model": "mace-mpa-0",
@@ -5510,7 +6470,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 142.8610125929,
    "mechanically_stable": false,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.033,
+   "ref_why": "layered; literature spans 18\u201337 GPa"
   },
   {
    "model": "orb-v3",
@@ -5534,7 +6499,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 91.9674093801,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.033,
+   "ref_why": "layered; literature spans 18\u201337 GPa"
   },
   {
    "model": "mattersim-5m-native",
@@ -5558,7 +6528,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 92.4325768786,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.033,
+   "ref_why": "layered; literature spans 18\u201337 GPa"
   },
   {
    "model": "mace-mpa-0",
@@ -5582,7 +6557,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 52.7835534421,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "layered; value from a secondary table"
   },
   {
    "model": "orb-v3",
@@ -5606,7 +6586,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 95.736526905,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "layered; value from a secondary table"
   },
   {
    "model": "mattersim-5m-native",
@@ -5630,7 +6615,12 @@
    "provenance": null,
    "eos_vs_elastic_pct": 89.1935607083,
    "mechanically_stable": true,
-   "eos_fit_ok": true
+   "eos_fit_ok": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "isothermal",
+   "ref_sigma": 0.05,
+   "ref_why": "layered; value from a secondary table"
   }
  ],
  "thermal_expansion": [
@@ -5658,7 +6648,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.01,
+   "ref_why": "Swenson's JPCRD recommended values; 900\u20131000 K extrapolated"
   },
   {
    "model": "orb-v3",
@@ -5684,7 +6679,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.01,
+   "ref_why": "Swenson's JPCRD recommended values; 900\u20131000 K extrapolated"
   },
   {
    "model": "mattersim-5m-native",
@@ -5710,7 +6710,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.01,
+   "ref_why": "Swenson's JPCRD recommended values; 900\u20131000 K extrapolated"
   },
   {
    "model": "mace-mpa-0",
@@ -5736,7 +6741,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "single XRD polynomial (Singh 1968) read from an abstract; no independent tabulation above room temperature"
   },
   {
    "model": "orb-v3",
@@ -5762,7 +6772,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "single XRD polynomial (Singh 1968) read from an abstract; no independent tabulation above room temperature"
   },
   {
    "model": "mattersim-5m-native",
@@ -5788,7 +6803,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "single XRD polynomial (Singh 1968) read from an abstract; no independent tabulation above room temperature"
   },
   {
    "model": "mace-mpa-0",
@@ -5814,7 +6834,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.15,
+   "ref_why": "Li & Bradt polynomial from an OCR'd scan; other sources scatter by ~30 %"
   },
   {
    "model": "orb-v3",
@@ -5840,7 +6865,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.15,
+   "ref_why": "Li & Bradt polynomial from an OCR'd scan; other sources scatter by ~30 %"
   },
   {
    "model": "mattersim-5m-native",
@@ -5866,7 +6896,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.15,
+   "ref_why": "Li & Bradt polynomial from an OCR'd scan; other sources scatter by ~30 %"
   },
   {
    "model": "mace-mpa-0",
@@ -5892,7 +6927,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Franta et al. 2026 fit to measured expansion, 300\u20131000 K"
   },
   {
    "model": "orb-v3",
@@ -5918,7 +6958,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Franta et al. 2026 fit to measured expansion, 300\u20131000 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -5944,7 +6989,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Franta et al. 2026 fit to measured expansion, 300\u20131000 K"
   },
   {
    "model": "mace-mpa-0",
@@ -5970,7 +7020,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.07,
+   "ref_why": "Roder et al. 2005 HRXRD, Einstein fit (parameters \u00b17 %)"
   },
   {
    "model": "orb-v3",
@@ -5996,7 +7051,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.07,
+   "ref_why": "Roder et al. 2005 HRXRD, Einstein fit (parameters \u00b17 %)"
   },
   {
    "model": "mattersim-5m-native",
@@ -6022,7 +7082,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.07,
+   "ref_why": "Roder et al. 2005 HRXRD, Einstein fit (parameters \u00b17 %)"
   },
   {
    "model": "mace-mpa-0",
@@ -6037,8 +7102,8 @@
    "exp_note": "ok",
    "exp_source": "https://www.mathnet.ru/php/getFT.phtml?jrnid=tvt&paperid=1799&what=fullt&option_lang=eng",
    "err_exp_pct": 5.2754935551,
-   "alpha_V_300K_exp": 12.57,
-   "err_300K_pct": -12.0614304033,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
    "excluded_300K": null,
    "excluded": null,
    "provenance": null,
@@ -6048,7 +7113,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "range_average",
+   "ref_sigma": 0.1,
+   "ref_why": "one constant alpha (4.19e-6/K) fitted over 300\u2013910 K: a range average, not a value at 300 K; high-T data look anomalous"
   },
   {
    "model": "orb-v3",
@@ -6063,8 +7133,8 @@
    "exp_note": "ok",
    "exp_source": "https://www.mathnet.ru/php/getFT.phtml?jrnid=tvt&paperid=1799&what=fullt&option_lang=eng",
    "err_exp_pct": 72.8729158879,
-   "alpha_V_300K_exp": 12.57,
-   "err_300K_pct": 48.1625711746,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
    "excluded_300K": null,
    "excluded": null,
    "provenance": null,
@@ -6074,7 +7144,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "range_average",
+   "ref_sigma": 0.1,
+   "ref_why": "one constant alpha (4.19e-6/K) fitted over 300\u2013910 K: a range average, not a value at 300 K; high-T data look anomalous"
   },
   {
    "model": "mattersim-5m-native",
@@ -6089,8 +7164,8 @@
    "exp_note": "ok",
    "exp_source": "https://www.mathnet.ru/php/getFT.phtml?jrnid=tvt&paperid=1799&what=fullt&option_lang=eng",
    "err_exp_pct": 128.7146764133,
-   "alpha_V_300K_exp": 12.57,
-   "err_300K_pct": 118.6571300066,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
    "excluded_300K": null,
    "excluded": null,
    "provenance": null,
@@ -6100,7 +7175,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "range_average",
+   "ref_sigma": 0.1,
+   "ref_why": "one constant alpha (4.19e-6/K) fitted over 300\u2013910 K: a range average, not a value at 300 K; high-T data look anomalous"
   },
   {
    "model": "mace-mpa-0",
@@ -6126,7 +7206,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kr\u00f6ncke et al. 2008 conflicts with Slack & Bartram and Sirota (room-temperature alpha differs by ~50 %)"
   },
   {
    "model": "orb-v3",
@@ -6152,7 +7237,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kr\u00f6ncke et al. 2008 conflicts with Slack & Bartram and Sirota (room-temperature alpha differs by ~50 %)"
   },
   {
    "model": "mattersim-5m-native",
@@ -6178,7 +7268,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kr\u00f6ncke et al. 2008 conflicts with Slack & Bartram and Sirota (room-temperature alpha differs by ~50 %)"
   },
   {
    "model": "mace-mpa-0",
@@ -6204,7 +7299,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "fit to Kihara 1990 single-crystal data; window approaches the alpha-beta transition"
   },
   {
    "model": "orb-v3",
@@ -6230,7 +7330,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "fit to Kihara 1990 single-crystal data; window approaches the alpha-beta transition"
   },
   {
    "model": "mattersim-5m-native",
@@ -6256,7 +7361,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "fit to Kihara 1990 single-crystal data; window approaches the alpha-beta transition"
   },
   {
    "model": "mace-mpa-0",
@@ -6282,7 +7392,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.15,
+   "ref_why": "TPRC marks the table provisional and does not state phase-pure beta-Si3N4"
   },
   {
    "model": "mattersim-5m-native",
@@ -6308,7 +7423,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.15,
+   "ref_why": "TPRC marks the table provisional and does not state phase-pure beta-Si3N4"
   },
   {
    "model": "mace-mpa-0",
@@ -6334,7 +7454,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended axial polynomials"
   },
   {
    "model": "orb-v3",
@@ -6360,7 +7485,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended axial polynomials"
   },
   {
    "model": "mattersim-5m-native",
@@ -6386,7 +7516,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended axial polynomials"
   },
   {
    "model": "mace-mpa-0",
@@ -6412,7 +7547,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC provisional axial data; volume built as a+b+c misses the monoclinic-angle term (full tensor in Haggerty et al. 2014, not accessed)"
   },
   {
    "model": "mattersim-5m-native",
@@ -6438,7 +7578,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC provisional axial data; volume built as a+b+c misses the monoclinic-angle term (full tensor in Haggerty et al. 2014, not accessed)"
   },
   {
    "model": "mace-mpa-0",
@@ -6464,7 +7609,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC provisional axial data; volume misses the monoclinic-angle term; non-monotonic a-axis data"
   },
   {
    "model": "mattersim-5m-native",
@@ -6490,7 +7640,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC provisional axial data; volume misses the monoclinic-angle term; non-monotonic a-axis data"
   },
   {
    "model": "mace-mpa-0",
@@ -6516,7 +7671,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table"
   },
   {
    "model": "mattersim-5m-native",
@@ -6542,7 +7702,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table"
   },
   {
    "model": "mace-mpa-0",
@@ -6568,7 +7733,12 @@
    "check_enough_stable_volumes": false,
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
-   "check_window_covered": false
+   "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended axial polynomials"
   },
   {
    "model": "mattersim-5m-native",
@@ -6594,7 +7764,12 @@
    "check_enough_stable_volumes": false,
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
-   "check_window_covered": false
+   "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended axial polynomials"
   },
   {
    "model": "mace-mpa-0",
@@ -6620,7 +7795,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": false,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table"
   },
   {
    "model": "orb-v3",
@@ -6646,7 +7826,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": false,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table"
   },
   {
    "model": "mattersim-5m-native",
@@ -6672,7 +7857,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": false,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table"
   },
   {
    "model": "mace-mpa-0",
@@ -6698,7 +7888,12 @@
    "check_enough_stable_volumes": false,
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
-   "check_window_covered": false
+   "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table (provisional only below 250 K)"
   },
   {
    "model": "mattersim-5m-native",
@@ -6724,7 +7919,12 @@
    "check_enough_stable_volumes": false,
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
-   "check_window_covered": false
+   "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table (provisional only below 250 K)"
   },
   {
    "model": "mace-mpa-0",
@@ -6750,7 +7950,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "orb-v3",
@@ -6776,7 +7981,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mattersim-5m-native",
@@ -6802,7 +8012,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mace-mpa-0",
@@ -6828,7 +8043,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby; 800 K value includes vacancy contributions"
   },
   {
    "model": "orb-v3",
@@ -6854,7 +8074,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": false,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby; 800 K value includes vacancy contributions"
   },
   {
    "model": "mattersim-5m-native",
@@ -6880,7 +8105,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby; 800 K value includes vacancy contributions"
   },
   {
    "model": "mace-mpa-0",
@@ -6906,7 +8136,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "orb-v3",
@@ -6932,7 +8167,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mattersim-5m-native",
@@ -6958,7 +8198,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mace-mpa-0",
@@ -6984,7 +8229,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby polycrystal values (hcp range only)"
   },
   {
    "model": "orb-v3",
@@ -7010,7 +8260,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby polycrystal values (hcp range only)"
   },
   {
    "model": "mattersim-5m-native",
@@ -7036,7 +8291,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby polycrystal values (hcp range only)"
   },
   {
    "model": "mace-mpa-0",
@@ -7062,7 +8322,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Arblaster 2013 critical review"
   },
   {
    "model": "orb-v3",
@@ -7088,7 +8353,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Arblaster 2013 critical review"
   },
   {
    "model": "mattersim-5m-native",
@@ -7114,7 +8384,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Arblaster 2013 critical review"
   },
   {
    "model": "mace-mpa-0",
@@ -7140,7 +8415,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "orb-v3",
@@ -7166,7 +8446,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mattersim-5m-native",
@@ -7192,7 +8477,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mace-mpa-0",
@@ -7218,7 +8508,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby polycrystal values (alpha-Ti range)"
   },
   {
    "model": "orb-v3",
@@ -7244,7 +8539,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby polycrystal values (alpha-Ti range)"
   },
   {
    "model": "mattersim-5m-native",
@@ -7270,7 +8570,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby polycrystal values (alpha-Ti range)"
   },
   {
    "model": "mace-mpa-0",
@@ -7296,7 +8601,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "orb-v3",
@@ -7322,7 +8632,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mattersim-5m-native",
@@ -7348,7 +8663,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Kaye & Laby, after TPRC"
   },
   {
    "model": "mace-mpa-0",
@@ -7374,7 +8694,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": false,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "sputtered thin-film coating, two temperatures only"
   },
   {
    "model": "orb-v3",
@@ -7400,7 +8725,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "sputtered thin-film coating, two temperatures only"
   },
   {
    "model": "mattersim-5m-native",
@@ -7426,7 +8756,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "sputtered thin-film coating, two temperatures only"
   },
   {
    "model": "mace-mpa-0",
@@ -7452,7 +8787,12 @@
    "check_enough_stable_volumes": false,
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
-   "check_window_covered": false
+   "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "bulk HT-XRD (Lenox et al.)"
   },
   {
    "model": "mattersim-5m-native",
@@ -7478,7 +8818,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "bulk HT-XRD (Lenox et al.)"
   },
   {
    "model": "mace-mpa-0",
@@ -7504,7 +8849,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Imai & Hiroto 2023, room temperature only"
   },
   {
    "model": "orb-v3",
@@ -7530,7 +8880,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Imai & Hiroto 2023, room temperature only"
   },
   {
    "model": "mattersim-5m-native",
@@ -7556,7 +8911,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "Imai & Hiroto 2023, room temperature only"
   },
   {
    "model": "mace-mpa-0",
@@ -7571,8 +8931,8 @@
    "exp_note": "ok",
    "exp_source": "https://biblio.ugent.be/publication/5673786/file/5673788.pdf",
    "err_exp_pct": 31.5768414934,
-   "alpha_V_300K_exp": 27.1,
-   "err_300K_pct": 22.6160944176,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
    "excluded_300K": null,
    "excluded": null,
    "provenance": null,
@@ -7582,7 +8942,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "range_average",
+   "ref_sigma": 0.1,
+   "ref_why": "conference poster; one mean alpha per axis over RT\u20131073 K"
   },
   {
    "model": "orb-v3",
@@ -7597,8 +8962,8 @@
    "exp_note": "ok",
    "exp_source": "https://biblio.ugent.be/publication/5673786/file/5673788.pdf",
    "err_exp_pct": 28.6491251308,
-   "alpha_V_300K_exp": 27.1,
-   "err_300K_pct": 13.7828610524,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
    "excluded_300K": null,
    "excluded": null,
    "provenance": null,
@@ -7608,7 +8973,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "range_average",
+   "ref_sigma": 0.1,
+   "ref_why": "conference poster; one mean alpha per axis over RT\u20131073 K"
   },
   {
    "model": "mattersim-5m-native",
@@ -7623,8 +8993,8 @@
    "exp_note": "ok",
    "exp_source": "https://biblio.ugent.be/publication/5673786/file/5673788.pdf",
    "err_exp_pct": 49.2966419012,
-   "alpha_V_300K_exp": 27.1,
-   "err_300K_pct": 38.5106353372,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
    "excluded_300K": null,
    "excluded": null,
    "provenance": null,
@@ -7634,7 +9004,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "secondary",
+   "ref_kind": "range_average",
+   "ref_sigma": 0.1,
+   "ref_why": "conference poster; one mean alpha per axis over RT\u20131073 K"
   },
   {
    "model": "mace-mpa-0",
@@ -7660,7 +9035,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "NASA push-rod dilatometry polynomial (Raj 2014)"
   },
   {
    "model": "orb-v3",
@@ -7686,7 +9066,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "NASA push-rod dilatometry polynomial (Raj 2014)"
   },
   {
    "model": "mattersim-5m-native",
@@ -7712,7 +9097,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "NASA push-rod dilatometry polynomial (Raj 2014)"
   },
   {
    "model": "mace-mpa-0",
@@ -7738,7 +9128,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "NASA push-rod dilatometry polynomial (Raj 2014)"
   },
   {
    "model": "orb-v3",
@@ -7764,7 +9159,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "NASA push-rod dilatometry polynomial (Raj 2014)"
   },
   {
    "model": "mattersim-5m-native",
@@ -7790,7 +9190,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "NASA push-rod dilatometry polynomial (Raj 2014)"
   },
   {
    "model": "mace-mpa-0",
@@ -7816,7 +9221,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.1,
+   "ref_why": null
   },
   {
    "model": "mattersim-5m-native",
@@ -7842,7 +9252,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.1,
+   "ref_why": null
   },
   {
    "model": "mace-mpa-0",
@@ -7868,7 +9283,12 @@
    "check_enough_stable_volumes": false,
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
-   "check_window_covered": false
+   "check_window_covered": false,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "layered, not graded"
   },
   {
    "model": "mattersim-5m-native",
@@ -7894,7 +9314,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "layered, not graded"
   },
   {
    "model": "mace-mpa-0",
@@ -7920,7 +9345,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "layered, not graded"
   },
   {
    "model": "mattersim-5m-native",
@@ -7946,7 +9376,12 @@
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
    "check_volume_inside_scan": true,
-   "check_window_covered": true
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "layered, not graded"
   }
  ],
  "trust_map": [
@@ -8857,9 +10292,9 @@
    "class": "barriers_silicides",
    "property": "thermal_expansion_300K",
    "reference": "experiment",
-   "MAPE": 23.4766507371,
-   "mean_signed": 1.2802240198,
-   "n": 5,
+   "MAPE": 23.691789817,
+   "mean_signed": -4.0537435796,
+   "n": 4,
    "worst_material": "WSi2",
    "grade": "okay"
   },
@@ -8890,9 +10325,9 @@
    "class": "semiconductors",
    "property": "thermal_expansion_300K",
    "reference": "experiment",
-   "MAPE": 29.9492782288,
-   "mean_signed": 19.3319516668,
-   "n": 7,
+   "MAPE": 32.9305861997,
+   "mean_signed": 24.5641820118,
+   "n": 6,
    "worst_material": "GaAs",
    "grade": "okay"
   },
@@ -8901,10 +10336,10 @@
    "class": "barriers_silicides",
    "property": "thermal_expansion_300K",
    "reference": "experiment",
-   "MAPE": 19.9908766235,
-   "mean_signed": 10.4814320131,
-   "n": 5,
-   "worst_material": "NiSi",
+   "MAPE": 15.3609369451,
+   "mean_signed": 3.4741311821,
+   "n": 4,
+   "worst_material": "CoSi2",
    "grade": "good"
   },
   {
@@ -8934,10 +10369,10 @@
    "class": "semiconductors",
    "property": "thermal_expansion_300K",
    "reference": "experiment",
-   "MAPE": 54.0993726304,
-   "mean_signed": 48.2349025428,
-   "n": 7,
-   "worst_material": "InP",
+   "MAPE": 43.339746401,
+   "mean_signed": 36.4978646321,
+   "n": 6,
+   "worst_material": "Si",
    "grade": "poor"
   },
   {
@@ -8945,9 +10380,9 @@
    "class": "all",
    "property": "thermal_expansion_300K",
    "reference": "experiment",
-   "MAPE": 34.5400789562,
-   "mean_signed": 21.8833394067,
-   "n": 24,
+   "MAPE": 36.1038350058,
+   "mean_signed": 23.392976443,
+   "n": 22,
    "worst_material": "Ta",
    "grade": "okay"
   },
@@ -8956,10 +10391,10 @@
    "class": "all",
    "property": "thermal_expansion_300K",
    "reference": "experiment",
-   "MAPE": 28.6915414524,
-   "mean_signed": 15.8464866417,
-   "n": 24,
-   "worst_material": "InP",
+   "MAPE": 24.1558740688,
+   "mean_signed": 10.1430870026,
+   "n": 22,
+   "worst_material": "Si",
    "grade": "okay"
   }
  ],
@@ -16675,10 +18110,10 @@
    "property": "thermal_expansion_300K",
    "materials": 33,
    "computed": 33,
-   "graded": 24,
+   "graded": 22,
    "model_failure": 3,
    "method_limit": 3,
-   "no_experimental_reference": 3,
+   "no_experimental_reference": 5,
    "pending": false,
    "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)"
   },
@@ -16687,10 +18122,10 @@
    "property": "thermal_expansion_300K",
    "materials": 33,
    "computed": 33,
-   "graded": 24,
+   "graded": 22,
    "model_failure": 2,
    "method_limit": 3,
-   "no_experimental_reference": 4,
+   "no_experimental_reference": 6,
    "pending": false,
    "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)"
   },
@@ -16699,14 +18134,1261 @@
    "property": "thermal_expansion_300K",
    "materials": 33,
    "computed": 23,
-   "graded": 23,
+   "graded": 21,
    "model_failure": 0,
    "method_limit": 0,
-   "no_experimental_reference": 0,
+   "no_experimental_reference": 2,
    "pending": true,
    "model_failure_cases": ""
   }
  ],
+ "thermal_metrics": [
+  {
+   "model": "mace-mpa-0",
+   "material": "Si",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 800.0,
+   "abs_err_300K": -0.0915062106,
+   "abs_err_window": -0.7016416488,
+   "strain_err_ue": -70.1641648846,
+   "d_alpha_exp": 1.647,
+   "d_alpha_model": 0.953629853,
+   "trend_sign_ok": true,
+   "err_T_high_pct": -8.67197433
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Si",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 800.0,
+   "abs_err_300K": 6.6482472442,
+   "abs_err_window": 8.1698983674,
+   "strain_err_ue": 816.9898367364,
+   "d_alpha_exp": 1.647,
+   "d_alpha_model": 2.459939713,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 68.234982967
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ge",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 300.0,
+   "T_high": 600.0,
+   "abs_err_300K": 6.8283247128,
+   "abs_err_window": 7.5840789413,
+   "strain_err_ue": 758.4078941291,
+   "d_alpha_exp": 3.09,
+   "d_alpha_model": 4.142560872,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 36.6382407475
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ge",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 300.0,
+   "T_high": 600.0,
+   "abs_err_300K": 8.6270322768,
+   "abs_err_window": 9.0741229172,
+   "strain_err_ue": 907.4122917247,
+   "d_alpha_exp": 3.09,
+   "d_alpha_model": 3.5116403652,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 42.0672833196
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SiC",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 900.0,
+   "T_high": 1550.0,
+   "abs_err_300K": -1.6679115793,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SiC",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 900.0,
+   "T_high": 1550.0,
+   "abs_err_300K": -2.0258811918,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "GaAs",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 750.0,
+   "abs_err_300K": 19.1198054283,
+   "abs_err_window": 18.3473629165,
+   "strain_err_ue": 2752.1044374677,
+   "d_alpha_exp": 3.81,
+   "d_alpha_model": 1.082286986,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 78.0575829253
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "GaAs",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 750.0,
+   "abs_err_300K": 11.7250814121,
+   "abs_err_window": 12.380316415,
+   "strain_err_ue": 1857.0474622475,
+   "d_alpha_exp": 3.81,
+   "d_alpha_model": 5.1670289838,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 62.2957637897
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "GaN",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 450.0,
+   "T_high": 1350.0,
+   "abs_err_300K": -0.8808222936,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "GaN",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 450.0,
+   "T_high": 1350.0,
+   "abs_err_300K": 1.383445314,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "InP",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 350.0,
+   "T_high": 650.0,
+   "abs_err_300K": null,
+   "abs_err_window": 0.6631295399,
+   "strain_err_ue": 66.3129539873,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "InP",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 350.0,
+   "T_high": 650.0,
+   "abs_err_300K": null,
+   "abs_err_window": 16.1794348251,
+   "strain_err_ue": 1617.9434825146,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "AlN",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 900.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 2.0051696117,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "AlN",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 900.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 2.385129492,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SiO2_quartz",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 750.0,
+   "abs_err_300K": 2.5294421408,
+   "abs_err_window": -27.628865632,
+   "strain_err_ue": -3223.3676570672,
+   "d_alpha_exp": 60.735,
+   "d_alpha_model": -14.2109826462,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -78.2268221875
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SiO2_quartz",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 750.0,
+   "abs_err_300K": -8.2375857228,
+   "abs_err_window": -39.8205572969,
+   "strain_err_ue": -4645.7316846361,
+   "d_alpha_exp": 60.735,
+   "d_alpha_model": -11.5127863172,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -88.2576530671
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Si3N4_beta",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 750.0,
+   "T_high": 1050.0,
+   "abs_err_300K": null,
+   "abs_err_window": 8.1902455185,
+   "strain_err_ue": 819.0245518514,
+   "d_alpha_exp": 1.1,
+   "d_alpha_model": 1.798844517,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 82.2919420647
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Si3N4_beta",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 750.0,
+   "T_high": 1050.0,
+   "abs_err_300K": null,
+   "abs_err_window": 1.8250169813,
+   "strain_err_ue": 182.5016981313,
+   "d_alpha_exp": 1.1,
+   "d_alpha_model": 1.3587801317,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 19.3291885625
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Al2O3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 800.0,
+   "T_high": 1150.0,
+   "abs_err_300K": -0.1903131718,
+   "abs_err_window": 4.8232125867,
+   "strain_err_ue": 562.7081351149,
+   "d_alpha_exp": 2.905,
+   "d_alpha_model": 2.7889066956,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 16.7761441131
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Al2O3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 800.0,
+   "T_high": 1150.0,
+   "abs_err_300K": -0.4165634154,
+   "abs_err_window": 5.0615490954,
+   "strain_err_ue": 590.5140611325,
+   "d_alpha_exp": 2.905,
+   "d_alpha_model": 3.0985452321,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 18.1220985436
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "HfO2",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 400.0,
+   "T_high": 1500.0,
+   "abs_err_300K": null,
+   "abs_err_window": -3.6942741811,
+   "strain_err_ue": -1354.5671997353,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "HfO2",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 400.0,
+   "T_high": 1500.0,
+   "abs_err_300K": null,
+   "abs_err_window": 1.2103211188,
+   "strain_err_ue": 443.7844102219,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "ZrO2",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 450.0,
+   "T_high": 1400.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "ZrO2",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 450.0,
+   "T_high": 1400.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Y2O3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 1300.0,
+   "abs_err_300K": 1.2733539221,
+   "abs_err_window": 5.706094547,
+   "strain_err_ue": 1711.8283640931,
+   "d_alpha_exp": 5.4,
+   "d_alpha_model": 8.731505913,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 24.7012286269
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Y2O3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 1300.0,
+   "abs_err_300K": 2.7770230934,
+   "abs_err_window": 9.5231890074,
+   "strain_err_ue": 2856.9567022277,
+   "d_alpha_exp": 5.4,
+   "d_alpha_model": 13.1914350517,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 47.6815309015
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiO2_rutile",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 600.0,
+   "T_high": 1050.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiO2_rutile",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 600.0,
+   "T_high": 1050.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "MgO",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 750.0,
+   "T_high": 1500.0,
+   "abs_err_300K": 6.2036731652,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "MgO",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 750.0,
+   "T_high": 1500.0,
+   "abs_err_300K": 5.8647579251,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "SrTiO3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 1150.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "SrTiO3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 1150.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Cu",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 650.0,
+   "abs_err_300K": 1.9684219169,
+   "abs_err_window": 3.4474275464,
+   "strain_err_ue": 402.1998804114,
+   "d_alpha_exp": 8.2173913043,
+   "d_alpha_model": 12.0129206212,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 9.9550107664
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Cu",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 650.0,
+   "abs_err_300K": -0.5942353062,
+   "abs_err_window": -4.3336296055,
+   "strain_err_ue": -505.590120642,
+   "d_alpha_exp": 8.2173913043,
+   "d_alpha_model": 0.3062610956,
+   "trend_sign_ok": true,
+   "err_T_high_pct": -14.6897504576
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Al",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 450.0,
+   "abs_err_300K": -18.8008973046,
+   "abs_err_window": -20.5562111825,
+   "strain_err_ue": -1027.8105591249,
+   "d_alpha_exp": 7.1739130435,
+   "d_alpha_model": 3.7765086107,
+   "trend_sign_ok": true,
+   "err_T_high_pct": -28.9007664417
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Al",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 450.0,
+   "abs_err_300K": 5.204562813,
+   "abs_err_window": -0.9648505588,
+   "strain_err_ue": -48.2425279397,
+   "d_alpha_exp": 7.1739130435,
+   "d_alpha_model": -5.8483944447,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -10.1782026225
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "W",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1800.0,
+   "abs_err_300K": 6.5409981885,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "W",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1800.0,
+   "abs_err_300K": -1.4091207584,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Co",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 600.0,
+   "abs_err_300K": 12.0210793222,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Co",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 600.0,
+   "abs_err_300K": -20.351485052,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ru",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 350.0,
+   "T_high": 1300.0,
+   "abs_err_300K": 10.6103804879,
+   "abs_err_window": 5.2572567907,
+   "strain_err_ue": 1664.7979837189,
+   "d_alpha_exp": 11.55,
+   "d_alpha_model": -1.7518835206,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -8.1840615874
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ru",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 350.0,
+   "T_high": 1300.0,
+   "abs_err_300K": 1.2484676344,
+   "abs_err_window": -6.3701596924,
+   "strain_err_ue": -2017.2172359302,
+   "d_alpha_exp": 11.55,
+   "d_alpha_model": -3.0554559016,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -42.7013624736
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Mo",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1400.0,
+   "abs_err_300K": 13.9789859203,
+   "abs_err_window": 17.578769137,
+   "strain_err_ue": 6445.5486835517,
+   "d_alpha_exp": 7.3195652174,
+   "d_alpha_model": 14.6370285949,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 97.9147094151
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Mo",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1400.0,
+   "abs_err_300K": -1.1730975542,
+   "abs_err_window": -6.1903271552,
+   "strain_err_ue": -2269.7866235846,
+   "d_alpha_exp": 7.3195652174,
+   "d_alpha_model": -3.2937494241,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -54.1904008999
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ti",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 950.0,
+   "abs_err_300K": -8.1164845707,
+   "abs_err_window": -15.2416041174,
+   "strain_err_ue": -3302.3475587693,
+   "d_alpha_exp": 8.268115942,
+   "d_alpha_model": -4.3057221104,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -60.498019366
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ti",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 950.0,
+   "abs_err_300K": 14.3602400631,
+   "abs_err_window": -1.059312733,
+   "strain_err_ue": -229.5177588251,
+   "d_alpha_exp": 8.268115942,
+   "d_alpha_model": -18.9870823529,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -37.7045562333
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "Ta",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 33.8688571459,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "Ta",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1600.0,
+   "abs_err_300K": -2.688421668,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiN",
+   "class": "barriers_silicides",
+   "ref_tier": "extended",
+   "T_low": 700.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 9.5743185606,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiN",
+   "class": "barriers_silicides",
+   "ref_tier": "extended",
+   "T_low": 700.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 3.4440512956,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TaN",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TaN",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "abs_err_300K": null,
+   "abs_err_window": 4.6873945791,
+   "strain_err_ue": 781.2324298556,
+   "d_alpha_exp": 0.0,
+   "d_alpha_model": 3.8037380667,
+   "trend_sign_ok": false,
+   "err_T_high_pct": 37.5253344249
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "CoSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 750.0,
+   "abs_err_300K": -3.8968270899,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "CoSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 750.0,
+   "abs_err_300K": 7.2744263617,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "NiSi",
+   "class": "barriers_silicides",
+   "ref_tier": "extended",
+   "T_low": 350.0,
+   "T_high": 600.0,
+   "abs_err_300K": null,
+   "abs_err_window": 8.5573240447,
+   "strain_err_ue": 713.1103370595,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "NiSi",
+   "class": "barriers_silicides",
+   "ref_tier": "extended",
+   "T_low": 350.0,
+   "T_high": 600.0,
+   "abs_err_300K": null,
+   "abs_err_window": 13.3593899552,
+   "strain_err_ue": 1113.2824962684,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "TiSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 900.0,
+   "abs_err_300K": -1.0454089945,
+   "abs_err_window": 4.9469795108,
+   "strain_err_ue": 659.5972681115,
+   "d_alpha_exp": 1.2,
+   "d_alpha_model": 3.0500319215,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 15.3152121259
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "TiSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 900.0,
+   "abs_err_300K": -2.0058432153,
+   "abs_err_window": 3.0052247951,
+   "strain_err_ue": 400.6966393472,
+   "d_alpha_exp": 1.2,
+   "d_alpha_model": 0.7355199974,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 5.8870713074
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "WSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 1200.0,
+   "abs_err_300K": -9.9288495768,
+   "abs_err_window": -5.7555644559,
+   "strain_err_ue": -1342.9650397012,
+   "d_alpha_exp": 3.36,
+   "d_alpha_model": 3.9365291138,
+   "trend_sign_ok": true,
+   "err_T_high_pct": -23.1692600191
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "WSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 1200.0,
+   "abs_err_300K": -4.5190227139,
+   "abs_err_window": -1.1781367335,
+   "strain_err_ue": -274.8985711428,
+   "d_alpha_exp": 3.36,
+   "d_alpha_model": 1.2706948911,
+   "trend_sign_ok": true,
+   "err_T_high_pct": -12.2710605557
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "MoS2",
+   "class": "layered",
+   "ref_tier": null,
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "MoS2",
+   "class": "layered",
+   "ref_tier": null,
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "hBN",
+   "class": "layered",
+   "ref_tier": "extended",
+   "T_low": 300.0,
+   "T_high": 1300.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "hBN",
+   "class": "layered",
+   "ref_tier": "extended",
+   "T_low": 300.0,
+   "T_high": 1300.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mace-mpa-0",
+   "material": "graphite",
+   "class": "layered",
+   "ref_tier": "extended",
+   "T_low": 600.0,
+   "T_high": 1200.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "mattersim-5m-native",
+   "material": "graphite",
+   "class": "layered",
+   "ref_tier": "extended",
+   "T_low": 600.0,
+   "T_high": 1200.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  }
+ ],
+ "thermal_mismatch": [
+  {
+   "pair": "Cu on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 4680.6768850153,
+   "mismatch_exp_ue": 4340.2202898551,
+   "err_ue": 340.4565951602,
+   "err_pct": 7.8442238509
+  },
+  {
+   "pair": "Cu on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 3217.2806617449,
+   "mismatch_exp_ue": 4340.2202898551,
+   "err_ue": -1122.9396281102,
+   "err_pct": -25.8728717235
+  },
+  {
+   "pair": "Cu on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 10400.1792637115,
+   "mismatch_exp_ue": 9129.2286231884,
+   "err_ue": 1270.9506405231,
+   "err_pct": 13.9217746973
+  },
+  {
+   "pair": "Cu on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 6028.9826646671,
+   "mismatch_exp_ue": 9129.2286231884,
+   "err_ue": -3100.2459585213,
+   "err_pct": -33.9595609496
+  },
+  {
+   "pair": "W on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 1139.4735181883,
+   "mismatch_exp_ue": 367.8048309179,
+   "err_ue": 771.6686872704,
+   "err_pct": 209.8038476941
+  },
+  {
+   "pair": "W on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -604.7910760731,
+   "mismatch_exp_ue": 367.8048309179,
+   "err_ue": -972.5959069909,
+   "err_pct": -264.4326080666
+  },
+  {
+   "pair": "W on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 2307.860984127,
+   "mismatch_exp_ue": 621.8131642512,
+   "err_ue": 1686.0478198758,
+   "err_pct": 271.1502291699
+  },
+  {
+   "pair": "W on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -1633.960922372,
+   "mismatch_exp_ue": 621.8131642512,
+   "err_ue": -2255.7740866232,
+   "err_pct": -362.7736137333
+  },
+  {
+   "pair": "Al on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 4521.2932915528,
+   "mismatch_exp_ue": 6718.6260869565,
+   "err_ue": -2197.3327954037,
+   "err_pct": -32.7050912934
+  },
+  {
+   "pair": "Al on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 5105.4964515938,
+   "mismatch_exp_ue": 6718.6260869565,
+   "err_ue": -1613.1296353627,
+   "err_pct": -24.0098141269
+  },
+  {
+   "pair": "Al on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 10786.6636594165,
+   "mismatch_exp_ue": null,
+   "err_ue": null,
+   "err_pct": null
+  },
+  {
+   "pair": "Al on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 8336.2105542005,
+   "mismatch_exp_ue": null,
+   "err_ue": null,
+   "err_pct": null
+  },
+  {
+   "pair": "Mo on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 2067.6380176674,
+   "mismatch_exp_ue": 501.8144927536,
+   "err_ue": 1565.8235249138,
+   "err_pct": 312.0323441281
+  },
+  {
+   "pair": "Mo on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -469.9518354382,
+   "mismatch_exp_ue": 501.8144927536,
+   "err_ue": -971.7663281918,
+   "err_pct": -193.6505107414
+  },
+  {
+   "pair": "Mo on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 4327.3746860058,
+   "mismatch_exp_ue": 960.822826087,
+   "err_ue": 3366.5518599188,
+   "err_pct": 350.3821691695
+  },
+  {
+   "pair": "Mo on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -1351.8291668053,
+   "mismatch_exp_ue": 960.822826087,
+   "err_ue": -2312.6519928923,
+   "err_pct": -240.6949470914
+  },
+  {
+   "pair": "Ta on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 4494.1086435536,
+   "mismatch_exp_ue": 989.1574879227,
+   "err_ue": 3504.9511556309,
+   "err_pct": 354.3370189707
+  },
+  {
+   "pair": "Ta on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -204.9867746104,
+   "mismatch_exp_ue": 989.1574879227,
+   "err_ue": -1194.1442625331,
+   "err_pct": -120.7233708599
+  },
+  {
+   "pair": "Ta on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 8747.6845563263,
+   "mismatch_exp_ue": 1901.4991545894,
+   "err_ue": 6846.185401737,
+   "err_pct": 360.0414644
+  },
+  {
+   "pair": "Ta on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -845.4020358332,
+   "mismatch_exp_ue": 1901.4991545894,
+   "err_ue": -2746.9011904226,
+   "err_pct": -144.4597639601
+  },
+  {
+   "pair": "TiSi2 on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 2764.7286833659,
+   "mismatch_exp_ue": 2486.3,
+   "err_ue": 278.4286833659,
+   "err_pct": 11.1985151979
+  },
+  {
+   "pair": "TiSi2 on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 1884.2015022369,
+   "mismatch_exp_ue": 2486.3,
+   "err_ue": -602.0984977631,
+   "err_pct": -24.2166471368
+  },
+  {
+   "pair": "TiSi2 on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 5645.1726479542,
+   "mismatch_exp_ue": 4748.975,
+   "err_ue": 896.1976479542,
+   "err_pct": 18.8713911519
+  },
+  {
+   "pair": "TiSi2 on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 3611.028346869,
+   "mismatch_exp_ue": 4748.975,
+   "err_ue": -1137.946653131,
+   "err_pct": -23.9619423798
+  },
+  {
+   "pair": "Cu on Ta",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 186.5682414617,
+   "mismatch_exp_ue": 3351.0628019324,
+   "err_ue": -3164.4945604707,
+   "err_pct": -94.4325650551
+  },
+  {
+   "pair": "Cu on Ta",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 3422.2674363553,
+   "mismatch_exp_ue": 3351.0628019324,
+   "err_ue": 71.204634423,
+   "err_pct": 2.1248373615
+  },
+  {
+   "pair": "Cu on Ta",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 1652.4947073851,
+   "mismatch_exp_ue": 7227.729468599,
+   "err_ue": -5575.2347612139,
+   "err_pct": -77.1367382445
+  },
+  {
+   "pair": "Cu on Ta",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 6874.3847005004,
+   "mismatch_exp_ue": 7227.729468599,
+   "err_ue": -353.3447680987,
+   "err_pct": -4.8887381526
+  }
+ ],
+ "reference_quality_file": "data/reference_quality.yaml",
  "pending": {
   "thermal_expansion": [
    "orb-v3"
@@ -16720,8 +19402,9 @@
     "model": "mace-mpa-0",
     "n": 30,
     "MAPE": 0.7418193776,
-    "ci_low": 0.5707173314,
-    "ci_high": 0.9318355364
+    "ci_low": 0.5836431958,
+    "ci_high": 0.9420012725,
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16729,8 +19412,9 @@
     "model": "mattersim-5m-native",
     "n": 30,
     "MAPE": 0.7971113928,
-    "ci_low": 0.6190156623,
-    "ci_high": 0.9962493394
+    "ci_low": 0.6348117645,
+    "ci_high": 1.0060196449,
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16738,8 +19422,9 @@
     "model": "orb-v3",
     "n": 28,
     "MAPE": 0.7289007238,
-    "ci_low": 0.5429395498,
-    "ci_high": 0.9498841515
+    "ci_low": 0.548547478,
+    "ci_high": 0.9615483334,
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16748,7 +19433,8 @@
     "n": 30,
     "MAPE": 0.2494863475,
     "ci_low": 0.1694071651,
-    "ci_high": 0.3466750734
+    "ci_high": 0.3466750734,
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16757,7 +19443,8 @@
     "n": 30,
     "MAPE": 0.0735606102,
     "ci_low": 0.0485138999,
-    "ci_high": 0.1020845492
+    "ci_high": 0.1020845492,
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16766,7 +19453,8 @@
     "n": 28,
     "MAPE": 0.1552400004,
     "ci_low": 0.0952417581,
-    "ci_high": 0.2191493647
+    "ci_high": 0.2191493647,
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16774,8 +19462,9 @@
     "model": "mace-mpa-0",
     "n": 28,
     "MAPE": 10.7651062291,
-    "ci_low": 8.3389746909,
-    "ci_high": 14.6297920916
+    "ci_low": 8.349333813,
+    "ci_high": 14.7951715786,
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16783,8 +19472,9 @@
     "model": "mattersim-5m-native",
     "n": 27,
     "MAPE": 12.6378936231,
-    "ci_low": 9.0537668122,
-    "ci_high": 18.086010995
+    "ci_low": 8.991110213,
+    "ci_high": 18.3629062562,
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16792,8 +19482,9 @@
     "model": "orb-v3",
     "n": 26,
     "MAPE": 11.945861978,
-    "ci_low": 9.4492949612,
-    "ci_high": 15.2034268531
+    "ci_low": 9.4815904604,
+    "ci_high": 15.4965607029,
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16802,7 +19493,8 @@
     "n": 28,
     "MAPE": 9.9446861723,
     "ci_low": 6.5164557164,
-    "ci_high": 13.8705962616
+    "ci_high": 13.8705962616,
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16811,7 +19503,8 @@
     "n": 27,
     "MAPE": 5.3567124096,
     "ci_low": 2.7715181131,
-    "ci_high": 9.1675927259
+    "ci_high": 9.1675927259,
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16820,7 +19513,8 @@
     "n": 26,
     "MAPE": 6.4350760996,
     "ci_low": 4.4283061754,
-    "ci_high": 8.5707193012
+    "ci_high": 8.5707193012,
+    "subset": "all"
    },
    {
     "property": "thermal_expansion",
@@ -16828,8 +19522,9 @@
     "model": "mace-mpa-0",
     "n": 17,
     "MAPE": 35.4669423491,
-    "ci_low": 23.1625223495,
-    "ci_high": 53.0212829722
+    "ci_low": 22.8401492322,
+    "ci_high": 53.8999828687,
+    "subset": "all"
    },
    {
     "property": "thermal_expansion",
@@ -16837,26 +19532,189 @@
     "model": "mattersim-5m-native",
     "n": 18,
     "MAPE": 34.5099519237,
-    "ci_low": 22.5994093418,
-    "ci_high": 53.8882410734
+    "ci_low": 22.5554230628,
+    "ci_high": 53.7560339771,
+    "subset": "all"
    },
    {
     "property": "thermal_expansion_300K",
     "reference": "experiment",
     "model": "mace-mpa-0",
-    "n": 24,
-    "MAPE": 34.5400789562,
-    "ci_low": 22.1099077252,
-    "ci_high": 55.525888301
+    "n": 22,
+    "MAPE": 36.1038350058,
+    "ci_low": 22.0555088967,
+    "ci_high": 58.140015048,
+    "subset": "all"
    },
    {
     "property": "thermal_expansion_300K",
     "reference": "experiment",
     "model": "mattersim-5m-native",
+    "n": 22,
+    "MAPE": 24.1558740688,
+    "ci_low": 16.7220687659,
+    "ci_high": 36.7187434226,
+    "subset": "all"
+   },
+   {
+    "property": "lattice",
+    "reference": "experiment",
+    "model": "mace-mpa-0",
+    "n": 26,
+    "MAPE": 0.8133663326,
+    "ci_low": 0.6356991144,
+    "ci_high": 1.0174167296,
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "experiment",
+    "model": "mattersim-5m-native",
+    "n": 26,
+    "MAPE": 0.8615925211,
+    "ci_low": 0.6864082024,
+    "ci_high": 1.0761331448,
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "experiment",
+    "model": "orb-v3",
     "n": 24,
-    "MAPE": 28.6915414524,
-    "ci_low": 19.5368609212,
-    "ci_high": 44.1898841173
+    "MAPE": 0.7850855982,
+    "ci_low": 0.5798225708,
+    "ci_high": 1.0278584779,
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "dft",
+    "model": "mace-mpa-0",
+    "n": 26,
+    "MAPE": 0.2370727157,
+    "ci_low": 0.1468894174,
+    "ci_high": 0.3472424006,
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "dft",
+    "model": "mattersim-5m-native",
+    "n": 26,
+    "MAPE": 0.0689406822,
+    "ci_low": 0.0466374516,
+    "ci_high": 0.0948537266,
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "dft",
+    "model": "orb-v3",
+    "n": 24,
+    "MAPE": 0.1598964066,
+    "ci_low": 0.0951970501,
+    "ci_high": 0.2362018945,
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "experiment",
+    "model": "mace-mpa-0",
+    "n": 19,
+    "MAPE": 9.808647065,
+    "ci_low": 7.222779379,
+    "ci_high": 13.1480166753,
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "experiment",
+    "model": "mattersim-5m-native",
+    "n": 19,
+    "MAPE": 14.2101240913,
+    "ci_low": 8.7862216279,
+    "ci_high": 20.461298414,
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "experiment",
+    "model": "orb-v3",
+    "n": 17,
+    "MAPE": 12.2208305645,
+    "ci_low": 8.9288293749,
+    "ci_high": 16.0908225158,
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "dft",
+    "model": "mace-mpa-0",
+    "n": 17,
+    "MAPE": 7.355633311,
+    "ci_low": 4.5878168438,
+    "ci_high": 10.370370405,
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "dft",
+    "model": "mattersim-5m-native",
+    "n": 17,
+    "MAPE": 6.4203645832,
+    "ci_low": 2.4861090264,
+    "ci_high": 12.5424111289,
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "dft",
+    "model": "orb-v3",
+    "n": 15,
+    "MAPE": 6.7197927931,
+    "ci_low": 3.7785256274,
+    "ci_high": 10.1118079169,
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model": "mace-mpa-0",
+    "n": 12,
+    "MAPE": 35.8443766569,
+    "ci_low": 20.414034819,
+    "ci_high": 56.9123688405,
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model": "mattersim-5m-native",
+    "n": 13,
+    "MAPE": 28.7887442342,
+    "ci_low": 17.7454845542,
+    "ci_high": 44.9110749653,
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model": "mace-mpa-0",
+    "n": 18,
+    "MAPE": 37.6028610422,
+    "ci_low": 20.5435916718,
+    "ci_high": 64.4873983151,
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model": "mattersim-5m-native",
+    "n": 18,
+    "MAPE": 23.3982766476,
+    "ci_low": 14.5669586758,
+    "ci_high": 37.5310100405,
+    "subset": "core"
    }
   ],
   "pairwise": [
@@ -16867,10 +19725,11 @@
     "model_b": "mattersim-5m-native",
     "n_common": 30,
     "mean_diff_pct_points": -0.0552920152,
-    "ci_low": -0.1542917351,
-    "ci_high": 0.0358285161,
-    "p_a_better": 0.8826,
-    "verdict": "no significant difference"
+    "ci_low": -0.1537325661,
+    "ci_high": 0.0408607445,
+    "p_a_better": 0.8658,
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16879,10 +19738,11 @@
     "model_b": "orb-v3",
     "n_common": 28,
     "mean_diff_pct_points": 0.0002435301,
-    "ci_low": -0.1284499362,
-    "ci_high": 0.1303002096,
-    "p_a_better": 0.5084,
-    "verdict": "no significant difference"
+    "ci_low": -0.1314613339,
+    "ci_high": 0.1374570984,
+    "p_a_better": 0.4824,
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16891,10 +19751,11 @@
     "model_b": "orb-v3",
     "n_common": 28,
     "mean_diff_pct_points": 0.0551924323,
-    "ci_low": -0.015326781,
-    "ci_high": 0.1406808046,
-    "p_a_better": 0.0636,
-    "verdict": "no significant difference"
+    "ci_low": -0.0141817469,
+    "ci_high": 0.1425356735,
+    "p_a_better": 0.0596,
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16906,7 +19767,8 @@
     "ci_low": 0.0924751196,
     "ci_high": 0.2691265817,
     "p_a_better": 0.0,
-    "verdict": "mattersim-5m-native more accurate"
+    "verdict": "mattersim-5m-native more accurate",
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16918,7 +19780,8 @@
     "ci_low": -0.0192253354,
     "ci_high": 0.2371454671,
     "p_a_better": 0.0478,
-    "verdict": "no significant difference"
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "lattice",
@@ -16930,7 +19793,8 @@
     "ci_low": -0.1455378179,
     "ci_high": -0.0163651121,
     "p_a_better": 0.9948,
-    "verdict": "mattersim-5m-native more accurate"
+    "verdict": "mattersim-5m-native more accurate",
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16939,10 +19803,11 @@
     "model_b": "mattersim-5m-native",
     "n_common": 27,
     "mean_diff_pct_points": -2.7826269988,
-    "ci_low": -8.5414551292,
-    "ci_high": 2.3981960634,
-    "p_a_better": 0.8416,
-    "verdict": "no significant difference"
+    "ci_low": -8.4725434175,
+    "ci_high": 2.0400197659,
+    "p_a_better": 0.8558,
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16951,10 +19816,11 @@
     "model_b": "orb-v3",
     "n_common": 26,
     "mean_diff_pct_points": -0.632026055,
-    "ci_low": -4.7888942727,
-    "ci_high": 3.7221681483,
-    "p_a_better": 0.624,
-    "verdict": "no significant difference"
+    "ci_low": -4.4954673083,
+    "ci_high": 3.4415453985,
+    "p_a_better": 0.6352,
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16963,10 +19829,11 @@
     "model_b": "orb-v3",
     "n_common": 25,
     "mean_diff_pct_points": 1.4747366604,
-    "ci_low": -2.1068994951,
-    "ci_high": 5.8820147586,
-    "p_a_better": 0.2502,
-    "verdict": "no significant difference"
+    "ci_low": -2.1330123427,
+    "ci_high": 5.8805594163,
+    "p_a_better": 0.2514,
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16978,7 +19845,8 @@
     "ci_low": -0.9659319076,
     "ci_high": 8.3600031621,
     "p_a_better": 0.0566,
-    "verdict": "no significant difference"
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -16990,7 +19858,8 @@
     "ci_low": 0.7008114155,
     "ci_high": 7.945432635,
     "p_a_better": 0.0092,
-    "verdict": "orb-v3 more accurate"
+    "verdict": "orb-v3 more accurate",
+    "subset": "all"
    },
    {
     "property": "bulk_modulus",
@@ -17002,7 +19871,8 @@
     "ci_low": -2.6384371314,
     "ci_high": 2.7040341591,
     "p_a_better": 0.6374,
-    "verdict": "no significant difference"
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "thermal_expansion",
@@ -17011,22 +19881,206 @@
     "model_b": "mattersim-5m-native",
     "n_common": 17,
     "mean_diff_pct_points": 0.6082682101,
-    "ci_low": -23.3011002529,
-    "ci_high": 21.1885865941,
-    "p_a_better": 0.4838,
-    "verdict": "no significant difference"
+    "ci_low": -22.7948631039,
+    "ci_high": 21.1695522137,
+    "p_a_better": 0.4856,
+    "verdict": "no significant difference",
+    "subset": "all"
    },
    {
     "property": "thermal_expansion_300K",
     "reference": "experiment",
     "model_a": "mace-mpa-0",
     "model_b": "mattersim-5m-native",
+    "n_common": 22,
+    "mean_diff_pct_points": 11.947960937,
+    "ci_low": -6.7229793438,
+    "ci_high": 35.8651685,
+    "p_a_better": 0.119,
+    "verdict": "no significant difference",
+    "subset": "all"
+   },
+   {
+    "property": "lattice",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "mattersim-5m-native",
+    "n_common": 26,
+    "mean_diff_pct_points": -0.0482261885,
+    "ci_low": -0.1607608177,
+    "ci_high": 0.0453248877,
+    "p_a_better": 0.8558,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
     "n_common": 24,
-    "mean_diff_pct_points": 5.8485375038,
-    "ci_low": -15.2088218221,
-    "ci_high": 28.6998383147,
-    "p_a_better": 0.2934,
-    "verdict": "no significant difference"
+    "mean_diff_pct_points": 0.0194553364,
+    "ci_low": -0.1296393695,
+    "ci_high": 0.1573788534,
+    "p_a_better": 0.4324,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "experiment",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 24,
+    "mean_diff_pct_points": 0.0666924075,
+    "ci_low": -0.0133208096,
+    "ci_high": 0.1615640218,
+    "p_a_better": 0.0524,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "dft",
+    "model_a": "mace-mpa-0",
+    "model_b": "mattersim-5m-native",
+    "n_common": 26,
+    "mean_diff_pct_points": 0.1681320335,
+    "ci_low": 0.0768510678,
+    "ci_high": 0.2779382979,
+    "p_a_better": 0.0,
+    "verdict": "mattersim-5m-native more accurate",
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "dft",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 24,
+    "mean_diff_pct_points": 0.090425215,
+    "ci_low": -0.0472378862,
+    "ci_high": 0.2424040021,
+    "p_a_better": 0.1,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "lattice",
+    "reference": "dft",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 24,
+    "mean_diff_pct_points": -0.086820094,
+    "ci_low": -0.1645819909,
+    "ci_high": -0.0169173741,
+    "p_a_better": 0.995,
+    "verdict": "mattersim-5m-native more accurate",
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "mattersim-5m-native",
+    "n_common": 19,
+    "mean_diff_pct_points": -4.4014770263,
+    "ci_low": -11.5218679985,
+    "ci_high": 1.897091466,
+    "p_a_better": 0.9046,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 17,
+    "mean_diff_pct_points": -1.6854744574,
+    "ci_low": -5.4512681537,
+    "ci_high": 1.829115557,
+    "p_a_better": 0.8134,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "experiment",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 17,
+    "mean_diff_pct_points": 3.3626042886,
+    "ci_low": -1.7724342628,
+    "ci_high": 9.2460403518,
+    "p_a_better": 0.1306,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "dft",
+    "model_a": "mace-mpa-0",
+    "model_b": "mattersim-5m-native",
+    "n_common": 17,
+    "mean_diff_pct_points": 0.9352687277,
+    "ci_low": -4.9624014782,
+    "ci_high": 5.0648892607,
+    "p_a_better": 0.3248,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "dft",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 15,
+    "mean_diff_pct_points": 1.1685292076,
+    "ci_low": -1.9993930707,
+    "ci_high": 4.4169953223,
+    "p_a_better": 0.2434,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "bulk_modulus",
+    "reference": "dft",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 15,
+    "mean_diff_pct_points": 0.4752276714,
+    "ci_low": -2.9983892417,
+    "ci_high": 5.1754616358,
+    "p_a_better": 0.4482,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "mattersim-5m-native",
+    "n_common": 12,
+    "mean_diff_pct_points": 7.0383765917,
+    "ci_low": -13.0323034924,
+    "ci_high": 26.6581110243,
+    "p_a_better": 0.2852,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "mattersim-5m-native",
+    "n_common": 18,
+    "mean_diff_pct_points": 14.2045843946,
+    "ci_low": -9.0487293807,
+    "ci_high": 40.9938820546,
+    "p_a_better": 0.1308,
+    "verdict": "no significant difference",
+    "subset": "core"
    }
   ],
   "pairwise_by_class": [
@@ -17040,9 +20094,9 @@
     "MAPE_a": 0.2316124282,
     "MAPE_b": 0.2596136142,
     "diff": -0.0280011861,
-    "ci_low": -0.2783422363,
-    "ci_high": 0.1912277369,
-    "p": 0.7656,
+    "ci_low": -0.2877137721,
+    "ci_high": 0.2289684252,
+    "p": 0.8392,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17056,9 +20110,9 @@
     "MAPE_a": 0.2316124282,
     "MAPE_b": 0.310299342,
     "diff": -0.0786869138,
-    "ci_low": -0.2863108044,
-    "ci_high": 0.1652837445,
-    "p": 0.5608,
+    "ci_low": -0.3132196771,
+    "ci_high": 0.2413268194,
+    "p": 0.6948,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17072,9 +20126,9 @@
     "MAPE_a": 0.2596136142,
     "MAPE_b": 0.310299342,
     "diff": -0.0506857278,
-    "ci_low": -0.1425281084,
-    "ci_high": 0.0882357384,
-    "p": 0.6276,
+    "ci_low": -0.1423380892,
+    "ci_high": 0.1018050631,
+    "p": 0.7488,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17137,7 +20191,7 @@
     "MAPE_b": 0.6236869796,
     "diff": -0.1420121535,
     "ci_low": -0.3456949172,
-    "ci_high": 0.1015772452,
+    "ci_high": 0.1015779876,
     "p": 0.2368,
     "p_holm": 1.0,
     "verdict": "no significant difference"
@@ -17152,8 +20206,8 @@
     "MAPE_a": 0.481674826,
     "MAPE_b": 0.4900260991,
     "diff": -0.008351273,
-    "ci_low": -0.2269311548,
-    "ci_high": 0.2228668334,
+    "ci_low": -0.2269484155,
+    "ci_high": 0.2228665776,
     "p": 0.8836,
     "p_holm": 1.0,
     "verdict": "no significant difference"
@@ -17168,8 +20222,8 @@
     "MAPE_a": 0.6236869796,
     "MAPE_b": 0.4900260991,
     "diff": 0.1336608805,
-    "ci_low": 0.0108301781,
-    "ci_high": 0.2437082187,
+    "ci_low": 0.0108102286,
+    "ci_high": 0.2437000466,
     "p": 0.0344,
     "p_holm": 0.4128,
     "verdict": "suggestive: orb-v3 (not significant after correction)"
@@ -17184,7 +20238,7 @@
     "MAPE_a": 1.0360385055,
     "MAPE_b": 1.0807486838,
     "diff": -0.0447101782,
-    "ci_low": -0.2849597423,
+    "ci_low": -0.2849607358,
     "ci_high": 0.1515661146,
     "p": 0.7436,
     "p_holm": 1.0,
@@ -17201,7 +20255,7 @@
     "MAPE_b": 1.0933458615,
     "diff": -0.057307356,
     "ci_low": -0.3248528777,
-    "ci_high": 0.1727480476,
+    "ci_high": 0.1727486588,
     "p": 0.6544,
     "p_holm": 1.0,
     "verdict": "no significant difference"
@@ -17217,8 +20271,8 @@
     "MAPE_b": 1.0933458615,
     "diff": -0.0125971777,
     "ci_low": -0.0914819064,
-    "ci_high": 0.0601806306,
-    "p": 0.7884,
+    "ci_high": 0.0602258863,
+    "p": 0.788,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17472,9 +20526,9 @@
     "MAPE_a": 7.4219853682,
     "MAPE_b": 12.0748965212,
     "diff": -4.652911153,
-    "ci_low": -15.870933782,
-    "ci_high": 2.2824308385,
-    "p": 0.4172,
+    "ci_low": -15.9782506551,
+    "ci_high": 2.2242505798,
+    "p": 0.3896,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17488,9 +20542,9 @@
     "MAPE_a": 8.5049468427,
     "MAPE_b": 11.5781977185,
     "diff": -3.0732508757,
-    "ci_low": -8.9237219065,
-    "ci_high": 0.8233255335,
-    "p": 0.268,
+    "ci_low": -9.020191846,
+    "ci_high": 0.7433325884,
+    "p": 0.2128,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17504,9 +20558,9 @@
     "MAPE_a": 14.8000147798,
     "MAPE_b": 11.5781977185,
     "diff": 3.2218170613,
-    "ci_low": -2.3062383404,
-    "ci_high": 11.3846856482,
-    "p": 0.4216,
+    "ci_low": -2.5291284979,
+    "ci_high": 11.528889242,
+    "p": 0.418,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17520,9 +20574,9 @@
     "MAPE_a": 9.9604642472,
     "MAPE_b": 13.8491076326,
     "diff": -3.8886433854,
-    "ci_low": -17.5674936626,
-    "ci_high": 8.9185540858,
-    "p": 0.5868,
+    "ci_low": -16.8742691618,
+    "ci_high": 6.7185706465,
+    "p": 0.5848,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17536,9 +20590,9 @@
     "MAPE_a": 13.1317531611,
     "MAPE_b": 11.1339995043,
     "diff": 1.9977536568,
-    "ci_low": -7.3349231539,
-    "ci_high": 13.3747363757,
-    "p": 0.6896,
+    "ci_low": -5.5652621075,
+    "ci_high": 12.2216936105,
+    "p": 0.6504,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17552,9 +20606,9 @@
     "MAPE_a": 13.8491076326,
     "MAPE_b": 11.1086186699,
     "diff": 2.7404889627,
-    "ci_low": -6.5682767295,
-    "ci_high": 15.2254982638,
-    "p": 0.6832,
+    "ci_low": -6.514438729,
+    "ci_high": 15.1500818927,
+    "p": 0.6908,
     "p_holm": 1.0,
     "verdict": "no significant difference"
    },
@@ -17909,16 +20963,51 @@
     "property": "thermal_expansion_300K",
     "model_a": "mace-mpa-0",
     "model_b": "mattersim-5m-native",
-    "n_common": 24,
-    "error_correlation": -0.1024308884,
-    "corr_ci_low": -0.4228973648,
-    "corr_ci_high": 0.3714751492,
-    "MAPE_a": 34.5400789562,
-    "MAPE_b": 28.6915414524,
-    "MAPE_average_of_two": 25.657823965,
-    "corr_disagreement_vs_average_error": 0.4058940889,
-    "disagreement_corr_ci_low": -0.055174537,
-    "disagreement_corr_ci_high": 0.7834596989
+    "n_common": 22,
+    "error_correlation": -0.0226935185,
+    "corr_ci_low": -0.4022603323,
+    "corr_ci_high": 0.4982451125,
+    "MAPE_a": 36.1038350058,
+    "MAPE_b": 24.1558740688,
+    "MAPE_average_of_two": 24.1784800218,
+    "corr_disagreement_vs_average_error": 0.3651450195,
+    "disagreement_corr_ci_low": -0.10646908,
+    "disagreement_corr_ci_high": 0.771466177
+   }
+  ],
+  "adiabatic_sensitivity": [
+   {
+    "model": "mace-mpa-0",
+    "n": 28,
+    "n_adiabatic": 18,
+    "median_correction_pct": 0.801225,
+    "max_correction_pct": 2.2357173913,
+    "MAPE_as_published": 10.7651062291,
+    "MAPE_isothermal": 10.6982270415,
+    "signed_as_published": -1.4472835793,
+    "signed_isothermal": -0.9163345499
+   },
+   {
+    "model": "mattersim-5m-native",
+    "n": 27,
+    "n_adiabatic": 18,
+    "median_correction_pct": 0.801225,
+    "max_correction_pct": 2.2357173913,
+    "MAPE_as_published": 12.6378936231,
+    "MAPE_isothermal": 12.3085621632,
+    "signed_as_published": -10.9840383088,
+    "signed_isothermal": -10.4820253609
+   },
+   {
+    "model": "orb-v3",
+    "n": 26,
+    "n_adiabatic": 16,
+    "median_correction_pct": 0.7114597826,
+    "max_correction_pct": 2.2357173913,
+    "MAPE_as_published": 11.945861978,
+    "MAPE_isothermal": 11.5963022306,
+    "signed_as_published": -10.4916351842,
+    "signed_isothermal": -10.0418525391
    }
   ],
   "md_variants": [],
