@@ -305,6 +305,12 @@ def thermal_table(tag: str = "thermal_qha") -> pd.DataFrame:
             # secondary comparison at room temperature (added with the switch to QHA, which is
             # most reliable there): not affected by high-temperature breakdown of the window
             ex300 = excluded if (excluded and not excluded.startswith("failed")) else None
+            # a failed volume check leaves 300 K valid only when every scanned volume was stable: then the
+            # failure lies at the window's hot end. If instability cut the scan short (Orb Al: stable only up
+            # to 1.015 V0), the 300 K volume itself can fall outside the fit and alpha(300 K) is meaningless.
+            if (not ex300 and not checks.get("volume_inside_scan", True)
+                    and len(r.get("volumes_used") or []) < len(r.get("volume_scales") or [])):
+                ex300 = "failed: volume_inside_scan with the stable scan cut short by instability"
             # a range average (one constant alpha over a wide range) is not a value at 300 K
             point_ref = ref_info(mat.id, "thermal_expansion").get("kind") != "range_average"
             a300_exp = (float(np.interp(300.0, T_exp, aV_exp)) if point_ref and T_exp and min(T_exp) <= 310
