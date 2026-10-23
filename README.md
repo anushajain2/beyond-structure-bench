@@ -4,31 +4,30 @@
 
 **How far can you trust an AI force field's prediction for a material used in chips, and when it is wrong, why?**
 
-## What this project is, in plain words
+ChipFF Bench tests three AI force fields, machine-learning models that predict how the atoms in a
+material push and pull on each other: MACE-MPA-0, Orb v3 and MatterSim v1. They are tested on 33 materials
+used in chips, from silicon and copper to hafnium oxide. For each material, each model predicts three
+things: how big its crystal is, how hard it is to compress, and how much it expands when heated. Every
+prediction is checked against published lab measurements, and against standard quantum-mechanical
+calculations ([DFT](#terms-used-here)) where they exist. Where a model is badly wrong, a separate study
+of six cases works out why.
 
-Chips are stacks of very thin layers of different materials: silicon, metals for wiring, insulators,
-and more. Before making a new stack, engineers want to know how each material behaves: how big its
-crystal is, how hard it is to squeeze, and how much it grows when it heats up. Measuring every
-material in a lab is slow, so researchers also *simulate* materials on a computer.
+**What we found, in brief:**
 
-The most accurate simulations ([DFT](#terms-used-here)) are very slow. **AI force fields** are
-machine-learning models trained on many of those slow calculations; they predict how atoms push and
-pull on each other in a fraction of the time. They are increasingly used as a shortcut, but how well do
-they work for chip materials?
+* All three models get the size of most crystals right, to within about 1 %.
+* They are less accurate on stiffness, off by 11–13 % on average, and the data can't tell which model is best.
+* They are worst at thermal expansion: the two models tested on it across all materials are off by
+  29–35 % on average, and each fails on different materials.
+* Layered materials such as graphite trip up every model.
+* In the six cases studied, the large thermal-expansion errors come from the models misjudging how the
+  atoms' vibrations change as the crystal expands. The checks along the way also found two problems in
+  the simulation toolkit and one in this project's own code, now fixed.
 
-**ChipFF Bench answers that question.** It asks three open AI force fields to predict three basic
-properties of 33 materials used in chips, compares every answer with published lab measurements (and
-with DFT where available), and then digs into the cases where the models go badly wrong to find out why.
-
-## Where to start
-
-| If you are… | Go to |
-|---|---|
-| **Just curious** | The [project site](https://anushajain2.github.io/chipff-bench/) and [what we found](#what-we-found) below |
-| **Looking up a material or model** | The [evidence explorer](https://anushajain2.github.io/chipff-bench/explore.html): each prediction next to its reference, source, error and status |
-| **Evaluating the science** | The [evaluation design](https://anushajain2.github.io/chipff-bench/design.html), [`docs/details.md`](docs/details.md) and [`docs/robustness.md`](docs/robustness.md) |
-| **Interested in why models fail** | The [six-case study](https://anushajain2.github.io/chipff-bench/study.html) (about 12 minutes) |
-| **Wanting to rerun it** | [Quick start](#quick-start) below and the [Reproduce page](https://anushajain2.github.io/chipff-bench/reproduce.html) |
+**[Project site](https://anushajain2.github.io/chipff-bench/)** ·
+[Explore the evidence](https://anushajain2.github.io/chipff-bench/explore.html) ·
+[Read the study](https://anushajain2.github.io/chipff-bench/study.html) ·
+[Evaluation design](https://anushajain2.github.io/chipff-bench/design.html) ·
+[Reproduce](https://anushajain2.github.io/chipff-bench/reproduce.html)
 
 ## What it measures
 
@@ -38,9 +37,8 @@ with DFT where available), and then digs into the cases where the models go badl
 | **Bulk modulus** | How hard the material is to squeeze; a higher value means stiffer | Sets how much a layer pushes back when its neighbours strain it |
 | **Thermal expansion** | How much the material grows when it heats up | Chips heat and cool constantly; layers that expand by different amounts build up stress, which can bend, crack or peel them |
 
-The three models are **MACE-MPA-0**, **Orb v3** and **MatterSim v1**. The 33 materials fall into five
-groups: semiconductors, insulators and dielectrics, wiring and contact metals, barriers and silicides,
-and layered (2D) materials such as graphite. Exact definitions, units and methods are in
+The 33 materials fall into five groups: semiconductors, insulators and dielectrics, wiring and contact
+metals, barriers and silicides, and layered (2D) materials such as graphite. Exact definitions, units and methods are in
 [`docs/details.md`](docs/details.md#whats-measured).
 
 ## How it works
@@ -57,11 +55,6 @@ and layered (2D) materials such as graphite. Exact definitions, units and method
    results don't depend on arbitrary settings, and a detailed study of the worst failures.
 
 ## What we found
-
-**In short:** the models predict the size of most crystals well, stiffness less well, and how
-materials expand with heat poorly. Layered materials like graphite trip up every model. Each model
-fails on different materials, and with this many materials the data cannot say that one model is
-better overall.
 
 ![Average error of each model by material group and property](report/figures/trust_map_experiment.png)
 
