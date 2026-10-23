@@ -189,4 +189,162 @@ about 240, roughly 4 h. The scope is therefore split by cost, without reference 
 
 ## Results (added after the run)
 
-*Not yet run.*
+Written 2026-10-23, after the core run. Nothing above the line was changed. Numbers are from
+`results/thermal_expansion.csv` and `results/bulk_modulus.csv` after `chipff analyze`, evaluated by
+`scripts/prereg_orb_thermal_eval.py`; the full output, per material, is `results/preregistration_orb_thermal.json`.
+
+### Verdicts
+
+| | primary set | statistic | verdict |
+|---|---|---|---|
+| **H1** K error explains Orb's α error | blind, 12 graded, 6 with \|err\| > 20 % | 4 of 6 explained (exactly 2/3) | **supported** (at the threshold) |
+| **H2** K′ does not flag large errors | blind, 13 graded | only 1 large error (Al) | **inconclusive** (< 2 large errors) |
+| **H3** disagreement tracks ensemble error | blind, 14 | ρ = 0.24, p = 0.21 | **inconclusive** |
+| **H4** compensation degrades over the window | pooled, 6 compensation / 14 control | 2 of 6 grow by ≥ 5 pp; median Δ 3.6 vs 15.8 pp | **refuted** |
+
+### What happened in the run
+
+* **Coverage:** all 22 core materials and the InP probe finished. Their fingerprints match the current code
+  (`54a9adeb998ccd45`), so `results/checks.csv` passes the fingerprint check for all 23. Orb is now at 23/33 for
+  thermal expansion and stays "pending" in the benchmark-wide tables until the 10 deferred materials are run.
+* **Failed checks:** MgO and Al failed `volume_inside_scan`, so their window values are excluded. Under the
+  benchmark's rule, which this test registered unchanged, they are still graded at 300 K.
+* **Al is a QHA breakdown, not a thermal expansion.** Orb's Al is dynamically unstable from 1.03 V0 upward (lowest
+  mode −0.6 to −2.2 THz), so only the five volumes 0.96–1.015 V0 enter the fit. The 300 K volume then lies outside
+  them and α(300 K) comes out as 9088 × 10⁻⁶ K⁻¹ (+12 950 %). MACE and MatterSim keep all nine volumes for Al. The
+  rules grade this value, so it stays in every test. Where it matters, the result without Al is given below, for
+  information only.
+
+### H1: supported, at the threshold
+
+Primary, blind materials with |err_300K| > 20 % (`p` = what the bulk-modulus error alone predicts):
+
+| material | err_300K | K error | K-only prediction p | share p/e | explained |
+|---|---|---|---|---|---|
+| W | +20.5 % | −19.9 % | +24.8 % | 1.19 | yes |
+| Ru | +28.6 % | −17.0 % | +20.5 % | 0.74 | yes |
+| Mo | +38.0 % | −17.2 % | +20.8 % | 0.59 | yes |
+| Ti | +22.0 % | −11.3 % | +12.8 % | 0.60 | yes |
+| MgO | +21.9 % | −7.0 % | +7.5 % | 0.37 | no |
+| Al | +12 950 % | +6.8 % | −6.4 % | — | no (breakdown) |
+
+Four of six are explained, which is exactly the 2/3 the rule requires. The support is narrow and specific:
+
+* All four explained cases are transition metals whose static K is 11–20 % soft. In those, Orb's overshoot follows
+  the K error in sign and rough size, as the study found for GaAs and InP.
+* Excluding Al gives 4 of 5. Reading MgO's +22 % as just above the threshold, rather than as an error to explain,
+  would not change the verdict either.
+* The rule does not test the reverse direction, and that direction fails: a soft K does not reliably produce an
+  overshoot. Quartz has K 25 % soft but α 15 % low; Al₂O₃ and Co have K 9 % and 4 % soft with α −2 % and −20 %.
+  Over all 12 graded blind materials, the Spearman correlation of `p` with `e` is 0.06.
+* Window secondary: 2 of 5 explained.
+
+So the bulk-modulus explanation carries over to Orb's overshoots in the transition metals. It is not a general
+predictor of Orb's α error.
+
+**Semiconductors (seen, cannot decide):** 4 have |err| > 20 %. Ge and GaAs are explained (shares 0.62, 1.15). InP
+(0.47) and AlN (0.43) fall just short of the 0.5 share, so the check gives 2 of 4, inconclusive. The study attributed
+about two-thirds of InP's error to K using the QHA's K_T at 300 K. With the static K this test registered, K's share is
+a little under half. That is consistent with the study, not a contradiction of it.
+
+### H2: inconclusive (too few large errors)
+
+* **Primary:** only one blind material has |err| > 40 %, and it is Al, the breakdown. Al also has by far the highest
+  K′ (7.91; next highest TiSi₂ 5.42, Ru 4.79). So K′ does single out the one material where Orb's equation of state is
+  abnormal, but one case cannot be scored.
+* **All graded (secondary):** AUC = 0.69, p = 0.13, inconclusive. The fixed flag K′ > 5 gives 1 hit (Al), 2 false
+  alarms (Cu, TiSi₂) and 3 misses (Ge +52 %, InP +48 %, Ta +70 %).
+* **Without Al (information):** AUC = 0.59, p = 0.33, which meets "no better than chance". With the v1.1.0 references
+  it is AUC = 0.63, p = 0.27, the same.
+
+The direction is the one H2 predicted: K′ misses Orb's large semiconductor and Ta errors. The registered test is not
+decisive.
+
+### H3: inconclusive
+
+* **Primary:** ρ(D, E) = 0.24, p = 0.21, n = 14. Without Al ρ = 0.05. Against E′, the MACE–MatterSim mean's own error
+  with no shared term, ρ = 0.06.
+* **Secondaries:** all materials ρ = 0.23, p = 0.14 (n = 23). Window, blind: ρ = −0.19, n = 8, which the rule would call
+  refuted, but it is a secondary.
+* **Pattern:** on several blind materials Orb agrees closely with the other two models (D < 0.05), and the shared
+  answer is wrong by 17–36 %: Mo, Ru, Co, W, MgO. Al₂O₃ is the one blind case where the three agree and are right.
+
+So there is no evidence that Orb's disagreement signals error, and agreement between the three models does not imply
+accuracy.
+
+### H4: refuted (partly prospective)
+
+**Compensation cases**, right at 300 K with the non-K ingredients offsetting ≥ 15 % of the K effect:
+
+| model, material | err_300K | err_window | Δ |
+|---|---|---|---|
+| Orb, Si | −3.2 % | −3.8 % | +0.6 pp |
+| Orb, SiO₂ quartz | −15.4 % | −63.9 % | +48.5 pp |
+| Orb, TiSi₂ | −12.4 % | +16.6 % | +4.2 pp |
+| MACE, InP | −12.1 % | +5.3 % | −6.8 pp |
+| MatterSim, Mo | −8.1 % | −34.9 % | +26.8 pp |
+| MatterSim, TiSi₂ | −5.6 % | +8.6 % | +3.1 pp |
+
+* Two of six grow by ≥ 5 pp, and the median Δ of compensation cases (3.6 pp) is below the controls' (15.8 pp, n = 14),
+  so H4 is refuted on both counts. Orb only (secondary) gives the same: 1 of 3.
+* The controls grow more than the compensation cases. That growth is mostly the oxides: Al₂O₃ for all three models,
+  and Y₂O₃ for MACE and MatterSim. Errors growing with temperature look like a property of the oxides' windows, not
+  of cancellation.
+* **Limits:** compensation is identified from the static K alone, without γ. MACE's Si, the case that motivated H4,
+  counts as a control here: its K residual is just under the 15 % cut-off. MACE's and MatterSim's curves were seen
+  before registration.
+
+### Descriptive (no decision)
+
+On the 13 blind materials graded at 300 K for all three models, excluding Al:
+
+| | Orb v3 | MACE-MPA-0 | MatterSim v1 |
+|---|---|---|---|
+| mean abs error, 300 K | 17.0 % | 31.1 % | 21.1 % |
+| mean abs error, window (8 materials) | 25.0 % | 38.0 % | 26.7 % |
+
+With Al included, Orb's 300 K mean is 941 %; its 300 K median absolute error on the 14 blind materials is 17.5 %.
+
+### Deviations from the plan
+
+1. **Scope** (Amendment 1, registered before the run): 22 core materials. The 10 deferred ones are not yet run.
+2. **Memory, operational.** The first launch of the two workers leaked memory. `Engine.forces` builds a fresh jitted
+   propagator per call and JAX kept every compiled program; quartz reached 28 GB. Both workers were stopped before
+   any result was saved. The relaunch clears JAX's in-memory caches after each force call. That change sits in the
+   driver (`scripts/qha_worker_lowmem.py`), outside `src/`. The code fingerprint was computed from the unpatched sources and checked equal to the
+   InP probe's. A watchdog killed any process above 8 GB.
+3. **Al₂O₃ contingency.** The watchdog killed Al₂O₃ once at 8.9 GB: a transient peak during force calls, not a
+   leak. The registered contingency was a rerun with a smaller `max_pairs_per_call`. That would have done nothing,
+   since Al₂O₃ already runs one supercell per call. It was instead rerun once with the same settings and a 12 GB
+   limit, plus a floor of 15 % free system memory, alongside one other worker; it finished at a 9.1 GB peak. The
+   driver also counted relaxations, volumes and force calls for diagnostics, without effect on the computation.
+4. **Script and text agree;** no disagreement was found.
+5. **References changed on `main` during the run.** `main` v1.1.0 (ae2f1ea) audits the references. InP's and NiSi's
+   expansion references become range averages and lose their 300 K value, and HfO₂/ZrO₂ expansion moves to an
+   extended tier. Re-evaluated with those references, with the same Orb raw results (not stale there), every primary
+   verdict is unchanged: H1 supported (4 of 6), H2 inconclusive, H3 inconclusive (ρ = 0.23, n = 13), H4 refuted (2 of
+   5). The only secondary that changes is H2 on all graded materials, from inconclusive to "no better than chance"
+   (AUC 0.63). The Orb-only H4 now has too few controls for the median comparison and is refuted on the growth
+   fraction alone.
+
+### What this does and does not establish
+
+**Established, on materials chosen before their results existed:**
+
+* Orb's transition-metal overshoots follow its soft static bulk modulus (H1, at the threshold).
+* Static K′ caught the one blind case where Orb's equation of state is abnormal, but missed Orb's largest seen
+  errors.
+* Model agreement is not evidence of accuracy (H3 gave no signal, and the five shared misses).
+* "Right at 300 K through compensation" did not predict degradation over the window (H4).
+
+**Not established:**
+
+* None of this tests γ directly.
+* The blind set is small: 12–14 materials, mostly metals and silicides, with two oxides at 300 K.
+* H2 and H3 could not reach a decision.
+
+**Follow-ups this raises:**
+
+* The deferred 10 materials, for coverage.
+* The benchmark's rule grading 300 K values from runs that failed `volume_inside_scan`. The rule is unchanged here,
+  but Al shows it can grade a meaningless number.

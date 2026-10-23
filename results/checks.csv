@@ -198,31 +198,33 @@ mace-mpa-0,graphite,bulk modulus: fingerprint matches current code,True
 orb-v3,graphite,bulk modulus: fingerprint matches current code,True
 mattersim-5m-native,graphite,bulk modulus: fingerprint matches current code,True
 mace-mpa-0,Si,thermal expansion: fingerprint matches current code,True
-orb-v3,Si,thermal expansion: fingerprint matches current code,False
+orb-v3,Si,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Si,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Ge,thermal expansion: fingerprint matches current code,True
-orb-v3,Ge,thermal expansion: fingerprint matches current code,False
+orb-v3,Ge,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Ge,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,SiC,thermal expansion: fingerprint matches current code,True
-orb-v3,SiC,thermal expansion: fingerprint matches current code,False
+orb-v3,SiC,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,SiC,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,GaAs,thermal expansion: fingerprint matches current code,True
-orb-v3,GaAs,thermal expansion: fingerprint matches current code,False
+orb-v3,GaAs,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,GaAs,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,GaN,thermal expansion: fingerprint matches current code,True
-orb-v3,GaN,thermal expansion: fingerprint matches current code,False
+orb-v3,GaN,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,GaN,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,InP,thermal expansion: fingerprint matches current code,True
-orb-v3,InP,thermal expansion: fingerprint matches current code,False
+orb-v3,InP,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,InP,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,AlN,thermal expansion: fingerprint matches current code,True
-orb-v3,AlN,thermal expansion: fingerprint matches current code,False
+orb-v3,AlN,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,AlN,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,SiO2_quartz,thermal expansion: fingerprint matches current code,True
+orb-v3,SiO2_quartz,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,SiO2_quartz,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Si3N4_beta,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Si3N4_beta,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Al2O3,thermal expansion: fingerprint matches current code,True
+orb-v3,Al2O3,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Al2O3,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,HfO2,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,HfO2,thermal expansion: fingerprint matches current code,True
@@ -233,36 +235,50 @@ mattersim-5m-native,Y2O3,thermal expansion: fingerprint matches current code,Tru
 mace-mpa-0,TiO2_rutile,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,TiO2_rutile,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,MgO,thermal expansion: fingerprint matches current code,True
+orb-v3,MgO,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,MgO,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,SrTiO3,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,SrTiO3,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Cu,thermal expansion: fingerprint matches current code,True
+orb-v3,Cu,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Cu,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Al,thermal expansion: fingerprint matches current code,True
+orb-v3,Al,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Al,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,W,thermal expansion: fingerprint matches current code,True
+orb-v3,W,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,W,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Co,thermal expansion: fingerprint matches current code,True
+orb-v3,Co,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Co,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Ru,thermal expansion: fingerprint matches current code,True
+orb-v3,Ru,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Ru,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Mo,thermal expansion: fingerprint matches current code,True
+orb-v3,Mo,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Mo,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Ti,thermal expansion: fingerprint matches current code,True
+orb-v3,Ti,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Ti,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,Ta,thermal expansion: fingerprint matches current code,True
+orb-v3,Ta,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,Ta,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,TiN,thermal expansion: fingerprint matches current code,True
+orb-v3,TiN,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,TiN,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,TaN,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,TaN,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,CoSi2,thermal expansion: fingerprint matches current code,True
+orb-v3,CoSi2,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,CoSi2,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,NiSi,thermal expansion: fingerprint matches current code,True
+orb-v3,NiSi,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,NiSi,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,TiSi2,thermal expansion: fingerprint matches current code,True
+orb-v3,TiSi2,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,TiSi2,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,WSi2,thermal expansion: fingerprint matches current code,True
+orb-v3,WSi2,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,WSi2,thermal expansion: fingerprint matches current code,True
 mace-mpa-0,MoS2,thermal expansion: fingerprint matches current code,True
 mattersim-5m-native,MoS2,thermal expansion: fingerprint matches current code,True
@@ -920,6 +936,11 @@ mace-mpa-0,SiO2_quartz,thermal: enough stable volumes,True
 mace-mpa-0,SiO2_quartz,thermal: interpolation artefacts small,True
 mace-mpa-0,SiO2_quartz,thermal: volume inside scan,True
 mace-mpa-0,SiO2_quartz,thermal: window covered,True
+orb-v3,SiO2_quartz,thermal: dynamically stable,True
+orb-v3,SiO2_quartz,thermal: enough stable volumes,True
+orb-v3,SiO2_quartz,thermal: interpolation artefacts small,True
+orb-v3,SiO2_quartz,thermal: volume inside scan,True
+orb-v3,SiO2_quartz,thermal: window covered,True
 mattersim-5m-native,SiO2_quartz,thermal: dynamically stable,True
 mattersim-5m-native,SiO2_quartz,thermal: enough stable volumes,True
 mattersim-5m-native,SiO2_quartz,thermal: interpolation artefacts small,True
@@ -940,6 +961,11 @@ mace-mpa-0,Al2O3,thermal: enough stable volumes,True
 mace-mpa-0,Al2O3,thermal: interpolation artefacts small,True
 mace-mpa-0,Al2O3,thermal: volume inside scan,True
 mace-mpa-0,Al2O3,thermal: window covered,True
+orb-v3,Al2O3,thermal: dynamically stable,True
+orb-v3,Al2O3,thermal: enough stable volumes,True
+orb-v3,Al2O3,thermal: interpolation artefacts small,True
+orb-v3,Al2O3,thermal: volume inside scan,True
+orb-v3,Al2O3,thermal: window covered,True
 mattersim-5m-native,Al2O3,thermal: dynamically stable,True
 mattersim-5m-native,Al2O3,thermal: enough stable volumes,True
 mattersim-5m-native,Al2O3,thermal: interpolation artefacts small,True
@@ -988,6 +1014,11 @@ mace-mpa-0,MgO,thermal: enough stable volumes,True
 mace-mpa-0,MgO,thermal: interpolation artefacts small,True
 mace-mpa-0,MgO,thermal: volume inside scan,False
 mace-mpa-0,MgO,thermal: window covered,True
+orb-v3,MgO,thermal: dynamically stable,True
+orb-v3,MgO,thermal: enough stable volumes,True
+orb-v3,MgO,thermal: interpolation artefacts small,True
+orb-v3,MgO,thermal: volume inside scan,False
+orb-v3,MgO,thermal: window covered,True
 mattersim-5m-native,MgO,thermal: dynamically stable,True
 mattersim-5m-native,MgO,thermal: enough stable volumes,True
 mattersim-5m-native,MgO,thermal: interpolation artefacts small,True
@@ -1006,6 +1037,11 @@ mace-mpa-0,Cu,thermal: enough stable volumes,True
 mace-mpa-0,Cu,thermal: interpolation artefacts small,True
 mace-mpa-0,Cu,thermal: volume inside scan,True
 mace-mpa-0,Cu,thermal: window covered,True
+orb-v3,Cu,thermal: dynamically stable,True
+orb-v3,Cu,thermal: enough stable volumes,True
+orb-v3,Cu,thermal: interpolation artefacts small,True
+orb-v3,Cu,thermal: volume inside scan,True
+orb-v3,Cu,thermal: window covered,True
 mattersim-5m-native,Cu,thermal: dynamically stable,True
 mattersim-5m-native,Cu,thermal: enough stable volumes,True
 mattersim-5m-native,Cu,thermal: interpolation artefacts small,True
@@ -1016,6 +1052,11 @@ mace-mpa-0,Al,thermal: enough stable volumes,True
 mace-mpa-0,Al,thermal: interpolation artefacts small,True
 mace-mpa-0,Al,thermal: volume inside scan,True
 mace-mpa-0,Al,thermal: window covered,True
+orb-v3,Al,thermal: dynamically stable,True
+orb-v3,Al,thermal: enough stable volumes,True
+orb-v3,Al,thermal: interpolation artefacts small,True
+orb-v3,Al,thermal: volume inside scan,False
+orb-v3,Al,thermal: window covered,True
 mattersim-5m-native,Al,thermal: dynamically stable,True
 mattersim-5m-native,Al,thermal: enough stable volumes,True
 mattersim-5m-native,Al,thermal: interpolation artefacts small,True
@@ -1026,6 +1067,11 @@ mace-mpa-0,W,thermal: enough stable volumes,True
 mace-mpa-0,W,thermal: interpolation artefacts small,True
 mace-mpa-0,W,thermal: volume inside scan,True
 mace-mpa-0,W,thermal: window covered,True
+orb-v3,W,thermal: dynamically stable,True
+orb-v3,W,thermal: enough stable volumes,True
+orb-v3,W,thermal: interpolation artefacts small,True
+orb-v3,W,thermal: volume inside scan,True
+orb-v3,W,thermal: window covered,True
 mattersim-5m-native,W,thermal: dynamically stable,True
 mattersim-5m-native,W,thermal: enough stable volumes,True
 mattersim-5m-native,W,thermal: interpolation artefacts small,True
@@ -1036,6 +1082,11 @@ mace-mpa-0,Co,thermal: enough stable volumes,True
 mace-mpa-0,Co,thermal: interpolation artefacts small,True
 mace-mpa-0,Co,thermal: volume inside scan,True
 mace-mpa-0,Co,thermal: window covered,True
+orb-v3,Co,thermal: dynamically stable,True
+orb-v3,Co,thermal: enough stable volumes,True
+orb-v3,Co,thermal: interpolation artefacts small,True
+orb-v3,Co,thermal: volume inside scan,True
+orb-v3,Co,thermal: window covered,True
 mattersim-5m-native,Co,thermal: dynamically stable,True
 mattersim-5m-native,Co,thermal: enough stable volumes,True
 mattersim-5m-native,Co,thermal: interpolation artefacts small,True
@@ -1046,6 +1097,11 @@ mace-mpa-0,Ru,thermal: enough stable volumes,True
 mace-mpa-0,Ru,thermal: interpolation artefacts small,True
 mace-mpa-0,Ru,thermal: volume inside scan,True
 mace-mpa-0,Ru,thermal: window covered,True
+orb-v3,Ru,thermal: dynamically stable,True
+orb-v3,Ru,thermal: enough stable volumes,True
+orb-v3,Ru,thermal: interpolation artefacts small,True
+orb-v3,Ru,thermal: volume inside scan,True
+orb-v3,Ru,thermal: window covered,True
 mattersim-5m-native,Ru,thermal: dynamically stable,True
 mattersim-5m-native,Ru,thermal: enough stable volumes,True
 mattersim-5m-native,Ru,thermal: interpolation artefacts small,True
@@ -1056,6 +1112,11 @@ mace-mpa-0,Mo,thermal: enough stable volumes,True
 mace-mpa-0,Mo,thermal: interpolation artefacts small,True
 mace-mpa-0,Mo,thermal: volume inside scan,True
 mace-mpa-0,Mo,thermal: window covered,True
+orb-v3,Mo,thermal: dynamically stable,True
+orb-v3,Mo,thermal: enough stable volumes,True
+orb-v3,Mo,thermal: interpolation artefacts small,True
+orb-v3,Mo,thermal: volume inside scan,True
+orb-v3,Mo,thermal: window covered,True
 mattersim-5m-native,Mo,thermal: dynamically stable,True
 mattersim-5m-native,Mo,thermal: enough stable volumes,True
 mattersim-5m-native,Mo,thermal: interpolation artefacts small,True
@@ -1066,6 +1127,11 @@ mace-mpa-0,Ti,thermal: enough stable volumes,True
 mace-mpa-0,Ti,thermal: interpolation artefacts small,True
 mace-mpa-0,Ti,thermal: volume inside scan,True
 mace-mpa-0,Ti,thermal: window covered,True
+orb-v3,Ti,thermal: dynamically stable,True
+orb-v3,Ti,thermal: enough stable volumes,True
+orb-v3,Ti,thermal: interpolation artefacts small,True
+orb-v3,Ti,thermal: volume inside scan,True
+orb-v3,Ti,thermal: window covered,True
 mattersim-5m-native,Ti,thermal: dynamically stable,True
 mattersim-5m-native,Ti,thermal: enough stable volumes,True
 mattersim-5m-native,Ti,thermal: interpolation artefacts small,True
@@ -1076,6 +1142,11 @@ mace-mpa-0,Ta,thermal: enough stable volumes,True
 mace-mpa-0,Ta,thermal: interpolation artefacts small,True
 mace-mpa-0,Ta,thermal: volume inside scan,True
 mace-mpa-0,Ta,thermal: window covered,True
+orb-v3,Ta,thermal: dynamically stable,True
+orb-v3,Ta,thermal: enough stable volumes,True
+orb-v3,Ta,thermal: interpolation artefacts small,True
+orb-v3,Ta,thermal: volume inside scan,True
+orb-v3,Ta,thermal: window covered,True
 mattersim-5m-native,Ta,thermal: dynamically stable,True
 mattersim-5m-native,Ta,thermal: enough stable volumes,True
 mattersim-5m-native,Ta,thermal: interpolation artefacts small,True
@@ -1086,6 +1157,11 @@ mace-mpa-0,TiN,thermal: enough stable volumes,True
 mace-mpa-0,TiN,thermal: interpolation artefacts small,True
 mace-mpa-0,TiN,thermal: volume inside scan,False
 mace-mpa-0,TiN,thermal: window covered,True
+orb-v3,TiN,thermal: dynamically stable,True
+orb-v3,TiN,thermal: enough stable volumes,True
+orb-v3,TiN,thermal: interpolation artefacts small,True
+orb-v3,TiN,thermal: volume inside scan,True
+orb-v3,TiN,thermal: window covered,True
 mattersim-5m-native,TiN,thermal: dynamically stable,True
 mattersim-5m-native,TiN,thermal: enough stable volumes,True
 mattersim-5m-native,TiN,thermal: interpolation artefacts small,True
@@ -1105,6 +1181,11 @@ mace-mpa-0,CoSi2,thermal: enough stable volumes,True
 mace-mpa-0,CoSi2,thermal: interpolation artefacts small,True
 mace-mpa-0,CoSi2,thermal: volume inside scan,True
 mace-mpa-0,CoSi2,thermal: window covered,True
+orb-v3,CoSi2,thermal: dynamically stable,True
+orb-v3,CoSi2,thermal: enough stable volumes,True
+orb-v3,CoSi2,thermal: interpolation artefacts small,True
+orb-v3,CoSi2,thermal: volume inside scan,True
+orb-v3,CoSi2,thermal: window covered,True
 mattersim-5m-native,CoSi2,thermal: dynamically stable,True
 mattersim-5m-native,CoSi2,thermal: enough stable volumes,True
 mattersim-5m-native,CoSi2,thermal: interpolation artefacts small,True
@@ -1115,6 +1196,11 @@ mace-mpa-0,NiSi,thermal: enough stable volumes,True
 mace-mpa-0,NiSi,thermal: interpolation artefacts small,True
 mace-mpa-0,NiSi,thermal: volume inside scan,True
 mace-mpa-0,NiSi,thermal: window covered,True
+orb-v3,NiSi,thermal: dynamically stable,True
+orb-v3,NiSi,thermal: enough stable volumes,True
+orb-v3,NiSi,thermal: interpolation artefacts small,True
+orb-v3,NiSi,thermal: volume inside scan,True
+orb-v3,NiSi,thermal: window covered,True
 mattersim-5m-native,NiSi,thermal: dynamically stable,True
 mattersim-5m-native,NiSi,thermal: enough stable volumes,True
 mattersim-5m-native,NiSi,thermal: interpolation artefacts small,True
@@ -1125,6 +1211,11 @@ mace-mpa-0,TiSi2,thermal: enough stable volumes,True
 mace-mpa-0,TiSi2,thermal: interpolation artefacts small,True
 mace-mpa-0,TiSi2,thermal: volume inside scan,True
 mace-mpa-0,TiSi2,thermal: window covered,True
+orb-v3,TiSi2,thermal: dynamically stable,True
+orb-v3,TiSi2,thermal: enough stable volumes,True
+orb-v3,TiSi2,thermal: interpolation artefacts small,True
+orb-v3,TiSi2,thermal: volume inside scan,True
+orb-v3,TiSi2,thermal: window covered,True
 mattersim-5m-native,TiSi2,thermal: dynamically stable,True
 mattersim-5m-native,TiSi2,thermal: enough stable volumes,True
 mattersim-5m-native,TiSi2,thermal: interpolation artefacts small,True
@@ -1135,6 +1226,11 @@ mace-mpa-0,WSi2,thermal: enough stable volumes,True
 mace-mpa-0,WSi2,thermal: interpolation artefacts small,True
 mace-mpa-0,WSi2,thermal: volume inside scan,True
 mace-mpa-0,WSi2,thermal: window covered,True
+orb-v3,WSi2,thermal: dynamically stable,True
+orb-v3,WSi2,thermal: enough stable volumes,True
+orb-v3,WSi2,thermal: interpolation artefacts small,True
+orb-v3,WSi2,thermal: volume inside scan,True
+orb-v3,WSi2,thermal: window covered,True
 mattersim-5m-native,WSi2,thermal: dynamically stable,True
 mattersim-5m-native,WSi2,thermal: enough stable volumes,True
 mattersim-5m-native,WSi2,thermal: interpolation artefacts small,True
