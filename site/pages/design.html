@@ -7,10 +7,10 @@ questions that shaped this one, each with an example from the results.</p>
 
 <div class="table-wrap" style="margin:24px 0">
 <table>
-  <thead><tr><th>Scope</th><th>Published coverage in v1.0.0</th></tr></thead>
+  <thead><tr><th>Scope</th><th>Published coverage in v1.1.0</th></tr></thead>
   <tbody>
     <tr><td>Static properties (lattice constant, bulk modulus)</td><td>Three models across the 33-material collection, with exclusions reported</td></tr>
-    <tr><td>Benchmark-wide thermal expansion</td><td>MACE-MPA-0 and MatterSim v1. Usable comparison counts depend on references and checks: 24 per model at 300 K, 17–18 over the temperature windows</td></tr>
+    <tr><td>Benchmark-wide thermal expansion</td><td>MACE-MPA-0 and MatterSim v1. Usable comparison counts depend on references and checks: 22 per model at 300 K, 17–18 over the temperature windows</td></tr>
     <tr><td>Thermal-failure investigation</td><td>Three models on six selected materials</td></tr>
     <tr><td>UMA</td><td>Not evaluated in this release</td></tr>
   </tbody>
@@ -33,7 +33,8 @@ That is why experiment is the primary reference.</p></dd>
 that reproduce lattice constants to under 1 % miss thermal expansion by 70–180 % on some materials. And the errors
 behave differently: lattice-constant errors are strongly shared between models (correlation 0.83–0.95), consistent
 with a common bias in the training reference, while thermal-expansion errors are only weakly shared. That is why
-averaging two models helps for thermal expansion and does nothing for lattice constants.</p></dd>
+averaging two models can help for thermal expansion (over the temperature windows it beats both models; at 300 K it
+only matches the better one) and does nothing for lattice constants.</p></dd>
 
 <dt>Why report coverage alongside accuracy?</dt>
 <dd><p>An average error covers only the cases that worked. Orb v3 relaxes rutile TiO₂, cubic SrTiO₃ and MoS₂ into
@@ -93,6 +94,20 @@ with its source and a short quote. Some references are derived from measurements
 from published elastic constants, and are labelled as derived. In the thermal-failure study the experimental
 Grüneisen parameter is <em>inferred</em> from the measured expansion, stiffness and heat capacity, so it is not an
 independent check; only a few mode-resolved values are measured directly.</p></dd>
+
+<dt>How good are the references themselves?</dt>
+<dd><p>A citation is not enough: a reference also needs the right definition, suitable conditions and an honest
+uncertainty. Every reference is audited in <code>data/reference_quality.yaml</code>. <em>Core</em> references are
+primary measurements or critically evaluated compilations with stated conditions; <em>extended</em> ones are weaker:
+provisional compilations, thin films, single secondary sources or unresolved conflicts. Results are reported for
+both tiers, and no conclusion changes between them.</p>
+<p>The audit changed two things. InP's and NiSi's expansion references are single values averaged over wide
+temperature ranges, so they are no longer used as 300 K values. And HfO₂'s and ZrO₂'s volumes are built from axial
+data that miss the change of the monoclinic angle, so they moved to the extended tier until the full expansion tensor
+can be used. Each reference's own uncertainty, where its source gives one, now feeds the statistics. Bulk moduli mix
+adiabatic and isothermal measurements; converting the adiabatic ones moves them by a median of 0.8 %, which changes
+no average by more than 0.35 points. The audited references are released as a
+<a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/data/release">standalone dataset</a>.</p></dd>
 
 <dt>How can someone reproduce the exact comparison?</dt>
 <dd><p>Every stored result carries a fingerprint of the code, settings and inputs that produced it, and the analysis

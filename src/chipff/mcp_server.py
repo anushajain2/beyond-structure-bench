@@ -67,7 +67,8 @@ def _pairwise_note(prop_key: str, a: str, b: str, cls: str | None) -> str | None
     rob = summary().get("robustness", {})
     rows = rob.get("pairwise_by_class", []) if cls else rob.get("pairwise", [])
     for r in rows:
-        if (r["property"] == prop_key and r["reference"] == "experiment" and {r["model_a"], r["model_b"]} == {a, b}
+        if (r.get("subset", "all") == "all" and r["property"] == prop_key and r["reference"] == "experiment"
+                and {r["model_a"], r["model_b"]} == {a, b}
                 and (cls is None or r.get("class") == cls)):
             lo, hi = r["ci_low"], r["ci_high"]
             if lo < 0 < hi:

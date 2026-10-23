@@ -57,7 +57,7 @@ correlate their signed errors against experiment over the materials both have, w
 |---|---|---|---|
 | lattice constant | 0.88 (0.72 to 0.96) | 0.83 (0.65 to 0.93) | 0.95 (0.90 to 0.98) |
 | bulk modulus | 0.11 (−0.21 to 0.42) | 0.19 (−0.17 to 0.53) | 0.61 (0.23 to 0.88) |
-| thermal expansion, 300 K | −0.10 (−0.42 to 0.37) | Orb not computed | Orb not computed |
+| thermal expansion, 300 K | −0.02 (−0.40 to 0.50) | Orb not computed | Orb not computed |
 | thermal expansion, window | 0.23 (−0.29 to 0.73) | Orb not computed | Orb not computed |
 
 - Lattice constants: strongly shared errors. This is consistent with the limits of the PBE
@@ -68,10 +68,25 @@ correlate their signed errors against experiment over the materials both have, w
   correlate only weakly with theirs (sample correlation 0.11 and 0.19, intervals spanning zero).
   PBE's error is about as large as MACE's departure from PBE, so tracking PBE more closely does not
   make a model more accurate here.
-- Thermal expansion: the sample correlation is small, with wide uncertainty (table above). The average of MACE and MatterSim has a 25.7%
-  error at 300 K (against 34.5% and 28.7% alone). The models' relative disagreement correlates
-  with that average's error (0.41 at 300 K, interval −0.06 to 0.78; 0.25 over the window, −0.13
-  to 0.64). That is an exploratory warning signal, not a calibrated uncertainty estimate.
+- Thermal expansion: the sample correlation is small, with wide uncertainty (table above). The average of
+  MACE and MatterSim has a 24.2% error at 300 K, the same as MatterSim alone (36.1% for MACE), and 30.9% over
+  the windows against 35.5% and 34.9%. The models' relative disagreement correlates with that average's error
+  (0.37 at 300 K, interval −0.11 to 0.77; 0.25 over the window, −0.13 to 0.64). That is an exploratory
+  warning signal, not a calibrated uncertainty estimate.
+
+**Reference uncertainty and tiers (v1.1.0).** The bootstrap now perturbs each reference by its own
+uncertainty from `data/reference_quality.yaml` (stated by the source where it gives one, set by the spread
+between sources where they disagree, otherwise the defaults above). Every table in `bootstrap_ci.csv` and
+`pairwise.csv` is computed twice, `subset = all` and `subset = core` (core-tier references only). No
+conclusion changes between the two: against experiment, no difference between the models is resolved in
+either subset.
+
+**Adiabatic and isothermal bulk moduli** (`adiabatic_sensitivity.csv`). Ultrasonic and Brillouin measurements
+give the adiabatic modulus, static equations of state the isothermal one; the models' static moduli are 0 K
+values, where the two coincide. Converting the adiabatic references to isothermal, with
+K_T = K_S/(1 + α_V γ T) and γ = 1.5, lowers them by a median of 0.8 % (at most 2.2 %, Cu) and changes each
+model's mean error by at most 0.35 points. The larger, uncorrected effect is softening between 0 K and room
+temperature.
 
 **Does disagreement predict error for the static properties?** Not in this data. For lattice
 constants and bulk moduli the same correlation is −0.31 to +0.51 across model pairs, with every

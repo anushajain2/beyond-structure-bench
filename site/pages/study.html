@@ -1,6 +1,6 @@
 <!-- title: A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models | Why universal machine-learned force fields that get a crystal's structure right can still badly mispredict how it expands, and how six cases were narrowed down. -->
 <article class="prose article">
-<p class="eyebrow">The study · release v1.0.0 · 20 October 2026</p>
+<p class="eyebrow">The study · release v1.1.0 · 23 October 2026</p>
 <h1>A good crystal structure is not enough: investigating thermal-expansion errors in AI materials models</h1>
 <p class="standfirst">Three widely used AI force fields reproduce the size of chip-material crystals to within
 1 %, then miss how much some of them expand on heating by 70–180 %. This is an account of how six of those
@@ -28,8 +28,8 @@ measured one. Its bulk modulus, a measure of how hard the crystal is to compress
 coefficient of 53 × 10⁻⁶ per kelvin. The measured value is 19 × 10⁻⁶. The model expands tantalum 2.8 times too
 much.</p>
 <p>This is not an isolated case. Across a benchmark of 33 chip materials, the same model overshoots several other
-metals, while a different model, MatterSim, gets tantalum nearly right but overshoots silicon by 85 % and indium
-phosphide by 119 %. A model can get a crystal's structure and stiffness right and still badly mispredict how it
+metals, while a different model, MatterSim, gets tantalum nearly right but overshoots silicon by 85 % and gallium
+arsenide by 68 %. A model can get a crystal's structure and stiffness right and still badly mispredict how it
 expands. Why? And is the failure in the model, or in how it was run?</p>
 
 <h2 id="why">Why thermal expansion matters</h2>
@@ -50,7 +50,7 @@ each stored with its source and a short quote, and where possible with the DFT v
 reproduce. Grading thresholds were fixed before any comparison was made. Thermal expansion is computed in the
 quasi-harmonic approximation: the crystal's vibration frequencies are computed at nine volumes, and the volume
 that minimises the free energy at each temperature gives the expansion. Benchmark-wide thermal results exist for
-MACE and MatterSim (24 graded materials each at 300 K). Their average errors are 34.5 % and 28.7 %, and the
+MACE and MatterSim (22 graded materials each at 300 K). Their average errors are 36 % and 24 %, and the
 benchmark cannot tell the two apart on average. They fail in different places.</p>
 <p><strong>The six-case study</strong> takes Si, GaAs, InP, Cu, Ta and monoclinic HfO₂ and asks what causes each
 error. These cases were chosen <em>after</em> the benchmark had shown where the models fail, with copper as the
@@ -143,7 +143,9 @@ action is in γ and, for some materials, in the stiffness.</p>
 directly. It is inferred from the measured expansion, stiffness and heat capacity using the same relation. So a γ
 ratio says what is left over once stiffness, heat capacity and volume are accounted for. The direct checks on γ are
 a handful of measured mode values: two acoustic modes in silicon and an optical mode in GaAs and InP. Whether the
-errors are the models' own or inherited from the DFT data they learned from is not tested here.</p></div>
+errors are the models' own or inherited from the DFT data they learned from is not tested here. And the InP reference
+is a single value averaged over 300–910 K, not a measurement at 300 K, so the InP numbers are the least certain of the
+six.</p></div>
 
 <h2 id="shortcut">A shortcut that failed</h2>
 <p>Phonon calculations are expensive. A static equation of state, the energy at a few compressed and expanded
@@ -180,8 +182,9 @@ For HfO₂, method and reference uncertainty are as large as the model error.</p
 <h2 id="use">What to take from it</h2>
 <p><strong>For anyone using these models:</strong> structural accuracy does not certify thermal properties. If
 expansion matters, compute it, ideally with more than one model, and look at the stiffness and the Grüneisen
-parameter rather than only the final number. In the benchmark, the average of two models was more accurate than
-either, and their disagreement weakly tracked the error. That is an exploratory signal, not a calibrated
+parameter rather than only the final number. In the benchmark, the average of two models was as accurate as the
+better model at 300 K and more accurate than either over the temperature windows, and their disagreement weakly
+tracked the error. That is an exploratory signal, not a calibrated
 uncertainty.</p>
 <p><strong>For anyone building or benchmarking models:</strong> the large errors here sit in how vibration
 frequencies change with volume, a property that training on energies and forces near equilibrium constrains only
@@ -192,9 +195,9 @@ that run whether or not a result looks wrong are what caught both.</p>
 <div class="callout">
 <p><strong>Go further.</strong> <a href="explore.html#m=Ta&amp;p=thermal_expansion&amp;c=300K">Inspect tantalum
 and every other material in the explorer</a>, read the
-<a href="https://github.com/anushajain2/chipff-bench/blob/v1.0.0/docs/thermal_failure_study.md">full technical
+<a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/docs/thermal_failure_study.md">full technical
 write-up</a> with every table, or download the raw phonon data in
-<a href="https://github.com/anushajain2/chipff-bench/tree/v1.0.0/results/thermal_failure"><code>results/thermal_failure/</code></a>.
+<a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/results/thermal_failure"><code>results/thermal_failure/</code></a>.
 The study reruns with <code>python scripts/thermal_failure_study.py</code> (<a href="reproduce.html">details</a>).</p>
 </div>
 </article>

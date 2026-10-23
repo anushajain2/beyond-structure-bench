@@ -50,14 +50,15 @@ left out of every thermal average and comparison. Orb does appear in the six-cas
    stress handling before any number was published.
 6. **Thermal expansion is the hardest property, and the two finished models fail in different
    places.** Computed in the quasi-harmonic approximation, MACE and MatterSim are off from experiment
-   by 34.5 % and 28.7 % on average at 300 K (35 % for both over each material's pre-registered
+   by 36 % and 24 % on average at 300 K (35 % and 34.5 % over each material's pre-registered
    temperature window), both too large on average, with no difference resolved between them. But MACE overshoots
    refractory and hcp metals (Ta +179 %, Mo +97 %, Ru +52 %, W +48 % at 300 K) where MatterSim is
-   mostly within 14 %, while MatterSim overshoots semiconductors (InP +119 %, Si +85 %, GaAs +68 %)
-   where MACE gets Si within 1 %. The sample correlation of their errors is small (−0.10 at 300 K,
-   95 % interval −0.42 to +0.37), and **averaging the two models lowers the error to 25.7 %** on these
-   materials. Their disagreement correlates with the error of that average (0.41, interval −0.06 to
-   +0.78): an exploratory warning signal, not a calibrated uncertainty estimate. In a controlled study of
+   mostly within 14 %, while MatterSim overshoots semiconductors (Si +85 %, GaAs +68 % at 300 K; InP +129 %
+   over its window, against a range-average reference) where MACE gets Si within 1 %. The sample correlation of
+   their errors is small (−0.02 at 300 K, 95 % interval −0.40 to +0.50). Averaging the two models gives 24 % at
+   300 K, no better than MatterSim alone, but 30.9 % over the windows against 35.5 % and 34.9 %. Their
+   disagreement correlates with the error of that average (0.37 at 300 K, interval −0.11 to +0.77): an
+   exploratory warning signal, not a calibrated uncertainty estimate. In a controlled study of
    six cases ([`thermal_failure_study.md`](thermal_failure_study.md)), backend comparisons and
    the numerical checks performed do not explain the large errors. By elimination, the study places
    them in the models' Grüneisen parameters (for MatterSim's semiconductors, also a too-soft bulk modulus).
@@ -70,12 +71,23 @@ left out of every thermal average and comparison. Orb does appear in the six-cas
 
 | Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 |
 |---|---|---|---|
-| mean abs. error at 300 K (95 % CI) | 34.5 % (22–56), n = 24 | 28.7 % (20–44), n = 24 | not computed† |
-| mean abs. error over the window (95 % CI) | 35.5 % (23–53), n = 17 | 34.5 % (23–54), n = 18 | not computed† |
-| within 20 % / 40 % at 300 K | 11 / 19 | 13 / 18 | not computed† |
+| mean abs. error at 300 K (95 % CI) | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | not computed† |
+| mean abs. error over the window (95 % CI) | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | not computed† |
+| within 20 % / 40 % at 300 K | 10 / 17 | 13 / 17 | not computed† |
+| core-tier references only, 300 K | 37.6 % (21–64), n = 18 | 23.4 % (15–38), n = 18 | not computed† |
+| mean absolute error at 300 K, 10⁻⁶ K⁻¹ | 7.8 | 5.2 | not computed† |
 
 † Orb's benchmark-wide thermal expansion was not recomputed after the Γ-mode fix (status note above); its results on
 the six study cases are in [`thermal_failure_study.md`](thermal_failure_study.md).
+
+**Beyond percentage error** (`results/thermal_metrics.csv`, `thermal_mismatch.csv`). Of the 14 results
+within 20 % at 300 K, 5 are off by more than 20 % at the top of their window (Y₂O₃ for both models,
+MatterSim's Ru and Mo, MACE's quartz near its α–β transition); at high temperature the quasi-harmonic
+method's own limits add to the model's error, so this cannot be pinned on the models alone. The models get the
+direction of α's change across the window right in 20 of 29 cases. As an application example, the free
+expansion mismatch between a metal and silicon compounds both materials' errors: for W, Mo or Ta on Si
+between 300 and 900 K, the two models miss the measured mismatch (600–1900 microstrain) by 140–360 %, and
+MatterSim gets its sign wrong, because its silicon expands too much.
 
 7. **Accuracy averages cover only the cases that worked.** Coverage is reported next to them
    (`results/coverage.csv`): Orb changes the crystal form of 3 of 33 materials; MatterSim predicts a

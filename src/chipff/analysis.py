@@ -71,6 +71,36 @@ def exp_bulk(e: dict) -> tuple[float | None, str]:
     return val, kind
 
 
+_QUALITY_FIELDS = ("tier", "quality", "kind", "sigma", "why")
+
+
+def reference_quality() -> dict:
+    """data/reference_quality.yaml: tier, quality, kind and uncertainty of every experimental reference."""
+    import yaml
+
+    p = ROOT / "data" / "reference_quality.yaml"
+    return yaml.safe_load(p.read_text()) if p.exists() else {"defaults": {}}
+
+
+def ref_info(mid: str, prop: str, q: dict | None = None) -> dict:
+    q = q or reference_quality()
+    e = (q.get(mid) or {}).get(prop) or {}
+    sigma = e.get("sigma", q.get("defaults", {}).get(prop))
+    return {"tier": e.get("tier"), "quality": e.get("quality"), "kind": e.get("kind"), "sigma": sigma,
+            "why": e.get("why")}
+
+
+def attach_reference_quality(df: pd.DataFrame, prop: str) -> pd.DataFrame:
+    """Add ref_tier, ref_quality, ref_kind, ref_sigma and ref_why columns."""
+    if df.empty:
+        return df
+    q = reference_quality()
+    info = df["material"].map(lambda m: ref_info(m, prop, q))
+    for f in _QUALITY_FIELDS:
+        df[f"ref_{f}"] = info.map(lambda d, f=f: d[f])
+    return df
+
+
 def _expand_ranges(vals: list[dict]) -> list[dict]:
     """A value averaged over T_range_K stands at both ends of its range."""
     out = []
@@ -275,8 +305,10 @@ def thermal_table(tag: str = "thermal_qha") -> pd.DataFrame:
             # secondary comparison at room temperature (added with the switch to QHA, which is
             # most reliable there): not affected by high-temperature breakdown of the window
             ex300 = excluded if (excluded and not excluded.startswith("failed")) else None
-            a300_exp = (float(np.interp(300.0, T_exp, aV_exp)) if T_exp and min(T_exp) <= 310 and max(T_exp) >= 290
-                        else None)
+            # a range average (one constant alpha over a wide range) is not a value at 300 K
+            point_ref = ref_info(mat.id, "thermal_expansion").get("kind") != "range_average"
+            a300_exp = (float(np.interp(300.0, T_exp, aV_exp)) if point_ref and T_exp and min(T_exp) <= 310
+                        and max(T_exp) >= 290 else None)
             rows.append({
                 "model": mk, "material": mat.id, "class": mat.cls, "T_low": lo, "T_high": hi,
                 "alpha_V": r["alpha_V_1e6"], "alpha_V_err": r.get("alpha_V_err_1e6"),
@@ -405,11 +437,18 @@ def _records(df: pd.DataFrame) -> list[dict]:
 def build_tables(tag: str = "thermal_qha") -> dict:
     OUT.mkdir(exist_ok=True)
     lat, bulk, therm = lattice_table(), bulk_table(), thermal_table(tag)
+    lat, bulk, therm = (attach_reference_quality(lat, "lattice"), attach_reference_quality(bulk, "bulk_modulus"),
+                        attach_reference_quality(therm, "thermal_expansion"))
     tm = trust_map(lat, bulk, therm)
     chk = checks_table(lat, bulk, therm)
     cov = coverage_table(lat, bulk, therm)
+    from chipff.metrics import compensation_check, thermal_metrics, thermal_mismatch
+
+    tmet = thermal_metrics(therm) if not therm.empty else pd.DataFrame()
+    comp = compensation_check(tmet)
+    mism = thermal_mismatch(therm) if not therm.empty else pd.DataFrame()
     for name, df in (("lattice", lat), ("bulk_modulus", bulk), ("thermal_expansion", therm), ("trust_map", tm),
-                     ("checks", chk), ("coverage", cov)):
+                     ("checks", chk), ("coverage", cov), ("thermal_metrics", tmet), ("thermal_mismatch", mism)):
         df.to_csv(OUT / f"{name}.csv", index=False, float_format="%.5g")
     summary = {
         "thresholds": config()["thresholds"],
@@ -422,6 +461,8 @@ def build_tables(tag: str = "thermal_qha") -> dict:
                        "mp_id": (mp_record(m.id) or {}).get("material_id")} for m in load_materials()],
         "lattice": _records(lat), "bulk_modulus": _records(bulk), "thermal_expansion": _records(therm),
         "trust_map": _records(tm), "checks": _records(chk), "coverage": _records(cov),
+        "thermal_metrics": _records(tmet), "thermal_mismatch": _records(mism),
+        "reference_quality_file": "data/reference_quality.yaml",
         "pending": {"thermal_expansion": sorted(therm.loc[therm["pending"].astype(bool), "model"].unique())
                     if "pending" in therm else []},
     }

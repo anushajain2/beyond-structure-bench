@@ -82,11 +82,14 @@
     else if (cmp === '300K') { err = r.err_300K_pct; exc = r.excluded_300K; }
     else { err = r.err_exp_pct; exc = r.excluded; }
     if (exc) return { status: 'Excluded', cls: 'none', reason: explain(exc), err: null, errDft };
-    if (err == null) return { status: 'No experimental reference', cls: 'none', errDft,
+    const rangeAvg = prop === 'thermal_expansion' && cmp === '300K' && (mats[mat].ref || {}).thermal_expansion?.audit?.kind === 'range_average';
+    if (err == null) return { status: rangeAvg ? 'Not graded at 300 K' : 'No experimental reference', cls: 'none', errDft,
       reason: prop !== 'thermal_expansion'
         ? 'No sourced experimental value for this property, so only the DFT comparison is shown.'
         : cmp === 'window' ? 'No sourced experimental value covers this temperature window. Try the 300 K comparison.'
-        : 'No sourced experimental value spans 300 K for this material. Try the window comparison.' };
+        : ((mats[mat].ref || {}).thermal_expansion?.audit?.kind === 'range_average'
+          ? 'The only reference is one constant value averaged over a wide temperature range, not a value at 300 K, so this comparison is not graded. Try the window comparison.'
+          : 'No sourced experimental value spans 300 K for this material. Try the window comparison.') };
     const a = Math.abs(err);
     const g = a <= th.good ? ['Good', 'good'] : a <= th.okay ? ['Okay', 'okay'] : ['Poor', 'poor'];
     return { status: g[0], cls: g[1], err, errDft, reason: '' };
@@ -167,8 +170,16 @@
       ${cls.map(([md, c]) => `<tr><td>${esc(md.short)}</td><td class="num">${c.MAPE.toFixed(1)} %</td><td class="num">${pct(c.signed)}</td><td class="num">${c.n}</td></tr>`).join('')}
       </tbody></table></div></section>` : '';
 
+    const au = ref && ref.audit;
+    const KIND = { point: 'a value at a stated temperature, or the derivative of a fit', short_interval_mean: 'means over about 100 K intervals',
+      range_average: 'one constant value averaged over a wide temperature range', adiabatic: 'adiabatic (ultrasonic, Brillouin or resonance)',
+      isothermal: 'isothermal (static equation of state)', unspecified: 'adiabatic or isothermal not stated',
+      room_temperature: 'room temperature', temperature_unstated: 'temperature not stated' };
+    const audit = au ? `<p><span class="tag ${au.tier === 'core' ? 'study' : ''}">${au.tier === 'core' ? 'Core reference' : 'Extended reference'}</span>
+        ${esc(String(au.quality || '').replace(/_/g, ' '))} · ${esc(KIND[au.kind] || au.kind || '')} · uncertainty ±${(100 * au.sigma).toFixed(au.sigma < 0.01 ? 2 : 0)} % (1σ)</p>
+        <p class="muted">${esc(au.why || '')}</p>` : '';
     const refPanel = `<section class="panel"><h3>Experimental reference</h3>${ref
-      ? `<p>${esc(ref.citation || '')}${ref.T_K ? ` · measured at ${esc(ref.T_K)} K` : ''}</p>
+      ? `${audit}<p>${esc(ref.citation || '')}${ref.T_K ? ` · measured at ${esc(ref.T_K)} K` : ''}</p>
          ${ref.quote ? `<blockquote>“${esc(ref.quote)}”</blockquote>` : ''}
          ${ref.method ? `<p>${esc(ref.method)}</p>` : ''}
          ${ref.source ? `<p><a href="${esc(ref.source)}">Open the source</a></p>` : ''}`

@@ -13,7 +13,7 @@
     <a class="btn" href="study.html">Read the study</a>
     <a class="btn" href="https://github.com/anushajain2/chipff-bench">Code and data</a>
   </div>
-  <p class="byline">Anusha Jain · results release v1.0.0 · 20 October 2026</p>
+  <p class="byline">Anusha Jain · results release v1.1.0 · 23 October 2026</p>
 </div>
 
 <div class="wrap">
@@ -34,9 +34,9 @@
     <div class="card"><p class="num">0.7–0.8 %</p><h3>Structure is accurate; the data can't rank the models</h3>
       <p>Average lattice error for all three models on 30 non-layered materials; bulk-modulus error is 11–13 %.
       Against experiment, the benchmark resolves no difference between the models for either property.</p></div>
-    <div class="card"><p class="num">29–35 %</p><h3>Thermal expansion is where models fail, each in its own places</h3>
+    <div class="card"><p class="num">24–36 %</p><h3>Thermal expansion is where models fail, each in its own places</h3>
       <p>Average error at 300 K for MACE-MPA-0 and MatterSim. MACE overshoots refractory metals (tantalum +179 %);
-      MatterSim overshoots semiconductors (InP +119 %, silicon +85 %).</p></div>
+      MatterSim overshoots semiconductors (silicon +85 %, GaAs +68 %).</p></div>
     <div class="card"><p class="num">γ = 4.1 vs 1.6</p><h3>The large errors trace to how vibrations change with volume</h3>
       <p>MACE's Grüneisen parameter for tantalum, against experiment. In six selected cases, backend and numerical
       checks rule out the workflow, and the errors sit in the models' Grüneisen parameters, sometimes with a too-soft
@@ -62,14 +62,19 @@
 <section class="wrap">
   <h2 class="section-title">What this release covers</h2>
   <div class="table-wrap"><table>
-    <thead><tr><th>Scope</th><th>Coverage in v1.0.0</th></tr></thead>
+    <thead><tr><th>Scope</th><th>Coverage in v1.1.0</th></tr></thead>
     <tbody>
       <tr><td>Lattice constant and bulk modulus</td><td>MACE-MPA-0, Orb v3 and MatterSim v1 on 33 materials in five classes: semiconductors, dielectrics, interconnect metals, barriers and silicides, layered materials. Exclusions are reported with their reasons.</td></tr>
-      <tr><td>Thermal expansion, benchmark-wide</td><td>MACE-MPA-0 and MatterSim v1, 24 graded comparisons per model at 300 K and fewer over the temperature windows. Orb v3 is not computed in this release.</td></tr>
+      <tr><td>Thermal expansion, benchmark-wide</td><td>MACE-MPA-0 and MatterSim v1, 22 graded comparisons per model at 300 K and 17–18 over the temperature windows. Orb v3 is not computed in this release.</td></tr>
       <tr><td>Thermal-failure study</td><td>All three models on six selected materials: Si, GaAs, InP, Cu, Ta and monoclinic HfO₂.</td></tr>
       <tr><td>UMA</td><td>Not evaluated in this release (gated licence).</td></tr>
     </tbody>
   </table></div>
+  <p style="margin-top:14px">Every experimental reference is audited into a core tier (primary measurements and
+  evaluated compilations) and an extended tier, with its own uncertainty, and the 495 values are released as a
+  <a href="https://github.com/anushajain2/chipff-bench/tree/v1.1.0/data/release">standalone dataset</a>. Results hold
+  for both tiers. <a href="https://github.com/anushajain2/chipff-bench/blob/v1.1.0/README.md#what-changed-in-v110">What
+  changed in v1.1.0</a>.</p>
   <p class="muted" style="margin-top:12px">These are bulk-crystal properties relevant to device materials. They are
   ingredients of how a film stack behaves, not predictions of it: real layers are thin, often polycrystalline, and
   have interfaces and defects. Related benchmarks: <a href="https://arxiv.org/abs/2412.10516">CHIPS-FF</a> compares
