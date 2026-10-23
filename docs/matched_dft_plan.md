@@ -298,3 +298,64 @@ be reported alongside.
 
 Outputs, if run, would go to a new `results/matched_dft/` with their own provenance. The benchmark's results and the
 study's tables would stay unchanged; the comparison would be added as a new section of the study.
+
+## 7. Addendum: the five materials flagged by the Orb pre-registered test
+
+The Orb pre-registered test (branch `claude/elated-dijkstra-f545b5`, `docs/preregistration_orb_thermal.md`) found that
+Orb agrees closely with the other two models on Mo, Ru, Co, W and MgO (disagreement D < 0.05 in log error). It suggested
+these as the strongest candidates for error inherited from PBE. **That holds only for MgO.** In that test,
+`E_other_two` is the |mean *signed* log error| of MACE and MatterSim. On Mo, Co, Ru and W those two miss in opposite
+directions (Mo: MACE +97 %, MatterSim −8 %; Co: +31 % / −52 %; Ru: +52 % / +6 %; W: +48 % / −10 %, all at 300 K). So
+D < 0.05 means only that Orb sits near their geometric mean, not that the three share one error.
+
+**Literature PBE references** (same rules as section 2; *(fig.)* means digitised):
+
+| | Source | α_V(300 K), 10⁻⁶ K⁻¹ | other PBE values | settings |
+|---|---|---|---|---|
+| MgO | Nath et al. 2016, AFLOW-QHA ([arXiv:1603.06924](https://arxiv.org/abs/1603.06924)), Table 1 | **33.3** (from the Grüneisen formula) | γ(300 K) = 1.53; B(300 K) = 147.3 GPa | VASP PAW PBE; no +U, as AFLOW applies U only to d/f elements (inferred) |
+| MgO | Nath et al. 2019, AFLOW-QHA3P ([arXiv:1807.04669](https://arxiv.org/abs/1807.04669)), Fig. 3 | ≈ **35 ± 2** (fig.) | B(300 K) ≈ 139 (fig.) | 128-atom supercell, 31³ mesh |
+| Mo | Gong & Dal Corso, J. Phys.: Condens. Matter (2024), [arXiv:2406.16634](https://arxiv.org/abs/2406.16634) | **16.9 ± 0.3** (fig.), of which ≈ 0.15 is electronic, so ≈ **16.75** phonon-only | γ(300 K) ≈ 1.73 (fig.); B0 = 261.7 GPa, B′ = 4.08 (Table I) | QE/thermo_pw, PAW with 4s4p, 120/480 Ry, 40³ k, DFPT 8³ q |
+| W | Gong & Dal Corso, J. Phys.: Condens. Matter 36, 285702 (2024), [doi](https://doi.org/10.1088/1361-648X/ad3ac3) | not obtained: in the supplement, which was blocked (captcha/403) | B0 = 307.3 GPa, B′ = 4.01 (Table 1) | Same workflow as Mo, PAW with 5s5p |
+| Ru | Palumbo & Dal Corso, J. Phys.: Condens. Matter 29, 395401 (2017), [arXiv:1807.03079](https://arxiv.org/abs/1807.03079), Fig. 14 | ≈ **20.7 ± 0.3** (fig., 305 K); probably phonon-only (inferred) | Static B ≈ 307 GPa (text, with zero-point energy) | QE/thermo_pw, PAW with 4s4p, DFPT 6×6×4 q. Fixed and relaxed c/a give the same α within 0.2. |
+| Co | none found: no PBE phonon QHA α for ferromagnetic hcp Co was located | – | – | – |
+| Mo, W, Ru, Co | Delta test, [WIEN2k.txt](https://github.com/molmod/DeltaCodesDFT/blob/master/WIEN2k.txt) | – | Static B0 / B′: Mo 258.9 / 4.33; W 301.6 / 4.28; Ru 312.5 / 4.95; Co (FM) 217.3 / 4.37 | All-electron |
+
+**Comparison** (model values from `results/thermal_expansion.csv` and `results/bulk_modulus.csv`, Orb from the
+pre-registered branch; model minus PBE in brackets):
+
+| | exp α_V | PBE α_V | **PBE − exp** | MACE-MPA-0 | MatterSim v1 | Orb v3 |
+|---|---|---|---|---|---|---|
+| MgO | 31.8 | 33.3–35 | **+5 to +10 %** | 38.0 (+8 to +14 %) | 37.6 (+7 to +13 %) | 38.7 (+11 to +16 %) |
+| Mo | 14.4 | ≈ 16.75 | **+16 %** | 28.4 (**+70 %**) | 13.3 (−21 %) | 19.9 (+19 %) |
+| Ru | 20.4 | ≈ 20.7 | **+1 %** | 31.0 (**+50 %**) | 21.7 (+5 %) | 26.2 (+27 %) |
+| W | 13.5 | not found | – | 20.1 (+48 % vs exp) | 12.1 (−10 % vs exp) | 16.3 (+21 % vs exp) |
+| Co | 39.2 | not found | – | 51.2 (+31 % vs exp) | 18.9 (−52 % vs exp) | 31.5 (−20 % vs exp) |
+
+| static B0 (GPa) | exp | PBE (Delta) | **PBE − exp** | MACE-MPA-0 | MatterSim v1 | Orb v3 | B′ PBE → MACE / MatterSim / Orb |
+|---|---|---|---|---|---|---|---|
+| Mo | 261.9 | 258.9 | −1 % | 308 (+19 %) | 245 (−5 %) | 218 (−16 %) | 4.33 → 6.02 / 4.20 / 3.58 |
+| W | 310.8 | 301.6 | −3 % | 368 (+22 %) | 264 (−13 %) | 251 (−17 %) | 4.28 → 7.91 / 3.75 / 3.71 |
+| Ru | 323 | 312.5 | −3 % | 354 (+13 %) | 290 (−7 %) | 272 (−13 %) | 4.95 → 5.68 / 4.90 / 4.79 |
+| Co | 190 | 217.3 (FM) | +14 % | 200 (−8 %) | 122 (**−44 %**) | 181 (−17 %) | 4.37 → 6.98 / 5.23 / 3.68 |
+| MgO | 160.2 | 151.5 (MP elastic) | −5 % | 148 (−2 %) | 152 (0 %) | 149 (−2 %) | – |
+
+**What this says.**
+* **MgO is the one shared miss, and it is about half inherited.** PBE overshoots experiment by 5–10 %. The three models
+  overshoot PBE by a further 7–16 %, all in the same direction, so MgO is the best candidate for a common training-data
+  or architecture effect beyond PBE. The PBE references for MgO (an AFLOW Grüneisen-formula value and a figure reading)
+  are the weakest in this document. Their spread (33–35) is about as large as the model share of the error.
+* **Mo and Ru are not PBE errors.** PBE gets Ru right (+1 %) and overshoots Mo by 16 %. MACE overshoots PBE by 50–70 %
+  and Orb by 19–27 %, while MatterSim is within 5 % of PBE (Ru) or 21 % below it (Mo). The errors are the models' own,
+  in different directions and sizes.
+* **The bulk moduli point the same way for the bcc and hcp metals.**
+  * PBE's static B0 is within 3 % of experiment for Mo, W and Ru.
+  * MACE is 13–22 % stiff, with B′ of 5.7–7.9 against PBE's 4.3–5.0: the Ta pattern (section 4) again.
+  * Orb is 13–17 % soft in all four transition metals and Ta (−12 %), so the softness the pre-registered test's H1
+    found is Orb's own, not PBE's.
+  * MatterSim's Co (−44 % against PBE) is far outside anything PBE does.
+* **W and Co have no PBE α reference.** For W, Gong & Dal Corso's supplement has the curve. It would close the gap at no
+  compute cost if someone with journal access downloads it. For Co, a spin-polarised DFPT QHA of hcp Co is possible
+  in QE but expensive and unconverged-prone. It is not recommended: the static moduli above already show that the Co
+  errors are not PBE's.
+
+No new calculation is recommended for these five. The production plan in section 6 is unchanged.
