@@ -20763,6 +20763,512 @@
    "mismatch_exp_ue": 7227.729468599,
    "err_ue": -2507.8870982919,
    "err_pct": -34.6981318156
+  },
+  {
+   "pair": "W on TiN",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -2146.3568311247,
+   "mismatch_exp_ue": -1198.2299383129,
+   "err_ue": -948.1268928118,
+   "err_pct": 79.1272912231
+  },
+  {
+   "pair": "W on TiN",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": -1562.7795578956,
+   "mismatch_exp_ue": -1198.2299383129,
+   "err_ue": -364.5496195827,
+   "err_pct": 30.4240119468
+  },
+  {
+   "pair": "W on TiN",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -5155.7172973412,
+   "mismatch_exp_ue": -2570.2082972873,
+   "err_ue": -2585.5090000539,
+   "err_pct": 100.5953098347
+  },
+  {
+   "pair": "W on TiN",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": -3655.1848261462,
+   "mismatch_exp_ue": -2570.2082972873,
+   "err_ue": -1084.9765288589,
+   "err_pct": 42.2135641693
+  },
+  {
+   "pair": "TiN on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 1541.5657550516,
+   "mismatch_exp_ue": 1566.0347692308,
+   "err_ue": -24.4690141792,
+   "err_pct": -1.5624821786
+  },
+  {
+   "pair": "TiN on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 2248.0222587849,
+   "mismatch_exp_ue": 1566.0347692308,
+   "err_ue": 681.9874895541,
+   "err_pct": 43.5486812269
+  },
+  {
+   "pair": "TiN on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 3521.7563749692,
+   "mismatch_exp_ue": 3192.0214615385,
+   "err_ue": 329.7349134307,
+   "err_pct": 10.3299716936
+  },
+  {
+   "pair": "TiN on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 4877.9012111892,
+   "mismatch_exp_ue": 3192.0214615385,
+   "err_ue": 1685.8797496508,
+   "err_pct": 52.815426524
+  },
+  {
+   "pair": "WSi2 on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 668.3327449123,
+   "mismatch_exp_ue": 1403.8,
+   "err_ue": -735.4672550877,
+   "err_pct": -52.3911707571
+  },
+  {
+   "pair": "WSi2 on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 451.5577844647,
+   "mismatch_exp_ue": 1403.8,
+   "err_ue": -952.2422155353,
+   "err_pct": -67.8331824715
+  },
+  {
+   "pair": "WSi2 on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1470.0546617128,
+   "mismatch_exp_ue": 1403.8,
+   "err_ue": 66.2546617128,
+   "err_pct": 4.7196653165
+  },
+  {
+   "pair": "WSi2 on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 1381.156394803,
+   "mismatch_exp_ue": 2575.975,
+   "err_ue": -1194.818605197,
+   "err_pct": -46.3831599762
+  },
+  {
+   "pair": "WSi2 on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 734.312560232,
+   "mismatch_exp_ue": 2575.975,
+   "err_ue": -1841.662439768,
+   "err_pct": -71.493800979
+  },
+  {
+   "pair": "WSi2 on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 3008.4448753002,
+   "mismatch_exp_ue": 2575.975,
+   "err_ue": 432.4698753002,
+   "err_pct": 16.7885897689
+  },
+  {
+   "pair": "Ru on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 2223.8345454953,
+   "mismatch_exp_ue": 1193.8,
+   "err_ue": 1030.0345454953,
+   "err_pct": 86.2820024707
+  },
+  {
+   "pair": "Ru on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 381.3784621079,
+   "mismatch_exp_ue": 1193.8,
+   "err_ue": -812.4215378921,
+   "err_pct": -68.0534040788
+  },
+  {
+   "pair": "Ru on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1822.2221523443,
+   "mismatch_exp_ue": 1193.8,
+   "err_ue": 628.4221523443,
+   "err_pct": 52.6404885529
+  },
+  {
+   "pair": "Ru on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 4327.8845448408,
+   "mismatch_exp_ue": 2515.6416666667,
+   "err_ue": 1812.2428781742,
+   "err_pct": 72.0389911722
+  },
+  {
+   "pair": "Ru on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 350.3057696127,
+   "mismatch_exp_ue": 2515.6416666667,
+   "err_ue": -2165.335897054,
+   "err_pct": -86.0748939623
+  },
+  {
+   "pair": "Ru on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 3773.362205957,
+   "mismatch_exp_ue": 2515.6416666667,
+   "err_ue": 1257.7205392904,
+   "err_pct": 49.9960131825
+  },
+  {
+   "pair": "Al2O3 on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 1533.0282464083,
+   "mismatch_exp_ue": 1199.9666666667,
+   "err_ue": 333.0615797417,
+   "err_pct": 27.7559026424
+  },
+  {
+   "pair": "Al2O3 on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 735.5204328197,
+   "mismatch_exp_ue": 1199.9666666667,
+   "err_ue": -464.446233847,
+   "err_pct": -38.7049279575
+  },
+  {
+   "pair": "Al2O3 on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1530.7668713865,
+   "mismatch_exp_ue": 1199.9666666667,
+   "err_ue": 330.8002047198,
+   "err_pct": 27.5674494891
+  },
+  {
+   "pair": "Al2O3 on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 3398.5536975533,
+   "mismatch_exp_ue": 2486.8083333333,
+   "err_ue": 911.74536422,
+   "err_pct": 36.663274447
+  },
+  {
+   "pair": "Al2O3 on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 1668.8630402698,
+   "mismatch_exp_ue": 2486.8083333333,
+   "err_ue": -817.9452930635,
+   "err_pct": -32.8913685104
+  },
+  {
+   "pair": "Al2O3 on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 3409.113989076,
+   "mismatch_exp_ue": 2486.8083333333,
+   "err_ue": 922.3056557426,
+   "err_pct": 37.0879268571
+  },
+  {
+   "pair": "Y2O3 on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 1646.6587318195,
+   "mismatch_exp_ue": 1246.1271028037,
+   "err_ue": 400.5316290157,
+   "err_pct": 32.1421168125
+  },
+  {
+   "pair": "Y2O3 on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 1077.0895130626,
+   "mismatch_exp_ue": 1246.1271028037,
+   "err_ue": -169.0375897411,
+   "err_pct": -13.5650359711
+  },
+  {
+   "pair": "Y2O3 on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1749.2454423917,
+   "mismatch_exp_ue": 1246.1271028037,
+   "err_ue": 503.118339588,
+   "err_pct": 40.3745603844
+  },
+  {
+   "pair": "Y2O3 on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 3491.9359830476,
+   "mismatch_exp_ue": 2426.8021028037,
+   "err_ue": 1065.1338802439,
+   "err_pct": 43.8904300855
+  },
+  {
+   "pair": "Y2O3 on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 2311.1259781482,
+   "mismatch_exp_ue": 2426.8021028037,
+   "err_ue": -115.6761246556,
+   "err_pct": -4.7666072368
+  },
+  {
+   "pair": "Y2O3 on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 3735.6256557206,
+   "mismatch_exp_ue": 2426.8021028037,
+   "err_ue": 1308.8235529168,
+   "err_pct": 53.9320264889
+  },
+  {
+   "pair": "GaN on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 490.8375008431,
+   "mismatch_exp_ue": 489.1333333333,
+   "err_ue": 1.7041675097,
+   "err_pct": 0.3484055151
+  },
+  {
+   "pair": "GaN on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -19.514841217,
+   "mismatch_exp_ue": 489.1333333333,
+   "err_ue": -508.6481745504,
+   "err_pct": -103.9896772285
+  },
+  {
+   "pair": "GaN on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 870.9964170966,
+   "mismatch_exp_ue": 489.1333333333,
+   "err_ue": 381.8630837633,
+   "err_pct": 78.0693233808
+  },
+  {
+   "pair": "GaN on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 1152.1823845639,
+   "mismatch_exp_ue": 961.475,
+   "err_ue": 190.7073845639,
+   "err_pct": 19.8348770965
+  },
+  {
+   "pair": "GaN on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -4.9414863616,
+   "mismatch_exp_ue": 961.475,
+   "err_ue": -966.4164863616,
+   "err_pct": -100.5139485022
+  },
+  {
+   "pair": "GaN on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1946.1046533536,
+   "mismatch_exp_ue": 961.475,
+   "err_ue": 984.6296533536,
+   "err_pct": 102.4082428928
+  },
+  {
+   "pair": "GaN on SiC",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 291.2270628817,
+   "mismatch_exp_ue": 370.3333333333,
+   "err_ue": -79.1062704516,
+   "err_pct": -21.3608291049
+  },
+  {
+   "pair": "GaN on SiC",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 591.9493200512,
+   "mismatch_exp_ue": 370.3333333333,
+   "err_ue": 221.6159867179,
+   "err_pct": 59.8423006439
+  },
+  {
+   "pair": "GaN on SiC",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 684.1450193711,
+   "mismatch_exp_ue": 370.3333333333,
+   "err_ue": 313.8116860377,
+   "err_pct": 84.7376289931
+  },
+  {
+   "pair": "GaN on SiC",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 530.1663172907,
+   "mismatch_exp_ue": 714.0,
+   "err_ue": -183.8336827093,
+   "err_pct": -25.7470143851
+  },
+  {
+   "pair": "GaN on SiC",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": 1158.7973117762,
+   "mismatch_exp_ue": 714.0,
+   "err_ue": 444.7973117762,
+   "err_pct": 62.2965422656
+  },
+  {
+   "pair": "GaN on SiC",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1406.0544606978,
+   "mismatch_exp_ue": 714.0,
+   "err_ue": 692.0544606978,
+   "err_pct": 96.9263950557
+  },
+  {
+   "pair": "AlN on Si",
+   "T_K": 600.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 427.071696991,
+   "mismatch_exp_ue": 247.6333333333,
+   "err_ue": 179.4383636577,
+   "err_pct": 72.4613125553
+  },
+  {
+   "pair": "AlN on Si",
+   "T_K": 600.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -294.4923440309,
+   "mismatch_exp_ue": 247.6333333333,
+   "err_ue": -542.1256773643,
+   "err_pct": -218.9227395468
+  },
+  {
+   "pair": "AlN on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 478.4396504518,
+   "mismatch_exp_ue": 247.6333333333,
+   "err_ue": 230.8063171184,
+   "err_pct": 93.2048662479
+  },
+  {
+   "pair": "AlN on Si",
+   "T_K": 900.0,
+   "model": "mace-mpa-0",
+   "mismatch_model_ue": 1021.2742806223,
+   "mismatch_exp_ue": 684.8083333333,
+   "err_ue": 336.4659472889,
+   "err_pct": 49.1328640309
+  },
+  {
+   "pair": "AlN on Si",
+   "T_K": 900.0,
+   "model": "mattersim-5m-native",
+   "mismatch_model_ue": -516.6706132884,
+   "mismatch_exp_ue": 684.8083333333,
+   "err_ue": -1201.4789466217,
+   "err_pct": -175.4474775115
+  },
+  {
+   "pair": "AlN on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1168.9899509497,
+   "mismatch_exp_ue": 684.8083333333,
+   "err_ue": 484.1816176163,
+   "err_pct": 70.7032309697
+  }
+ ],
+ "thermal_mismatch_summary": [
+  {
+   "model": "mace-mpa-0",
+   "T_K": 600.0,
+   "n_pairs": 14,
+   "sign_right": 14,
+   "within_25pct": 4,
+   "median_abs_err_ue": 567.9994420517,
+   "median_abs_err_pct": 42.5481310252
+  },
+  {
+   "model": "mace-mpa-0",
+   "T_K": 900.0,
+   "n_pairs": 13,
+   "sign_right": 13,
+   "within_25pct": 3,
+   "median_abs_err_ue": 1194.818605197,
+   "median_abs_err_pct": 46.3831599762
+  },
+  {
+   "model": "mattersim-5m-native",
+   "T_K": 600.0,
+   "n_pairs": 16,
+   "sign_right": 11,
+   "within_25pct": 5,
+   "median_abs_err_ue": 707.2600178276,
+   "median_abs_err_pct": 63.8377415577
+  },
+  {
+   "model": "mattersim-5m-native",
+   "T_K": 900.0,
+   "n_pairs": 15,
+   "sign_right": 10,
+   "within_25pct": 4,
+   "median_abs_err_ue": 1201.4789466217,
+   "median_abs_err_pct": 71.493800979
+  },
+  {
+   "model": "orb-v3",
+   "T_K": 600.0,
+   "n_pairs": 15,
+   "sign_right": 15,
+   "within_25pct": 3,
+   "median_abs_err_ue": 364.5496195827,
+   "median_abs_err_pct": 43.5486812269
+  },
+  {
+   "model": "orb-v3",
+   "T_K": 900.0,
+   "n_pairs": 15,
+   "sign_right": 15,
+   "within_25pct": 3,
+   "median_abs_err_ue": 984.6296533536,
+   "median_abs_err_pct": 52.815426524
   }
  ],
  "reference_quality_file": "data/reference_quality.yaml",

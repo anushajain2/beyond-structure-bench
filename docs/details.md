@@ -85,10 +85,13 @@ pairs are not resolved.
 within 20 % at 300 K, 9 are off by more than 20 % at the top of their window (Y₂O₃ for all three models,
 quartz near its α–β transition for MACE and Orb, MatterSim's Ru and Mo, Orb's Al₂O₃ and TiSi₂); at high temperature the quasi-harmonic
 method's own limits add to the model's error, so this cannot be pinned on the models alone. The models get the
-direction of α's change across the window right in 32 of 43 cases (Orb 12 of 14). As an application example, the free
-expansion mismatch between a metal and silicon compounds both materials' errors: for W, Mo or Ta on Si
-between 300 and 900 K (measured mismatch 600–1900 microstrain), MACE overshoots it by 270–360 % and Orb by
-97–160 %, and MatterSim gets its sign wrong, because its silicon expands too much.
+direction of α's change across the window right in 32 of 43 cases (Orb 12 of 14). **Thermal mismatch of device stacks** (`thermal_mismatch.csv`, `thermal_mismatch_summary.csv`). The free
+expansion mismatch from 300 K is computed for 16 stacks chosen by device role; 15 have references covering 300–900 K.
+At 900 K each model is within 25 % of the measured mismatch for 3–4 stacks, with median misses of 46 % (MACE),
+53 % (Orb) and 71 % (MatterSim), about 1000–1200 microstrain. MACE and Orb get the sign right for every stack;
+MatterSim gets it wrong for 5 of 15 (W, Mo, Ta, GaN and AlN on Si), because its silicon expands too much. A metal
+on silicon compounds both materials' errors: for W, Mo or Ta on Si (measured 600–1900 microstrain), MACE overshoots
+by 270–360 % and Orb by 97–160 %.
 
 7. **Accuracy averages cover only the cases that worked.** Coverage is reported next to them
    (`results/coverage.csv`): Orb changes the crystal form of 3 of 33 materials; MatterSim predicts a

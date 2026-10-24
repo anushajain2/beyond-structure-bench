@@ -448,13 +448,15 @@ def build_tables(tag: str = "thermal_qha") -> dict:
     tm = trust_map(lat, bulk, therm)
     chk = checks_table(lat, bulk, therm)
     cov = coverage_table(lat, bulk, therm)
-    from chipff.metrics import compensation_check, thermal_metrics, thermal_mismatch
+    from chipff.metrics import compensation_check, mismatch_summary, thermal_metrics, thermal_mismatch
 
     tmet = thermal_metrics(therm) if not therm.empty else pd.DataFrame()
     comp = compensation_check(tmet)
     mism = thermal_mismatch(therm) if not therm.empty else pd.DataFrame()
+    msum = mismatch_summary(mism)
     for name, df in (("lattice", lat), ("bulk_modulus", bulk), ("thermal_expansion", therm), ("trust_map", tm),
-                     ("checks", chk), ("coverage", cov), ("thermal_metrics", tmet), ("thermal_mismatch", mism)):
+                     ("checks", chk), ("coverage", cov), ("thermal_metrics", tmet), ("thermal_mismatch", mism),
+                     ("thermal_mismatch_summary", msum)):
         df.to_csv(OUT / f"{name}.csv", index=False, float_format="%.5g")
     summary = {
         "thresholds": config()["thresholds"],
@@ -468,6 +470,7 @@ def build_tables(tag: str = "thermal_qha") -> dict:
         "lattice": _records(lat), "bulk_modulus": _records(bulk), "thermal_expansion": _records(therm),
         "trust_map": _records(tm), "checks": _records(chk), "coverage": _records(cov),
         "thermal_metrics": _records(tmet), "thermal_mismatch": _records(mism),
+        "thermal_mismatch_summary": _records(msum),
         "reference_quality_file": "data/reference_quality.yaml",
         "pending": {"thermal_expansion": sorted(therm.loc[therm["pending"].astype(bool), "model"].unique())
                     if "pending" in therm else []},

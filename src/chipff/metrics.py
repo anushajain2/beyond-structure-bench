@@ -28,9 +28,14 @@ import pandas as pd
 from chipff.materials import experimental, get_material
 from chipff.runner import load_raw
 
-# device-relevant pairs: metal or silicide on silicon, and a liner under copper
+# device-relevant pairs: metal or silicide on silicon, and a liner under copper; added 2026-10-24 by device role
+# alone, before their mismatch was computed: contact and barrier stacks, dielectrics on silicon, and the
+# GaN power/RF stacks. A pair is skipped where a reference does not cover 300 K to T (TaN, HfO2, Si3N4).
 MISMATCH_PAIRS = [("Cu", "Si"), ("W", "Si"), ("Al", "Si"), ("Mo", "Si"), ("Ta", "Si"), ("TiSi2", "Si"),
-                  ("Cu", "Ta")]
+                  ("Cu", "Ta"),
+                  ("W", "TiN"), ("TiN", "Si"), ("WSi2", "Si"), ("Ru", "Si"),
+                  ("Al2O3", "Si"), ("Y2O3", "Si"),
+                  ("GaN", "Si"), ("GaN", "SiC"), ("AlN", "Si")]
 MISMATCH_T = (600.0, 900.0)
 
 
@@ -128,4 +133,20 @@ def thermal_mismatch(therm: pd.DataFrame) -> pd.DataFrame:
                 rows.append({"pair": f"{m1} on {m2}", "T_K": T, "model": mk, "mismatch_model_ue": mod,
                              "mismatch_exp_ue": ref, "err_ue": None if ref is None else mod - ref,
                              "err_pct": None if not ref else 100 * (mod / ref - 1)})
+    return pd.DataFrame(rows)
+
+
+def mismatch_summary(mism: pd.DataFrame) -> pd.DataFrame:
+    """Per model and temperature: how often the free mismatch has the measured sign, how often it is within
+    25 % of the measured value, and the median miss in microstrain, over the pairs with a reference."""
+    if mism.empty:
+        return pd.DataFrame()
+    d = mism[mism["mismatch_exp_ue"].notna()]
+    rows = []
+    for (mk, T), g in d.groupby(["model", "T_K"]):
+        rows.append({"model": mk, "T_K": T, "n_pairs": len(g),
+                     "sign_right": int((np.sign(g["mismatch_model_ue"]) == np.sign(g["mismatch_exp_ue"])).sum()),
+                     "within_25pct": int((g["err_pct"].abs() <= 25).sum()),
+                     "median_abs_err_ue": float(g["err_ue"].abs().median()),
+                     "median_abs_err_pct": float(g["err_pct"].abs().median())})
     return pd.DataFrame(rows)

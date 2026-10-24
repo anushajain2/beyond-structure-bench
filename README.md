@@ -26,6 +26,11 @@ worst predictions go wrong.
    depth, the models misjudge how strongly the atoms' vibrations change as the crystal expands. These
    cases were picked after the failures were seen, so this explains them rather than proving a general
    rule.
+4. **For chip stacks, no model predicts thermal mismatch well.** What strains a chip is the difference
+   in expansion between stacked layers. Across 15 real stacks (metals, silicides, barriers, oxides and GaN
+   on their substrates), each model gets the mismatch within 25 % for at most 4 of them, and typically
+   misses by about half. MatterSim gets the direction wrong for 5 of 15, because its silicon expands
+   too much.
 
 Averages leave out layered materials such as graphite, which every model gets wrong.
 
@@ -135,6 +140,24 @@ after the failures were seen, so the study explains them; it does not establish 
 in advance on Orb v3's unseen materials ([pre-registration](docs/preregistration_orb_thermal.md)) supported
 one of its explanations (Orb's overshoots in transition metals follow its too-soft bulk modulus), refuted
 another and left two undecided.
+
+**4. For chip stacks, no model predicts thermal mismatch well.** A chip is a stack of layers, and what
+strains it is the *difference* in their expansion. For 15 device stacks (copper, tungsten, molybdenum,
+tantalum, ruthenium and silicides on silicon; copper on tantalum and tungsten on TiN; TiN, Al₂O₃ and Y₂O₃
+on silicon; GaN on silicon and SiC; AlN on silicon), the free expansion mismatch from 300 to 900 K is
+compared with the one built from the measured expansion curves
+([`results/thermal_mismatch_summary.csv`](results/thermal_mismatch_summary.csv)):
+
+| at 900 K | MACE-MPA-0 | MatterSim v1* | Orb v3 |
+|---|---|---|---|
+| stacks with the right sign | 13 of 13 | 10 of 15 | 15 of 15 |
+| within 25 % of the measured mismatch | 3 | 4 | 3 |
+| median miss | 46 % (1190 microstrain) | 71 % (1200 microstrain) | 53 % (980 microstrain) |
+
+The stacks were chosen by device role before their mismatch was computed. Mismatch is an ingredient of
+thermal stress, not a prediction of it: stress also depends on geometry, constraint and elastic response.
+A metal on silicon compounds both materials' errors, so a model can be good on each material alone and
+still miss the stack.
 
 Every number above comes from the committed tables in `results/`; the full findings, with confidence
 intervals and sample sizes, are in [`docs/details.md`](docs/details.md#findings-in-detail).
@@ -247,7 +270,7 @@ thermal expansion), the MatterSim environment and UMA access are on the
 | Experimental references, each with a source, citation and quote | [`data/experimental/`](data/experimental) |
 | The audit of every reference: tier, kind of measurement, uncertainty | [`data/reference_quality.yaml`](data/reference_quality.yaml) |
 | The references as one reusable table | [`data/release/`](data/release/README.md) |
-| Absolute, strain and temperature-trend errors; a thermal-mismatch example | [`results/thermal_metrics.csv`](results/thermal_metrics.csv), [`results/thermal_mismatch.csv`](results/thermal_mismatch.csv) |
+| Absolute, strain and temperature-trend errors; thermal mismatch of 16 device stacks | [`results/thermal_metrics.csv`](results/thermal_metrics.csv), [`results/thermal_mismatch.csv`](results/thermal_mismatch.csv), [`results/thermal_mismatch_summary.csv`](results/thermal_mismatch_summary.csv) |
 | Exact package versions | [`env/requirements-lock.txt`](env/requirements-lock.txt), [`env/requirements-mattersim-lock.txt`](env/requirements-mattersim-lock.txt) |
 | Model files and checksums | [`configs/checkpoints.json`](configs/checkpoints.json), checked by `scripts/verify_checkpoints.py` |
 | How each result is tied to the code and settings that made it | [`docs/provenance.md`](docs/provenance.md) |

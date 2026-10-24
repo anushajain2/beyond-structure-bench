@@ -1,0 +1,7 @@
+model,T_K,n_pairs,sign_right,within_25pct,median_abs_err_ue,median_abs_err_pct
+mace-mpa-0,600,14,14,4,568,42.548
+mace-mpa-0,900,13,13,3,1194.8,46.383
+mattersim-5m-native,600,16,11,5,707.26,63.838
+mattersim-5m-native,900,15,10,4,1201.5,71.494
+orb-v3,600,15,15,3,364.55,43.549
+orb-v3,900,15,15,3,984.63,52.815

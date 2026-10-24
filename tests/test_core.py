@@ -201,9 +201,10 @@ def test_site_evidence_builds():
     spec.loader.exec_module(mod)
     ev = mod.evidence()
     assert len(ev["materials"]) == 33 and ev["study_materials"] == sorted(["Si", "GaAs", "InP", "Cu", "Ta", "HfO2"])
-    # Orb's benchmark-wide thermal results are not part of this release, so no stale values are published
+    # every model's benchmark-wide thermal run is complete and current, so no stale or pending values are published
     th = ev["results"]["thermal_expansion"]
-    assert all(set(r) == {"stale"} for m in th.values() for k, r in m.items() if k == "orb-v3")
+    orb = [r for m in th.values() for k, r in m.items() if k == "orb-v3"]
+    assert len(orb) == 33 and not any(r.get("stale") for r in orb)
 
 
 def test_every_reference_is_audited():
