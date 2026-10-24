@@ -28,6 +28,8 @@ SOURCES = {
     "mattersim-5m-native": {"path": "~/.local/mattersim/pretrained_models/mattersim-v1.0.0-5M.pth",
                             "package": "mattersim"},
     "uma-s-1p2": {"hf_repo": "facebook/UMA", "file": "checkpoints/uma-s-1p2.pt"},
+    "uma-s-1p2p1": {"hf_repo": "facebook/UMA", "file": "checkpoints/uma-s-1p2p1.pt"},
+    "uma-s-1p2p1-r2scan": {"hf_repo": "facebook/UMA", "file": "checkpoints/uma-s-1p2p1-ft-r2scan.pt"},
 }
 
 

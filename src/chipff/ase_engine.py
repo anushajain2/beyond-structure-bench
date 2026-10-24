@@ -36,13 +36,26 @@ def _uma_calculator(model: ModelSpec, device: str):
     return FAIRChemCalculator(unit, task_name=model.extra["task_name"])
 
 
+def _uma_file_calculator(model: ModelSpec, device: str):
+    """A UMA checkpoint that fairchem does not register by name (e.g. the r2SCAN fine-tune), loaded from its file on
+    Hugging Face. Kept apart from _uma_calculator so the named UMA models keep their code fingerprint."""
+    from fairchem.core import FAIRChemCalculator, pretrained_mlip
+    from huggingface_hub import hf_hub_download
+
+    path = hf_hub_download(model.extra["hf_repo"], model.extra["file"])
+    unit = pretrained_mlip.load_predict_unit(path, inference_settings=model.extra["inference_settings"], device=device)
+    return FAIRChemCalculator(unit, task_name=model.extra["task_name"])
+
+
 class AseEngine:
     def __init__(self, model: ModelSpec, device: str | None = None):
         import torch
 
         self.model = model
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        self.calc = _uma_calculator(model, self.device) if model.backend == "ase-uma" else _calculator(model, self.device)
+        self.calc = (_uma_calculator(model, self.device) if model.backend == "ase-uma" else
+                     _uma_file_calculator(model, self.device) if model.backend == "ase-uma-file" else
+                     _calculator(model, self.device))
 
     def relax(self, structures: list[Atoms], *, optimize_cell: bool, fmax: float = 1e-3, max_steps: int = 1000,
               seed: int = 0) -> list[RelaxResult]:

@@ -92,6 +92,35 @@ MODELS: dict[str, ModelSpec] = {
             color="#eda100",
             via_kups=False,
         ),
+        # PBE-vs-r2SCAN pair (added 2026-10-24, pre-registered in docs/preregistration_r2scan.md): the same UMA
+        # release before and after fine-tuning its omat head to r2SCAN labels
+        ModelSpec(
+            key="uma-s-1p2p1",
+            label="UMA small 1.2.1 (omat task, PBE), official package",
+            developer="Meta FAIR",
+            training_data="OMat24 (PBE/PBE+U; omat head used)",
+            license="FAIR Chemistry License (gated on Hugging Face)",
+            backend="ase-uma",
+            model_path="hf://facebook/UMA/checkpoints/uma-s-1p2p1.pt",
+            extra={"name": "uma-s-1p2p1", "task_name": "omat", "inference_settings": "default"},
+            gated=True,
+            color="#9a6fd6",
+            via_kups=False,
+        ),
+        ModelSpec(
+            key="uma-s-1p2p1-r2scan",
+            label="UMA small 1.2.1, r2SCAN fine-tune (omat task), official package",
+            developer="Meta FAIR",
+            training_data="OMat24, omat head fine-tuned to r2SCAN labels",
+            license="FAIR Chemistry License (gated on Hugging Face)",
+            backend="ase-uma-file",
+            model_path="hf://facebook/UMA/checkpoints/uma-s-1p2p1-ft-r2scan.pt",
+            extra={"hf_repo": "facebook/UMA", "file": "checkpoints/uma-s-1p2p1-ft-r2scan.pt", "task_name": "omat",
+                   "inference_settings": "default"},
+            gated=True,
+            color="#c2185b",
+            via_kups=False,
+        ),
     ]
 }
 

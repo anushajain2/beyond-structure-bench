@@ -48,6 +48,8 @@ def _code_objects(step: str, backend: str) -> list:
         relax = [ase_engine.AseEngine.relax, ase_engine._calculator]
         if backend == "ase-uma":
             relax.append(ase_engine._uma_calculator)
+        if backend == "ase-uma-file":
+            relax.append(ase_engine._uma_file_calculator)
         stress = [ase_engine.AseEngine.stress]
     else:
         E = engine.Engine

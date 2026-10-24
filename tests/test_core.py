@@ -244,8 +244,9 @@ def test_model_guidance_covers_every_material_and_model():
     from chipff.materials import ROOT
 
     g = pd.read_csv(ROOT / "results" / "model_guidance.csv")
-    assert g["material"].nunique() == 33 and g["model"].nunique() == 4
-    assert g.groupby("material")["model"].nunique().eq(4).all()
+    n_models = g["model"].nunique()
+    assert g["material"].nunique() == 33 and n_models >= 4
+    assert g.groupby("material")["model"].nunique().eq(n_models).all()
     ok = ("reliable", "usable", "avoid", "not graded")
     assert g["verdict"].str.startswith(ok).all()
     # a poor grade always produces an "avoid" verdict
