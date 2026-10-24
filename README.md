@@ -14,26 +14,51 @@ material, each model predicts three things, and every prediction is compared wit
 * **how stiff it is**, or how hard it is to squeeze;
 * **how much it grows when it heats up**, its thermal expansion.
 
-## What we found, in short
+## What we found
 
-1. **The models get the crystal structure almost exactly right,** usually within 1 % of the lab value.
-2. **They are much less accurate about heating.** Their predictions of how much a material grows when heated are
-   typically off by 20–35 %, and for some materials by a factor of two or three. Getting the structure right is no
-   guarantee: one model gets tantalum's crystal size right to within 0.4 %, but predicts that it grows almost three
-   times as much as it really does.
-3. **This matters most where materials meet.** A chip is a stack of layers. When neighbouring layers grow by
-   different amounts, they push and pull on each other, which can bend, crack or peel them.
-   * For 15 real combinations of layers, the best model (UMA) predicts this mismatch to within 25 % for about half
-     of them. The others manage at most 4 of the 15.
-   * One model gets even the direction wrong for a third of them.
-4. **Most of the big mistakes are the AI models' own.** The models learn from a standard physics method (DFT). We
-   ran that method ourselves on some of the same materials and compared. For most of the large errors we could
-   check, the AI model introduced the error rather than inheriting it, so better models could fix them.
-5. **Newer models do better, but none is reliable everywhere.** Orb v3 and UMA are the most accurate about heating
-   on average. Still, every model fails badly on some materials, and different models fail on different ones.
+**1. A model that gets a material's structure right can still get its behaviour wrong.**
+All four models predict the size of the crystals almost perfectly, usually within 1 %. But for the same materials,
+their predictions of how much the material grows when it heats up are typically off by 20–35 %, and sometimes by a
+factor of two or three. "Does the model get the structure right?" is the check these models are usually judged on.
+Passing it is no evidence that a model can be trusted on heat. Heat matters for chips, which warm up and cool
+down every time they run.
 
-For two of the models we wrote down our predictions about their mistakes before running them. That way the
-conclusions could not be bent to fit the results.
+**2. The newer models are better, but every model has blind spots, and in different places.**
+Orb v3 and UMA are the most accurate on average. Yet every model, including the best, gets some materials badly
+wrong, and which materials depends on the model. One model is far off for tantalum, a metal used in chip wiring;
+another for silicon itself. So no model can be trusted across the board: it has to be checked on the specific
+materials it will be used for.
+
+**3. The models go wrong in one specific, identifiable way.**
+The atoms in a solid are always vibrating, and the warmer it gets, the harder they vibrate. That pushes them apart,
+which is why materials expand when heated. How much a material expands depends on how its vibrations change once
+the atoms are a little further apart. The models get the vibrations themselves mostly right, but they misjudge how
+those vibrations change as the material expands, so they predict too much or too little growth. Knowing where the
+error sits tells model developers what to fix. The models need to learn from, and be tested on, crystals that are
+slightly stretched or squeezed, not only crystals at rest.
+
+**4. Most of these mistakes come from the AI models, not from the physics they learned.**
+These AI models learn by imitating a standard physics calculation (called DFT). If that calculation were itself
+wrong, no amount of better AI training could fix the problem. So we ran it ourselves and compared. For most of the
+big errors we could check, the physics calculation is much closer to the right answer than the AI model is. That
+is good news: these errors can be fixed by building better models. The exception is that some semiconductors come
+out too easy to squeeze. That flaw is in the physics calculation itself, and the models simply inherit it.
+
+**5. Small errors in single materials become big errors in a real chip.**
+A chip is a stack of different materials bonded together. When it heats up, each layer tries to grow by a different
+amount. That difference is what builds up the stress that can warp, crack or peel a chip. Predicting the
+difference means getting two materials right at once, so errors add up.
+* For 15 real layer combinations, the best model (UMA) gets the difference close (within 25 %) for about half of
+  them. The others manage only a quarter or fewer.
+* One model even gets the direction wrong for a third of them, predicting that the layers pull the opposite way
+  to what really happens. The cause is that it gets silicon, the base of most chips, wrong.
+
+**The bottom line:** today's AI models for atoms are excellent at predicting the structure of chip materials. They
+should not be trusted, without checking, to predict how those materials respond to heat, and least of all when
+several materials are stacked together.
+
+To make sure these conclusions were not shaped by hindsight, we tested two of the models blind. We wrote down our
+predictions about their mistakes before running them; some held and some did not, and we report both.
 
 **[Project site](https://anushajain2.github.io/beyond-structure-bench/)** ·
 [Explore the evidence](https://anushajain2.github.io/beyond-structure-bench/explore.html) ·
@@ -41,7 +66,10 @@ conclusions could not be bent to fit the results.
 [Evaluation design](https://anushajain2.github.io/beyond-structure-bench/design.html) ·
 [Reproduce](https://anushajain2.github.io/beyond-structure-bench/reproduce.html)
 
-## The key findings in more detail
+## The same findings, in numbers
+
+For readers who want the specifics. Each point matches the one above; technical terms are explained under
+[Terms used here](#terms-used-here).
 
 1. **Structure is easy, stiffness is harder and thermal expansion is hardest.** Averaged over the 30 non-layered
    materials:
