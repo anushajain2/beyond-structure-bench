@@ -76,8 +76,9 @@ def run_meta(engine) -> dict:
     else:
         from importlib.metadata import version
 
-        meta.update(ase_version=version("ase"), torch_version=version("torch"),
-                    calculator_package_version=version("mattersim"))
+        package = {"ase-mattersim": "mattersim", "ase-uma": "fairchem-core"}[engine.model.backend]
+        meta.update(ase_version=version("ase"), torch_version=version("torch"), calculator_package=package,
+                    calculator_package_version=version(package))
     return meta
 
 

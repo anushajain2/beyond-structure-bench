@@ -139,7 +139,7 @@ def _git() -> dict:
 @lru_cache
 def _versions() -> dict:
     out = {}
-    for pkg in ("kups", "jax", "mattersim", "torch", "ase", "pymatgen"):
+    for pkg in ("kups", "jax", "mattersim", "fairchem-core", "torch", "ase", "pymatgen"):
         try:
             out[pkg] = version(pkg)
         except PackageNotFoundError:
