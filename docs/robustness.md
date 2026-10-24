@@ -57,8 +57,8 @@ correlate their signed errors against experiment over the materials both have, w
 |---|---|---|---|
 | lattice constant | 0.88 (0.72 to 0.96) | 0.83 (0.65 to 0.93) | 0.95 (0.90 to 0.98) |
 | bulk modulus | 0.11 (−0.21 to 0.42) | 0.19 (−0.17 to 0.53) | 0.61 (0.23 to 0.88) |
-| thermal expansion, 300 K | −0.02 (−0.40 to 0.50) | Orb not computed | Orb not computed |
-| thermal expansion, window | 0.23 (−0.29 to 0.73) | Orb not computed | Orb not computed |
+| thermal expansion, 300 K | −0.02 (−0.40 to 0.48) | 0.72 (0.36 to 0.90) | 0.30 (−0.16 to 0.77) |
+| thermal expansion, window | 0.23 (−0.29 to 0.73) | 0.42 (−0.05 to 0.73) | 0.70 (−0.12 to 0.91) |
 
 - Lattice constants: strongly shared errors. This is consistent with the limits of the PBE
   reference and training data (plus the 0 K vs room-temperature mismatch), but correlation alone
@@ -68,7 +68,8 @@ correlate their signed errors against experiment over the materials both have, w
   correlate only weakly with theirs (sample correlation 0.11 and 0.19, intervals spanning zero).
   PBE's error is about as large as MACE's departure from PBE, so tracking PBE more closely does not
   make a model more accurate here.
-- Thermal expansion: the sample correlation is small, with wide uncertainty (table above). The average of
+- Thermal expansion: MACE's and Orb's errors at 300 K are correlated (0.72); the other pairs' correlations
+  have wide intervals (table above). The average of
   MACE and MatterSim has a 24.2% error at 300 K, the same as MatterSim alone (36.1% for MACE), and 30.9% over
   the windows against 35.5% and 34.9%. The models' relative disagreement correlates with that average's error
   (0.37 at 300 K, interval −0.11 to 0.77; 0.25 over the window, −0.13 to 0.64). That is an exploratory
@@ -77,9 +78,10 @@ correlate their signed errors against experiment over the materials both have, w
 **Reference uncertainty and tiers (v1.1.0).** The bootstrap now perturbs each reference by its own
 uncertainty from `data/reference_quality.yaml` (stated by the source where it gives one, set by the spread
 between sources where they disagree, otherwise the defaults above). Every table in `bootstrap_ci.csv` and
-`pairwise.csv` is computed twice, `subset = all` and `subset = core` (core-tier references only). No
-conclusion changes between the two: against experiment, no difference between the models is resolved in
-either subset.
+`pairwise.csv` is computed twice, `subset = all` and `subset = core` (core-tier references only). For
+lattice constant and bulk modulus no difference between the models is resolved in either subset. For thermal
+expansion, Orb v3 is more accurate than MACE-MPA-0 at 300 K in both subsets, and than MatterSim over the windows
+with all references only.
 
 **Adiabatic and isothermal bulk moduli** (`adiabatic_sensitivity.csv`). Ultrasonic and Brillouin measurements
 give the adiabatic modulus, static equations of state the isothermal one; the models' static moduli are 0 K
@@ -95,7 +97,7 @@ constants and bulk moduli, so its disagreement flag is a heuristic that this ben
 validate: agreement between models that share training data does not show they are right.
 
 **Incomplete runs are not compared.** A model whose thermal run has not covered every material
-(currently Orb v3: 7 of 33, computed before the Γ-mode fix and so also stale by provenance) is marked `pending` in
+(none at present; Orb v3 was pending until its run was completed on 2026-10-24) is marked `pending` in
 `results/thermal_expansion.csv` and left out of
 the trust map, the bootstrap, the pairwise tests and the MCP rankings, so a partial sample cannot
 look better or worse than a complete one.

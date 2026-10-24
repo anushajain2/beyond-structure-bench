@@ -16,18 +16,18 @@ worst predictions go wrong.
 
 1. **Getting the structure right doesn't mean getting the rest right.** Accuracy falls as the property
    gets harder: on average the models are off by under 1 % on crystal size, 11–13 % on stiffness and
-   24–36 % on thermal expansion at room temperature. MACE-MPA-0, for example, gets tantalum's crystal size within 0.4 % but
+   21–36 % on thermal expansion at room temperature. MACE-MPA-0, for example, gets tantalum's crystal size within 0.4 % but
    overestimates its thermal expansion by 179 %.
 2. **No model is best everywhere.** Each fails on different materials: MACE-MPA-0 on metals such as
-   tantalum, MatterSim on semiconductors such as silicon and gallium arsenide. On structure and
+   tantalum, MatterSim on semiconductors such as silicon and gallium arsenide, Orb v3 on germanium, InP
+   and tantalum. Orb v3 has the lowest average thermal-expansion error, but it is not clearly ahead of MatterSim. On structure and
    stiffness, the data can't tell the three models apart.
 3. **The thermal-expansion errors come from how the models handle vibrations.** In six cases studied in
    depth, the models misjudge how strongly the atoms' vibrations change as the crystal expands. These
    cases were picked after the failures were seen, so this explains them rather than proving a general
    rule.
 
-Averages leave out layered materials such as graphite, which every model gets wrong, and Orb v3's
-thermal expansion, which was not computed in this release.
+Averages leave out layered materials such as graphite, which every model gets wrong.
 
 **[Project site](https://anushajain2.github.io/beyond-structure-bench/)** ·
 [Explore the evidence](https://anushajain2.github.io/beyond-structure-bench/explore.html) ·
@@ -98,24 +98,25 @@ properties; for anything else they are at most a warning sign.
 *Average error against lab measurements, by material group (rows), property and model (columns).
 Green, amber and red use thresholds fixed before any result was seen (lattice constant good ≤ 1 %,
 okay ≤ 3 %; bulk modulus good ≤ 10 %, okay ≤ 25 %; thermal expansion good ≤ 20 %, okay ≤ 40 %).
-"Not run" means Orb v3's thermal expansion was not computed in this release; "n/a" means the value was
-computed but not graded, because the method does not apply to layered materials. Neither is a score.
+"n/a" means the value was computed but not graded, because the method does not apply to layered
+materials. It is not a score.
 Numbers: [`results/trust_map.csv`](results/trust_map.csv). \*MatterSim runs through its official
 package, not kUPS.*
 
 **1. Getting the structure right doesn't mean getting the rest right.** Across the 30 non-layered
 materials, the three models put the crystal size within 0.73–0.80 % of experiment on average and the
-bulk modulus within 11–13 %. At 300 K, thermal expansion is off by 36 % on average for MACE-MPA-0 and
-24 % for MatterSim (22 materials each; the benchmark cannot separate the two). Good structure is no guarantee: MACE-MPA-0 puts tantalum's
+bulk modulus within 11–13 %. At 300 K, thermal expansion is off by 36 % on average for MACE-MPA-0,
+24 % for MatterSim and 21 % for Orb v3 (21–22 materials each). Orb v3 is more accurate than MACE-MPA-0 (paired bootstrap), and the benchmark cannot separate MatterSim from either. Good structure is no guarantee: MACE-MPA-0 puts tantalum's
 lattice within 0.4 % and its bulk modulus within about 6 %, yet overestimates its thermal expansion by 179 %. Being right at 300 K is no guarantee at higher temperature
-either: of the 14 results that are within 20 % at 300 K and can also be compared at the top of their
-temperature window, 5 are off there by more than 20 %, where the quasi-harmonic method's own limits also grow.
+either: of the 21 results that are within 20 % at 300 K and can also be compared at the top of their
+temperature window, 9 are off there by more than 20 %, where the quasi-harmonic method's own limits also grow.
 
 **2. No model is best everywhere.** MACE-MPA-0 overshoots the thermal expansion of refractory metals
 (tantalum +179 %); MatterSim overshoots that of semiconductors (Si +85 %, GaAs +68 %), where MACE gets
 silicon within about 1 %. Against experiment, the benchmark resolves no overall difference between the models
 for lattice constant or bulk modulus (paired bootstrap, 95 % intervals), nor between MACE-MPA-0 and
-MatterSim for thermal expansion. Some failures are shared: every model overestimates the spacing between
+MatterSim for thermal expansion. Orb v3 is more accurate than MACE-MPA-0 at 300 K and than MatterSim over
+the temperature windows (all references; not on core-tier references alone). Some failures are shared: every model overestimates the spacing between
 graphite's layers, by 18–30 %.
 
 ![Thermal-expansion error at 300 K by material and model](report/figures/study_errors.png)
@@ -130,17 +131,20 @@ vibrations change as the crystal expands. In six cases (Si, GaAs, InP, Cu, Ta an
 software and numerical settings did not explain the large errors; they trace to the models' Grüneisen
 parameters, with a too-soft bulk modulus adding to it for several semiconductors. For tantalum,
 MACE-MPA-0's Grüneisen parameter is 4.1, against 1.6 inferred from experiment. The six cases were chosen
-after the failures were seen, so the study explains them; it does not establish a general rule.
+after the failures were seen, so the study explains them; it does not establish a general rule. A test fixed
+in advance on Orb v3's unseen materials ([pre-registration](docs/preregistration_orb_thermal.md)) supported
+one of its explanations (Orb's overshoots in transition metals follow its too-soft bulk modulus), refuted
+another and left two undecided.
 
 Every number above comes from the committed tables in `results/`; the full findings, with confidence
 intervals and sample sizes, are in [`docs/details.md`](docs/details.md#findings-in-detail).
 
 ## What this release covers
 
-| Scope | Coverage in v1.1.0 |
+| Scope | Coverage |
 |---|---|
 | Lattice constant and bulk modulus | MACE-MPA-0, Orb v3 and MatterSim v1 on all 33 materials, with exclusions and their reasons |
-| Thermal expansion, benchmark-wide | MACE-MPA-0 and MatterSim v1; 22 graded comparisons per model at 300 K, 17–18 over the temperature windows. Orb v3 is not computed in this release. |
+| Thermal expansion, benchmark-wide | MACE-MPA-0, MatterSim v1 and Orb v3 on all 33 materials; 21–22 graded comparisons per model at 300 K, 17–18 over the temperature windows. Orb v3 was added after v1.1.0. |
 | Thermal-failure study | MACE-MPA-0, MatterSim v1 and Orb v3 on six selected materials (Si, GaAs, InP, Cu, Ta, HfO₂) |
 | UMA | Not evaluated in this release (gated licence) |
 
@@ -153,7 +157,7 @@ Not every result can be graded, so coverage is reported next to accuracy
 * **Method limit:** the calculation method itself doesn't apply, for example thermal expansion of layered
   materials, which grow differently in different directions, or at temperatures where the method breaks down.
 * **No reference:** there is no trustworthy lab measurement to compare with.
-* **Not computed:** the calculation was not run in this release (Orb v3's benchmark-wide thermal expansion).
+* **Not computed:** the calculation was not run (no current case among the three models).
 
 Every reference is also tiered (`data/reference_quality.yaml`), and the statistics are reported both for
 all graded references and for core-tier references only; no conclusion changes between the two.

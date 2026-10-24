@@ -6,10 +6,8 @@ backticks are relative to the repository root unless they name a file in this fo
 ## Findings in detail
 
 Status: lattice constants and bulk moduli are complete for MACE-MPA-0, Orb v3 and MatterSim v1.
-Thermal expansion is complete for MACE-MPA-0 and MatterSim v1. **Orb v3's benchmark-wide thermal expansion is not
-computed in this release.** A partial run (7 of 33 materials) predates the Γ-mode fix described under Robustness and is
-left out of every thermal average and comparison. Orb does appear in the six-case thermal-failure study
-([`thermal_failure_study.md`](thermal_failure_study.md)). UMA is awaiting license access.
+Thermal expansion is complete for all three, Orb v3's since 2026-10-24, after v1.1.0. Orb's run was a pre-registered
+test of the six-case study's explanations ([`preregistration_orb_thermal.md`](preregistration_orb_thermal.md)). UMA is awaiting license access.
 
 1. **Lattice constants of non-layered chip materials are accurate to under 1 % on average.** The
    effective linear error of all three models is 0.73–0.80 % against experiment across the 30
@@ -48,10 +46,11 @@ left out of every thermal average and comparison. Orb does appear in the six-cas
    `scripts/repro_mattersim_export.py`), so MatterSim is benchmarked through its official package and
    starred in every figure. Self-checks also caught two frame-convention bugs in this project's own
    stress handling before any number was published.
-6. **Thermal expansion is the hardest property, and the two finished models fail in different
-   places.** Computed in the quasi-harmonic approximation, MACE and MatterSim are off from experiment
+6. **Thermal expansion is the hardest property, and the models fail in different places.** Computed in the
+   quasi-harmonic approximation, MACE and MatterSim are off from experiment
    by 36 % and 24 % on average at 300 K (35 % and 34.5 % over each material's pre-registered
-   temperature window), both too large on average, with no difference resolved between them. But MACE overshoots
+   temperature window), both too large on average, with no difference resolved between them. Orb v3, completed
+   later, is lower (21 % at 300 K, 25 % over the windows) and resolved as more accurate than MACE at 300 K. But MACE overshoots
    refractory and hcp metals (Ta +179 %, Mo +97 %, Ru +52 %, W +48 % at 300 K) where MatterSim is
    mostly within 14 %, while MatterSim overshoots semiconductors (Si +85 %, GaAs +68 % at 300 K; InP +129 %
    over its window, against a range-average reference) where MACE gets Si within about 1 %. The sample correlation of
@@ -71,29 +70,32 @@ left out of every thermal average and comparison. Orb does appear in the six-cas
 
 | Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 |
 |---|---|---|---|
-| mean abs. error at 300 K (95 % CI) | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | not computed† |
-| mean abs. error over the window (95 % CI) | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | not computed† |
-| within 20 % / 40 % at 300 K | 10 / 17 | 13 / 17 | not computed† |
-| core-tier references only, 300 K | 37.6 % (21–64), n = 18 | 23.4 % (15–38), n = 18 | not computed† |
-| mean absolute error at 300 K, 10⁻⁶ K⁻¹ | 7.8 | 5.2 | not computed† |
+| mean abs. error at 300 K (95 % CI) | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | 20.9 % (15–31), n = 21 |
+| mean abs. error over the window (95 % CI) | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | 24.6 % (17–38), n = 17 |
+| within 20 % / 40 % at 300 K | 10 / 17 | 13 / 17 | 12 / 19 |
+| core-tier references only, 300 K | 37.6 % (21–64), n = 18 | 23.4 % (15–38), n = 18 | 19.2 % (13–30), n = 17 |
+| mean absolute error at 300 K, 10⁻⁶ K⁻¹ | 7.8 | 5.2 | 4.4 |
 
-† Orb's benchmark-wide thermal expansion was not recomputed after the Γ-mode fix (status note above); its results on
-the six study cases are in [`thermal_failure_study.md`](thermal_failure_study.md).
+Orb v3's Al is not graded at 300 K: it is unstable above 1.015 V0, so its 300 K volume lies outside the fit.
+Paired bootstrap (`results/robustness/pairwise.csv`): Orb is more accurate than MACE at 300 K (p 0.005) and than
+MatterSim over the windows (p 0.02, all references; not significant on core-tier references alone); the other
+pairs are not resolved.
 
-**Beyond percentage error** (`results/thermal_metrics.csv`, `thermal_mismatch.csv`). Of the 14 results
-within 20 % at 300 K, 5 are off by more than 20 % at the top of their window (Y₂O₃ for both models,
-MatterSim's Ru and Mo, MACE's quartz near its α–β transition); at high temperature the quasi-harmonic
+**Beyond percentage error** (`results/thermal_metrics.csv`, `thermal_mismatch.csv`). Of the 21 results
+within 20 % at 300 K, 9 are off by more than 20 % at the top of their window (Y₂O₃ for all three models,
+quartz near its α–β transition for MACE and Orb, MatterSim's Ru and Mo, Orb's Al₂O₃ and TiSi₂); at high temperature the quasi-harmonic
 method's own limits add to the model's error, so this cannot be pinned on the models alone. The models get the
-direction of α's change across the window right in 20 of 29 cases. As an application example, the free
+direction of α's change across the window right in 32 of 43 cases (Orb 12 of 14). As an application example, the free
 expansion mismatch between a metal and silicon compounds both materials' errors: for W, Mo or Ta on Si
-between 300 and 900 K, the two models miss the measured mismatch (600–1900 microstrain) by 140–360 %, and
-MatterSim gets its sign wrong, because its silicon expands too much.
+between 300 and 900 K (measured mismatch 600–1900 microstrain), MACE overshoots it by 270–360 % and Orb by
+97–160 %, and MatterSim gets its sign wrong, because its silicon expands too much.
 
 7. **Accuracy averages cover only the cases that worked.** Coverage is reported next to them
    (`results/coverage.csv`): Orb changes the crystal form of 3 of 33 materials; MatterSim predicts a
    mechanically unstable elastic tensor for Ti and MoS₂, MACE for h-BN; for thermal expansion, 3
    (MACE) and 2 (MatterSim) materials are dynamically unstable, and QHA itself breaks down within
-   the temperature window for 2 (MACE) and 1 (MatterSim) of the non-layered materials.
+   the temperature window for 2 (MACE) and 1 (MatterSim) of the non-layered materials. Orb's TiO₂ is unstable and
+   its SrTiO₃ changes crystal form; QHA breaks down within the window for its MgO and Al.
 
 \* MatterSim runs through its official package (finding 5). Class-by-class results are in the
 trust map above and `results/trust_map.csv`.
