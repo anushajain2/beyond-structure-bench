@@ -207,6 +207,33 @@ def si_dataset(work: Path) -> dict:
     return d
 
 
+def si_dfpt_qha(work: Path, q: dict) -> dict | None:
+    """Full QHA for Si from DFPT force constants at every volume, through the study's per_volume and qha_alpha.
+
+    Static energies are the primitive-cell SCFs of the supercell route (12x12x12 k)."""
+    scales = si_scales()
+    dirs = [work / "si_dfpt" / f"v{s:.3f}" for s in scales]
+    if not all((d / "gaas_nonac.fc").exists() for d in dirs):
+        return None
+    p = prim("Si")
+    cells = [scaled(p, s) for s in scales]
+    phs = [gaas_phonopy(d / "gaas_nonac.fc", c) for d, c in zip(dirs, cells)]
+    d = dict(scales=np.array(scales), reps=np.array([4, 4, 4]), V=np.array([c.get_volume() for c in cells]),
+             E=np.array([pw_energy_eV(work / "si" / f"v{s:.3f}" / "prim.out") for s in scales]))
+    orig = tfs.phonopy_at
+    tfs.phonopy_at = lambda _d, i: phs[i]  # the study's per-volume analysis, on DFPT force constants
+    try:
+        T, pv = tfs.per_volume(d, q)
+    finally:
+        tfs.phonopy_at = orig
+    r = tfs.qha_alpha(d, pv, T, tfs.BASE_SCALES, q, [500, 800], mode="clean")
+    g = tfs.gruneisen(d, pv)
+    return dict(material="Si", route="DFPT 4x4x4 q, full QHA (9 volumes)", alpha300=r["alpha300"],
+                alpha_window_500_800=r["alpha_win"], KT300_GPa=r.get("KT300"), K0_static_GPa=r.get("K0"),
+                V300=r.get("V300"), volumes_used=" ".join(map(str, r.get("volumes_used", []))),
+                inside_scan=r.get("inside"), gamma=g["gamma"], cv_kB_per_atom=g["cv_kB_per_atom"])
+
+
 def cmd_analyze(a):
     q = tfs.cfg_qha()
     (OUT / "phonons").mkdir(parents=True, exist_ok=True)
@@ -224,6 +251,9 @@ def cmd_analyze(a):
         r = dfpt_row(a.work, mid, sub, q)
         if r:
             rows.append(r)
+    r = si_dfpt_qha(a.work, q)
+    if r:
+        rows.append(r)
     if not rows:
         print("no finished QE outputs found")
         return
