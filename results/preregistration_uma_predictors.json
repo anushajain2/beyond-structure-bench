@@ -1,0 +1,131 @@
+{
+ "note": "Frozen 2026-10-24 before any UMA result existed: per-material spread (population SD of ln(1+err/100)) of MACE-MPA-0, MatterSim v1 and Orb v3 at 300 K, from results/thermal_expansion.csv at commit d55e385.",
+ "materials": {
+  "Al2O3": {
+   "spread_3model_log": 0.0046,
+   "mace-mpa-0": -0.931,
+   "mattersim-5m-native": -2.037,
+   "orb-v3": -1.567
+  },
+  "AlN": {
+   "spread_3model_log": 0.01547,
+   "mace-mpa-0": 24.188,
+   "mattersim-5m-native": 28.771,
+   "orb-v3": 27.679
+  },
+  "Co": {
+   "spread_3model_log": 0.40815,
+   "mace-mpa-0": 30.664,
+   "mattersim-5m-native": -51.913,
+   "orb-v3": -19.611
+  },
+  "CoSi2": {
+   "spread_3model_log": 0.14431,
+   "mace-mpa-0": -12.611,
+   "mattersim-5m-native": 23.542,
+   "orb-v3": -2.325
+  },
+  "Cu": {
+   "spread_3model_log": 0.03788,
+   "mace-mpa-0": 3.962,
+   "mattersim-5m-native": -1.196,
+   "orb-v3": 8.393
+  },
+  "GaAs": {
+   "spread_3model_log": 0.21368,
+   "mace-mpa-0": 111.23,
+   "mattersim-5m-native": 68.209,
+   "orb-v3": 25.331
+  },
+  "GaN": {
+   "spread_3model_log": 0.10159,
+   "mace-mpa-0": -7.035,
+   "mattersim-5m-native": 11.05,
+   "orb-v3": 18.146
+  },
+  "Ge": {
+   "spread_3model_log": 0.04258,
+   "mace-mpa-0": 37.07,
+   "mattersim-5m-native": 46.835,
+   "orb-v3": 51.833
+  },
+  "MgO": {
+   "spread_3model_log": 0.01181,
+   "mace-mpa-0": 19.536,
+   "mattersim-5m-native": 18.469,
+   "orb-v3": 21.869
+  },
+  "Mo": {
+   "spread_3model_log": 0.3114,
+   "mace-mpa-0": 96.872,
+   "mattersim-5m-native": -8.129,
+   "orb-v3": 38.035
+  },
+  "Ru": {
+   "spread_3model_log": 0.14677,
+   "mace-mpa-0": 51.986,
+   "mattersim-5m-native": 6.117,
+   "orb-v3": 28.55
+  },
+  "Si": {
+   "spread_3model_log": 0.29962,
+   "mace-mpa-0": -1.165,
+   "mattersim-5m-native": 84.648,
+   "orb-v3": -3.187
+  },
+  "SiC": {
+   "spread_3model_log": 0.01881,
+   "mace-mpa-0": -16.899,
+   "mattersim-5m-native": -20.526,
+   "orb-v3": -17.92
+  },
+  "SiO2_quartz": {
+   "spread_3model_log": 0.13275,
+   "mace-mpa-0": 6.74,
+   "mattersim-5m-native": -21.949,
+   "orb-v3": -15.421
+  },
+  "Ta": {
+   "spread_3model_log": 0.48293,
+   "mace-mpa-0": 178.72,
+   "mattersim-5m-native": -14.186,
+   "orb-v3": 69.778
+  },
+  "Ti": {
+   "spread_3model_log": 0.34229,
+   "mace-mpa-0": -31.299,
+   "mattersim-5m-native": 55.377,
+   "orb-v3": 22.036
+  },
+  "TiN": {
+   "spread_3model_log": 0.09346,
+   "mace-mpa-0": 39.276,
+   "mattersim-5m-native": 14.128,
+   "orb-v3": 14.331
+  },
+  "TiSi2": {
+   "spread_3model_log": 0.04348,
+   "mace-mpa-0": -2.909,
+   "mattersim-5m-native": -5.581,
+   "orb-v3": -12.408
+  },
+  "W": {
+   "spread_3model_log": 0.20722,
+   "mace-mpa-0": 48.415,
+   "mattersim-5m-native": -10.43,
+   "orb-v3": 20.523
+  },
+  "WSi2": {
+   "spread_3model_log": 0.17202,
+   "mace-mpa-0": -39.971,
+   "mattersim-5m-native": -18.193,
+   "orb-v3": -10.236
+  },
+  "Y2O3": {
+   "spread_3model_log": 0.02566,
+   "mace-mpa-0": 5.809,
+   "mattersim-5m-native": 12.669,
+   "orb-v3": 8.963
+  }
+ }
+}
