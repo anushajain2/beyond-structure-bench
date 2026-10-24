@@ -73,7 +73,7 @@ def _code_objects(step: str, backend: str) -> list:
         fcall = [ase_engine.AseEngine.forces] if ase_backend else [engine.Engine.forces, engine.Engine._md_state,
                                                                     engine.Engine._md_step_fn, engine.Engine._advance]
         return relax + stress + fcall + [axial.run_axial, axial._strained, axial._phonon_free_energy,
-                                         axial._spacegroup, "DELTA", repr(axial.DELTA), qha._forces_batched,
+                                         axial._spacegroup, axial._unique_axis_to_z, "DELTA", repr(axial.DELTA), qha._forces_batched,
                                          qha._supercell_reps, qha._make_phonopy, qha._symmetrized,
                                          runner.run_axial_qha]
     if step.startswith("thermal"):

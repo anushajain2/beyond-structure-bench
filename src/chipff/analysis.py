@@ -448,12 +448,13 @@ def build_tables(tag: str = "thermal_qha") -> dict:
     tm = trust_map(lat, bulk, therm)
     chk = checks_table(lat, bulk, therm)
     cov = coverage_table(lat, bulk, therm)
-    from chipff.metrics import compensation_check, mismatch_summary, thermal_metrics, thermal_mismatch
+    from chipff.metrics import axial_table, compensation_check, mismatch_summary, thermal_metrics, thermal_mismatch
 
     tmet = thermal_metrics(therm) if not therm.empty else pd.DataFrame()
     comp = compensation_check(tmet)
     mism = thermal_mismatch(therm) if not therm.empty else pd.DataFrame()
     msum = mismatch_summary(mism)
+    axial = axial_table(therm) if not therm.empty else pd.DataFrame()
     from chipff.guidance import guidance_markdown, model_guidance
 
     guide = model_guidance(lat, bulk, therm, config()["thresholds"], MODEL_FAILURES)
@@ -461,7 +462,8 @@ def build_tables(tag: str = "thermal_qha") -> dict:
         guide, {k: m.label.split(" (")[0].split(",")[0] for k, m in MODELS.items()}, CLASS_LABELS))
     for name, df in (("lattice", lat), ("bulk_modulus", bulk), ("thermal_expansion", therm), ("trust_map", tm),
                      ("checks", chk), ("coverage", cov), ("thermal_metrics", tmet), ("thermal_mismatch", mism),
-                     ("thermal_mismatch_summary", msum), ("model_guidance", guide)):
+                     ("thermal_mismatch_summary", msum), ("model_guidance", guide),
+                     ("thermal_axial", axial)):
         df.to_csv(OUT / f"{name}.csv", index=False, float_format="%.5g")
     summary = {
         "thresholds": config()["thresholds"],

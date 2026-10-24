@@ -44,6 +44,28 @@ def _strained(atoms: Atoms, mode: str, sign: int) -> Atoms:
     return a
 
 
+def _unique_axis_to_z(atoms: Atoms, symprec: float = 1e-3) -> Atoms:
+    """Rotate the crystal so its highest-order rotation axis (3-, 4- or 6-fold) lies along z. Rhombohedral primitive
+    cells (sapphire) otherwise have the three-fold axis off z, and in-plane strain in xy breaks their symmetry."""
+    import spglib
+
+    L = np.asarray(atoms.cell)
+    ops = spglib.get_symmetry((L, atoms.get_scaled_positions(), atoms.numbers), symprec=symprec)["rotations"]
+    best, order = None, 2
+    for R in ops:
+        if round(np.linalg.det(R)) != 1:
+            continue
+        Rc = L.T @ R @ np.linalg.inv(L.T)                               # Cartesian rotation
+        n = next((k for k in range(1, 7) if np.allclose(np.linalg.matrix_power(Rc, k), np.eye(3), atol=1e-6)), 0)
+        if n > order:
+            w, v = np.linalg.eig(Rc)
+            best, order = np.real(v[:, np.argmin(np.abs(w - 1))]), n
+    a = atoms.copy()
+    if best is not None and abs(abs(best[2]) - np.linalg.norm(best)) > 1e-6:
+        a.rotate(best / np.linalg.norm(best), "z", rotate_cell=True)
+    return a
+
+
 def _spacegroup(atoms: Atoms, symprec: float = 1e-3) -> int:
     import spglib
 
@@ -81,7 +103,7 @@ def run_axial(engine, material, model_key: str, relaxed: Atoms, cfg: dict) -> di
 
     q = cfg
     t_max = float(q["t_max_K"])
-    a0 = _symmetrized(relaxed)
+    a0 = _unique_axis_to_z(_symmetrized(relaxed))
     cell = np.asarray(a0.cell)
     # the strain modes assume the unique axis along z: in-plane biaxial strain must keep the symmetry
     sg0 = _spacegroup(a0)

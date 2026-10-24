@@ -57,6 +57,38 @@ def _model_curve(model: str, mid: str, tag: str = "thermal_qha"):
     return np.asarray(r["curve_T"], float), np.asarray(r["curve_alpha_V_1e6"], float)
 
 
+def _exp_axis_curve(mid: str, axis: str):
+    """Measured linear alpha along one crystal axis (1e-6/K), or None."""
+    from chipff.analysis import _expand_ranges
+
+    te = experimental().get(mid, {}).get("thermal_expansion") or {}
+    d = {float(v["T_K"]): float(v["alpha_1e-6_per_K"]) for v in _expand_ranges(te.get("values") or [])
+         if v.get("axis") == axis and v.get("T_K") is not None and v.get("alpha_1e-6_per_K") is not None}
+    if len(d) < 2:
+        return None
+    T = sorted(d)
+    return np.asarray(T, float), np.asarray([d[t] for t in T], float)
+
+
+def _model_axial_curve(model: str, mid: str, axis: str = "a"):
+    """A model's linear alpha along a or c from the axial run (chipff.axial), if it passed every check."""
+    from chipff.provenance import check
+
+    r = load_raw(model, "axial_qha").get(mid)
+    if not r or not all(r.get("checks", {}).values()) or check("axial_qha", model, mid, r):
+        return None
+    return np.asarray(r["curve_T"], float), np.asarray(r[f"curve_alpha_{axis}_1e6"], float)
+
+
+def _biaxial_modulus(K, G):
+    """Polycrystalline biaxial modulus E/(1 - nu) in GPa from bulk and shear moduli."""
+    if K is None or G is None or not (K > 0 and G > 0):
+        return None
+    E = 9 * K * G / (3 * K + G)
+    nu = (3 * K - 2 * G) / (2 * (3 * K + G))
+    return E / (1 - nu)
+
+
 def _at(curve, T):
     Tc, a = curve
     return float(np.interp(T, Tc, a)) if Tc.min() - 1e-6 <= T <= Tc.max() + 1e-6 else None
@@ -104,14 +136,35 @@ def compensation_check(metrics: pd.DataFrame, good: float = 20.0) -> pd.DataFram
 
 
 def thermal_mismatch(therm: pd.DataFrame) -> pd.DataFrame:
-    """Free expansion mismatch for MISMATCH_PAIRS, from each graded model's alpha(T) and from experiment."""
+    """Free expansion mismatch for MISMATCH_PAIRS, from each graded model's alpha(T) and from experiment, and the
+    thermal stress it implies in the film.
+
+    The film's linear expansion is its in-plane alpha_a where the film is uniaxial and both the model's axial run and
+    an axis-resolved measurement exist (GaN, AlN, Ru, Al2O3: chipff.axial); otherwise alpha_V/3. The stress is
+    sigma = -M_f x mismatch (tensile positive), with M_f = E/(1 - nu) the film's polycrystalline biaxial modulus:
+    the model's own (VRH K and G) for the model, Materials Project DFT for the reference (measured shear moduli are
+    not curated here), so the reference stress mixes measured mismatch with DFT stiffness."""
+    from chipff.axial import AXIAL_MATERIALS
+    from chipff.materials import mp_record
+
     rows = []
     usable = therm[~therm["pending"].astype(bool)] if "pending" in therm else therm
     bad = {(r.model, r.material) for _, r in usable.iterrows() if isinstance(r.get("excluded"), str) and r.excluded}
     models = sorted(usable["model"].unique())
     grid_step = 10.0
+
+    def lin(c):
+        return None if c is None else (c[0], c[1] / 3)
+
+    def moduli(mk, mid):
+        el = load_raw(mk, "elastic").get(mid) or {}
+        return _biaxial_modulus(el.get("K_vrh_GPa"), el.get("G_vrh_GPa"))
+
     for m1, m2 in MISMATCH_PAIRS:
-        e1, e2 = _exp_curve(m1), _exp_curve(m2)
+        e2 = lin(_exp_curve(m2))
+        ea1 = _exp_axis_curve(m1, "a") if m1 in AXIAL_MATERIALS else None
+        dft = (mp_record(m1) or {}).get("dft_elastic") or {}
+        m_ref = _biaxial_modulus(dft.get("K_vrh_GPa"), dft.get("G_vrh_GPa"))
         for T in MISMATCH_T:
             grid = np.arange(300.0, T + grid_step / 2, grid_step)
 
@@ -120,19 +173,30 @@ def thermal_mismatch(therm: pd.DataFrame) -> pd.DataFrame:
                     return None
                 if grid[-1] > min(c1[0].max(), c2[0].max()) or grid[0] < max(c1[0].min(), c2[0].min()) - 10:
                     return None
-                d = (np.interp(grid, *c1) - np.interp(grid, *c2)) / 3
-                return float(np.trapezoid(d, grid))   # 1e-6 x K -> microstrain
+                return float(np.trapezoid(np.interp(grid, *c1) - np.interp(grid, *c2), grid))  # microstrain
 
-            ref = eps(e1, e2)
             for mk in models:
                 if (mk, m1) in bad or (mk, m2) in bad:
                     continue
-                mod = eps(_model_curve(mk, m1), _model_curve(mk, m2))
+                ma1 = _model_axial_curve(mk, m1, "a") if ea1 is not None else None
+                inplane = ma1 is not None and eps(ea1, e2) is not None
+                c_exp = ea1 if inplane else lin(_exp_curve(m1))
+                c_mod = ma1 if inplane else lin(_model_curve(mk, m1))
+                ref = eps(c_exp, e2)
+                mod = eps(c_mod, lin(_model_curve(mk, m2)))
                 if mod is None:
                     continue
-                rows.append({"pair": f"{m1} on {m2}", "T_K": T, "model": mk, "mismatch_model_ue": mod,
-                             "mismatch_exp_ue": ref, "err_ue": None if ref is None else mod - ref,
-                             "err_pct": None if not ref else 100 * (mod / ref - 1)})
+                m_mod = moduli(mk, m1)
+                s_mod = None if m_mod is None else -m_mod * mod * 1e-3      # GPa x microstrain -> MPa
+                s_ref = None if (m_ref is None or ref is None) else -m_ref * ref * 1e-3
+                rows.append({"pair": f"{m1} on {m2}", "T_K": T, "model": mk,
+                             "film_expansion": "in-plane (a axis)" if inplane else "alpha_V / 3",
+                             "mismatch_model_ue": mod, "mismatch_exp_ue": ref,
+                             "err_ue": None if ref is None else mod - ref,
+                             "err_pct": None if not ref else 100 * (mod / ref - 1),
+                             "biaxial_modulus_model_GPa": m_mod, "biaxial_modulus_ref_GPa": m_ref,
+                             "stress_model_MPa": s_mod, "stress_ref_MPa": s_ref,
+                             "stress_err_MPa": None if (s_mod is None or s_ref is None) else s_mod - s_ref})
     return pd.DataFrame(rows)
 
 
@@ -148,5 +212,46 @@ def mismatch_summary(mism: pd.DataFrame) -> pd.DataFrame:
                      "sign_right": int((np.sign(g["mismatch_model_ue"]) == np.sign(g["mismatch_exp_ue"])).sum()),
                      "within_25pct": int((g["err_pct"].abs() <= 25).sum()),
                      "median_abs_err_ue": float(g["err_ue"].abs().median()),
-                     "median_abs_err_pct": float(g["err_pct"].abs().median())})
+                     "median_abs_err_pct": float(g["err_pct"].abs().median()),
+                     "median_abs_stress_err_MPa": float(g["stress_err_MPa"].abs().median())
+                     if "stress_err_MPa" in g and g["stress_err_MPa"].notna().any() else None})
+    return pd.DataFrame(rows)
+
+
+def axial_table(therm: pd.DataFrame) -> pd.DataFrame:
+    """Axial (a, c) expansion of the uniaxial materials against axis-resolved experiment, at 300 K and over the
+    material's window, with the check that 2 alpha_a + alpha_c reproduces the full QHA's alpha_V."""
+    from chipff.axial import AXIAL_MATERIALS
+    from chipff.provenance import check
+
+    rows = []
+    for mk in sorted(therm["model"].unique()):
+        raw = load_raw(mk, "axial_qha")
+        for mid in AXIAL_MATERIALS:
+            r = raw.get(mid)
+            if not r:
+                continue
+            tr = therm[(therm["model"] == mk) & (therm["material"] == mid)]
+            lo, hi = (float(tr["T_low"].iloc[0]), float(tr["T_high"].iloc[0])) if len(tr) else (300.0, 300.0)
+            prov = check("axial_qha", mk, mid, r)
+            failed = [k for k, v in r.get("checks", {}).items() if not v]
+            excluded = ("stale: " + prov) if prov else ("failed: " + ", ".join(failed)) if failed else None
+            row = {"model": mk, "material": mid, "T_low": lo, "T_high": hi, "excluded": excluded,
+                   "alpha_V_axial_300K": r["alpha_V_300K_1e6"],
+                   "alpha_V_qha_300K": float(tr["alpha_V_300K"].iloc[0]) if len(tr) else None}
+            row["axial_vs_qha_pct"] = (100 * (row["alpha_V_axial_300K"] / row["alpha_V_qha_300K"] - 1)
+                                       if row["alpha_V_qha_300K"] else None)
+            for ax in ("a", "c"):
+                mc = (np.asarray(r["curve_T"], float), np.asarray(r[f"curve_alpha_{ax}_1e6"], float))
+                ec = _exp_axis_curve(mid, ax)
+                m300, e300 = _at(mc, 300.0), (_at(ec, 300.0) if ec is not None else None)
+                win = np.linspace(lo, hi, 20)
+                mw = float(np.mean(np.interp(win, *mc)))
+                ew = (float(np.mean(np.interp(win, *ec))) if ec is not None and ec[0].min() <= lo + 50
+                      and ec[0].max() >= hi - 50 else None)
+                row.update({f"alpha_{ax}_300K": m300, f"alpha_{ax}_300K_exp": e300,
+                            f"err_{ax}_300K_pct": None if (excluded or not e300) else 100 * (m300 / e300 - 1),
+                            f"alpha_{ax}_window": mw, f"alpha_{ax}_window_exp": ew,
+                            f"err_{ax}_window_pct": None if (excluded or not ew) else 100 * (mw / ew - 1)})
+            rows.append(row)
     return pd.DataFrame(rows)
