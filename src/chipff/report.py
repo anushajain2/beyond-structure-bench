@@ -17,7 +17,8 @@ from chipff.models import MODELS  # noqa: E402
 
 REPORT = ROOT / "report"
 FIG = REPORT / "figures"
-MARKERS = {"mace-mpa-0": "o", "orb-v3": "s", "mattersim-5m": "^", "mattersim-5m-native": "^", "uma-s-1p2": "D"}
+MARKERS = {"mace-mpa-0": "o", "orb-v3": "s", "mattersim-5m": "^", "mattersim-5m-native": "^", "uma-s-1p2": "D",
+           "uma-s-1p2p1": "v", "uma-s-1p2p1-r2scan": "P"}
 
 
 def short(m: str) -> str:

@@ -20,61 +20,61 @@ check a model on the property you need before relying on it.
 
 ## Barriers & silicides
 
-| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 |
-|---|---|---|---|---|
-| CoSi2 | reliable | usable | reliable | reliable |
-| NiSi | usable | **avoid**: expansion over the window +49 % | usable | usable |
-| TaN | **avoid**: dynamically unstable | usable | reliable | reliable |
-| TiN | usable | reliable | reliable | reliable |
-| TiSi2 | reliable | usable | reliable | reliable |
-| WSi2 | usable | reliable | reliable | reliable |
+| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 | UMA small 1.2.1 | UMA small 1.2.1 |
+|---|---|---|---|---|---|---|
+| CoSi2 | reliable | usable | reliable | reliable | reliable | usable |
+| NiSi | usable | **avoid**: expansion over the window +49 % | usable | usable | usable | reliable |
+| TaN | **avoid**: dynamically unstable | usable | reliable | reliable | reliable | reliable |
+| TiN | usable | reliable | reliable | reliable | reliable | reliable |
+| TiSi2 | reliable | usable | reliable | reliable | reliable | usable |
+| WSi2 | usable | reliable | reliable | reliable | reliable | reliable |
 
 ## Insulators & dielectrics
 
-| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 |
-|---|---|---|---|---|
-| Al2O3 | reliable | reliable | usable | usable |
-| HfO2 | reliable | usable | reliable | reliable |
-| MgO | usable | usable | usable | usable |
-| Si3N4_beta | **avoid**: expansion over the window +82 % | usable | usable | reliable |
-| SiO2_quartz | **avoid**: expansion over the window -49 % | **avoid**: bulk modulus -51 %, expansion over the window -70 % | **avoid**: bulk modulus -25 %, expansion over the window -64 % | **avoid**: expansion over the window -62 % |
-| SrTiO3 | **avoid**: dynamically unstable | **avoid**: dynamically unstable | **avoid**: relaxed to a different crystal form | **avoid**: dynamically unstable |
-| TiO2_rutile | **avoid**: dynamically unstable | **avoid**: dynamically unstable | **avoid**: relaxed to a different crystal form, dynamically unstable | **avoid**: dynamically unstable |
-| Y2O3 | usable | usable | usable | usable |
-| ZrO2 | usable; heat untested | usable; heat untested | usable; heat untested | usable; heat untested |
+| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 | UMA small 1.2.1 | UMA small 1.2.1 |
+|---|---|---|---|---|---|---|
+| Al2O3 | reliable | reliable | usable | usable | usable | reliable |
+| HfO2 | reliable | usable | reliable | reliable | usable | reliable |
+| MgO | usable | usable | usable | usable | usable | reliable |
+| Si3N4_beta | **avoid**: expansion at 300 K +121 %, expansion over the window +80 % | usable | usable | reliable | reliable | reliable |
+| SiO2_quartz | **avoid**: expansion over the window -49 % | **avoid**: bulk modulus -51 %, expansion over the window -70 % | **avoid**: bulk modulus -25 %, expansion over the window -64 % | **avoid**: expansion over the window -62 % | **avoid**: expansion over the window -60 % | usable |
+| SrTiO3 | **avoid**: dynamically unstable | **avoid**: dynamically unstable | **avoid**: relaxed to a different crystal form | **avoid**: dynamically unstable | **avoid**: dynamically unstable | **avoid**: dynamically unstable |
+| TiO2_rutile | **avoid**: dynamically unstable | **avoid**: dynamically unstable | **avoid**: relaxed to a different crystal form, dynamically unstable | **avoid**: dynamically unstable | **avoid**: dynamically unstable | reliable; heat untested |
+| Y2O3 | usable | usable | usable | usable | usable | reliable |
+| ZrO2 | usable | usable | usable | usable | usable | usable |
 
 ## Layered (2D) materials
 
-| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 |
-|---|---|---|---|---|
-| MoS2 | **avoid**: lattice +4 %, bulk modulus -69 %; heat untested | **avoid**: elastic tensor not positive definite | **avoid**: relaxed to a different crystal form | **avoid**: lattice +8 %, bulk modulus -97 %; heat untested |
-| graphite | **avoid**: lattice +6 %, bulk modulus +129 %; heat untested | **avoid**: lattice +8 %, bulk modulus -63 %; heat untested | **avoid**: lattice +9 %, bulk modulus -87 %; heat untested | **avoid**: lattice +12 %, bulk modulus -40 %; heat untested |
-| hBN | **avoid**: elastic tensor not positive definite | **avoid**: lattice +8 %, bulk modulus -73 %; heat untested | **avoid**: lattice +6 %, bulk modulus -71 %; heat untested | **avoid**: lattice +9 %, bulk modulus -76 %; heat untested |
+| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 | UMA small 1.2.1 | UMA small 1.2.1 |
+|---|---|---|---|---|---|---|
+| MoS2 | **avoid**: lattice +4 %, bulk modulus -69 %; heat untested | **avoid**: elastic tensor not positive definite | **avoid**: relaxed to a different crystal form | **avoid**: lattice +8 %, bulk modulus -97 %; heat untested | **avoid**: elastic tensor not positive definite | **avoid**: elastic tensor not positive definite |
+| graphite | **avoid**: lattice +6 %, bulk modulus +129 %; heat untested | **avoid**: lattice +8 %, bulk modulus -63 %; heat untested | **avoid**: lattice +9 %, bulk modulus -87 %; heat untested | **avoid**: lattice +12 %, bulk modulus -40 %; heat untested | **avoid**: lattice +10 %, bulk modulus -75 %; heat untested | **avoid**: elastic tensor not positive definite |
+| hBN | **avoid**: elastic tensor not positive definite | **avoid**: lattice +8 %, bulk modulus -73 %; heat untested | **avoid**: lattice +6 %, bulk modulus -71 %; heat untested | **avoid**: lattice +9 %, bulk modulus -76 %; heat untested | **avoid**: lattice +7 %, bulk modulus -61 %; heat untested | **avoid**: bulk modulus -37 %; heat untested |
 
 ## Wiring & contact metals
 
-| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 |
-|---|---|---|---|---|
-| Al | usable | reliable | reliable; heat untested | **avoid**: bulk modulus +36 % |
-| Co | usable | **avoid**: bulk modulus -42 %, expansion at 300 K -52 % | reliable | **avoid**: bulk modulus +33 % |
-| Cu | reliable | reliable | reliable | reliable |
-| Mo | **avoid**: expansion at 300 K +97 %, expansion over the window +99 % | usable | usable | reliable |
-| Ru | **avoid**: expansion at 300 K +52 % | usable | usable | reliable |
-| Ta | **avoid**: expansion at 300 K +179 % | reliable | **avoid**: expansion at 300 K +70 % | **avoid**: expansion at 300 K +45 % |
-| Ti | **avoid**: bulk modulus +35 %, expansion over the window -49 % | **avoid**: elastic tensor not positive definite | usable | **avoid**: bulk modulus +27 % |
-| W | **avoid**: expansion at 300 K +48 % | usable | usable | reliable |
+| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 | UMA small 1.2.1 | UMA small 1.2.1 |
+|---|---|---|---|---|---|---|
+| Al | usable | reliable | reliable; heat untested | **avoid**: bulk modulus +36 % | usable | usable |
+| Co | usable | **avoid**: bulk modulus -42 %, expansion at 300 K -52 % | reliable | **avoid**: bulk modulus +33 % | usable | **avoid**: lattice -4 %, bulk modulus +45 % |
+| Cu | reliable | reliable | reliable | reliable | reliable | usable |
+| Mo | **avoid**: expansion at 300 K +97 %, expansion over the window +99 % | usable | usable | reliable | reliable | reliable |
+| Ru | **avoid**: expansion at 300 K +52 % | usable | usable | reliable | usable | **avoid**: expansion over the window -45 % |
+| Ta | **avoid**: expansion at 300 K +179 % | reliable | **avoid**: expansion at 300 K +70 % | **avoid**: expansion at 300 K +45 % | **avoid**: expansion at 300 K +61 % | reliable |
+| Ti | **avoid**: bulk modulus +35 %, expansion over the window -49 % | **avoid**: elastic tensor not positive definite | usable | **avoid**: bulk modulus +27 % | usable | usable |
+| W | **avoid**: expansion at 300 K +48 % | usable | usable | reliable | reliable | reliable |
 
 ## Semiconductors
 
-| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 |
-|---|---|---|---|---|
-| AlN | usable | usable | usable | usable |
-| GaAs | **avoid**: expansion at 300 K +111 %, expansion over the window +94 % | **avoid**: bulk modulus -26 %, expansion at 300 K +68 %, expansion over the window +64 % | usable | **avoid**: expansion at 300 K +54 %, expansion over the window +48 % |
-| GaN | **avoid**: bulk modulus -26 % | usable | usable | usable |
-| Ge | usable | **avoid**: expansion at 300 K +47 %, expansion over the window +45 % | **avoid**: expansion at 300 K +52 %, expansion over the window +50 % | **avoid**: expansion at 300 K +54 %, expansion over the window +54 % |
-| InP | usable | **avoid**: expansion over the window +129 % | **avoid**: expansion over the window +73 % | **avoid**: expansion over the window +68 % |
-| Si | usable | **avoid**: expansion at 300 K +85 %, expansion over the window +70 % | usable | usable |
-| SiC | usable | usable | usable | usable |
+| material | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA small 1.2 | UMA small 1.2.1 | UMA small 1.2.1 |
+|---|---|---|---|---|---|---|
+| AlN | usable | usable | usable | usable | usable | reliable |
+| GaAs | **avoid**: expansion at 300 K +111 %, expansion over the window +94 % | **avoid**: bulk modulus -26 %, expansion at 300 K +68 %, expansion over the window +64 % | usable | **avoid**: expansion at 300 K +54 %, expansion over the window +48 % | **avoid**: expansion at 300 K +43 % | usable |
+| GaN | **avoid**: bulk modulus -26 % | usable | usable | usable | usable | reliable |
+| Ge | usable | **avoid**: expansion at 300 K +47 %, expansion over the window +45 % | **avoid**: expansion at 300 K +52 %, expansion over the window +50 % | **avoid**: expansion at 300 K +54 %, expansion over the window +54 % | usable | reliable |
+| InP | usable | **avoid**: expansion over the window +129 % | **avoid**: expansion over the window +73 % | **avoid**: expansion over the window +68 % | **avoid**: expansion over the window +85 % | reliable |
+| Si | usable | **avoid**: expansion at 300 K +85 %, expansion over the window +70 % | usable | usable | reliable | reliable |
+| SiC | usable | usable | usable | usable | usable | usable |
 
 ## Summary
 
@@ -84,3 +84,5 @@ check a model on the property you need before relying on it.
 | MatterSim v1 | 6 reliable, 14 usable, 13 avoid |
 | Orb v3 | 9 reliable, 15 usable, 9 avoid |
 | UMA small 1.2 | 11 reliable, 9 usable, 13 avoid |
+| UMA small 1.2.1 | 10 reliable, 14 usable, 9 avoid |
+| UMA small 1.2.1 | 18 reliable, 9 usable, 6 avoid |

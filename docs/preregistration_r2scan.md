@@ -63,4 +63,59 @@ change from UMA s-1.2 to s-1.2.1 (PBE).
 
 ## Results (added after the run)
 
-*Not yet run.*
+Written 2026-10-25; the registered part above is unchanged. Output of `scripts/prereg_r2scan_eval.py` is in
+`results/preregistration_r2scan.json`.
+
+**The run.** Both models finished static, QHA and axial runs for all 33 materials. Every record is current, and no
+memory watchdog fired. The QHA took about 6 h instead of 1 h because the matched-DFT session's calculations were
+sharing the CPU.
+
+### Verdicts
+
+| | prediction | PBE model | r2SCAN model | verdict |
+|---|---|---|---|---|
+| **R1** | semiconductors stiffen | mean signed bulk-modulus error −15.1 % | −5.2 % (+9.9 pp) | **supported** |
+| **R2** | semiconductor expansion improves | mean abs. log error 0.225 | 0.155 (−31 %) | **supported** |
+| **R3** | tantalum's overshoot survives | +61 % at 300 K | **+6.8 %** | **refuted** |
+| **R4** | lattices shrink toward experiment | mean signed +0.61 % | −0.31 % (−0.92 pp) | **supported** |
+
+R2 is computed over AlN, GaAs, GaN, Ge, Si and SiC; InP has no 300 K reference.
+
+### What it means
+
+* **The inherited errors are fixed by better training physics, as predicted.** The too-soft semiconductors, PBE's
+  oversized lattices, and with them the semiconductors' expansion, all move toward experiment.
+* **Tantalum's overshoot was fixed too, against the prediction.** The matched-PBE comparison had attributed it to the
+  models rather than PBE, so R3 predicted it would survive. Two explanations remain, and this test cannot tell them
+  apart:
+  * the fine-tune changed more than the labels: its training structures may sample stretched and vibrating crystals
+    more densely, which is the fix the study's diagnosis points to;
+  * or some of Ta's error does trace to the PBE labels after all.
+* **Caveat on Ta:** the r2SCAN model's Ta run fails the interpolation check. 2.1–2.4 % of interpolated modes are
+  imaginary at the expanded volumes, against the 2 % limit; every mode at the commensurate q-points is stable. So its
+  window value is excluded, and the 300 K value is graded under the benchmark's rules. Elsewhere in this benchmark, this
+  kind of artefact moves α by up to about 6 %, far less than the change from +61 % to +7 %. Mode softening on expansion
+  could still contribute to the improvement.
+
+### Descriptive
+
+Mean absolute error on the materials both models are graded on:
+
+| | PBE (s-1.2.1) | r2SCAN fine-tune |
+|---|---|---|
+| lattice constant (30) | 0.72 % | 0.44 % |
+| bulk modulus (28) | 11.7 % | 9.2 % |
+| thermal expansion, 300 K (23) | 17.5 % | 13.5 % |
+| thermal expansion, window (19) | 22.4 % | 14.3 % |
+
+* **Benchmark-wide:** the r2SCAN model has the lowest mean error on every property of all six models. Its thermal
+  expansion is significantly better than MACE-MPA-0's and MatterSim's (paired bootstrap), but not separable from the
+  other UMA versions or Orb.
+* **Model guidance:** it is "reliable" for 18 of 33 materials, against 9–11 for the others.
+* **UMA s-1.2 against s-1.2.1 (both PBE):** similar on average (300 K: 18.8 % vs 17.5 %), but they differ on single
+  materials. On ruthenium on silicon, the newer release even reverses the sign of the in-plane mismatch. A model's
+  release version matters at the level of individual materials.
+
+### Deviations
+
+None from the registered analysis. The Ta caveat above follows from the benchmark's existing rules, applied unchanged.

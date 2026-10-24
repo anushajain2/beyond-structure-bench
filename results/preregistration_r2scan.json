@@ -1,0 +1,58 @@
+{
+ "R1": {
+  "n": 7,
+  "mean_signed_pbe": -15.122942857142858,
+  "mean_signed_r2scan": -5.242135714285714,
+  "shift_pp": 9.880807142857144,
+  "verdict": "supported"
+ },
+ "R2": {
+  "n": 6,
+  "materials": [
+   "AlN",
+   "GaAs",
+   "GaN",
+   "Ge",
+   "Si",
+   "SiC"
+  ],
+  "mean_abs_log_err_pbe": 0.22539917050587377,
+  "mean_abs_log_err_r2scan": 0.15490326516954764,
+  "relative_change": -0.3127602696057351,
+  "verdict": "supported"
+ },
+ "R3": {
+  "err_300K_pct_r2scan": 6.8451,
+  "err_300K_pct_pbe": 61.064,
+  "verdict": "refuted"
+ },
+ "R4": {
+  "n": 30,
+  "mean_signed_pbe": 0.6065534100000001,
+  "mean_signed_r2scan": -0.3096843333333334,
+  "shift_pp": -0.9162377433333335,
+  "verdict": "supported"
+ },
+ "descriptive": {
+  "lattice": {
+   "n": 30,
+   "mae_pbe": 0.7166860766666666,
+   "mae_r2scan": 0.44439826666666665
+  },
+  "bulk_modulus": {
+   "n": 28,
+   "mae_pbe": 11.733710714285715,
+   "mae_r2scan": 9.246838928571426
+  },
+  "thermal_300K": {
+   "n": 23,
+   "mae_pbe": 17.47058826086957,
+   "mae_r2scan": 13.45772304347826
+  },
+  "thermal_window": {
+   "n": 19,
+   "mae_pbe": 22.40073684210526,
+   "mae_r2scan": 14.284448947368423
+  }
+ }
+}
