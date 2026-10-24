@@ -5,10 +5,12 @@ backticks are relative to the repository root unless they name a file in this fo
 
 ## Findings in detail
 
-Status: all four models (MACE-MPA-0, Orb v3, MatterSim v1, UMA s-1.2) are complete for every property. Orb v3's thermal
-expansion and UMA were added on 2026-10-24, after v1.1.0, each as a pre-registered test
-([`preregistration_orb_thermal.md`](preregistration_orb_thermal.md), [`preregistration_uma.md`](preregistration_uma.md)).
-The numbered findings below were written for the first three models; where UMA changes one, it says so.
+Status: six models are complete for every property: MACE-MPA-0, Orb v3, MatterSim v1, UMA s-1.2, and UMA s-1.2.1
+trained on PBE and fine-tuned to r2SCAN. Orb v3's thermal expansion and the UMA models were added on 2026-10-24/25,
+after v1.1.0, each as a pre-registered test ([`preregistration_orb_thermal.md`](preregistration_orb_thermal.md),
+[`preregistration_uma.md`](preregistration_uma.md), [`preregistration_r2scan.md`](preregistration_r2scan.md)). The
+numbered findings below were written for the first three models; the thermal table and the paragraphs after it cover
+all six.
 
 1. **Lattice constants of non-layered chip materials are accurate to under 1 % on average.** The
    effective linear error of all four models is 0.72–0.80 % against experiment across the 30
@@ -73,32 +75,56 @@ The numbered findings below were written for the first three models; where UMA c
    dynamically unstable in both models and are excluded, as are a few results where QHA itself breaks
    down at high temperature (`results/thermal_expansion.csv` gives the reason for each).
 
-| Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 | UMA s-1.2* |
-|---|---|---|---|---|
-| mean abs. error at 300 K (95 % CI) | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | 20.9 % (15–31), n = 21 | 18.9 % (14–29), n = 22 |
-| mean abs. error over the window (95 % CI) | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | 24.6 % (17–38), n = 17 | 24.5 % (17–37), n = 18 |
-| within 20 % / 40 % at 300 K | 10 / 17 | 13 / 17 | 12 / 19 | 17 / 19 |
-| core-tier references only, 300 K | 37.6 % (21–64), n = 18 | 23.4 % (15–38), n = 18 | 19.2 % (13–30), n = 17 | 16.6 % (12–27), n = 18 |
-| mean absolute error at 300 K, 10⁻⁶ K⁻¹ | 7.8 | 5.2 | 4.4 | 4.4 |
+| Thermal expansion vs experiment (non-layered) | mean abs. error at 300 K (95 % CI) | over the window (95 % CI) | within 20 % / 40 % at 300 K | 300 K, core-tier references only | mean abs. error at 300 K, 10⁻⁶ K⁻¹ |
+|---|---|---|---|---|---|
+| MACE-MPA-0 | 39.8 % (25–63), n = 23 | 34.4 % (22–51), n = 18 | 10 / 17 | 37.6 % (20–63), n = 18 | 7.6 |
+| MatterSim v1* | 24.2 % (17–36), n = 23 | 32.6 % (21–51), n = 19 | 13 / 18 | 23.4 % (15–37), n = 18 | 5.0 |
+| Orb v3 | 20.6 % (15–31), n = 22 | 23.5 % (16–36), n = 18 | 13 / 20 | 19.2 % (13–31), n = 17 | 4.2 |
+| UMA s-1.2* | 18.8 % (14–28), n = 23 | 23.2 % (16–36), n = 19 | 18 / 20 | 16.6 % (12–26), n = 18 | 4.2 |
+| UMA s-1.2.1, PBE* | 17.5 % (13–27), n = 23 | 22.4 % (15–36), n = 19 | 15 / 21 | 16.2 % (11–27), n = 18 | 3.9 |
+| UMA s-1.2.1, r2SCAN* | 13.5 % (11–20), n = 23 | 14.3 % (11–23), n = 20 | 20 / 23 | 13.3 % (11–20), n = 18 | 3.3 |
 
-Orb v3's Al is not graded at 300 K: it is unstable above 1.015 V0, so its 300 K volume lies outside the fit.
-Paired bootstrap (`results/robustness/pairwise.csv`): Orb is more accurate than MACE at 300 K (p 0.005) and than
-MatterSim over the windows (p 0.02, all references; not significant on core-tier references alone); UMA is more accurate than MACE at 300 K and than
-MatterSim over the windows (all references); the other pairs are not resolved. \*Official packages, not kUPS.
+\*Official packages, not kUPS.
 
-**Beyond percentage error** (`results/thermal_metrics.csv`, `thermal_mismatch.csv`). Of the 32 results
-within 20 % at 300 K, 13 are off by more than 20 % at the top of their window (Y₂O₃ for all four models,
-quartz near its α–β transition for MACE, Orb and UMA, Ru for MatterSim and UMA, MatterSim's Mo, Orb's Al₂O₃ and
-TiSi₂, UMA's Ti); at high temperature the quasi-harmonic
-method's own limits add to the model's error, so this cannot be pinned on the models alone. The models get the
-direction of α's change across the window right in 45 of 58 cases (Orb 12 of 14, UMA 13 of 15). **Thermal mismatch of device stacks** (`thermal_mismatch.csv`, `thermal_mismatch_summary.csv`). The free
-expansion mismatch from 300 K is computed for 16 stacks chosen by device role; 15 have references covering 300–900 K.
-At 900 K each model is within 25 % of the measured mismatch for 3–4 stacks, with median misses of 46 % (MACE),
-53 % (Orb) and 71 % (MatterSim), about 1000–1200 microstrain. MACE and Orb get the sign right for every stack;
-MatterSim gets it wrong for 5 of 15 (W, Mo, Ta, GaN and AlN on Si), because its silicon expands too much. UMA,
-whose silicon is within 10 %, gets every sign right and 7 of 15 within 25 % (median miss 29 %, 520 microstrain). A metal
-on silicon compounds both materials' errors: for W, Mo or Ta on Si (measured 600–1900 microstrain), MACE overshoots
-by 270–360 % and Orb by 97–160 %.
+* **Exclusions:** Orb v3's Al is not graded at 300 K. It is unstable above 1.015 V0, so its 300 K volume lies outside
+  the fit.
+* **Paired bootstrap** (`results/robustness/pairwise.csv`), at 300 K:
+  * Orb v3 and every UMA are more accurate than MACE-MPA-0, and the r2SCAN UMA also beats MatterSim.
+  * Orb and the three UMAs cannot be separated from each other.
+  * Over the windows, the r2SCAN UMA is more accurate than MACE-MPA-0 (all references and core-tier alone), and all
+    three UMAs are more accurate than MatterSim (all references only). Orb v3 no longer separates from MatterSim
+    there once the HfO₂, ZrO₂ and Si₃N₄ references were updated.
+* **The PBE/r2SCAN pair:** the r2SCAN fine-tune has the lowest error of all six on every property (lattice 0.44 %, bulk
+  modulus 8.3 %). It fixes the inherited errors it was predicted to fix, and also tantalum's overshoot, which it was
+  predicted not to ([`preregistration_r2scan.md`](preregistration_r2scan.md)).
+
+**Beyond percentage error** (`results/thermal_metrics.csv`).
+* Of the 58 results within 20 % at 300 K, 19 are off by more than 20 % at the top of their window. Y₂O₃ and quartz near
+  its α–β transition recur. At high temperature, the quasi-harmonic method's own limits add to the model's error, so
+  this cannot be pinned on the models alone.
+* The models get the direction of α's change across the window right in 74 of 101 cases.
+
+**Axial expansion** (`results/thermal_axial.csv`, `chipff axial`). The published QHA scales the cell isotropically.
+For the uniaxial chip materials GaN, AlN, Ru and Al₂O₃, a quasi-harmonic Grüneisen calculation gives the expansion
+along a (in-plane for c-plane films) and c.
+* **Method check:** it reproduces each model's isotropic α_V(300 K) within −8 to +12 %.
+* **Against axis-resolved experiment:** the volume can hide the direction. MatterSim's Ru has α_V within 6 %, but
+  α_a = 0.1 against 5.8 and α_c = 23.9 against 8.8 × 10⁻⁶ K⁻¹. MACE-MPA-0's AlN overshoots α_a by 59 % and
+  undershoots α_c by 42 %.
+
+**Thermal mismatch and stress of device stacks** (`thermal_mismatch.csv`, `thermal_mismatch_summary.csv`).
+* **Method:**
+  * The free expansion mismatch from 300 K is computed for 16 stacks chosen by device role; 15 have references
+    covering 300–900 K.
+  * Film expansion is in-plane (α_a) for GaN, AlN, Ru and Al₂O₃, otherwise α_V/3.
+  * The thermal stress is σ = −M × mismatch, with M = E/(1 − ν) the film's polycrystalline biaxial modulus: the
+    model's own for the model, Materials Project DFT for the reference (measured shear moduli are not curated).
+* **At 900 K:**
+  * Within 25 % of the measured mismatch: 3 stacks (MACE-MPA-0), 5 (MatterSim and Orb v3), 10 (UMA s-1.2), 6 (UMA
+    s-1.2.1 PBE) and 7 (r2SCAN).
+  * Median stress miss: 440, 570, 240, 150, 160 and 100 MPa.
+  * MatterSim gets the sign wrong for 6 of 15: W, Mo, Ta, GaN and AlN on Si because its silicon expands too much, and
+    Ru on Si because of its near-zero in-plane Ru expansion.
 
 7. **Accuracy averages cover only the cases that worked.** Coverage is reported next to them
    (`results/coverage.csv`): Orb changes the crystal form of 3 of 33 materials; MatterSim predicts a

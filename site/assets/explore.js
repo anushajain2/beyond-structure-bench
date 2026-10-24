@@ -17,7 +17,9 @@
   const CSV = { lattice: 'lattice.csv', bulk_modulus: 'bulk_modulus.csv', thermal_expansion: 'thermal_expansion.csv' };
   const ROUTE = { 'mace-mpa-0': 'CuspAI JAX export, run through kUPS', 'orb-v3': 'CuspAI JAX export, run through kUPS',
     'mattersim-5m-native': "Microsoft's official package (its kUPS export is broken)",
-    'uma-s-1p2': "Meta's fairchem package (kUPS's UMA bridge needs a GPU)" };
+    'uma-s-1p2': "Meta's fairchem package (kUPS's UMA bridge needs a GPU)",
+    'uma-s-1p2p1': "Meta's fairchem package; PBE-trained release 1.2.1",
+    'uma-s-1p2p1-r2scan': "Meta's fairchem package; release 1.2.1 fine-tuned to r2SCAN" };
   const TAG = 'v' + ev.version;
   const blob = (p) => `${ev.repo}/blob/${TAG}/${p}`;
   const mats = Object.fromEntries(ev.materials.map((m) => [m.id, m]));

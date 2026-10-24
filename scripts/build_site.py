@@ -24,8 +24,9 @@ OUT = ROOT / "_site"
 REPO = "https://github.com/anushajain2/beyond-structure-bench"
 RELEASE_DATE = "2026-10-23"
 
-MODELS = ["mace-mpa-0", "orb-v3", "mattersim-5m-native", "uma-s-1p2"]
-SHORT = {"mace-mpa-0": "MACE-MPA-0", "orb-v3": "Orb v3", "mattersim-5m-native": "MatterSim v1", "uma-s-1p2": "UMA s-1.2"}
+MODELS = ["mace-mpa-0", "orb-v3", "mattersim-5m-native", "uma-s-1p2", "uma-s-1p2p1", "uma-s-1p2p1-r2scan"]
+SHORT = {"mace-mpa-0": "MACE-MPA-0", "orb-v3": "Orb v3", "mattersim-5m-native": "MatterSim v1", "uma-s-1p2": "UMA s-1.2", "uma-s-1p2p1": "UMA s-1.2.1",
+         "uma-s-1p2p1-r2scan": "UMA s-1.2.1 r2SCAN"}
 STUDY_BACKEND = {"mace-kups": "mace-mpa-0", "orb-kups": "orb-v3", "mattersim-native": "mattersim-5m-native"}
 NAV = [("index.html", "Overview"), ("explore.html", "Explore evidence"), ("study.html", "The study"),
        ("design.html", "Evaluation design"), ("building.html", "How it was built"), ("reproduce.html", "Reproduce")]

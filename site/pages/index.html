@@ -3,7 +3,7 @@
   <p class="eyebrow">BeyondStructure Bench · an independent benchmark and study</p>
   <h1>A good crystal structure is not enough</h1>
   <p class="lead">Can the AI models that simulate atoms be trusted to predict how chip materials behave when they
-  heat up? Four widely used models are tested on 33 chip materials against laboratory measurements: they get
+  heat up? The most widely used models are tested on 33 chip materials against laboratory measurements: they get
   crystal structure almost exactly right, but how much a material grows when heated is often off by tens of percent.</p>
   <p class="finding">MACE-MPA-0 places tantalum's lattice within <strong>0.4 %</strong> of experiment and its
   stiffness within <strong>about 6 %</strong>, yet predicts that it expands <strong>2.8 times</strong> as much as it
@@ -29,27 +29,28 @@
 
 <section class="wrap">
   <h2 class="section-title">What we found</h2>
-  <p class="section-lead">Four AI models (MACE-MPA-0, MatterSim, Orb v3 and Meta's UMA) on 33 chip materials, every
-  prediction compared with laboratory measurements, plus a study of why the worst predictions fail.</p>
+  <p class="section-lead">Six AI models from four families (MACE-MPA-0, MatterSim, Orb v3 and three releases of
+  Meta's UMA) on 33 chip materials, every prediction compared with laboratory measurements, plus a study of why the
+  worst predictions fail.</p>
   <div class="grid-3">
-    <div class="card"><p class="num">0.7–0.8 %</p><h3>Crystal structure is nearly perfect</h3>
-      <p>Average error in crystal size for all four models; stiffness is off by 11–13 %. On these properties the
-      models are almost indistinguishable.</p></div>
-    <div class="card"><p class="num">19–36 %</p><h3>Heating is where the models fail</h3>
-      <p>Average error in thermal expansion at room temperature (UMA 19 %, Orb v3 21 %, MatterSim 24 %, MACE 36 %).
-      Each model fails badly on different materials: MACE on tantalum (+179 %), MatterSim on silicon (+85 %).</p></div>
-    <div class="card"><p class="num">7 of 15</p><h3>Chip stacks are harder still</h3>
-      <p>Layers that grow by different amounts strain a chip. The best model, UMA, gets that mismatch within 25 % for
-      7 of 15 real stacks; the others for at most 4. MatterSim gets the direction wrong for 5.</p></div>
+    <div class="card"><p class="num">0.4–0.8 %</p><h3>Crystal structure is nearly perfect</h3>
+      <p>Average error in crystal size; stiffness is off by 8–13 %. On these properties the models are almost
+      indistinguishable.</p></div>
+    <div class="card"><p class="num">13–40 %</p><h3>Heating is where the models fail</h3>
+      <p>Average error in thermal expansion at room temperature. Each model fails badly on different materials: MACE on
+      tantalum (+179 %), MatterSim on silicon (+85 %).</p></div>
+    <div class="card"><p class="num">100–570 MPa</p><h3>Chip stacks are harder still</h3>
+      <p>Layers that grow by different amounts strain a chip. The typical miss in that thermal stress ranges from about
+      100 MPa (best model) to 570 MPa. One model gets the direction wrong for 6 of 15 stacks.</p></div>
     <div class="card"><p class="num">γ = 4.1 vs 1.6</p><h3>The errors trace to how vibrations change with volume</h3>
       <p>MACE's Grüneisen parameter for tantalum, against experiment. In the worst cases stiffness and heat capacity
       are right; the models misjudge how their vibrations shift as the crystal expands.</p></div>
-    <div class="card"><p class="num">Mostly their own</p><h3>Not inherited from the training physics</h3>
-      <p>Compared with the DFT method the models learned from, most of the large errors checked are the models' own.
-      Too-soft semiconductors are the exception: they come from DFT itself.</p></div>
-    <div class="card"><p class="num">2 blind tests</p><h3>Predictions written down before the runs</h3>
-      <p>Orb v3 and UMA were run only after predictions about their errors were committed. Some held (accurate
-      silicon gives correct chip-stack directions); some did not, and both are reported.</p></div>
+    <div class="card"><p class="num">−31 %</p><h3>Better training physics helps</h3>
+      <p>The same UMA model fine-tuned to a more accurate DFT method (r2SCAN) cut its semiconductor expansion error by
+      a third, and is the most accurate model in the benchmark on every property.</p></div>
+    <div class="card"><p class="num">3 blind tests</p><h3>Predictions written down before the runs</h3>
+      <p>Orb v3, UMA and the PBE/r2SCAN pair were run only after predictions about their errors were committed. Some
+      held; some did not, and both are reported.</p></div>
   </div>
 </section>
 
@@ -73,10 +74,10 @@
   <div class="table-wrap"><table>
     <thead><tr><th>Scope</th><th>Coverage in v1.1.0</th></tr></thead>
     <tbody>
-      <tr><td>Lattice constant and bulk modulus</td><td>MACE-MPA-0, Orb v3, MatterSim v1 and UMA on 33 materials in five classes: semiconductors, dielectrics, interconnect metals, barriers and silicides, layered materials. Exclusions are reported with their reasons.</td></tr>
-      <tr><td>Thermal expansion, benchmark-wide</td><td>All four models on all 33 materials, 21–22 graded comparisons per model at 300 K and 17–18 over the temperature windows. Orb v3 and UMA were added after v1.1.0, each as a pre-registered test.</td></tr>
+      <tr><td>Lattice constant and bulk modulus</td><td>MACE-MPA-0, Orb v3, MatterSim v1 and three UMA releases on 33 materials in five classes: semiconductors, dielectrics, interconnect metals, barriers and silicides, layered materials. Exclusions are reported with their reasons.</td></tr>
+      <tr><td>Thermal expansion, benchmark-wide</td><td>All six models on all 33 materials, 22–23 graded comparisons per model at 300 K and 18–20 over the temperature windows. Orb v3 and the UMA models were added after v1.1.0, as pre-registered tests.</td></tr>
       <tr><td>Thermal-failure study</td><td>MACE, MatterSim and Orb on six selected materials: Si, GaAs, InP, Cu, Ta and monoclinic HfO₂.</td></tr>
-      <tr><td>UMA s-1.2</td><td>All 33 materials, through Meta's <code>fairchem</code> package; used under the FAIR Chemistry License (cite Wood et al., arXiv:2506.23971).</td></tr>
+      <tr><td>UMA (s-1.2; s-1.2.1 PBE and r2SCAN)</td><td>All 33 materials, through Meta's <code>fairchem</code> package; used under the FAIR Chemistry License (cite Wood et al., arXiv:2506.23971).</td></tr>
     </tbody>
   </table></div>
   <p style="margin-top:14px">Every experimental reference is audited into a core tier (primary measurements and

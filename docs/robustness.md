@@ -83,8 +83,9 @@ uncertainty from `data/reference_quality.yaml` (stated by the source where it gi
 between sources where they disagree, otherwise the defaults above). Every table in `bootstrap_ci.csv` and
 `pairwise.csv` is computed twice, `subset = all` and `subset = core` (core-tier references only). For
 lattice constant and bulk modulus no difference between the models is resolved in either subset. For thermal
-expansion, Orb v3 and UMA are more accurate than MACE-MPA-0 at 300 K in both subsets, and than MatterSim over the
-windows with all references only. UMA's lattice constants are more accurate than MatterSim's.
+expansion at 300 K, Orb v3 and every UMA are more accurate than MACE-MPA-0. Over the windows, the r2SCAN UMA is more
+accurate than MACE-MPA-0 in both subsets, and the three UMAs are more accurate than MatterSim with all references only.
+UMA s-1.2's lattice constants are more accurate than MatterSim's.
 
 **Adiabatic and isothermal bulk moduli** (`adiabatic_sensitivity.csv`). Ultrasonic and Brillouin measurements
 give the adiabatic modulus, static equations of state the isothermal one; the models' static moduli are 0 K
