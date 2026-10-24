@@ -63,6 +63,9 @@ The numbered findings below were written for the first three models; where UMA c
    six cases ([`thermal_failure_study.md`](thermal_failure_study.md)), backend comparisons and
    the numerical checks performed do not explain the large errors. By elimination, the study places
    them in the models' Grüneisen parameters (for MatterSim's semiconductors, also a too-soft bulk modulus).
+   Against matched PBE references (four of the six cases; study section 7), MACE's Ta and GaAs errors and
+   MatterSim's Si and GaAs errors are the models' own. The soft semiconductor bulk moduli are inherited from PBE,
+   which is itself 12–18 % soft for Si and GaAs, and so is all of Orb's GaAs error.
    Orb v3, run on the same cases as a third model, shares some of these failures and avoids one. It shares the
    soft semiconductor bulk moduli and a too-high Ta Grüneisen parameter (Ta +70 %). It avoids the wrong-signed
    semiconductor acoustic modes. The cases were

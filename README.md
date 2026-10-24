@@ -26,7 +26,10 @@ worst predictions go wrong.
    depth, the models misjudge how strongly the atoms' vibrations change as the crystal expands. These
    cases were picked after the failures were seen, so this explains them rather than proving a general
    rule.
-4. **Chip-stack thermal mismatch is hard to get right.** What strains a chip is the difference in
+4. **Most of those mistakes are the models' own, but not all.** Comparing with the method the models
+   learned from (PBE) shows that MACE's tantalum and GaAs errors and MatterSim's semiconductor errors are
+   the models' own. The too-soft semiconductors, and all of Orb v3's GaAs error, come from PBE itself.
+5. **Chip-stack thermal mismatch is hard to get right.** What strains a chip is the difference in
    expansion between stacked layers. Across 15 real stacks (metals, silicides, barriers, oxides and GaN on
    their substrates), three of the four models get the mismatch within 25 % for at most 4 of them and
    typically miss by about half; UMA, whose silicon is accurate, gets 7. MatterSim gets the direction
@@ -146,7 +149,16 @@ confirmed that a model with accurate silicon gets chip-stack mismatch signs righ
 those of Orb v3, trained on the same data, most closely; it did not confirm that the other models'
 disagreement predicts where a new model fails.
 
-**4. Chip-stack thermal mismatch is hard to get right.** A chip is a stack of layers, and what
+**4. Most of those errors are the models' own; the soft semiconductors are inherited.** The models learned from
+PBE calculations. Matched PBE references separate what a model gets wrong from what PBE itself gets wrong. They are
+our own calculations for Si and GaAs and published ones for Cu and Ta.
+* **The models' own errors:** MACE's tantalum and GaAs errors, and MatterSim's silicon and GaAs errors. For
+  tantalum, PBE gives a Grüneisen parameter of about 2.0, where MACE gives 4.1.
+* **Inherited from PBE:** PBE makes silicon and GaAs 12–18 % too soft. All of Orb v3's GaAs error comes from this.
+* **Right answers that are not PBE's:** MACE's accurate silicon is its own error cancelling an inherited one.
+Details are in [section 7 of the study](docs/thermal_failure_study.md#7-model-error-or-inherited-from-pbe).
+
+**5. Chip-stack thermal mismatch is hard to get right.** A chip is a stack of layers, and what
 strains it is the *difference* in their expansion. For 15 device stacks (copper, tungsten, molybdenum,
 tantalum, ruthenium and silicides on silicon; copper on tantalum and tungsten on TiN; TiN, Al₂O₃ and Y₂O₃
 on silicon; GaN on silicon and SiC; AlN on silicon), the free expansion mismatch from 300 to 900 K is
