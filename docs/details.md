@@ -1,4 +1,4 @@
-# ChipFF Bench: findings, methods and limits in detail
+# BeyondStructure Bench: findings, methods and limits in detail
 
 The [README](../README.md) is the short guide; this page keeps the full detail it links to. Paths in
 backticks are relative to the repository root unless they name a file in this folder.
@@ -23,7 +23,7 @@ left out of every thermal average and comparison. Orb does appear in the six-cas
 3. **Stiffness is the harder property, and the models err in different directions.** Excluding layered
    materials, mean absolute bulk-modulus error vs experiment is 10.8 % (MACE), 11.9 % (Orb) and
    12.6 % (MatterSim). Orb and MatterSim run systematically soft (mean −10.5 % and −11 %) while
-   staying close to DFT (5–6 %); MACE is unbiased on average but scatters more and over-stiffens some
+   staying close to DFT (5.4 % and 6.4 %); MACE is unbiased on average but scatters more and over-stiffens some
    refractory metals (W +18 %, Mo +17 %, Ti +35 %). **Against experiment this benchmark does
    not resolve a difference between the three models** for lattice constants or bulk moduli: every
    pairwise difference's 95 % bootstrap interval includes zero (`results/robustness/pairwise.csv`), and the same holds within every
@@ -50,14 +50,15 @@ left out of every thermal average and comparison. Orb does appear in the six-cas
    stress handling before any number was published.
 6. **Thermal expansion is the hardest property, and the two finished models fail in different
    places.** Computed in the quasi-harmonic approximation, MACE and MatterSim are off from experiment
-   by 34.5 % and 28.7 % on average at 300 K (35 % for both over each material's pre-registered
+   by 36 % and 24 % on average at 300 K (35 % and 34.5 % over each material's pre-registered
    temperature window), both too large on average, with no difference resolved between them. But MACE overshoots
    refractory and hcp metals (Ta +179 %, Mo +97 %, Ru +52 %, W +48 % at 300 K) where MatterSim is
-   mostly within 14 %, while MatterSim overshoots semiconductors (InP +119 %, Si +85 %, GaAs +68 %)
-   where MACE gets Si within 1 %. The sample correlation of their errors is small (−0.10 at 300 K,
-   95 % interval −0.42 to +0.37), and **averaging the two models lowers the error to 25.7 %** on these
-   materials. Their disagreement correlates with the error of that average (0.41, interval −0.06 to
-   +0.78): an exploratory warning signal, not a calibrated uncertainty estimate. In a controlled study of
+   mostly within 14 %, while MatterSim overshoots semiconductors (Si +85 %, GaAs +68 % at 300 K; InP +129 %
+   over its window, against a range-average reference) where MACE gets Si within about 1 %. The sample correlation of
+   their errors is small (−0.02 at 300 K, 95 % interval −0.40 to +0.50). Averaging the two models gives 24 % at
+   300 K, no better than MatterSim alone, but 30.9 % over the windows against 35.5 % and 34.9 %. Their
+   disagreement correlates with the error of that average (0.37 at 300 K, interval −0.11 to +0.77): an
+   exploratory warning signal, not a calibrated uncertainty estimate. In a controlled study of
    six cases ([`thermal_failure_study.md`](thermal_failure_study.md)), backend comparisons and
    the numerical checks performed do not explain the large errors. By elimination, the study places
    them in the models' Grüneisen parameters (for MatterSim's semiconductors, also a too-soft bulk modulus).
@@ -70,12 +71,23 @@ left out of every thermal average and comparison. Orb does appear in the six-cas
 
 | Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 |
 |---|---|---|---|
-| mean abs. error at 300 K (95 % CI) | 34.5 % (22–56), n = 24 | 28.7 % (20–44), n = 24 | not computed† |
-| mean abs. error over the window (95 % CI) | 35.5 % (23–53), n = 17 | 34.5 % (23–54), n = 18 | not computed† |
-| within 20 % / 40 % at 300 K | 11 / 19 | 13 / 18 | not computed† |
+| mean abs. error at 300 K (95 % CI) | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | not computed† |
+| mean abs. error over the window (95 % CI) | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | not computed† |
+| within 20 % / 40 % at 300 K | 10 / 17 | 13 / 17 | not computed† |
+| core-tier references only, 300 K | 37.6 % (21–64), n = 18 | 23.4 % (15–38), n = 18 | not computed† |
+| mean absolute error at 300 K, 10⁻⁶ K⁻¹ | 7.8 | 5.2 | not computed† |
 
 † Orb's benchmark-wide thermal expansion was not recomputed after the Γ-mode fix (status note above); its results on
 the six study cases are in [`thermal_failure_study.md`](thermal_failure_study.md).
+
+**Beyond percentage error** (`results/thermal_metrics.csv`, `thermal_mismatch.csv`). Of the 14 results
+within 20 % at 300 K, 5 are off by more than 20 % at the top of their window (Y₂O₃ for both models,
+MatterSim's Ru and Mo, MACE's quartz near its α–β transition); at high temperature the quasi-harmonic
+method's own limits add to the model's error, so this cannot be pinned on the models alone. The models get the
+direction of α's change across the window right in 20 of 29 cases. As an application example, the free
+expansion mismatch between a metal and silicon compounds both materials' errors: for W, Mo or Ta on Si
+between 300 and 900 K, the two models miss the measured mismatch (600–1900 microstrain) by 140–360 %, and
+MatterSim gets its sign wrong, because its silicon expands too much.
 
 7. **Accuracy averages cover only the cases that worked.** Coverage is reported next to them
    (`results/coverage.csv`): Orb changes the crystal form of 3 of 33 materials; MatterSim predicts a
@@ -100,7 +112,7 @@ Two published benchmarks overlap closely, and this one should be read alongside 
   constants, and reports a gap between computational-benchmark and experimental accuracy. It does
   not evaluate thermal expansion.
 
-What ChipFF Bench adds is narrower: sourced experimental references (with quotes) for a set of
+What BeyondStructure Bench adds is narrower: sourced experimental references (with quotes) for a set of
 device materials, thermal expansion against experiment, side-by-side DFT and experiment for every
 result, and investigations of simulation failures (a model export whose energies depend on
 neighbour-list order, a barostat bias, and where each model's thermal expansion breaks down).
@@ -169,7 +181,7 @@ arbitrary settings. So every headline comparison is backed by three kinds of che
   monoclinic HfO₂; [`thermal_failure_study.md`](thermal_failure_study.md)). A 3x larger
   displacement and a 14 Å supercell change α(300 K) by ≤ 2 % (MACE InP: +7 %; the 14 Å check was not run
   for MACE on HfO₂, Cu and Ta). The volume-scan range changes it by up to 9 % (Si) and 12 % (HfO₂). For HfO₂,
-  the 400–1500 K average also moves by 16–25 % with how interpolation-imaginary modes are treated. These
+  the 400–1500 K average also moves by 15–25 % with how interpolation-imaginary modes are treated. These
   figures are not established for other materials. The same checks found that the acoustic modes at Γ
   entered the free energy at random; the size of that effect depends on q-mesh density and force noise.
   At the benchmark's settings it made repeated runs scatter by up to ±8 %. Those modes are now excluded,

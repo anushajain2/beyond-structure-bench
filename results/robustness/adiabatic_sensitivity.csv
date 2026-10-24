@@ -1,0 +1,4 @@
+model,n,n_adiabatic,median_correction_pct,max_correction_pct,MAPE_as_published,MAPE_isothermal,signed_as_published,signed_isothermal
+mace-mpa-0,28,18,0.8012,2.236,10.77,10.7,-1.447,-0.9163
+mattersim-5m-native,27,18,0.8012,2.236,12.64,12.31,-10.98,-10.48
+orb-v3,26,16,0.7115,2.236,11.95,11.6,-10.49,-10.04

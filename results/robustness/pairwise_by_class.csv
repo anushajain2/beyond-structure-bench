@@ -1,16 +1,16 @@
 property,reference,class,model_a,model_b,n_common,MAPE_a,MAPE_b,diff,ci_low,ci_high,p,p_holm,verdict
-lattice,experiment,barriers_silicides,mace-mpa-0,mattersim-5m-native,6,0.2316,0.2596,-0.028,-0.2783,0.1912,0.7656,1,no significant difference
-lattice,experiment,barriers_silicides,mace-mpa-0,orb-v3,6,0.2316,0.3103,-0.07869,-0.2863,0.1653,0.5608,1,no significant difference
-lattice,experiment,barriers_silicides,mattersim-5m-native,orb-v3,6,0.2596,0.3103,-0.05069,-0.1425,0.08824,0.6276,1,no significant difference
+lattice,experiment,barriers_silicides,mace-mpa-0,mattersim-5m-native,6,0.2316,0.2596,-0.028,-0.2877,0.229,0.8392,1,no significant difference
+lattice,experiment,barriers_silicides,mace-mpa-0,orb-v3,6,0.2316,0.3103,-0.07869,-0.3132,0.2413,0.6948,1,no significant difference
+lattice,experiment,barriers_silicides,mattersim-5m-native,orb-v3,6,0.2596,0.3103,-0.05069,-0.1423,0.1018,0.7488,1,no significant difference
 lattice,experiment,dielectrics,mace-mpa-0,mattersim-5m-native,9,1.084,1.089,-0.004632,-0.05137,0.04353,0.8396,1,no significant difference
 lattice,experiment,dielectrics,mace-mpa-0,orb-v3,7,1.132,0.9963,0.1353,-0.1069,0.411,0.2864,1,no significant difference
 lattice,experiment,dielectrics,mattersim-5m-native,orb-v3,7,1.12,0.9963,0.1241,-0.08563,0.3574,0.2768,1,no significant difference
 lattice,experiment,metals,mace-mpa-0,mattersim-5m-native,8,0.4817,0.6237,-0.142,-0.3457,0.1016,0.2368,1,no significant difference
 lattice,experiment,metals,mace-mpa-0,orb-v3,8,0.4817,0.49,-0.008351,-0.2269,0.2229,0.8836,1,no significant difference
-lattice,experiment,metals,mattersim-5m-native,orb-v3,8,0.6237,0.49,0.1337,0.01083,0.2437,0.0344,0.4128,suggestive: orb-v3 (not significant after correction)
+lattice,experiment,metals,mattersim-5m-native,orb-v3,8,0.6237,0.49,0.1337,0.01081,0.2437,0.0344,0.4128,suggestive: orb-v3 (not significant after correction)
 lattice,experiment,semiconductors,mace-mpa-0,mattersim-5m-native,7,1.036,1.081,-0.04471,-0.285,0.1516,0.7436,1,no significant difference
 lattice,experiment,semiconductors,mace-mpa-0,orb-v3,7,1.036,1.093,-0.05731,-0.3249,0.1727,0.6544,1,no significant difference
-lattice,experiment,semiconductors,mattersim-5m-native,orb-v3,7,1.081,1.093,-0.0126,-0.09148,0.06018,0.7884,1,no significant difference
+lattice,experiment,semiconductors,mattersim-5m-native,orb-v3,7,1.081,1.093,-0.0126,-0.09148,0.06023,0.788,1,no significant difference
 lattice,dft,barriers_silicides,mace-mpa-0,mattersim-5m-native,6,0.4739,0.08172,0.3922,0.1289,0.7185,0.0008,0.008,mattersim-5m-native more accurate
 lattice,dft,barriers_silicides,mace-mpa-0,orb-v3,6,0.4739,0.1309,0.3431,0.01345,0.7051,0.0416,0.3328,suggestive: orb-v3 (not significant after correction)
 lattice,dft,barriers_silicides,mattersim-5m-native,orb-v3,6,0.08172,0.1309,-0.04915,-0.1414,0.035,0.296,0.888,no significant difference
@@ -26,12 +26,12 @@ lattice,dft,semiconductors,mattersim-5m-native,orb-v3,7,0.05262,0.05855,-0.00593
 bulk_modulus,experiment,barriers_silicides,mace-mpa-0,mattersim-5m-native,4,10.2,4.247,5.956,-2.816,13.85,0.3192,1,no significant difference
 bulk_modulus,experiment,barriers_silicides,mace-mpa-0,orb-v3,4,10.2,3.548,6.656,-1.122,10.68,0.0868,1,no significant difference
 bulk_modulus,experiment,barriers_silicides,mattersim-5m-native,orb-v3,4,4.247,3.548,0.6995,-5.786,7.669,0.82,1,no significant difference
-bulk_modulus,experiment,dielectrics,mace-mpa-0,mattersim-5m-native,9,7.422,12.07,-4.653,-15.87,2.282,0.4172,1,no significant difference
-bulk_modulus,experiment,dielectrics,mace-mpa-0,orb-v3,7,8.505,11.58,-3.073,-8.924,0.8233,0.268,1,no significant difference
-bulk_modulus,experiment,dielectrics,mattersim-5m-native,orb-v3,7,14.8,11.58,3.222,-2.306,11.38,0.4216,1,no significant difference
-bulk_modulus,experiment,metals,mace-mpa-0,mattersim-5m-native,7,9.96,13.85,-3.889,-17.57,8.919,0.5868,1,no significant difference
-bulk_modulus,experiment,metals,mace-mpa-0,orb-v3,8,13.13,11.13,1.998,-7.335,13.37,0.6896,1,no significant difference
-bulk_modulus,experiment,metals,mattersim-5m-native,orb-v3,7,13.85,11.11,2.74,-6.568,15.23,0.6832,1,no significant difference
+bulk_modulus,experiment,dielectrics,mace-mpa-0,mattersim-5m-native,9,7.422,12.07,-4.653,-15.98,2.224,0.3896,1,no significant difference
+bulk_modulus,experiment,dielectrics,mace-mpa-0,orb-v3,7,8.505,11.58,-3.073,-9.02,0.7433,0.2128,1,no significant difference
+bulk_modulus,experiment,dielectrics,mattersim-5m-native,orb-v3,7,14.8,11.58,3.222,-2.529,11.53,0.418,1,no significant difference
+bulk_modulus,experiment,metals,mace-mpa-0,mattersim-5m-native,7,9.96,13.85,-3.889,-16.87,6.719,0.5848,1,no significant difference
+bulk_modulus,experiment,metals,mace-mpa-0,orb-v3,8,13.13,11.13,1.998,-5.565,12.22,0.6504,1,no significant difference
+bulk_modulus,experiment,metals,mattersim-5m-native,orb-v3,7,13.85,11.11,2.74,-6.514,15.15,0.6908,1,no significant difference
 bulk_modulus,experiment,semiconductors,mace-mpa-0,mattersim-5m-native,7,12.68,16.95,-4.266,-11.8,3.23,0.324,1,no significant difference
 bulk_modulus,experiment,semiconductors,mace-mpa-0,orb-v3,7,12.68,18.04,-5.361,-12.38,1.784,0.1568,1,no significant difference
 bulk_modulus,experiment,semiconductors,mattersim-5m-native,orb-v3,7,16.95,18.04,-1.095,-3.613,1.588,0.4232,1,no significant difference

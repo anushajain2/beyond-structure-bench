@@ -44,19 +44,28 @@ MD_SIZE_SUBSET = ["Si", "Cu", "MgO"]
 
 
 # -- 1. statistics -----------------------------------------------------------------
+def _sigma(df: pd.DataFrame, prop: str) -> np.ndarray:
+    """Per-reference 1-sigma relative uncertainty (data/reference_quality.yaml), else the default."""
+    default = REF_SIGMA[prop]
+    if "ref_sigma" not in df:
+        return np.full(len(df), default)
+    s = pd.to_numeric(df["ref_sigma"], errors="coerce").to_numpy(dtype=float)
+    return np.where(np.isfinite(s), s, default)
+
+
 def _errors(df: pd.DataFrame, prop: str, ref: str, rng, perturb: bool) -> pd.Series:
     """Percentage errors, optionally with each experimental reference resampled."""
     if prop == "lattice":
         v, r = df["V_atom"], df["V_atom_exp" if ref == "experiment" else "V_atom_dft"]
         if perturb and ref == "experiment":  # sigma is on the linear lattice constant: volume x (1 + 3 eps)
-            r = r * (1 + 3 * REF_SIGMA["lattice"] * rng.standard_normal(len(r)))
+            r = r * (1 + 3 * _sigma(df, prop) * rng.standard_normal(len(r)))
         return 100 * ((v / r) ** (1 / 3) - 1)
     if prop == "bulk_modulus":
         v, r = (df["K_for_exp"], df["B_exp"]) if ref == "experiment" else (df["K_vrh"], df["K_vrh_dft"])
     else:
         v, r = _thermal_cols(df, prop)
     if perturb and ref == "experiment":
-        r = r * (1 + REF_SIGMA[prop] * rng.standard_normal(len(r)))
+        r = r * (1 + _sigma(df, prop) * rng.standard_normal(len(r)))
     return 100 * (v / r - 1)
 
 
@@ -80,6 +89,22 @@ def _usable(df: pd.DataFrame, prop: str, ref: str) -> pd.DataFrame:
 
 def bootstrap_tables(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame, n: int = 5000, seed: int = 0,
                      exclude_layered: bool = True) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Both subsets: every graded reference ("all") and only the core-tier references ("core")."""
+    out_ci, out_pairs = [], []
+    for subset in ("all", "core"):
+        def pick(df):
+            if subset == "all" or df is None or df.empty or "ref_tier" not in df:
+                return df
+            return df[df["ref_tier"] == "core"]
+        ci, pairs = _bootstrap_tables(pick(lat), pick(bulk), pick(therm), n=n, seed=seed,
+                                      exclude_layered=exclude_layered)
+        out_ci.append(ci.assign(subset=subset))
+        out_pairs.append(pairs.assign(subset=subset))
+    return pd.concat(out_ci, ignore_index=True), pd.concat(out_pairs, ignore_index=True)
+
+
+def _bootstrap_tables(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame, n: int = 5000, seed: int = 0,
+                      exclude_layered: bool = True) -> tuple[pd.DataFrame, pd.DataFrame]:
     """95% CIs of MAPE per model, and paired win probabilities between models."""
     rng = np.random.default_rng(seed)
     specs = [("lattice", lat, "experiment"), ("lattice", lat, "dft"), ("bulk_modulus", bulk, "experiment"),
@@ -194,10 +219,10 @@ def _perturbed(g: pd.DataFrame, prop: str, ref: str, noise) -> pd.Series:
     if noise is None:
         return _errors(g, prop, ref, None, False)
     if prop == "lattice":
-        r = g["V_atom_exp"].to_numpy() * (1 + 3 * REF_SIGMA["lattice"] * noise)
+        r = g["V_atom_exp"].to_numpy() * (1 + 3 * _sigma(g, "lattice") * noise)
         return 100 * ((g["V_atom"].to_numpy() / r) ** (1 / 3) - 1)
     v, r = (g["K_for_exp"], g["B_exp"]) if prop == "bulk_modulus" else _thermal_cols(g, prop)
-    return 100 * (v.to_numpy() / (r.to_numpy() * (1 + REF_SIGMA[prop] * noise)) - 1)
+    return 100 * (v.to_numpy() / (r.to_numpy() * (1 + _sigma(g, prop) * noise)) - 1)
 
 
 def model_agreement(lat: pd.DataFrame, bulk: pd.DataFrame, therm: pd.DataFrame, n: int = 5000, seed: int = 2,
@@ -431,6 +456,32 @@ def md_variant_table() -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def adiabatic_sensitivity(bulk: pd.DataFrame, therm: pd.DataFrame, gamma: float = 1.5, T: float = 300.0) -> pd.DataFrame:
+    """How much converting adiabatic bulk-modulus references to isothermal would change the comparison.
+
+    K_T = K_S / (1 + alpha_V gamma T), with the measured alpha_V at 300 K and a typical Grueneisen
+    parameter (gamma = 1.5; the correction scales linearly with it). The models' static moduli are
+    0 K values, where K_S = K_T, so this bounds one of two reference-condition effects; the other,
+    softening between 0 K and room temperature, is not corrected.
+    """
+    if bulk.empty or "ref_kind" not in bulk:
+        return pd.DataFrame()
+    a300 = therm.drop_duplicates("material").set_index("material")["alpha_V_300K_exp"] if not therm.empty else {}
+    rows = []
+    for mk, g in bulk[bulk["class"] != "layered"].groupby("model"):
+        g = g[g["err_exp_pct"].notna()]
+        corr = g["material"].map(a300).fillna(0.0).to_numpy(float) * 1e-6 * gamma * T
+        adi = (g["ref_kind"] == "adiabatic").to_numpy()
+        b_t = np.where(adi, g["B_exp"] / (1 + corr), g["B_exp"])
+        err = 100 * (g["K_for_exp"].to_numpy(float) / b_t - 1)
+        rows.append({"model": mk, "n": int(len(g)), "n_adiabatic": int(adi.sum()),
+                     "median_correction_pct": float(np.median(100 * corr[adi])) if adi.any() else 0.0,
+                     "max_correction_pct": float(np.max(100 * corr[adi])) if adi.any() else 0.0,
+                     "MAPE_as_published": float(g["err_exp_pct"].abs().mean()), "MAPE_isothermal": float(np.abs(err).mean()),
+                     "signed_as_published": float(g["err_exp_pct"].mean()), "signed_isothermal": float(err.mean())})
+    return pd.DataFrame(rows)
+
+
 def build(lat, bulk, therm) -> dict:
     """Write results/robustness/*.csv from what exists; called by chipff analyze."""
     OUT.mkdir(parents=True, exist_ok=True)
@@ -441,6 +492,8 @@ def build(lat, bulk, therm) -> dict:
     by_class.to_csv(OUT / "pairwise_by_class.csv", index=False, float_format="%.4g")
     agree = model_agreement(lat, bulk, therm)
     agree.to_csv(OUT / "model_agreement.csv", index=False, float_format="%.4g")
+    adia = adiabatic_sensitivity(bulk, therm)
+    adia.to_csv(OUT / "adiabatic_sensitivity.csv", index=False, float_format="%.4g")
     md = md_variant_table()
     md.to_csv(OUT / "md_variants.csv", index=False, float_format="%.4g")
     sens_p = OUT / "static_sensitivity.json"
@@ -449,6 +502,7 @@ def build(lat, bulk, therm) -> dict:
             "pairwise": json.loads(pairs.to_json(orient="records")),
             "pairwise_by_class": json.loads(by_class.to_json(orient="records")),
             "model_agreement": json.loads(agree.to_json(orient="records")),
+            "adiabatic_sensitivity": json.loads(adia.to_json(orient="records")),
             "md_variants": json.loads(md.to_json(orient="records")), "static_sensitivity": sens}
 
 

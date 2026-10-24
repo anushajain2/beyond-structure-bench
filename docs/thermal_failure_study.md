@@ -2,7 +2,7 @@
 
 The benchmark's QHA results (`results/thermal_expansion.csv`, after the Γ-mode fix of section 2) show large,
 model-specific errors at 300 K. MACE-MPA-0 overshoots Ta (+179 %) and GaAs (+111 %), and MatterSim v1 overshoots InP
-(+119 %), Si (+85 %) and GaAs (+68 %). Yet MACE gets Si within 1 %, and MatterSim gets Ta within 14 %. Orb v3, added later as a third model family on the
+(+119 %), Si (+85 %) and GaAs (+68 %). Yet MACE gets Si within about 1 %, and MatterSim gets Ta within 14 %. Orb v3, added later as a third model family on the
 same cases, overshoots Ta (+70 %), InP (+48 %), GaAs (+25 %) and HfO₂ (+22 %), and gets Si within 4 % and Cu within 8 %.
 This study takes six cases (Si, GaAs, Cu, Ta, InP and monoclinic HfO₂) and asks three questions:
 
@@ -83,7 +83,7 @@ other materials; it does not establish rules that hold beyond them.
     not 70 %.
 * **HfO₂ is the case where numerics and reference data matter as much as the model.** All three models give γ ≈ 1.46–1.47
   against 1.14 (+28 %), partly offset by a 6–9 % stiff K. But at 400–1500 K, α depends on how imaginary
-  interpolation modes are treated (+16 to +25 %) and on the volume-scan range (±13 %). The experimental reference is
+  interpolation modes are treated (+15 to +25 %) and on the volume-scan range (±13 %). The experimental reference is
   a provisional TPRC compilation. These sensitivities suggest the HfO₂ window comparison could move by about ±20 % for
   reasons unrelated to the models; that is an indication, not a calibrated uncertainty.
 

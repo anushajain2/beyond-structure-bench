@@ -1,0 +1,154 @@
+# Quality audit of every experimental reference in data/experimental/*.json (added in v1.1.0).
+#
+# One entry per material and property. Fields:
+#   tier     core     : primary measurement or critically evaluated compilation, stated conditions,
+#                       no unresolved conflict larger than its uncertainty
+#            extended : usable but weaker (single secondary source, provisional compilation, thin film,
+#                       unresolved conflict, missing term, ambiguous phase). Reported, but kept apart.
+#   quality  primary | evaluated_compilation | compilation | provisional_compilation | secondary
+#   kind     what the number is:
+#            lattice      room_temperature | temperature_unstated
+#            bulk_modulus adiabatic (ultrasonic/Brillouin/resonance) | isothermal (static EOS) | unspecified
+#            thermal      point (alpha at stated T, or the derivative of a fit) |
+#                         short_interval_mean (means over ~100 K intervals, assigned to midpoints) |
+#                         range_average (one constant value over a wide range; NOT a value at 300 K)
+#   sigma    1-sigma relative uncertainty used in the bootstrap (lattice: of the lattice constant).
+#            From the source where it states one ("sigma_from: source"), otherwise the default
+#            (lattice 0.001, bulk_modulus 0.05, thermal_expansion 0.10) or a value set by a documented
+#            spread between sources ("sigma_from: spread").
+#   why      the reason for the tier, in one line.
+#
+# Judgements are mine (2026-10-23), made from the notes and citations stored with each value, before
+# looking at how they change any model's grade.
+
+defaults: {lattice: 0.001, bulk_modulus: 0.05, thermal_expansion: 0.10}
+
+Si:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, sigma: 0.0001, sigma_from: source, why: "CODATA 2018 value at 22.5 °C"}
+  bulk_modulus: {tier: core, quality: compilation, kind: adiabatic, why: "300 K single-crystal elastic constants (Ioffe)"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, sigma: 0.01, sigma_from: source, why: "Swenson's JPCRD recommended values; 900–1000 K extrapolated"}
+Ge:
+  lattice: {tier: core, quality: compilation, kind: room_temperature, why: "Ioffe compilation, 300 K"}
+  bulk_modulus: {tier: extended, quality: compilation, kind: adiabatic, sigma: 0.05, sigma_from: spread, why: "Ioffe lists both 71.3 and 75 GPa; primary ultrasonic value not checked"}
+  thermal_expansion: {tier: extended, quality: secondary, kind: point, why: "single XRD polynomial (Singh 1968) read from an abstract; no independent tabulation above room temperature"}
+SiC:
+  lattice: {tier: core, quality: compilation, kind: room_temperature, why: "Ioffe compilation citing Taylor & Jones 1960"}
+  bulk_modulus: {tier: extended, quality: compilation, kind: adiabatic, why: "handbook value; Ioffe's own sources scatter"}
+  thermal_expansion: {tier: extended, quality: primary, kind: point, sigma: 0.15, sigma_from: spread, why: "Li & Bradt polynomial from an OCR'd scan; other sources scatter by ~30 %"}
+GaAs:
+  lattice: {tier: core, quality: compilation, kind: room_temperature, why: "Ioffe compilation, 300 K"}
+  bulk_modulus: {tier: core, quality: compilation, kind: adiabatic, why: "300 K single-crystal elastic constants"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, why: "Franta et al. 2026 fit to measured expansion, 300–1000 K"}
+GaN:
+  lattice: {tier: core, quality: compilation, kind: room_temperature, why: "Ioffe compilation, 300 K"}
+  bulk_modulus: {tier: core, quality: compilation, kind: adiabatic, why: "Brillouin elastic constants (Polian et al. 1996)"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, sigma: 0.07, sigma_from: source, why: "Roder et al. 2005 HRXRD, Einstein fit (parameters ±7 %)"}
+InP:
+  lattice: {tier: core, quality: compilation, kind: room_temperature, why: "Ioffe compilation, 300 K"}
+  bulk_modulus: {tier: core, quality: compilation, kind: adiabatic, why: "300 K elastic constants (Nichols et al. 1980)"}
+  thermal_expansion: {tier: extended, quality: secondary, kind: range_average, sigma: 0.10, why: "one constant alpha (4.19e-6/K) fitted over 300–910 K: a range average, not a value at 300 K; high-T data look anomalous"}
+AlN:
+  lattice: {tier: core, quality: primary, kind: room_temperature, why: "Kröncke et al. 2008 HRXRD, 300 K"}
+  bulk_modulus: {tier: core, quality: compilation, kind: adiabatic, why: "300 K elastic constants (McNeil 1993)"}
+  thermal_expansion: {tier: extended, quality: primary, kind: point, why: "Kröncke et al. 2008 conflicts with Slack & Bartram and Sirota (room-temperature alpha differs by ~50 %)"}
+SiO2_quartz:
+  lattice: {tier: core, quality: primary, kind: room_temperature, why: "Kihara 1990 single crystal at 298 K"}
+  bulk_modulus: {tier: core, quality: primary, kind: isothermal, why: "Angel et al. 1997 single-crystal EOS (pressure standard)"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, why: "fit to Kihara 1990 single-crystal data; window approaches the alpha-beta transition"}
+Si3N4_beta:
+  lattice: {tier: core, quality: primary, kind: room_temperature, why: "du Boulay et al. 2004 synchrotron, 295 K"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, why: "Brillouin single-crystal elastic tensor (Vogelgesang et al. 2000)"}
+  thermal_expansion: {tier: extended, quality: provisional_compilation, kind: short_interval_mean, sigma: 0.15, why: "TPRC marks the table provisional and does not state phase-pure beta-Si3N4"}
+Al2O3:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NIST SRM 676a, 22.5 °C"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, why: "Tefft 1966 single-crystal resonance, 300 K"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "TPRC recommended axial polynomials"}
+HfO2:
+  lattice: {tier: core, quality: primary, kind: temperature_unstated, why: "Ruh & Corfield 1970 single crystal (room temperature implied)"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, sigma: 0.124, sigma_from: source, why: "EOS with K' fixed; literature widely scattered (±23 GPa)"}
+  thermal_expansion: {tier: extended, quality: provisional_compilation, kind: short_interval_mean, sigma: 0.10, sigma_from: source, why: "TPRC provisional axial data; volume built as a+b+c misses the monoclinic-angle term (full tensor in Haggerty et al. 2014, not accessed)"}
+ZrO2:
+  lattice: {tier: core, quality: primary, kind: temperature_unstated, why: "Howard et al. 1988 neutron powder, room temperature"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, sigma: 0.133, sigma_from: source, why: "EOS; literature widely scattered (±28 GPa)"}
+  thermal_expansion: {tier: extended, quality: provisional_compilation, kind: short_interval_mean, sigma: 0.10, sigma_from: source, why: "TPRC provisional axial data; volume misses the monoclinic-angle term; non-monotonic a-axis data"}
+Y2O3:
+  lattice: {tier: core, quality: primary, kind: room_temperature, why: "synchrotron powder at 295 K"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, why: "Brillouin single crystal (Palko et al. 2001)"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "TPRC recommended table"}
+TiO2_rutile:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NIST SRM 674b, 22.5 °C"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, why: "single-crystal sphere resonance"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "TPRC recommended axial polynomials"}
+MgO:
+  lattice: {tier: core, quality: primary, kind: room_temperature, why: "Dubrovinsky & Saxena 1997, 298 K; agrees with Hazen 1976"}
+  bulk_modulus: {tier: core, quality: primary, kind: isothermal, sigma: 0.01, sigma_from: spread, why: "Zha et al. 2000 (converted from adiabatic by the authors); agrees with Li et al. 2006 to 1 %"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "TPRC recommended table"}
+SrTiO3:
+  lattice: {tier: core, quality: primary, kind: temperature_unstated, why: "room-temperature refinement"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, sigma: 0.02, sigma_from: source, why: "ultrasonic single crystal at 25 °C (C11, C12 ±2.7 GPa)"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "TPRC recommended table (provisional only below 250 K)"}
+Cu:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NBS Circular 539 at 25 °C"}
+  bulk_modulus: {tier: core, quality: evaluated_compilation, kind: adiabatic, sigma: 0.01, sigma_from: source, why: "Ledbetter & Naimon JPCRD recommended single-crystal value"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Kaye & Laby, after TPRC"}
+Al:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NBS Circular 539 at 25 °C"}
+  bulk_modulus: {tier: core, quality: compilation, kind: unspecified, why: "Kaye & Laby polycrystal value; agrees with single-crystal (75.8 GPa)"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Kaye & Laby; 800 K value includes vacancy contributions"}
+W:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NBS Circular 539 at 25 °C"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, sigma: 0.01, sigma_from: spread, why: "ultrasonic single crystal at 300 K; Bolef & de Klerk within 1 %"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Kaye & Laby, after TPRC"}
+Co:
+  lattice: {tier: extended, quality: secondary, kind: room_temperature, sigma: 0.002, why: "taken from Wikipedia citing Arblaster 2018 (not opened)"}
+  bulk_modulus: {tier: core, quality: compilation, kind: adiabatic, why: "Landolt-Börnstein single-crystal ultrasonic constants"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Kaye & Laby polycrystal values (hcp range only)"}
+Ru:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "Arblaster 2013 critical review at 20 °C"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, sigma: 0.05, sigma_from: spread, why: "DAC EOS; other XRD value 348 GPa (8 % higher); no ultrasonic value accessed"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Arblaster 2013 critical review"}
+Mo:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NBS Circular 539 at 25 °C"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, sigma: 0.03, sigma_from: spread, why: "ultrasonic single crystal; other values 262–268 GPa"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Kaye & Laby, after TPRC"}
+Ti:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NBS Circular 539 at 25 °C"}
+  bulk_modulus: {tier: extended, quality: compilation, kind: unspecified, why: "Kaye & Laby polycrystal value derived from E and G; Ti is impurity-sensitive"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Kaye & Laby polycrystal values (alpha-Ti range)"}
+Ta:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NBS Circular 539 at 25 °C"}
+  bulk_modulus: {tier: core, quality: primary, kind: adiabatic, sigma: 0.02, sigma_from: spread, why: "ultrasonic single crystal at 300 K; Bolef 196 GPa"}
+  thermal_expansion: {tier: core, quality: evaluated_compilation, kind: point, why: "Kaye & Laby, after TPRC"}
+TiN:
+  lattice: {tier: extended, quality: primary, kind: temperature_unstated, why: "EOS intercept read from an abstract; temperature not stated"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, why: "laser-heated DAC EOS read from an abstract"}
+  thermal_expansion: {tier: extended, quality: primary, kind: point, why: "sputtered thin-film coating, two temperatures only"}
+TaN:
+  lattice: {tier: core, quality: primary, kind: temperature_unstated, why: "Christensen & Lebech 1978 refinement (via COD)"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, why: "single DAC EOS with K' = 4.7(5)"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, why: "bulk HT-XRD (Lenox et al.)"}
+CoSi2:
+  lattice: {tier: extended, quality: primary, kind: temperature_unstated, sigma: 0.002, sigma_from: spread, why: "1950 value; Wittmann 1961 differs by 0.2 %"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, why: "Imai & Hiroto 2023, room temperature only"}
+NiSi:
+  lattice: {tier: core, quality: primary, kind: temperature_unstated, why: "single-crystal refinement; agrees with Lord et al. 2015"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, why: "EOS with K' and V0 fixed, quenched samples"}
+  thermal_expansion: {tier: extended, quality: secondary, kind: range_average, why: "conference poster; one mean alpha per axis over RT–1073 K"}
+TiSi2:
+  lattice: {tier: core, quality: primary, kind: temperature_unstated, sigma: 0.003, sigma_from: spread, why: "refinement; other values within 0.2–0.4 %"}
+  bulk_modulus: {tier: core, quality: compilation, kind: adiabatic, why: "single-crystal elastic constants (Nakamura 1994, as tabulated)"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, why: "NASA push-rod dilatometry polynomial (Raj 2014)"}
+WSi2:
+  lattice: {tier: extended, quality: primary, kind: temperature_unstated, sigma: 0.005, sigma_from: spread, why: "c axis disagrees with other sources by 0.5 %"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, why: "NASA push-rod dilatometry polynomial (Raj 2014)"}
+MoS2:
+  lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NBS Circular 539 at 26 °C"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, sigma: 0.019, sigma_from: source, why: "layered; DAC EOS"}
+hBN:
+  lattice: {tier: core, quality: compilation, kind: room_temperature, why: "Ioffe citing Lynch & Drickamer; agrees with Pease 1952"}
+  bulk_modulus: {tier: extended, quality: primary, kind: isothermal, sigma: 0.033, sigma_from: source, why: "layered; literature spans 18–37 GPa"}
+  thermal_expansion: {tier: extended, quality: primary, kind: point, why: "layered, not graded"}
+graphite:
+  lattice: {tier: core, quality: primary, kind: room_temperature, why: "Nelson & Riley 1945 at 14.6 °C"}
+  bulk_modulus: {tier: extended, quality: secondary, kind: isothermal, why: "layered; value from a secondary table"}
+  thermal_expansion: {tier: extended, quality: evaluated_compilation, kind: point, why: "layered, not graded"}

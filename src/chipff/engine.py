@@ -1,6 +1,6 @@
 """Batched kUPS calculations: relaxation, stress, and NPT molecular dynamics.
 
-Everything physical in ChipFF Bench goes through this module, and everything in
+Everything physical in BeyondStructure Bench goes through this module, and everything in
 it goes through kUPS's public building blocks (potentials, relaxation and MD
 propagators). Structures enter and leave as ASE ``Atoms``; many structures are
 stacked into one kUPS batch so each model is compiled once per batch shape.

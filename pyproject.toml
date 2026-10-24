@@ -1,7 +1,7 @@
 [project]
 name = "chipff-bench"
-version = "1.0.0"
-description = "ChipFF Bench: how reliable are ML force fields for semiconductor materials? Built on kUPS."
+version = "1.1.0"
+description = "BeyondStructure Bench: how reliable are ML force fields for semiconductor materials? Built on kUPS."
 readme = "README.md"
 requires-python = ">=3.12,<3.14"
 license = { text = "MIT" }

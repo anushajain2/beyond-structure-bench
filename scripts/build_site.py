@@ -21,8 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "site"
 OUT = ROOT / "_site"
-REPO = "https://github.com/anushajain2/chipff-bench"
-RELEASE_DATE = "2026-10-20"
+REPO = "https://github.com/anushajain2/beyond-structure-bench"
+RELEASE_DATE = "2026-10-23"
 
 MODELS = ["mace-mpa-0", "orb-v3", "mattersim-5m-native"]
 SHORT = {"mace-mpa-0": "MACE-MPA-0", "orb-v3": "Orb v3", "mattersim-5m-native": "MatterSim v1"}
@@ -59,6 +59,54 @@ def _num(x):
     return None if v != v else round(v, 5)
 
 
+def _yaml(path: Path) -> dict:
+    """Minimal reader for data/reference_quality.yaml (flow mappings only), so Pages needs no PyYAML."""
+    try:
+        import yaml
+
+        return yaml.safe_load(path.read_text())
+    except ImportError:
+        pass
+    out: dict = {}
+    cur = None
+    for line in path.read_text().splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        key, _, rest = line.strip().partition(":")
+        rest = rest.strip()
+        if not line.startswith(" "):
+            cur = out.setdefault(key, {})
+            if rest.startswith("{"):
+                out[key] = _flow(rest)
+        elif cur is not None and rest.startswith("{"):
+            cur[key] = _flow(rest)
+    return out
+
+
+def _flow(text: str) -> dict:
+    body = text.strip()[1:-1]
+    parts, buf, quote = [], "", False
+    for ch in body:
+        if ch == '"':
+            quote = not quote
+        if ch == "," and not quote:
+            parts.append(buf)
+            buf = ""
+        else:
+            buf += ch
+    parts.append(buf)
+    d = {}
+    for part in parts:
+        k, _, v = part.partition(":")
+        v = v.strip().strip('"')
+        try:
+            v = float(v)
+        except ValueError:
+            pass
+        d[k.strip()] = v
+    return d
+
+
 def _csv(path: Path) -> list[dict]:
     with path.open() as f:
         return list(csv.DictReader(f))
@@ -70,6 +118,7 @@ def evidence() -> dict:
     for p in sorted((ROOT / "data" / "experimental").glob("*.json")):
         for m in json.loads(p.read_text())["materials"]:
             exp[m["id"]] = m
+    quality = _yaml(ROOT / "data" / "reference_quality.yaml")
     mats = []
     for m in s["materials"]:
         e = exp.get(m["id"], {})
@@ -79,6 +128,11 @@ def evidence() -> dict:
             if r:
                 ref[prop] = {k: r.get(k) for k in ("source", "citation", "quote", "method", "T_K", "value_GPa")
                              if r.get(k) is not None}
+            audit = (quality.get(m["id"]) or {}).get(prop)
+            if audit:
+                ref.setdefault(prop, {})["audit"] = {
+                    **{k: audit.get(k) for k in ("tier", "quality", "kind", "why")},
+                    "sigma": audit.get("sigma", quality.get("defaults", {}).get(prop))}
         mats.append({**{k: m[k] for k in ("id", "formula", "class", "class_label", "phase", "role", "mp_id")},
                      "ref": ref, "notes": e.get("notes")})
     pending = set(s.get("pending", {}).get("thermal_expansion", []))
@@ -132,7 +186,7 @@ def evidence() -> dict:
 def render(page: Path, layout: str, version: str) -> str:
     body = page.read_text()
     m = re.match(r"<!--\s*title:\s*(.*?)\s*\|\s*(.*?)\s*-->\n", body)
-    title, desc = (m.group(1), m.group(2)) if m else ("ChipFF Bench", "")
+    title, desc = (m.group(1), m.group(2)) if m else ("BeyondStructure Bench", "")
     body = body[m.end():] if m else body
     current = ' aria-current="page"'
     nav = "".join(f'<a href="{href}"{current if href == page.name else ""}>{label}</a>' for href, label in NAV)

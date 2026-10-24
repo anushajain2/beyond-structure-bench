@@ -61,7 +61,7 @@ QHA result was compared with experiment):
   q-points, force constants are symmetrised, and the share of interpolated imaginary modes is
   recorded and must stay below 2%. Phonopy leaves imaginary modes out of the free energy, so even
   a small share can shift α. The six-case study measured it: putting those modes back changes
-  α(300 K) by ≤ 1 %, except HfO₂ (+6 % for MACE), and by 16–25 % for HfO₂ at 400–1500 K
+  α(300 K) by ≤ 1 %, except HfO₂ (+6 % for MACE), and by 15–25 % for HfO₂ at 400–1500 K
   ([`thermal_failure_study.md`](thermal_failure_study.md), section 3).
   Genuine instabilities remain flagged: cubic SrTiO₃ is unstable at sampled q-points, as
   PBE-trained models are expected to find for its octahedral-rotation mode.
