@@ -99,6 +99,15 @@ interval spanning zero (`model_agreement.csv`). The MCP `check_material` tool co
 constants and bulk moduli, so its disagreement flag is a heuristic that this benchmark does not
 validate: agreement between models that share training data does not show they are right.
 
+**Reproducibility is checked on every push** (`scripts/check_reproducible.py`, `.github/workflows/ci.yml`).
+Fingerprints catch results computed with different code or settings, but not a dependency update that shifts
+numbers without changing this project's code. Two CI checks close that gap. Every table rebuilt from the committed
+raw results must equal the committed table, to within the 5-significant-digit rounding. Separately, one published
+result is recomputed through the real model (MACE-MPA-0 via kUPS: Si lattice constant and equation of state).
+It must match the committed numbers, for example the lattice constant to 2 × 10⁻⁴ relative, and its code,
+settings and inputs fingerprints must be unchanged. The downloaded model file must also match
+`configs/checkpoints.json`.
+
 **Incomplete runs are not compared.** A model whose thermal run has not covered every material
 (none at present; Orb v3 was pending until its run was completed on 2026-10-24) is marked `pending` in
 `results/thermal_expansion.csv` and left out of
