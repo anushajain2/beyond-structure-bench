@@ -4,13 +4,16 @@ The benchmark's QHA results (`results/thermal_expansion.csv`, after the Γ-mode 
 model-specific errors at 300 K. MACE-MPA-0 overshoots Ta (+179 %) and GaAs (+111 %), and MatterSim v1 overshoots InP
 (+119 %), Si (+85 %) and GaAs (+68 %). Yet MACE gets Si within about 1 %, and MatterSim gets Ta within 14 %. Orb v3, added later as a third model family on the
 same cases, overshoots Ta (+70 %), InP (+48 %), GaAs (+25 %) and HfO₂ (+22 %), and gets Si within 4 % and Cu within 8 %.
-This study takes six cases (Si, GaAs, Cu, Ta, InP and monoclinic HfO₂) and asks three questions:
+This study takes six cases (Si, GaAs, Cu, Ta, InP and monoclinic HfO₂) and asks four questions:
 
 1. **Is it the software route?** Do the backends the benchmark used give the same energies, forces and
    stresses as the official packages?
 2. **Is it numerics?** How much do the QHA settings move α, including how phonopy treats imaginary modes?
 3. **If it is the model, which ingredient?** α_V ≈ γ C_V / (K_T V) is split into the Grüneisen parameter,
    heat capacity, bulk modulus and volume, and each is compared with experiment.
+4. **Is the error the model's own, or inherited from PBE?** The models were trained on PBE data, so each ingredient
+   is also compared with matched PBE references: our own PBE calculations for Si and GaAs, and published PBE results
+   for Cu and Ta (section 7).
 
 Everything is reproduced by `scripts/thermal_failure_study.py`, and the raw data are in `results/thermal_failure/`
 (see [Reproduce](#reproduce)). The tables marked in this file's source are written into it from the CSVs by
@@ -47,8 +50,8 @@ other materials; it does not establish rules that hold beyond them.
   volumes, and with C_V and K_T it rebuilds the model's own α to within 10–15 %, except Orb's Si (20 %). The experimental γ, however, is
   *inferred* from the measured α with the same relation, so the γ ratio is what remains once K, C_V and V are
   accounted for, not an independent measurement. The direct experimental checks on γ are a few mode values: TA(X) and
-  TA(L) for Si, and TO(Γ) for GaAs and InP. All comparisons are with experiment; whether the errors are the models'
-  own or inherited from PBE is not tested here (section 7).
+  TA(L) for Si, and TO(Γ) for GaAs and InP. The comparisons in this bullet are with experiment; section 7 separates
+  each model's own error from the part inherited from PBE.
   * **MACE on Ta:** γ = 4.1 against 1.56 inferred from experiment. On the full phonon mesh every mode has γ ≥ 2.1, above
     the measured average; there is no mode-resolved experimental γ to compare with. MACE's static equation of state
     (K′ = 7.7 against a measured 3.1) corroborates an energy-volume curve that stiffens too fast under compression.
@@ -81,6 +84,17 @@ other materials; it does not establish rules that hold beyond them.
     static properties are not reassuring either: Orb's bulk modulus for Ta is already 11–14 % soft. That hints at a
     problem, but with everything else fixed it would explain only about 12–16 % of extra expansion (1/0.89 to 1/0.86),
     not 70 %.
+* **Against PBE, the training functional, most of the large γ errors are the models' own; the soft semiconductor
+  bulk moduli are inherited** (section 7; PBE references for Si, GaAs, Cu and Ta, none for InP or HfO₂):
+  * **Model's own:** MACE's Ta (γ 4.09 against PBE's ≈ 1.98; α +130 % over PBE) and GaAs (γ +68 % over PBE, TA(L)
+    +1.80 against PBE's −1.11). MatterSim's Si and GaAs: its zone-edge TA modes are 60–80 % weaker than PBE's, and
+    its Si α is +61 % over PBE.
+  * **Inherited:** PBE itself makes Si 12 % and GaAs 18 % too soft (InP 17 %), while getting their γ within 5 % of
+    experiment. Orb's GaAs reproduces PBE (γ +2 %, α within 1 % of the PBE estimate), so its +25 % error is PBE's. PBE also
+    overshoots Ta (+21 %; γ +27 %) and Cu (+11–15 %).
+  * **Right answers that are not PBE's:** MACE's accurate Si is its own too-low γ (−17 % against PBE) cancelling
+    PBE's inherited +14 % overshoot. All three models are closer to experiment than PBE for Cu, and MatterSim is for
+    Ta.
 * **HfO₂ is the case where numerics and reference data matter as much as the model.** All three models give γ ≈ 1.46–1.47
   against 1.14 (+28 %), partly offset by a 6–9 % stiff K. But at 400–1500 K, α depends on how imaginary
   interpolation modes are treated (+15 to +25 %) and on the volume-scan range (±13 %). The experimental reference is
@@ -467,6 +481,9 @@ within 1 %), and the wider volume scan gives −9 % for MACE. *Orb −3 %: appar
 Like MACE, Orb has strongly negative TA modes (TA(X) −2.23, TA(L) −1.68) and a γ 32 % low. Its K_T is 14 % soft, which
 only partly offsets this: the reconstruction gives 6.1, 22 % below experiment. The full QHA's 7.6 depends on a 20 %
 reconstruction residual and moves by −22 % / +19 % with the volume-scan range. No mechanistic claim is made for Orb's Si.
+*Against PBE (section 7):* PBE's own full QHA gives 9.0 (+14 %), with γ 0.445 and K_T 12 % soft. MatterSim's error is
+therefore about four fifths its own. MACE's and Orb's near-agreement with experiment comes from a γ 17 % and 28 % below
+PBE's, offsetting PBE's inherited overshoot.
 
 **GaAs.** *MACE +111 %: model, mostly γ.* γ is 1.77× too large, about 80 % of the reconstructed log-error (76 % of the full-QHA one). The optical γ
 is right (1.38 vs 1.39); the acoustic branches are wrong. Only 3 % of modes have negative γ (Si and InP have 33 %), and
@@ -476,9 +493,15 @@ bulk modulus.* γ is within 8 % of the inferred value and the TA modes are negat
 25 % soft (56 vs 75 GPa), by far the larger contribution. On its own it matches the whole reconstructed log-error;
 γ adds about a quarter, and Orb's larger volume takes some back. Orb's optical γ at Γ is 12 % below experiment
 (1.22 vs 1.39).
+*Against PBE (section 7):* PBE gives γ 0.776, TA(X) −1.17, TA(L) −1.11 and TO(Γ) 1.22, with a static K 18 % soft
+(61.6 GPa) and α ≈ 21.6 (+26 %). Orb matches PBE's γ and mode values and is within 6 % on K, so its error is PBE's. MACE's γ (+68 %) and
+wrong-signed TA(L) are its own, about two thirds of its error. MatterSim's weak TA modes (19–38 % of PBE's) are its
+own, and its K is 9 % softer than PBE's.
 
 **Cu.** *MACE and MatterSim within 4 %, Orb +8 %.* All ingredients are within 12 % for all three models. MACE's γ is
 7 % low and its K_T 11 % soft, so these cancel; Orb's γ is 8 % high. Cu is the control case and behaves as one.
+*Against PBE (published, section 7):* PBE overshoots Cu by 11–15 % with γ ≈ 2.12. All three models fall 2–14 % below
+PBE, so they match experiment better than their training functional does.
 
 **Ta.** *MACE +179 %: by elimination, γ.* K_T, C_V and V are each within 5 %, so the residual is γ: 4.09 against 1.56
 inferred from experiment. On the full phonon mesh every mode has γ ≥ 2.1, above the measured average. There is no
@@ -495,6 +518,9 @@ within 0.6 %, with explicit ± displacements, without symmetry reduction, and th
 contributions: 77 % of the reconstructed log-error and 63 % of the full-QHA one; the reconstruction residual accounts
 for the difference. Unlike MACE, Orb's static K′ is normal (3.16), so K′ gives no warning. Its static bulk
 modulus is 11 % soft (171 vs 192 GPa), which hints at a problem but not at its size. Orb's Ta also has a few imaginary mesh modes (0.09 %), which change α by 3 % in the sensitivity test.
+*Against PBE (published, section 7):* PBE's phonon-only QHA gives α_V ≈ 23.0 (+21 %), γ ≈ 1.98 and K′ 3.5–3.7.
+MACE's γ and K′ are about twice PBE's, so its failure is its own (α +130 % over PBE). Orb's γ is only 10 % above PBE's.
+Its own share of the error (+40 % over PBE) is γ plus a K_T 14 % softer than PBE's. MatterSim is 29 % below PBE.
 
 **InP.** *MACE −12 %: γ too low.* MACE has strong negative TA modes (TA(X) −1.03, TA(L) −1.46), so γ is 23 % low.
 The experimental reference is the 300–910 K average recommended by Glazov et al. (4.19 × 10⁻⁶ K⁻¹ linear). The Ioffe
@@ -524,19 +550,22 @@ reference reasons alone; that is an indication from the checks run, not a calibr
 carry the errors, and the third model shows which failures are shared:
 
 * **Soft semiconductor bulk moduli** are shared by MatterSim (17–29 % soft) and Orb (14–25 %), consistent with the
-  benchmark's static K errors for these materials. For Orb's GaAs and InP, the soft K is most of the error.
+  benchmark's static K errors for these materials. For Orb's GaAs and InP, the soft K is most of the error. PBE is
+  itself 12–18 % soft for these materials, so most of this is inherited (section 7).
 * **The acoustic-branch γ of the semiconductors** is model-specific. MatterSim makes the negative-γ TA modes too weakly
   negative (or positive, for InP) and gets α too large. MACE makes them too strongly negative in Si and InP and too
   weakly negative in GaAs. Orb's are negative throughout, and close for GaAs and InP.
 * **A right answer can hide wrong ingredients.** MACE's Si is right through cancellation: γ too low, K too soft. Orb's Si
   looks right too, but its ingredients compensate only partly and its result is numerically fragile, so it stays
   unresolved.
-* **Ta's γ is too high** in two of the three (MACE 4.09, Orb 2.19, against 1.56); MatterSim's is close.
+* **Ta's γ is too high** in two of the three (MACE 4.09, Orb 2.19, against 1.56); MatterSim's is close. PBE's is
+  already ≈ 1.98, so Orb is close to PBE and MACE is about twice it (section 7).
 * **HfO₂'s γ** is the same in all three (≈ 1.46), 28 % above a weak reference.
 
 Because all three models share the QHA pipeline and the six cases were chosen around MACE's and MatterSim's failures,
-"shared" here means shared among these models in this pipeline. It does not identify the training data or PBE as the
-cause (section 7).
+"shared" here means shared among these models in this pipeline. Agreement between models does not by itself identify
+the training data or PBE as the cause. The matched PBE comparison in section 7 does: the soft semiconductor bulk
+moduli are PBE's, and the TA-mode and Ta γ failures are mostly the models' own.
 
 ## 6. Recommendations
 
@@ -553,19 +582,82 @@ cause (section 7).
    reason to transfer from metals to semiconductors or oxides. A counterexample on an additional model already shows
    the weakness: Orb's Ta has a normal K′ but a γ 40 % too high, so K′ gives no warning of a +70 % error.
 
-## 7. Limitations and open questions
+## 7. Model error or inherited from PBE?
 
-* **Model error or PBE error?** Every comparison here is with experiment. Matched PBE references would separate the
-  models' own error from the training functional's, case by case. To be comparable, they need the same phase and
-  volume convention (ideally both the model's equilibrium volume and a common reference volume), the same mode
-  identification, and a signed, heat-capacity-weighted γ (an average of |γ| is a different quantity, since thermal
-  expansion depends on the cancellation between signs).
+The models were trained on PBE (and PBE+U) data. An error that PBE itself makes would remain even in a model that fit
+its training data perfectly, so each model's error splits into **model minus PBE** (its own) and **PBE minus
+experiment** (inherited). PBE references:
+* **Si and GaAs, our own calculations:** Quantum ESPRESSO 7.6, SSSP 1.3 PBE, at PBE's own lattice (within 0.1 % of
+  the Materials Project's). Phonons are from DFPT on the 4×4×4 q-grid that the benchmark's supercell samples, with no
+  LO–TO term, as in the MLIP pipeline. They are analysed with this study's own γ and QHA functions, so they are defined
+  exactly as for the models.
+  * **Si:** a full 9-volume QHA.
+  * **GaAs:** γ at three volumes, with α reconstructed as γ C_V/(K_T V). For Si the reconstruction is 7 % below the
+    full QHA.
+* **Cu and Ta: published PBE QHA.** Ta: Gong & Dal Corso, *J. Chem. Phys.* 162, 124709 (2025), phonon-only. Cu:
+  Grabowski et al. 2007 and Narasimhan & de Gironcoli 2002. Static moduli are from the Delta test.
+
+Sources, settings, figure readings and the full tables are in [`matched_dft_plan.md`](matched_dft_plan.md), sections
+2, 3 and 8. Results are in `results/matched_dft/`; the script is `scripts/matched_dft.py`.
+
+| α_V(300 K) | PBE − exp | MACE − PBE | MatterSim − PBE | Orb − PBE | γ: exp / PBE / MACE / MatterSim / Orb |
+|---|---|---|---|---|---|
+| Si (ours, full QHA: 9.0) | +14 % | −13 % | **+61 %** | −15 % | 0.46 / 0.445 / 0.37 / 0.67 / 0.32 |
+| GaAs (ours, ≈ 21.6) | **+26 %** | **+68 %** | +34 % | 0 % | 0.74 / 0.776 / 1.30 / 0.92 / 0.79 |
+| Cu (published, 55–57) | +11 to +15 % | −6 to −9 % | −11 to −14 % | −2 to −6 % | 1.99 / ≈ 2.12 / 1.85 / 2.16 / 2.14 |
+| Ta (published, ≈ 23.0) | +21 % | **+130 %** | −29 % | **+40 %** | 1.56 / ≈ 1.98 / 4.09 / 1.68 / 2.19 |
+
+The zone-edge TA modes (TA(X) / TA(L)):
+
+| | PBE (ours) | MACE | MatterSim | Orb |
+|---|---|---|---|---|
+| Si | −1.89 / −1.63 | −2.84 / −1.68 | −0.64 / −0.58 | −2.23 / −1.68 |
+| GaAs | −1.17 / −1.11 | −0.86 / **+1.80** | −0.22 / −0.42 | −1.06 / −1.03 |
+
+PBE's static bulk modulus against experiment:
+* soft for the semiconductors: Si −9 % (K_T(300 K) −12 %), GaAs −18 % (61.6 GPa, as MP's 60.7), InP −17 % (MP);
+* close for the metals: Cu +3 %, Ta +2 %.
+
+**What this settles.**
+1. **The models' own errors.**
+   * MACE on Ta: γ and K′ about twice PBE's.
+   * MACE on GaAs: γ +68 %, and a TA(L) mode of the wrong sign. PBE has it negative, so the mechanism proposed in
+     section 4 is a model error.
+   * MatterSim on Si and GaAs: TA modes 60–80 % weaker than PBE's.
+   * The part of Orb's Ta error beyond PBE: γ +10 % and K_T 14 % softer.
+2. **Inherited from PBE.**
+   * The soft semiconductor bulk moduli.
+   * All of Orb's GaAs error.
+   * PBE's +21 % on Ta: about a fifth of MACE's log-error there and a third of Orb's.
+   * PBE's overshoot of Cu.
+3. **Right answers that are not PBE's.**
+   * MACE's Si is its own low γ cancelling PBE's +14 %.
+   * All three models beat PBE on Cu, and MatterSim does on Ta.
+   * Agreement with experiment therefore does not show that a model reproduces its training physics.
+4. **A limit of the benchmark's own route.** Run with DFT, the benchmark's finite-displacement setting (one 0.01 Å
+   displacement in a 128-atom cell) gave Si γ = 0.21 against 0.445 from DFPT. The likely cause is SCF noise in the
+   small long-range forces that Si's TA modes depend on. The models' run-to-run force noise is about 100 times
+   smaller (≤ 4 × 10⁻⁶ eV/Å, section 2), so the benchmark's results are unaffected. A DFT reference for this route, however, needs DFPT,
+   larger or ± displacements, or tighter SCF.
+
+**What it does not settle.**
+* InP and HfO₂ have no PBE γ reference here.
+* The GaAs PBE α is a reconstruction, good to about 10 %.
+* The Cu and Ta references come from other codes and pseudopotentials, and their spread between setups is 4–12 %.
+  Model-minus-PBE gaps below about 15 % are therefore not resolved: Cu, and MACE's and Orb's Si.
+* QE with SSSP is not the Materials Project's VASP setup; the lattice and K agree with MP to 0.1 % and 1.5 %.
+
+## 8. Limitations and open questions
+
+* **PBE references cover four of the six cases** (section 7). InP and HfO₂ would need their own DFPT calculations;
+  for HfO₂ (12 atoms, polar, low symmetry) that is far more expensive than for GaAs.
 * **Case selection.** The six cases were picked around observed failures, with few controls. A follow-up should fix
   the cases in advance and include more materials the models get right.
 * **What the third model shows, and what it cannot.** Orb v3 shares some failures (soft semiconductor K with
   MatterSim, too-high Ta γ with MACE) and avoids another (the wrong-signed semiconductor
-  TA modes). Because all three models share this QHA pipeline, a shared failure does not identify PBE or the training
-  data as the cause. An avoided failure shows only that it is avoidable here, not which design choice avoids it. Orb was
+  TA modes). Because all three models share this QHA pipeline, a shared failure does not by itself identify PBE or
+  the training data as the cause; section 7 tests that directly for four of the cases. An avoided failure shows only
+  that it is avoidable here, not which design choice avoids it. Orb was
   also run with fewer checks than MACE and MatterSim (no 0.03 Å or 14 Å runs; the displacement-scheme and
   official-package checks only for Ta).
 * **Disagreement as a warning.** More models add comparisons, but the evidence is still the materials tested. A
@@ -616,3 +708,14 @@ Raw data are committed: `structures/`, `points/<backend>.json`, `phonons/<backen
 cells, energies, displacement datasets and reference-subtracted forces per volume) and `determinism/`. So `analyze`
 rebuilds every table without a force call. Measured wall times on an M-series laptop CPU, per material: MatterSim 10–300 s,
 MACE through kUPS 30–700 s (HfO₂ is the slowest, 12 min for 13 volumes).
+
+The PBE references of section 7 need Quantum ESPRESSO 7.6 (conda-forge `qe`, in its own environment) and the SSSP 1.3
+PBE efficiency pseudopotentials in `~/chipff-dft/sssp_1.3.0_pbe_eff`. The DFT runs take about 9.5 h on 4 cores
+of a laptop. The QE outputs stay outside the repository; the force constants and the summary table are committed in
+`results/matched_dft/`:
+
+```bash
+PYTHONPATH=src .venv/bin/python scripts/matched_dft.py prep                  # QE inputs -> ~/chipff-dft
+PY=$PWD/.venv/bin/python scripts/matched_dft_run.sh                          # GaAs DFPT, Si supercells, Si DFPT
+PYTHONPATH=src .venv/bin/python scripts/matched_dft.py analyze               # -> results/matched_dft/pbe_qe.csv
+```

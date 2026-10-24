@@ -25,6 +25,9 @@ worst predictions go wrong.
    depth, the models misjudge how strongly the atoms' vibrations change as the crystal expands. These
    cases were picked after the failures were seen, so this explains them rather than proving a general
    rule.
+4. **Most of those mistakes are the models' own, but not all.** Comparing with the method the models
+   learned from (PBE) shows that MACE's tantalum and GaAs errors and MatterSim's semiconductor errors are
+   the models' own. The too-soft semiconductors, and all of Orb v3's GaAs error, come from PBE itself.
 
 Averages leave out layered materials such as graphite, which every model gets wrong, and Orb v3's
 thermal expansion, which was not computed in this release.
@@ -131,6 +134,15 @@ software and numerical settings did not explain the large errors; they trace to 
 parameters, with a too-soft bulk modulus adding to it for several semiconductors. For tantalum,
 MACE-MPA-0's Grüneisen parameter is 4.1, against 1.6 inferred from experiment. The six cases were chosen
 after the failures were seen, so the study explains them; it does not establish a general rule.
+
+**4. Most of those errors are the models' own; the soft semiconductors are inherited.** The models learned from
+PBE calculations. Matched PBE references separate what a model gets wrong from what PBE itself gets wrong. They are
+our own calculations for Si and GaAs and published ones for Cu and Ta.
+* **The models' own errors:** MACE's tantalum and GaAs errors, and MatterSim's silicon and GaAs errors. For
+  tantalum, PBE gives a Grüneisen parameter of about 2.0, where MACE gives 4.1.
+* **Inherited from PBE:** PBE makes silicon and GaAs 12–18 % too soft. All of Orb v3's GaAs error comes from this.
+* **Right answers that are not PBE's:** MACE's accurate silicon is its own error cancelling an inherited one.
+Details are in [section 7 of the study](docs/thermal_failure_study.md#7-model-error-or-inherited-from-pbe).
 
 Every number above comes from the committed tables in `results/`; the full findings, with confidence
 intervals and sample sizes, are in [`docs/details.md`](docs/details.md#findings-in-detail).

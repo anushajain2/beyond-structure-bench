@@ -4,8 +4,9 @@
 
 The thermal-failure study ([thermal_failure_study.md](thermal_failure_study.md)) compares each model's
 quasi-harmonic (QHA) thermal expansion with experiment, and traces the large errors to the Grüneisen parameter γ,
-sometimes made worse by a soft bulk modulus K. It cannot say whether an error belongs to the model or comes from PBE,
-the functional the training data were computed with (section 7 of the study). An outside review asked for matched PBE
+sometimes made worse by a soft bulk modulus K. On its own, it could not say whether an error belongs to the model or comes
+from PBE, the functional the training data were computed with. This page supplies that answer; its conclusions are
+summarised in section 7 of the study. An outside review asked for matched PBE
 thermal calculations on a small subset to separate the two:
 
 * **model minus PBE** is the model's own error: what it gets wrong relative to the data it was trained to reproduce;
