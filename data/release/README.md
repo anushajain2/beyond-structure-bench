@@ -1,8 +1,8 @@
 # BeyondStructure Bench experimental reference dataset
 
 `chipff_references.csv` holds the experimental values BeyondStructure Bench compares against, for 33 materials used
-in semiconductor devices: 495 values of lattice parameters, bulk moduli and linear thermal-expansion
-coefficients. It is meant to be reusable without the rest of the project. Every value carries its source,
+in semiconductor devices: 462 values of lattice parameters, bulk moduli and thermal-expansion coefficients
+(linear per axis, or volumetric where the source gives the full tensor). It is meant to be reusable without the rest of the project. Every value carries its source,
 a citation, a short verbatim quote where one could be taken, and a quality audit.
 
 Regenerate it with `python scripts/export_references.py`. The underlying records, with longer notes on
@@ -28,9 +28,12 @@ conversions and conflicts, are in `data/experimental/*.json`; the audit is in `d
 
 ## Known limitations
 
-- **HfO₂ and ZrO₂ expansion** is given per lattice axis. A volume built from the three axes alone misses
-  the change of the monoclinic angle β; the full tensor is in Haggerty et al., J. Am. Ceram. Soc. 97, 2213
-  (2014), which was not accessible. These values are in the extended tier.
+- **HfO₂ and ZrO₂ expansion** (since 2026-10-24) is volumetric, the trace of the full expansion tensor from
+  Haggerty et al., J. Am. Ceram. Soc. 97, 2213 (2014), so it includes the monoclinic-angle term the earlier
+  axial (TPRC) data missed. It starts at 323 K (HfO₂) and 373 K (ZrO₂), so there is still no measured value
+  at 300 K.
+- **β-Si₃N₄ expansion** (since 2026-10-24) is a secondary table (Bruls et al. 2001) derived from 1981
+  dilatometry whose sample is not documented; it is in the extended tier.
 - **InP and NiSi expansion** are range averages, not values at 300 K. The benchmark does not use them for its
   300 K comparison.
 - Several values were derived (VRH averages from elastic constants, derivatives of published fits, interval

@@ -2,8 +2,8 @@
 
   python scripts/export_references.py   ->  data/release/chipff_references.csv
 
-One row per reference value: lattice parameters, bulk moduli and linear thermal-expansion coefficients
-(per axis), each with its conditions, source, citation, short quote and the quality audit from
+One row per reference value: lattice parameters, bulk moduli and thermal-expansion coefficients (linear per
+axis, or volumetric where the source gives the full tensor), each with its conditions, source, citation, short quote and the quality audit from
 data/reference_quality.yaml. See data/release/README.md for the column definitions.
 """
 
@@ -67,7 +67,9 @@ def main():
                 if v.get("alpha_1e-6_per_K") is None:
                     continue
                 t = v.get("T_K") if v.get("T_K") is not None else "-".join(map(str, v.get("T_range_K") or []))
-                rows.append({**base, "property": "linear_thermal_expansion", "axis": v.get("axis", "iso"),
+                vol = v.get("axis") == "volume"   # a volumetric value (e.g. the trace of a measured tensor)
+                rows.append({**base, "property": "volumetric_thermal_expansion" if vol else "linear_thermal_expansion",
+                             "axis": "" if vol else v.get("axis", "iso"),
                              "value": v["alpha_1e-6_per_K"], "unit": "1e-6 per K", "T_K": t,
                              **audit("thermal_expansion"), **src(te)})
     OUT.parent.mkdir(parents=True, exist_ok=True)

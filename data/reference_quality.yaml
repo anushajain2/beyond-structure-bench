@@ -58,7 +58,7 @@ SiO2_quartz:
 Si3N4_beta:
   lattice: {tier: core, quality: primary, kind: room_temperature, why: "du Boulay et al. 2004 synchrotron, 295 K"}
   bulk_modulus: {tier: core, quality: primary, kind: adiabatic, why: "Brillouin single-crystal elastic tensor (Vogelgesang et al. 2000)"}
-  thermal_expansion: {tier: extended, quality: provisional_compilation, kind: short_interval_mean, sigma: 0.15, why: "TPRC marks the table provisional and does not state phase-pure beta-Si3N4"}
+  thermal_expansion: {tier: extended, quality: secondary, kind: point, sigma: 0.15, why: "Bruls et al. 2001 table (added 2026-10-24), derived from 1981 dilatometry whose sample is unverified; covers 300 K, polycrystalline only"}
 Al2O3:
   lattice: {tier: core, quality: evaluated_compilation, kind: room_temperature, why: "NIST SRM 676a, 22.5 °C"}
   bulk_modulus: {tier: core, quality: primary, kind: adiabatic, why: "Tefft 1966 single-crystal resonance, 300 K"}
@@ -66,11 +66,11 @@ Al2O3:
 HfO2:
   lattice: {tier: core, quality: primary, kind: temperature_unstated, why: "Ruh & Corfield 1970 single crystal (room temperature implied)"}
   bulk_modulus: {tier: extended, quality: primary, kind: isothermal, sigma: 0.124, sigma_from: source, why: "EOS with K' fixed; literature widely scattered (±23 GPa)"}
-  thermal_expansion: {tier: extended, quality: provisional_compilation, kind: short_interval_mean, sigma: 0.10, sigma_from: source, why: "TPRC provisional axial data; volume built as a+b+c misses the monoclinic-angle term (full tensor in Haggerty et al. 2014, not accessed)"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, sigma: 0.05, why: "Haggerty et al. 2014 synchrotron XRD, full expansion tensor (trace = alpha_V, monoclinic-angle term included), 323-1623 K; replaces TPRC axial data"}
 ZrO2:
   lattice: {tier: core, quality: primary, kind: temperature_unstated, why: "Howard et al. 1988 neutron powder, room temperature"}
   bulk_modulus: {tier: extended, quality: primary, kind: isothermal, sigma: 0.133, sigma_from: source, why: "EOS; literature widely scattered (±28 GPa)"}
-  thermal_expansion: {tier: extended, quality: provisional_compilation, kind: short_interval_mean, sigma: 0.10, sigma_from: source, why: "TPRC provisional axial data; volume misses the monoclinic-angle term; non-monotonic a-axis data"}
+  thermal_expansion: {tier: core, quality: primary, kind: point, sigma: 0.05, why: "Haggerty et al. 2014 synchrotron XRD, full expansion tensor (trace = alpha_V), 373-1523 K (50 C row omitted as internally inconsistent); replaces TPRC axial data"}
 Y2O3:
   lattice: {tier: core, quality: primary, kind: room_temperature, why: "synchrotron powder at 295 K"}
   bulk_modulus: {tier: core, quality: primary, kind: adiabatic, why: "Brillouin single crystal (Palko et al. 2001)"}
