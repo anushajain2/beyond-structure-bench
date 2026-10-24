@@ -366,3 +366,49 @@ With Al included, Orb's 300 K mean is 941 %; its 300 K median absolute error on 
 * The deferred 10 materials, for coverage.
 * The benchmark's rule grading 300 K values from runs that failed `volume_inside_scan`. The rule is unchanged here,
   but Al shows it can grade a meaningless number.
+
+## Addendum (2026-10-24): deferred materials, v1.1.0 references and the 300 K rule fix
+
+Added after the verdicts above; it does not revise them (Amendment 1). Three things changed since the core evaluation:
+
+* **Orb now covers all 33 materials.** The 10 deferred materials were run overnight with the same settings, code
+  fingerprint and memory safeguards. All 33 records are current, and Orb is no longer "pending".
+* **This branch now has `main`'s v1.1.0 references** (merge e740989). InP's and NiSi's references are range averages
+  without a 300 K value; HfO₂, ZrO₂ and β-Si₃N₄ are extended tier.
+* **The 300 K rule was fixed** (f2e89c1). A 300 K value is no longer graded when the stable volume scan was cut short
+  by instability and the volume check failed. This affects only Orb's Al, which is now excluded at 300 K.
+
+**Deferred materials:**
+
+| material | Orb result | note |
+|---|---|---|
+| Y₂O₃ | +9.0 % at 300 K, +31.7 % window | blind; MACE +5.8 / +23.0 %, MatterSim +12.7 / +38.4 % |
+| β-Si₃N₄ | +15.6 % window | extended-tier reference |
+| TaN | +2.7 % window | MACE is unstable here, MatterSim +28.6 % |
+| HfO₂ | +11.8 % window | extended tier; the study gave +22 % at 300 K, which has no reference here now |
+| ZrO₂ | not graded | no reference covers its window |
+| TiO₂ (rutile) | not graded | unstable for Orb too (−2.81 THz), as for MACE and MatterSim |
+| SrTiO₃ | not graded | relaxed to a different crystal form |
+| MoS₂, hBN, graphite | not graded | layered |
+
+**Tests recomputed for information** (`scripts/prereg_orb_thermal_eval.py --all`, output in
+`results/preregistration_orb_thermal_addendum.json`):
+
+| | verdict | statistic |
+|---|---|---|
+| H1 | supported | 4 of 5 explained; Al no longer graded at 300 K |
+| H2 | inconclusive | no blind large error is left; all graded: AUC 0.44, "no better than chance" |
+| H3 | inconclusive | ρ = 0.15, n = 13 |
+| H4 | refuted | 2 of 5 compensation cases grow; median Δ 12.6 pp below controls |
+
+**Benchmark-wide, all non-layered materials** (`results/robustness/`): mean absolute error with 95 % CI, and paired
+bootstrap against Orb.
+
+| | MACE-MPA-0 | MatterSim v1 | Orb v3 |
+|---|---|---|---|
+| 300 K, mean abs. error | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | 20.9 % (15–31), n = 21 |
+| window, mean abs. error | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | 24.6 % (17–38), n = 17 |
+| paired vs Orb, 300 K | Orb more accurate (+15.7 pp, p 0.005) | no significant difference | |
+| paired vs Orb, window | no significant difference | Orb more accurate with all references (+11.9 pp); not significant on core-tier references alone | |
+
+Errors of MACE and Orb at 300 K are correlated: r = 0.72 (0.36–0.90), n = 21.

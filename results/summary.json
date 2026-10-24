@@ -6674,7 +6674,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -6767,7 +6767,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -6860,7 +6860,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -6953,7 +6953,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -7046,7 +7046,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -7139,7 +7139,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -7232,7 +7232,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -7325,7 +7325,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -7381,6 +7381,37 @@
    "exp_note": "ok",
    "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 1140 (scan leaf n1226)",
    "err_exp_pct": 82.0615541166,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
+   "excluded_300K": null,
+   "excluded": null,
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.15,
+   "ref_why": "TPRC marks the table provisional and does not state phase-pure beta-Si3N4"
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "class": "dielectrics",
+   "T_low": 750.0,
+   "T_high": 1050.0,
+   "alpha_V": 11.5390061178,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": 4.0685118282,
+   "alpha_V_exp": 9.9806122449,
+   "exp_note": "ok",
+   "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 1140 (scan leaf n1226)",
+   "err_exp_pct": 15.6142111789,
    "alpha_V_300K_exp": null,
    "err_300K_pct": null,
    "excluded_300K": null,
@@ -7480,7 +7511,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -7555,6 +7586,37 @@
    "ref_why": "TPRC provisional axial data; volume built as a+b+c misses the monoclinic-angle term (full tensor in Haggerty et al. 2014, not accessed)"
   },
   {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "class": "dielectrics",
+   "T_low": 400.0,
+   "T_high": 1500.0,
+   "alpha_V": 25.898781437,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": 20.6115645003,
+   "alpha_V_exp": 23.1732463768,
+   "exp_note": "ok",
+   "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 251 (scan leaf n338)",
+   "err_exp_pct": 11.7615590662,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
+   "excluded_300K": null,
+   "excluded": null,
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC provisional axial data; volume built as a+b+c misses the monoclinic-angle term (full tensor in Haggerty et al. 2014, not accessed)"
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "HfO2",
    "class": "dielectrics",
@@ -7594,6 +7656,37 @@
    "alpha_V": 19.8843035841,
    "alpha_V_err": 0.0,
    "alpha_V_300K": 19.3308196648,
+   "alpha_V_exp": null,
+   "exp_note": "experiment covers 346-1150 K, window is 450-1400 K",
+   "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 451 (scan leaf n538)",
+   "err_exp_pct": null,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
+   "excluded_300K": null,
+   "excluded": null,
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "provisional_compilation",
+   "ref_kind": "short_interval_mean",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC provisional axial data; volume misses the monoclinic-angle term; non-monotonic a-axis data"
+  },
+  {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "class": "dielectrics",
+   "T_low": 450.0,
+   "T_high": 1400.0,
+   "alpha_V": 25.4987497351,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": 22.0084952812,
    "alpha_V_exp": null,
    "exp_note": "experiment covers 346-1150 K, window is 450-1400 K",
    "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 451 (scan leaf n538)",
@@ -7679,6 +7772,37 @@
    "ref_why": "TPRC recommended table"
   },
   {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "class": "dielectrics",
+   "T_low": 400.0,
+   "T_high": 1300.0,
+   "alpha_V": 32.6185383951,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": 23.8843489989,
+   "alpha_V_exp": 24.7694693878,
+   "exp_note": "ok",
+   "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 438 (scan leaf n525)",
+   "err_exp_pct": 31.6884826417,
+   "alpha_V_300K_exp": 21.9196261682,
+   "err_300K_pct": 8.9633044635,
+   "excluded_300K": null,
+   "excluded": null,
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table"
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Y2O3",
    "class": "dielectrics",
@@ -7726,6 +7850,37 @@
    "err_300K_pct": null,
    "excluded_300K": "dynamically unstable (lowest phonon -6.82 THz)",
    "excluded": "dynamically unstable (lowest phonon -6.82 THz)",
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": false,
+   "check_enough_stable_volumes": false,
+   "check_interpolation_artefacts_small": null,
+   "check_volume_inside_scan": false,
+   "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended axial polynomials"
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiO2_rutile",
+   "class": "dielectrics",
+   "T_low": 600.0,
+   "T_high": 1050.0,
+   "alpha_V": null,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": null,
+   "alpha_V_exp": 28.0220571429,
+   "exp_note": "ok",
+   "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 392 (scan leaf n479)",
+   "err_exp_pct": null,
+   "alpha_V_300K_exp": 22.69,
+   "err_300K_pct": null,
+   "excluded_300K": "dynamically unstable (lowest phonon -2.81 THz)",
+   "excluded": "dynamically unstable (lowest phonon -2.81 THz)",
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
    "pending": false,
@@ -7821,7 +7976,7 @@
    "excluded": "failed: volume_inside_scan",
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -7889,6 +8044,37 @@
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
    "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "TPRC recommended table (provisional only below 250 K)"
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "class": "dielectrics",
+   "T_low": 400.0,
+   "T_high": 1150.0,
+   "alpha_V": 27.2273561861,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": 24.7948745702,
+   "alpha_V_exp": 34.1378571429,
+   "exp_note": "ok",
+   "exp_source": "https://archive.org/details/DTIC_ADA129116 (scanned TPRC Vol. 13; DTIC record https://apps.dtic.mil/sti/html/tr/ADA129116/index.html) - book p. 570 (scan leaf n656)",
+   "err_exp_pct": null,
+   "alpha_V_300K_exp": 30.9196261682,
+   "err_300K_pct": null,
+   "excluded_300K": "relaxed to a different crystal form",
+   "excluded": "relaxed to a different crystal form",
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
    "ref_tier": "core",
    "ref_quality": "evaluated_compilation",
    "ref_kind": "point",
@@ -7976,7 +8162,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8064,12 +8250,12 @@
    "exp_source": "https://web.archive.org/web/20190512035127/http://www.kayelaby.npl.co.uk/general_physics/2_3/2_3_5.html",
    "err_exp_pct": null,
    "alpha_V_300K_exp": 69.6347826087,
-   "err_300K_pct": 12950.2930086918,
-   "excluded_300K": null,
+   "err_300K_pct": null,
+   "excluded_300K": "failed: volume_inside_scan with the stable scan cut short by instability",
    "excluded": "failed: volume_inside_scan",
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8162,7 +8348,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8255,7 +8441,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8348,7 +8534,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8441,7 +8627,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8534,7 +8720,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8627,7 +8813,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8720,7 +8906,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8788,6 +8974,37 @@
    "check_interpolation_artefacts_small": null,
    "check_volume_inside_scan": false,
    "check_window_covered": false,
+   "ref_tier": "core",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "bulk HT-XRD (Lenox et al.)"
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "class": "barriers_silicides",
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "alpha_V": 16.849901679,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": 12.9438686883,
+   "alpha_V_exp": 16.4,
+   "exp_note": "ok",
+   "exp_source": "https://dataverse.lib.virginia.edu/dataset.xhtml?persistentId=doi:10.18130/V3/BUWWQB",
+   "err_exp_pct": 2.7433029205,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
+   "excluded_300K": null,
+   "excluded": null,
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
    "ref_tier": "core",
    "ref_quality": "primary",
    "ref_kind": "point",
@@ -8875,7 +9092,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -8968,7 +9185,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -9061,7 +9278,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -9154,7 +9371,7 @@
    "excluded": null,
    "provenance": null,
    "method": "QHA (isotropic volume scan, fixed cell shape)",
-   "pending": true,
+   "pending": false,
    "check_dynamically_stable": true,
    "check_enough_stable_volumes": true,
    "check_interpolation_artefacts_small": true,
@@ -9229,6 +9446,37 @@
    "ref_why": null
   },
   {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "class": "layered",
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "alpha_V": 40.6710016031,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": 22.7580516042,
+   "alpha_V_exp": null,
+   "exp_note": "no experimental data",
+   "exp_source": null,
+   "err_exp_pct": null,
+   "alpha_V_300K_exp": null,
+   "err_300K_pct": null,
+   "excluded_300K": "layered: isotropic volume scan cannot represent its anisotropic expansion",
+   "excluded": "layered: isotropic volume scan cannot represent its anisotropic expansion",
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": false,
+   "check_window_covered": true,
+   "ref_tier": null,
+   "ref_quality": null,
+   "ref_kind": null,
+   "ref_sigma": 0.1,
+   "ref_why": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "MoS2",
    "class": "layered",
@@ -9291,6 +9539,37 @@
    "ref_why": "layered, not graded"
   },
   {
+   "model": "orb-v3",
+   "material": "hBN",
+   "class": "layered",
+   "T_low": 300.0,
+   "T_high": 1300.0,
+   "alpha_V": -5.7820434715,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": -11.2595124287,
+   "alpha_V_exp": 38.9087,
+   "exp_note": "ok",
+   "exp_source": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11079860/fullTextXML",
+   "err_exp_pct": null,
+   "alpha_V_300K_exp": 36.34,
+   "err_300K_pct": null,
+   "excluded_300K": "layered: isotropic volume scan cannot represent its anisotropic expansion",
+   "excluded": "layered: isotropic volume scan cannot represent its anisotropic expansion",
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "primary",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "layered, not graded"
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "hBN",
    "class": "layered",
@@ -9330,6 +9609,37 @@
    "alpha_V": 2.9566603391,
    "alpha_V_err": 0.0,
    "alpha_V_300K": -3.824053384,
+   "alpha_V_exp": 28.5153061224,
+   "exp_note": "ok",
+   "exp_source": "https://archive.org/download/DTIC_ADA129116/DTIC_ADA129116.pdf",
+   "err_exp_pct": null,
+   "alpha_V_300K_exp": 21.985046729,
+   "err_300K_pct": null,
+   "excluded_300K": "layered: isotropic volume scan cannot represent its anisotropic expansion",
+   "excluded": "layered: isotropic volume scan cannot represent its anisotropic expansion",
+   "provenance": null,
+   "method": "QHA (isotropic volume scan, fixed cell shape)",
+   "pending": false,
+   "check_dynamically_stable": true,
+   "check_enough_stable_volumes": true,
+   "check_interpolation_artefacts_small": true,
+   "check_volume_inside_scan": true,
+   "check_window_covered": true,
+   "ref_tier": "extended",
+   "ref_quality": "evaluated_compilation",
+   "ref_kind": "point",
+   "ref_sigma": 0.1,
+   "ref_why": "layered, not graded"
+  },
+  {
+   "model": "orb-v3",
+   "material": "graphite",
+   "class": "layered",
+   "T_low": 600.0,
+   "T_high": 1200.0,
+   "alpha_V": -5.2828459338,
+   "alpha_V_err": 0.0,
+   "alpha_V_300K": -10.9712909192,
    "alpha_V_exp": 28.5153061224,
    "exp_note": "ok",
    "exp_source": "https://archive.org/download/DTIC_ADA129116/DTIC_ADA129116.pdf",
@@ -10266,6 +10576,50 @@
    "grade": "poor"
   },
   {
+   "model": "orb-v3",
+   "class": "barriers_silicides",
+   "property": "thermal_expansion",
+   "reference": "experiment",
+   "MAPE": 14.9198953641,
+   "mean_signed": 14.9198953641,
+   "n": 4,
+   "worst_material": "NiSi",
+   "grade": "good"
+  },
+  {
+   "model": "orb-v3",
+   "class": "dielectrics",
+   "property": "thermal_expansion",
+   "reference": "experiment",
+   "MAPE": 28.837559505,
+   "mean_signed": 3.2642547759,
+   "n": 5,
+   "worst_material": "SiO2_quartz",
+   "grade": "okay"
+  },
+  {
+   "model": "orb-v3",
+   "class": "metals",
+   "property": "thermal_expansion",
+   "reference": "experiment",
+   "MAPE": 15.8648021519,
+   "mean_signed": 15.8648021519,
+   "n": 4,
+   "worst_material": "Mo",
+   "grade": "good"
+  },
+  {
+   "model": "orb-v3",
+   "class": "semiconductors",
+   "property": "thermal_expansion",
+   "reference": "experiment",
+   "MAPE": 37.5980688403,
+   "mean_signed": 35.6908067853,
+   "n": 4,
+   "worst_material": "InP",
+   "grade": "okay"
+  },
+  {
    "model": "mace-mpa-0",
    "class": "all",
    "property": "thermal_expansion",
@@ -10284,6 +10638,17 @@
    "MAPE": 34.5099519237,
    "mean_signed": 18.2145234329,
    "n": 18,
+   "worst_material": "InP",
+   "grade": "okay"
+  },
+  {
+   "model": "orb-v3",
+   "class": "all",
+   "property": "thermal_expansion",
+   "reference": "experiment",
+   "MAPE": 24.5716978206,
+   "mean_signed": 16.6013700638,
+   "n": 17,
    "worst_material": "InP",
    "grade": "okay"
   },
@@ -10376,6 +10741,50 @@
    "grade": "poor"
   },
   {
+   "model": "orb-v3",
+   "class": "barriers_silicides",
+   "property": "thermal_expansion_300K",
+   "reference": "experiment",
+   "MAPE": 9.8250222377,
+   "mean_signed": -2.6593327703,
+   "n": 4,
+   "worst_material": "TiN",
+   "grade": "good"
+  },
+  {
+   "model": "orb-v3",
+   "class": "dielectrics",
+   "property": "thermal_expansion_300K",
+   "reference": "experiment",
+   "MAPE": 11.9550797774,
+   "mean_signed": 3.4609435798,
+   "n": 4,
+   "worst_material": "MgO",
+   "grade": "good"
+  },
+  {
+   "model": "orb-v3",
+   "class": "metals",
+   "property": "thermal_expansion_300K",
+   "reference": "experiment",
+   "MAPE": 29.5608883624,
+   "mean_signed": 23.95764127,
+   "n": 7,
+   "worst_material": "Ta",
+   "grade": "okay"
+  },
+  {
+   "model": "orb-v3",
+   "class": "semiconductors",
+   "property": "thermal_expansion_300K",
+   "reference": "experiment",
+   "MAPE": 24.0160429224,
+   "mean_signed": 16.9805329186,
+   "n": 6,
+   "worst_material": "Ge",
+   "grade": "okay"
+  },
+  {
    "model": "mace-mpa-0",
    "class": "all",
    "property": "thermal_expansion_300K",
@@ -10395,6 +10804,17 @@
    "mean_signed": 10.1430870026,
    "n": 22,
    "worst_material": "Si",
+   "grade": "okay"
+  },
+  {
+   "model": "orb-v3",
+   "class": "all",
+   "property": "thermal_expansion_300K",
+   "reference": "experiment",
+   "MAPE": 20.8639468634,
+   "mean_signed": 12.9901490304,
+   "n": 21,
+   "worst_material": "Ta",
    "grade": "okay"
   }
  ],
@@ -11738,6 +12158,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Si3N4_beta",
    "check": "thermal expansion: fingerprint matches current code",
@@ -11768,6 +12194,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "HfO2",
    "check": "thermal expansion: fingerprint matches current code",
@@ -11780,6 +12212,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "ZrO2",
    "check": "thermal expansion: fingerprint matches current code",
@@ -11792,6 +12230,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Y2O3",
    "check": "thermal expansion: fingerprint matches current code",
@@ -11804,6 +12248,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "TiO2_rutile",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "TiO2_rutile",
    "check": "thermal expansion: fingerprint matches current code",
@@ -11834,6 +12284,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "SrTiO3",
    "check": "thermal expansion: fingerprint matches current code",
@@ -12008,6 +12464,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "TaN",
    "check": "thermal expansion: fingerprint matches current code",
@@ -12092,6 +12554,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "MoS2",
    "check": "thermal expansion: fingerprint matches current code",
@@ -12104,6 +12572,12 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "hBN",
    "check": "thermal expansion: fingerprint matches current code",
@@ -12111,6 +12585,12 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "graphite",
+   "check": "thermal expansion: fingerprint matches current code",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
    "material": "graphite",
    "check": "thermal expansion: fingerprint matches current code",
    "pass": true
@@ -16112,6 +16592,36 @@
    "pass": true
   },
   {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "check": "thermal: window covered",
+   "pass": true
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Si3N4_beta",
    "check": "thermal: dynamically stable",
@@ -16257,6 +16767,36 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "HfO2",
+   "check": "thermal: window covered",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
    "material": "HfO2",
    "check": "thermal: window covered",
    "pass": true
@@ -16317,6 +16857,36 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "ZrO2",
+   "check": "thermal: window covered",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "ZrO2",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
    "material": "ZrO2",
    "check": "thermal: window covered",
    "pass": true
@@ -16377,6 +16947,36 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "Y2O3",
+   "check": "thermal: window covered",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
    "material": "Y2O3",
    "check": "thermal: window covered",
    "pass": true
@@ -16431,6 +17031,30 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "TiO2_rutile",
+   "check": "thermal: window covered",
+   "pass": false
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiO2_rutile",
+   "check": "thermal: dynamically stable",
+   "pass": false
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiO2_rutile",
+   "check": "thermal: enough stable volumes",
+   "pass": false
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiO2_rutile",
+   "check": "thermal: volume inside scan",
+   "pass": false
+  },
+  {
+   "model": "orb-v3",
    "material": "TiO2_rutile",
    "check": "thermal: window covered",
    "pass": false
@@ -16572,6 +17196,36 @@
    "material": "SrTiO3",
    "check": "thermal: window covered",
    "pass": false
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "SrTiO3",
+   "check": "thermal: window covered",
+   "pass": true
   },
   {
    "model": "mattersim-5m-native",
@@ -17430,6 +18084,36 @@
    "material": "TaN",
    "check": "thermal: window covered",
    "pass": false
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "TaN",
+   "check": "thermal: window covered",
+   "pass": true
   },
   {
    "model": "mattersim-5m-native",
@@ -17847,6 +18531,36 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "MoS2",
+   "check": "thermal: window covered",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "check": "thermal: volume inside scan",
+   "pass": false
+  },
+  {
+   "model": "orb-v3",
    "material": "MoS2",
    "check": "thermal: window covered",
    "pass": true
@@ -17904,6 +18618,36 @@
    "material": "hBN",
    "check": "thermal: window covered",
    "pass": false
+  },
+  {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "hBN",
+   "check": "thermal: window covered",
+   "pass": true
   },
   {
    "model": "mattersim-5m-native",
@@ -17961,6 +18705,36 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "graphite",
+   "check": "thermal: window covered",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "graphite",
+   "check": "thermal: dynamically stable",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "graphite",
+   "check": "thermal: enough stable volumes",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "graphite",
+   "check": "thermal: interpolation artefacts small",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
+   "material": "graphite",
+   "check": "thermal: volume inside scan",
+   "pass": true
+  },
+  {
+   "model": "orb-v3",
    "material": "graphite",
    "check": "thermal: window covered",
    "pass": true
@@ -18097,13 +18871,13 @@
    "model": "orb-v3",
    "property": "thermal_expansion",
    "materials": 33,
-   "computed": 23,
-   "graded": 13,
-   "model_failure": 0,
-   "method_limit": 2,
-   "no_experimental_reference": 8,
-   "pending": true,
-   "model_failure_cases": ""
+   "computed": 33,
+   "graded": 17,
+   "model_failure": 2,
+   "method_limit": 5,
+   "no_experimental_reference": 9,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (relaxed to a different crystal form)"
   },
   {
    "model": "mace-mpa-0",
@@ -18133,13 +18907,13 @@
    "model": "orb-v3",
    "property": "thermal_expansion_300K",
    "materials": 33,
-   "computed": 23,
+   "computed": 33,
    "graded": 21,
-   "model_failure": 0,
-   "method_limit": 0,
-   "no_experimental_reference": 2,
-   "pending": true,
-   "model_failure_cases": ""
+   "model_failure": 2,
+   "method_limit": 4,
+   "no_experimental_reference": 6,
+   "pending": false,
+   "model_failure_cases": "TiO2_rutile (dynamically unstable); SrTiO3 (relaxed to a different crystal form)"
   }
  ],
  "thermal_metrics": [
@@ -18157,6 +18931,21 @@
    "d_alpha_model": 0.953629853,
    "trend_sign_ok": true,
    "err_T_high_pct": -8.67197433
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 800.0,
+   "abs_err_300K": -0.2502974164,
+   "abs_err_window": -0.4479633097,
+   "strain_err_ue": -44.7963309691,
+   "d_alpha_exp": 1.647,
+   "d_alpha_model": 1.3007611674,
+   "trend_sign_ok": true,
+   "err_T_high_pct": -5.1112341791
   },
   {
    "model": "mattersim-5m-native",
@@ -18189,6 +18978,21 @@
    "err_T_high_pct": 36.6382407475
   },
   {
+   "model": "orb-v3",
+   "material": "Ge",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 300.0,
+   "T_high": 600.0,
+   "abs_err_300K": 9.5477301387,
+   "abs_err_window": 10.0414212784,
+   "strain_err_ue": 1004.1421278426,
+   "d_alpha_exp": 3.09,
+   "d_alpha_model": 3.4967013903,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 46.2781568062
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Ge",
    "class": "semiconductors",
@@ -18211,6 +19015,21 @@
    "T_low": 900.0,
    "T_high": 1550.0,
    "abs_err_300K": -1.6679115793,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
+   "material": "SiC",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 900.0,
+   "T_high": 1550.0,
+   "abs_err_300K": -1.7686696306,
    "abs_err_window": null,
    "strain_err_ue": null,
    "d_alpha_exp": null,
@@ -18249,6 +19068,21 @@
    "err_T_high_pct": 78.0575829253
   },
   {
+   "model": "orb-v3",
+   "material": "GaAs",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 750.0,
+   "abs_err_300K": 4.3543841574,
+   "abs_err_window": 4.5610853944,
+   "strain_err_ue": 684.1628091587,
+   "d_alpha_exp": 3.81,
+   "d_alpha_model": 4.4649562811,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 23.8540020878
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "GaAs",
    "class": "semiconductors",
@@ -18271,6 +19105,21 @@
    "T_low": 450.0,
    "T_high": 1350.0,
    "abs_err_300K": -0.8808222936,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
+   "material": "GaN",
+   "class": "semiconductors",
+   "ref_tier": "core",
+   "T_low": 450.0,
+   "T_high": 1350.0,
+   "abs_err_300K": 2.2718751508,
    "abs_err_window": null,
    "strain_err_ue": null,
    "d_alpha_exp": null,
@@ -18309,6 +19158,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "InP",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 350.0,
+   "T_high": 650.0,
+   "abs_err_300K": null,
+   "abs_err_window": 9.1601255271,
+   "strain_err_ue": 916.0125527111,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "InP",
    "class": "semiconductors",
@@ -18331,6 +19195,21 @@
    "T_low": 900.0,
    "T_high": 1600.0,
    "abs_err_300K": 2.0051696117,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
+   "material": "AlN",
+   "class": "semiconductors",
+   "ref_tier": "extended",
+   "T_low": 900.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 2.2946180051,
    "abs_err_window": null,
    "strain_err_ue": null,
    "d_alpha_exp": null,
@@ -18369,6 +19248,21 @@
    "err_T_high_pct": -78.2268221875
   },
   {
+   "model": "orb-v3",
+   "material": "SiO2_quartz",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 750.0,
+   "abs_err_300K": -5.7876646896,
+   "abs_err_window": -36.2770114234,
+   "strain_err_ue": -4232.3179993956,
+   "d_alpha_exp": 60.735,
+   "d_alpha_model": -11.8566148214,
+   "trend_sign_ok": false,
+   "err_T_high_pct": -85.1805905721
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "SiO2_quartz",
    "class": "dielectrics",
@@ -18397,6 +19291,21 @@
    "d_alpha_model": 1.798844517,
    "trend_sign_ok": true,
    "err_T_high_pct": 82.2919420647
+  },
+  {
+   "model": "orb-v3",
+   "material": "Si3N4_beta",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 750.0,
+   "T_high": 1050.0,
+   "abs_err_300K": null,
+   "abs_err_window": 1.5583938729,
+   "strain_err_ue": 155.8393872866,
+   "d_alpha_exp": 1.1,
+   "d_alpha_model": 1.4850073461,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 17.3924167091
   },
   {
    "model": "mattersim-5m-native",
@@ -18429,6 +19338,21 @@
    "err_T_high_pct": 16.7761441131
   },
   {
+   "model": "orb-v3",
+   "material": "Al2O3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 800.0,
+   "T_high": 1150.0,
+   "abs_err_300K": -0.3204181743,
+   "abs_err_window": 5.7410621329,
+   "strain_err_ue": 669.7905821713,
+   "d_alpha_exp": 2.905,
+   "d_alpha_model": 3.4328681461,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 21.118250405
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Al2O3",
    "class": "dielectrics",
@@ -18459,6 +19383,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "HfO2",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 400.0,
+   "T_high": 1500.0,
+   "abs_err_300K": null,
+   "abs_err_window": 2.7255350602,
+   "strain_err_ue": 999.3628553913,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "HfO2",
    "class": "dielectrics",
@@ -18475,6 +19414,21 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "ZrO2",
+   "class": "dielectrics",
+   "ref_tier": "extended",
+   "T_low": 450.0,
+   "T_high": 1400.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
    "material": "ZrO2",
    "class": "dielectrics",
    "ref_tier": "extended",
@@ -18519,6 +19473,21 @@
    "err_T_high_pct": 24.7012286269
   },
   {
+   "model": "orb-v3",
+   "material": "Y2O3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 1300.0,
+   "abs_err_300K": 1.9647228307,
+   "abs_err_window": 7.8490690074,
+   "strain_err_ue": 2354.7207022103,
+   "d_alpha_exp": 5.4,
+   "d_alpha_model": 11.477631323,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 38.1027859669
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Y2O3",
    "class": "dielectrics",
@@ -18535,6 +19504,21 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "TiO2_rutile",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 600.0,
+   "T_high": 1050.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
    "material": "TiO2_rutile",
    "class": "dielectrics",
    "ref_tier": "core",
@@ -18579,6 +19563,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "MgO",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 750.0,
+   "T_high": 1500.0,
+   "abs_err_300K": 6.9444497589,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "MgO",
    "class": "dielectrics",
@@ -18595,6 +19594,21 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "SrTiO3",
+   "class": "dielectrics",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 1150.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
    "material": "SrTiO3",
    "class": "dielectrics",
    "ref_tier": "core",
@@ -18639,6 +19653,21 @@
    "err_T_high_pct": 9.9550107664
   },
   {
+   "model": "orb-v3",
+   "material": "Cu",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 650.0,
+   "abs_err_300K": 4.1698108043,
+   "abs_err_window": 3.0509862709,
+   "strain_err_ue": 355.948398268,
+   "d_alpha_exp": 8.2173913043,
+   "d_alpha_model": 5.8597073964,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 3.1297528434
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Cu",
    "class": "metals",
@@ -18669,6 +19698,21 @@
    "err_T_high_pct": -28.9007664417
   },
   {
+   "model": "orb-v3",
+   "material": "Al",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 450.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Al",
    "class": "metals",
@@ -18691,6 +19735,21 @@
    "T_low": 300.0,
    "T_high": 1800.0,
    "abs_err_300K": 6.5409981885,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
+   "material": "W",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1800.0,
+   "abs_err_300K": 2.7726371483,
    "abs_err_window": null,
    "strain_err_ue": null,
    "d_alpha_exp": null,
@@ -18729,6 +19788,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "Co",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 600.0,
+   "abs_err_300K": -7.6882234562,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Co",
    "class": "metals",
@@ -18757,6 +19831,21 @@
    "d_alpha_model": -1.7518835206,
    "trend_sign_ok": false,
    "err_T_high_pct": -8.1840615874
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ru",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 350.0,
+   "T_high": 1300.0,
+   "abs_err_300K": 5.8271257741,
+   "abs_err_window": 5.948850752,
+   "strain_err_ue": 1883.8027381178,
+   "d_alpha_exp": 11.55,
+   "d_alpha_model": 12.4606203746,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 21.4336793181
   },
   {
    "model": "mattersim-5m-native",
@@ -18789,6 +19878,21 @@
    "err_T_high_pct": 97.9147094151
   },
   {
+   "model": "orb-v3",
+   "material": "Mo",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1400.0,
+   "abs_err_300K": 5.4886263329,
+   "abs_err_window": 4.1991137864,
+   "strain_err_ue": 1539.6750550043,
+   "d_alpha_exp": 7.3195652174,
+   "d_alpha_model": 3.3615265006,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 7.0371844416
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Mo",
    "class": "metals",
@@ -18819,6 +19923,21 @@
    "err_T_high_pct": -60.498019366
   },
   {
+   "model": "orb-v3",
+   "material": "Ti",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 950.0,
+   "abs_err_300K": 5.7143431399,
+   "abs_err_window": 3.60582325,
+   "strain_err_ue": 781.2617041661,
+   "d_alpha_exp": 8.268115942,
+   "d_alpha_model": 5.6011666013,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 8.9105081846
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "Ti",
    "class": "metals",
@@ -18841,6 +19960,21 @@
    "T_low": 300.0,
    "T_high": 1600.0,
    "abs_err_300K": 33.8688571459,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
+   "material": "Ta",
+   "class": "metals",
+   "ref_tier": "core",
+   "T_low": 300.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 13.2234237199,
    "abs_err_window": null,
    "strain_err_ue": null,
    "d_alpha_exp": null,
@@ -18879,6 +20013,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "TiN",
+   "class": "barriers_silicides",
+   "ref_tier": "extended",
+   "T_low": 700.0,
+   "T_high": 1600.0,
+   "abs_err_300K": 3.4935549514,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "TiN",
    "class": "barriers_silicides",
@@ -18909,6 +20058,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "TaN",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "abs_err_300K": null,
+   "abs_err_window": 0.449901679,
+   "strain_err_ue": 74.9836131612,
+   "d_alpha_exp": 0.0,
+   "d_alpha_model": 3.1299041054,
+   "trend_sign_ok": false,
+   "err_T_high_pct": 9.7143182151
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "TaN",
    "class": "barriers_silicides",
@@ -18931,6 +20095,21 @@
    "T_low": 400.0,
    "T_high": 750.0,
    "abs_err_300K": -3.8968270899,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
+   "material": "CoSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 400.0,
+   "T_high": 750.0,
+   "abs_err_300K": -0.7183514651,
    "abs_err_window": null,
    "strain_err_ue": null,
    "d_alpha_exp": null,
@@ -18969,6 +20148,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "NiSi",
+   "class": "barriers_silicides",
+   "ref_tier": "extended",
+   "T_low": 350.0,
+   "T_high": 600.0,
+   "abs_err_300K": null,
+   "abs_err_window": 7.7639129105,
+   "strain_err_ue": 646.9927425378,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "NiSi",
    "class": "barriers_silicides",
@@ -18997,6 +20191,21 @@
    "d_alpha_model": 3.0500319215,
    "trend_sign_ok": true,
    "err_T_high_pct": 15.3152121259
+  },
+  {
+   "model": "orb-v3",
+   "material": "TiSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 900.0,
+   "abs_err_300K": -4.459260882,
+   "abs_err_window": 5.7708400019,
+   "strain_err_ue": 769.4453335846,
+   "d_alpha_exp": 1.2,
+   "d_alpha_model": 8.174100802,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 25.1407634032
   },
   {
    "model": "mattersim-5m-native",
@@ -19029,6 +20238,21 @@
    "err_T_high_pct": -23.1692600191
   },
   {
+   "model": "orb-v3",
+   "material": "WSi2",
+   "class": "barriers_silicides",
+   "ref_tier": "core",
+   "T_low": 500.0,
+   "T_high": 1200.0,
+   "abs_err_300K": -2.5427299617,
+   "abs_err_window": 2.8911472522,
+   "strain_err_ue": 674.6010255023,
+   "d_alpha_exp": 3.36,
+   "d_alpha_model": 4.4090898119,
+   "trend_sign_ok": true,
+   "err_T_high_pct": 8.8866955092
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "WSi2",
    "class": "barriers_silicides",
@@ -19059,6 +20283,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "MoS2",
+   "class": "layered",
+   "ref_tier": null,
+   "T_low": 400.0,
+   "T_high": 900.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "MoS2",
    "class": "layered",
@@ -19089,6 +20328,21 @@
    "err_T_high_pct": null
   },
   {
+   "model": "orb-v3",
+   "material": "hBN",
+   "class": "layered",
+   "ref_tier": "extended",
+   "T_low": 300.0,
+   "T_high": 1300.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
    "model": "mattersim-5m-native",
    "material": "hBN",
    "class": "layered",
@@ -19105,6 +20359,21 @@
   },
   {
    "model": "mace-mpa-0",
+   "material": "graphite",
+   "class": "layered",
+   "ref_tier": "extended",
+   "T_low": 600.0,
+   "T_high": 1200.0,
+   "abs_err_300K": null,
+   "abs_err_window": null,
+   "strain_err_ue": null,
+   "d_alpha_exp": null,
+   "d_alpha_model": null,
+   "trend_sign_ok": null,
+   "err_T_high_pct": null
+  },
+  {
+   "model": "orb-v3",
    "material": "graphite",
    "class": "layered",
    "ref_tier": "extended",
@@ -19155,6 +20424,15 @@
   },
   {
    "pair": "Cu on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 4686.4012732189,
+   "mismatch_exp_ue": 4340.2202898551,
+   "err_ue": 346.1809833639,
+   "err_pct": 7.9761155021
+  },
+  {
+   "pair": "Cu on Si",
    "T_K": 900.0,
    "model": "mace-mpa-0",
    "mismatch_model_ue": 10400.1792637115,
@@ -19170,6 +20448,15 @@
    "mismatch_exp_ue": 9129.2286231884,
    "err_ue": -3100.2459585213,
    "err_pct": -33.9595609496
+  },
+  {
+   "pair": "Cu on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 9631.4712350339,
+   "mismatch_exp_ue": 9129.2286231884,
+   "err_ue": 502.2426118455,
+   "err_pct": 5.5014791783
   },
   {
    "pair": "W on Si",
@@ -19191,6 +20478,15 @@
   },
   {
    "pair": "W on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 685.2427008893,
+   "mismatch_exp_ue": 367.8048309179,
+   "err_ue": 317.4378699715,
+   "err_pct": 86.3060632399
+  },
+  {
+   "pair": "W on Si",
    "T_K": 900.0,
    "model": "mace-mpa-0",
    "mismatch_model_ue": 2307.860984127,
@@ -19206,6 +20502,15 @@
    "mismatch_exp_ue": 621.8131642512,
    "err_ue": -2255.7740866232,
    "err_pct": -362.7736137333
+  },
+  {
+   "pair": "W on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1222.716385043,
+   "mismatch_exp_ue": 621.8131642512,
+   "err_ue": 600.9032207918,
+   "err_pct": 96.63726266
   },
   {
    "pair": "Al on Si",
@@ -19263,6 +20568,15 @@
   },
   {
    "pair": "Mo on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 1096.5976156485,
+   "mismatch_exp_ue": 501.8144927536,
+   "err_ue": 594.7831228949,
+   "err_pct": 118.5264936513
+  },
+  {
+   "pair": "Mo on Si",
    "T_K": 900.0,
    "model": "mace-mpa-0",
    "mismatch_model_ue": 4327.3746860058,
@@ -19278,6 +20592,15 @@
    "mismatch_exp_ue": 960.822826087,
    "err_ue": -2312.6519928923,
    "err_pct": -240.6949470914
+  },
+  {
+   "pair": "Mo on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 2109.2130393021,
+   "mismatch_exp_ue": 960.822826087,
+   "err_ue": 1148.3902132152,
+   "err_pct": 119.5215373777
   },
   {
    "pair": "Ta on Si",
@@ -19299,6 +20622,15 @@
   },
   {
    "pair": "Ta on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 2393.1909921361,
+   "mismatch_exp_ue": 989.1574879227,
+   "err_ue": 1404.0335042134,
+   "err_pct": 141.9423621977
+  },
+  {
+   "pair": "Ta on Si",
    "T_K": 900.0,
    "model": "mace-mpa-0",
    "mismatch_model_ue": 8747.6845563263,
@@ -19314,6 +20646,15 @@
    "mismatch_exp_ue": 1901.4991545894,
    "err_ue": -2746.9011904226,
    "err_pct": -144.4597639601
+  },
+  {
+   "pair": "Ta on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 4911.6288647268,
+   "mismatch_exp_ue": 1901.4991545894,
+   "err_ue": 3010.1297101375,
+   "err_pct": 158.3029738863
   },
   {
    "pair": "TiSi2 on Si",
@@ -19335,6 +20676,15 @@
   },
   {
    "pair": "TiSi2 on Si",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 2553.8467162586,
+   "mismatch_exp_ue": 2486.3,
+   "err_ue": 67.5467162586,
+   "err_pct": 2.7167564758
+  },
+  {
+   "pair": "TiSi2 on Si",
    "T_K": 900.0,
    "model": "mace-mpa-0",
    "mismatch_model_ue": 5645.1726479542,
@@ -19350,6 +20700,15 @@
    "mismatch_exp_ue": 4748.975,
    "err_ue": -1137.946653131,
    "err_pct": -23.9619423798
+  },
+  {
+   "pair": "TiSi2 on Si",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 5541.4490419873,
+   "mismatch_exp_ue": 4748.975,
+   "err_ue": 792.4740419873,
+   "err_pct": 16.687264978
   },
   {
    "pair": "Cu on Ta",
@@ -19371,6 +20730,15 @@
   },
   {
    "pair": "Cu on Ta",
+   "T_K": 600.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 2293.2102810828,
+   "mismatch_exp_ue": 3351.0628019324,
+   "err_ue": -1057.8525208495,
+   "err_pct": -31.5676722095
+  },
+  {
+   "pair": "Cu on Ta",
    "T_K": 900.0,
    "model": "mace-mpa-0",
    "mismatch_model_ue": 1652.4947073851,
@@ -19386,13 +20754,20 @@
    "mismatch_exp_ue": 7227.729468599,
    "err_ue": -353.3447680987,
    "err_pct": -4.8887381526
+  },
+  {
+   "pair": "Cu on Ta",
+   "T_K": 900.0,
+   "model": "orb-v3",
+   "mismatch_model_ue": 4719.8423703071,
+   "mismatch_exp_ue": 7227.729468599,
+   "err_ue": -2507.8870982919,
+   "err_pct": -34.6981318156
   }
  ],
  "reference_quality_file": "data/reference_quality.yaml",
  "pending": {
-  "thermal_expansion": [
-   "orb-v3"
-  ]
+  "thermal_expansion": []
  },
  "robustness": {
   "bootstrap_ci": [
@@ -19537,13 +20912,23 @@
     "subset": "all"
    },
    {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model": "orb-v3",
+    "n": 17,
+    "MAPE": 24.5716978206,
+    "ci_low": 16.4999456148,
+    "ci_high": 38.4207462152,
+    "subset": "all"
+   },
+   {
     "property": "thermal_expansion_300K",
     "reference": "experiment",
     "model": "mace-mpa-0",
     "n": 22,
     "MAPE": 36.1038350058,
-    "ci_low": 22.0555088967,
-    "ci_high": 58.140015048,
+    "ci_low": 22.320997585,
+    "ci_high": 58.1860245123,
     "subset": "all"
    },
    {
@@ -19552,8 +20937,18 @@
     "model": "mattersim-5m-native",
     "n": 22,
     "MAPE": 24.1558740688,
-    "ci_low": 16.7220687659,
-    "ci_high": 36.7187434226,
+    "ci_low": 17.0310072367,
+    "ci_high": 36.0155834575,
+    "subset": "all"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model": "orb-v3",
+    "n": 21,
+    "MAPE": 20.8639468634,
+    "ci_low": 15.0965287625,
+    "ci_high": 30.9961170806,
     "subset": "all"
    },
    {
@@ -19697,13 +21092,23 @@
     "subset": "core"
    },
    {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model": "orb-v3",
+    "n": 12,
+    "MAPE": 19.8812696256,
+    "ci_low": 12.2296909,
+    "ci_high": 32.8920881704,
+    "subset": "core"
+   },
+   {
     "property": "thermal_expansion_300K",
     "reference": "experiment",
     "model": "mace-mpa-0",
     "n": 18,
     "MAPE": 37.6028610422,
-    "ci_low": 20.5435916718,
-    "ci_high": 64.4873983151,
+    "ci_low": 20.3959177808,
+    "ci_high": 63.7188543681,
     "subset": "core"
    },
    {
@@ -19712,8 +21117,18 @@
     "model": "mattersim-5m-native",
     "n": 18,
     "MAPE": 23.3982766476,
-    "ci_low": 14.5669586758,
-    "ci_high": 37.5310100405,
+    "ci_low": 14.9262989938,
+    "ci_high": 37.7769924629,
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model": "orb-v3",
+    "n": 17,
+    "MAPE": 19.1987651642,
+    "ci_low": 13.0272552041,
+    "ci_high": 30.3033519487,
     "subset": "core"
    }
   ],
@@ -19881,10 +21296,36 @@
     "model_b": "mattersim-5m-native",
     "n_common": 17,
     "mean_diff_pct_points": 0.6082682101,
-    "ci_low": -22.7948631039,
-    "ci_high": 21.1695522137,
-    "p_a_better": 0.4856,
+    "ci_low": -22.8428897375,
+    "ci_high": 20.5719125114,
+    "p_a_better": 0.503,
     "verdict": "no significant difference",
+    "subset": "all"
+   },
+   {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 16,
+    "mean_diff_pct_points": 9.9930338537,
+    "ci_low": -8.4080197764,
+    "ci_high": 28.3726515919,
+    "p_a_better": 0.1438,
+    "verdict": "no significant difference",
+    "subset": "all"
+   },
+   {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 17,
+    "mean_diff_pct_points": 11.8907388916,
+    "ci_low": 0.3457588147,
+    "ci_high": 23.680016334,
+    "p_a_better": 0.022,
+    "verdict": "orb-v3 more accurate",
     "subset": "all"
    },
    {
@@ -19894,9 +21335,35 @@
     "model_b": "mattersim-5m-native",
     "n_common": 22,
     "mean_diff_pct_points": 11.947960937,
-    "ci_low": -6.7229793438,
-    "ci_high": 35.8651685,
-    "p_a_better": 0.119,
+    "ci_low": -7.3939841594,
+    "ci_high": 35.9760304105,
+    "p_a_better": 0.1154,
+    "verdict": "no significant difference",
+    "subset": "all"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 21,
+    "mean_diff_pct_points": 15.6734378767,
+    "ci_low": 2.9819753391,
+    "ci_high": 32.1019848254,
+    "p_a_better": 0.005,
+    "verdict": "orb-v3 more accurate",
+    "subset": "all"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 21,
+    "mean_diff_pct_points": 4.0862981154,
+    "ci_low": -8.9353116892,
+    "ci_high": 16.8018420471,
+    "p_a_better": 0.2706,
     "verdict": "no significant difference",
     "subset": "all"
    },
@@ -20063,9 +21530,35 @@
     "model_b": "mattersim-5m-native",
     "n_common": 12,
     "mean_diff_pct_points": 7.0383765917,
-    "ci_low": -13.0323034924,
-    "ci_high": 26.6581110243,
-    "p_a_better": 0.2852,
+    "ci_low": -13.9362034735,
+    "ci_high": 26.8701836429,
+    "p_a_better": 0.2732,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 11,
+    "mean_diff_pct_points": 15.1115153681,
+    "ci_low": -2.7428054915,
+    "ci_high": 35.2089258214,
+    "p_a_better": 0.0516,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion",
+    "reference": "experiment",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 12,
+    "mean_diff_pct_points": 11.1967274182,
+    "ci_low": -3.7626878937,
+    "ci_high": 25.5368941923,
+    "p_a_better": 0.0718,
     "verdict": "no significant difference",
     "subset": "core"
    },
@@ -20076,9 +21569,35 @@
     "model_b": "mattersim-5m-native",
     "n_common": 18,
     "mean_diff_pct_points": 14.2045843946,
-    "ci_low": -9.0487293807,
-    "ci_high": 40.9938820546,
-    "p_a_better": 0.1308,
+    "ci_low": -9.4797976021,
+    "ci_high": 42.7332492713,
+    "p_a_better": 0.1282,
+    "verdict": "no significant difference",
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 17,
+    "mean_diff_pct_points": 19.0278353166,
+    "ci_low": 3.9837472044,
+    "ci_high": 38.4165072083,
+    "p_a_better": 0.0056,
+    "verdict": "orb-v3 more accurate",
+    "subset": "core"
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "reference": "experiment",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 17,
+    "mean_diff_pct_points": 5.1362286416,
+    "ci_low": -11.3236648336,
+    "ci_high": 20.4690983384,
+    "p_a_better": 0.2584,
     "verdict": "no significant difference",
     "subset": "core"
    }
@@ -20960,19 +22479,79 @@
     "disagreement_corr_ci_high": 0.635075796
    },
    {
+    "property": "thermal_expansion",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 16,
+    "error_correlation": 0.4203004054,
+    "corr_ci_low": -0.0459064836,
+    "corr_ci_high": 0.7281724585,
+    "MAPE_a": 35.9290063555,
+    "MAPE_b": 25.9359725018,
+    "MAPE_average_of_two": 28.736229527,
+    "corr_disagreement_vs_average_error": 0.3981128904,
+    "disagreement_corr_ci_low": 0.0001682118,
+    "disagreement_corr_ci_high": 0.8169543193
+   },
+   {
+    "property": "thermal_expansion",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 17,
+    "error_correlation": 0.695233657,
+    "corr_ci_low": -0.1154371499,
+    "corr_ci_high": 0.9136194806,
+    "MAPE_a": 36.4624367122,
+    "MAPE_b": 24.5716978206,
+    "MAPE_average_of_two": 26.7646514028,
+    "corr_disagreement_vs_average_error": -0.0193850198,
+    "disagreement_corr_ci_low": -0.4149695796,
+    "disagreement_corr_ci_high": 0.4358032306
+   },
+   {
     "property": "thermal_expansion_300K",
     "model_a": "mace-mpa-0",
     "model_b": "mattersim-5m-native",
     "n_common": 22,
     "error_correlation": -0.0226935185,
-    "corr_ci_low": -0.4022603323,
-    "corr_ci_high": 0.4982451125,
+    "corr_ci_low": -0.4032622626,
+    "corr_ci_high": 0.4815613448,
     "MAPE_a": 36.1038350058,
     "MAPE_b": 24.1558740688,
     "MAPE_average_of_two": 24.1784800218,
     "corr_disagreement_vs_average_error": 0.3651450195,
-    "disagreement_corr_ci_low": -0.10646908,
-    "disagreement_corr_ci_high": 0.771466177
+    "disagreement_corr_ci_low": -0.1079269631,
+    "disagreement_corr_ci_high": 0.7784769008
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "model_a": "mace-mpa-0",
+    "model_b": "orb-v3",
+    "n_common": 21,
+    "error_correlation": 0.7206293504,
+    "corr_ci_low": 0.3615203753,
+    "corr_ci_high": 0.9020139956,
+    "MAPE_a": 36.5373847402,
+    "MAPE_b": 20.8639468634,
+    "MAPE_average_of_two": 26.0615016338,
+    "corr_disagreement_vs_average_error": 0.4582586532,
+    "disagreement_corr_ci_low": -0.0760312905,
+    "disagreement_corr_ci_high": 0.8144156814
+   },
+   {
+    "property": "thermal_expansion_300K",
+    "model_a": "mattersim-5m-native",
+    "model_b": "orb-v3",
+    "n_common": 21,
+    "error_correlation": 0.299918653,
+    "corr_ci_low": -0.163637229,
+    "corr_ci_high": 0.7673064924,
+    "MAPE_a": 24.9502449788,
+    "MAPE_b": 20.8639468634,
+    "MAPE_average_of_two": 21.0283575717,
+    "corr_disagreement_vs_average_error": 0.3883367207,
+    "disagreement_corr_ci_low": -0.00433149,
+    "disagreement_corr_ci_high": 0.7158355361
    }
   ],
   "adiabatic_sensitivity": [

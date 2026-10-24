@@ -79,8 +79,13 @@ mattersim-5m-native,barriers_silicides,thermal_expansion,experiment,22.821,20.43
 mattersim-5m-native,dielectrics,thermal_expansion,experiment,30.163,2.092,5,SiO2_quartz,okay
 mattersim-5m-native,metals,thermal_expansion,experiment,14.343,-14.343,5,Mo,good
 mattersim-5m-native,semiconductors,thermal_expansion,experiment,76.841,76.841,4,InP,poor
+orb-v3,barriers_silicides,thermal_expansion,experiment,14.92,14.92,4,NiSi,good
+orb-v3,dielectrics,thermal_expansion,experiment,28.838,3.2643,5,SiO2_quartz,okay
+orb-v3,metals,thermal_expansion,experiment,15.865,15.865,4,Mo,good
+orb-v3,semiconductors,thermal_expansion,experiment,37.598,35.691,4,InP,okay
 mace-mpa-0,all,thermal_expansion,experiment,35.467,15.309,17,Mo,okay
 mattersim-5m-native,all,thermal_expansion,experiment,34.51,18.215,18,InP,okay
+orb-v3,all,thermal_expansion,experiment,24.572,16.601,17,InP,okay
 mace-mpa-0,barriers_silicides,thermal_expansion_300K,experiment,23.692,-4.0537,4,WSi2,okay
 mace-mpa-0,dielectrics,thermal_expansion_300K,experiment,8.2539,7.7886,4,MgO,good
 mace-mpa-0,metals,thermal_expansion_300K,experiment,58.615,44.04,8,Ta,poor
@@ -89,5 +94,10 @@ mattersim-5m-native,barriers_silicides,thermal_expansion_300K,experiment,15.361,
 mattersim-5m-native,dielectrics,thermal_expansion_300K,experiment,13.781,1.7879,4,SiO2_quartz,good
 mattersim-5m-native,metals,thermal_expansion_300K,experiment,19.353,-2.1109,8,Ti,good
 mattersim-5m-native,semiconductors,thermal_expansion_300K,experiment,43.34,36.498,6,Si,poor
+orb-v3,barriers_silicides,thermal_expansion_300K,experiment,9.825,-2.6593,4,TiN,good
+orb-v3,dielectrics,thermal_expansion_300K,experiment,11.955,3.4609,4,MgO,good
+orb-v3,metals,thermal_expansion_300K,experiment,29.561,23.958,7,Ta,okay
+orb-v3,semiconductors,thermal_expansion_300K,experiment,24.016,16.981,6,Ge,okay
 mace-mpa-0,all,thermal_expansion_300K,experiment,36.104,23.393,22,Ta,okay
 mattersim-5m-native,all,thermal_expansion_300K,experiment,24.156,10.143,22,Si,okay
+orb-v3,all,thermal_expansion_300K,experiment,20.864,12.99,21,Ta,okay

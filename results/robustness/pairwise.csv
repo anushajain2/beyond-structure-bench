@@ -11,8 +11,12 @@ bulk_modulus,experiment,mattersim-5m-native,orb-v3,25,1.475,-2.133,5.881,0.2514,
 bulk_modulus,dft,mace-mpa-0,mattersim-5m-native,27,3.88,-0.9659,8.36,0.0566,no significant difference,all
 bulk_modulus,dft,mace-mpa-0,orb-v3,26,4.016,0.7008,7.945,0.0092,orb-v3 more accurate,all
 bulk_modulus,dft,mattersim-5m-native,orb-v3,25,-0.3389,-2.638,2.704,0.6374,no significant difference,all
-thermal_expansion,experiment,mace-mpa-0,mattersim-5m-native,17,0.6083,-22.79,21.17,0.4856,no significant difference,all
-thermal_expansion_300K,experiment,mace-mpa-0,mattersim-5m-native,22,11.95,-6.723,35.87,0.119,no significant difference,all
+thermal_expansion,experiment,mace-mpa-0,mattersim-5m-native,17,0.6083,-22.84,20.57,0.503,no significant difference,all
+thermal_expansion,experiment,mace-mpa-0,orb-v3,16,9.993,-8.408,28.37,0.1438,no significant difference,all
+thermal_expansion,experiment,mattersim-5m-native,orb-v3,17,11.89,0.3458,23.68,0.022,orb-v3 more accurate,all
+thermal_expansion_300K,experiment,mace-mpa-0,mattersim-5m-native,22,11.95,-7.394,35.98,0.1154,no significant difference,all
+thermal_expansion_300K,experiment,mace-mpa-0,orb-v3,21,15.67,2.982,32.1,0.005,orb-v3 more accurate,all
+thermal_expansion_300K,experiment,mattersim-5m-native,orb-v3,21,4.086,-8.935,16.8,0.2706,no significant difference,all
 lattice,experiment,mace-mpa-0,mattersim-5m-native,26,-0.04823,-0.1608,0.04532,0.8558,no significant difference,core
 lattice,experiment,mace-mpa-0,orb-v3,24,0.01946,-0.1296,0.1574,0.4324,no significant difference,core
 lattice,experiment,mattersim-5m-native,orb-v3,24,0.06669,-0.01332,0.1616,0.0524,no significant difference,core
@@ -25,5 +29,9 @@ bulk_modulus,experiment,mattersim-5m-native,orb-v3,17,3.363,-1.772,9.246,0.1306,
 bulk_modulus,dft,mace-mpa-0,mattersim-5m-native,17,0.9353,-4.962,5.065,0.3248,no significant difference,core
 bulk_modulus,dft,mace-mpa-0,orb-v3,15,1.169,-1.999,4.417,0.2434,no significant difference,core
 bulk_modulus,dft,mattersim-5m-native,orb-v3,15,0.4752,-2.998,5.175,0.4482,no significant difference,core
-thermal_expansion,experiment,mace-mpa-0,mattersim-5m-native,12,7.038,-13.03,26.66,0.2852,no significant difference,core
-thermal_expansion_300K,experiment,mace-mpa-0,mattersim-5m-native,18,14.2,-9.049,40.99,0.1308,no significant difference,core
+thermal_expansion,experiment,mace-mpa-0,mattersim-5m-native,12,7.038,-13.94,26.87,0.2732,no significant difference,core
+thermal_expansion,experiment,mace-mpa-0,orb-v3,11,15.11,-2.743,35.21,0.0516,no significant difference,core
+thermal_expansion,experiment,mattersim-5m-native,orb-v3,12,11.2,-3.763,25.54,0.0718,no significant difference,core
+thermal_expansion_300K,experiment,mace-mpa-0,mattersim-5m-native,18,14.2,-9.48,42.73,0.1282,no significant difference,core
+thermal_expansion_300K,experiment,mace-mpa-0,orb-v3,17,19.03,3.984,38.42,0.0056,orb-v3 more accurate,core
+thermal_expansion_300K,experiment,mattersim-5m-native,orb-v3,17,5.136,-11.32,20.47,0.2584,no significant difference,core
