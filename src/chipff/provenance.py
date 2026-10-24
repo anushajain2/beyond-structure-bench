@@ -46,6 +46,8 @@ def _code_objects(step: str, backend: str) -> list:
         from chipff import ase_engine
 
         relax = [ase_engine.AseEngine.relax, ase_engine._calculator]
+        if backend == "ase-uma":
+            relax.append(ase_engine._uma_calculator)
         stress = [ase_engine.AseEngine.stress]
     else:
         E = engine.Engine

@@ -28,5 +28,12 @@
   "bytes": 91176875,
   "package_version": "1.2.5"
  },
- "_note": "Files the published results were computed with (recorded 2026-10-19 from the local caches). Verify with scripts/verify_checkpoints.py."
+ "uma-s-1p2": {
+  "hf_repo": "facebook/UMA",
+  "file": "checkpoints/uma-s-1p2.pt",
+  "revision": "c5107e43d5e811dd7cb56f57533dc0eb550dee6b",
+  "sha256": "ba5c0d912efa22dc238e5fb1b5b7f66ee2e68c48c1b95b7cfd7fe1da5938398b",
+  "bytes": 2333393167
+ },
+ "_note": "Files the published results were computed with (recorded 2026-10-19 from the local caches; UMA added 2026-10-24). Verify with scripts/verify_checkpoints.py."
 }

@@ -12,7 +12,7 @@ class ModelSpec:
     developer: str
     training_data: str
     license: str
-    backend: str  # "tojax" (CuspAI JAX export) or "uma" (kUPS PyTorch bridge)
+    backend: str  # "tojax" (CuspAI JAX export), "uma" (kUPS PyTorch bridge, GPU only) or "ase-<name>" (official package)
     model_path: str
     extra: dict = field(default_factory=dict)
     gated: bool = False
@@ -80,15 +80,17 @@ MODELS: dict[str, ModelSpec] = {
         ),
         ModelSpec(
             key="uma-s-1p2",
-            label="UMA small 1.2 (omat task)",
+            label="UMA small 1.2 (omat task), official package",
             developer="Meta FAIR",
             training_data="OMat24 (+ other Meta datasets; omat head used)",
             license="FAIR Chemistry License (gated on Hugging Face)",
-            backend="uma",
+            # kUPS's PyTorch bridge needs a GPU, so on CPU UMA runs through fairchem's own calculator
+            backend="ase-uma",
             model_path="hf://facebook/UMA/checkpoints/uma-s-1p2.pt",
-            extra={"task_name": "omat", "inference_settings": "default"},
+            extra={"name": "uma-s-1p2", "task_name": "omat", "inference_settings": "default"},
             gated=True,
             color="#eda100",
+            via_kups=False,
         ),
     ]
 }
