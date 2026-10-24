@@ -57,6 +57,9 @@ difference means getting two materials right at once, so errors add up.
 should not be trusted, without checking, to predict how those materials respond to heat, and least of all when
 several materials are stacked together.
 
+**Which model should I use for my material?** See [`docs/model_guidance.md`](docs/model_guidance.md): for each of
+the 33 materials, whether each model is reliable, usable or best avoided, and why.
+
 To make sure these conclusions were not shaped by hindsight, we tested two of the models blind. We wrote down our
 predictions about their mistakes before running them; some held and some did not, and we report both.
 

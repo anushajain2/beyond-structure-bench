@@ -236,3 +236,18 @@ def test_range_average_is_not_a_300K_value():
 
     t = pd.read_csv(ROOT / "results" / "thermal_expansion.csv")
     assert t.loc[t.material.isin(["InP", "NiSi"]), "alpha_V_300K_exp"].isna().all()
+
+
+def test_model_guidance_covers_every_material_and_model():
+    import pandas as pd
+
+    from chipff.materials import ROOT
+
+    g = pd.read_csv(ROOT / "results" / "model_guidance.csv")
+    assert g["material"].nunique() == 33 and g["model"].nunique() == 4
+    assert g.groupby("material")["model"].nunique().eq(4).all()
+    ok = ("reliable", "usable", "avoid", "not graded")
+    assert g["verdict"].str.startswith(ok).all()
+    # a poor grade always produces an "avoid" verdict
+    poor = (g.filter(like=": grade") == "poor").any(axis=1)
+    assert g.loc[poor, "verdict"].str.startswith("avoid").all()

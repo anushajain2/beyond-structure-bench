@@ -454,9 +454,14 @@ def build_tables(tag: str = "thermal_qha") -> dict:
     comp = compensation_check(tmet)
     mism = thermal_mismatch(therm) if not therm.empty else pd.DataFrame()
     msum = mismatch_summary(mism)
+    from chipff.guidance import guidance_markdown, model_guidance
+
+    guide = model_guidance(lat, bulk, therm, config()["thresholds"], MODEL_FAILURES)
+    (ROOT / "docs" / "model_guidance.md").write_text(guidance_markdown(
+        guide, {k: m.label.split(" (")[0].split(",")[0] for k, m in MODELS.items()}, CLASS_LABELS))
     for name, df in (("lattice", lat), ("bulk_modulus", bulk), ("thermal_expansion", therm), ("trust_map", tm),
                      ("checks", chk), ("coverage", cov), ("thermal_metrics", tmet), ("thermal_mismatch", mism),
-                     ("thermal_mismatch_summary", msum)):
+                     ("thermal_mismatch_summary", msum), ("model_guidance", guide)):
         df.to_csv(OUT / f"{name}.csv", index=False, float_format="%.5g")
     summary = {
         "thresholds": config()["thresholds"],
