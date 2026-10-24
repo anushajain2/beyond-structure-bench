@@ -55,7 +55,7 @@ its official package in a separate environment
 (<code>env/requirements-mattersim-lock.txt</code>), with
 <code>PYTHONPATH=src .venv-mattersim/bin/python -m chipff.cli static -m mattersim-5m-native</code>. The six-case
 study reruns with <code>python scripts/thermal_failure_study.py</code>, about 45 minutes. UMA needs Meta's licence on
-Hugging Face and is not part of this release.</p>
+Hugging Face; on CPU it runs through <code>fairchem</code> (<code>chipff static -m uma-s-1p2</code>, then <code>chipff qha -m uma-s-1p2</code>).</p>
 
 <h2>Methods in brief</h2>
 <div class="table-wrap">

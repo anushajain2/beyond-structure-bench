@@ -28,14 +28,14 @@
 
 <section class="wrap">
   <h2 class="section-title">Three findings</h2>
-  <p class="section-lead">From three models on 33 materials, compared with sourced experimental values and with DFT,
+  <p class="section-lead">From four models on 33 materials, compared with sourced experimental values and with DFT,
   and a separate study of six cases.</p>
   <div class="grid-3">
     <div class="card"><p class="num">0.7–0.8 %</p><h3>Structure is accurate; the data can't rank the models</h3>
-      <p>Average lattice error for all three models on 30 non-layered materials; bulk-modulus error is 11–13 %.
-      Against experiment, the benchmark resolves no difference between the models for either property.</p></div>
-    <div class="card"><p class="num">21–36 %</p><h3>Thermal expansion is where models fail, each in its own places</h3>
-      <p>Average error at 300 K for the three models (Orb v3 lowest). MACE overshoots refractory metals (tantalum +179 %);
+      <p>Average lattice error for all four models on 30 non-layered materials; bulk-modulus error is 11–13 %.
+      Against experiment, the benchmark resolves almost no difference between the models for either property.</p></div>
+    <div class="card"><p class="num">19–36 %</p><h3>Thermal expansion is where models fail, each in its own places</h3>
+      <p>Average error at 300 K for the four models (UMA and Orb v3 lowest). MACE overshoots refractory metals (tantalum +179 %);
       MatterSim overshoots semiconductors (silicon +85 %, GaAs +68 %).</p></div>
     <div class="card"><p class="num">γ = 4.1 vs 1.6</p><h3>The large errors trace to how vibrations change with volume</h3>
       <p>MACE's Grüneisen parameter for tantalum, against experiment. In six selected cases, backend and numerical
@@ -64,10 +64,10 @@
   <div class="table-wrap"><table>
     <thead><tr><th>Scope</th><th>Coverage in v1.1.0</th></tr></thead>
     <tbody>
-      <tr><td>Lattice constant and bulk modulus</td><td>MACE-MPA-0, Orb v3 and MatterSim v1 on 33 materials in five classes: semiconductors, dielectrics, interconnect metals, barriers and silicides, layered materials. Exclusions are reported with their reasons.</td></tr>
-      <tr><td>Thermal expansion, benchmark-wide</td><td>MACE-MPA-0, MatterSim v1 and Orb v3 on all 33 materials, 21–22 graded comparisons per model at 300 K and 17–18 over the temperature windows. Orb v3 was added after v1.1.0.</td></tr>
-      <tr><td>Thermal-failure study</td><td>All three models on six selected materials: Si, GaAs, InP, Cu, Ta and monoclinic HfO₂.</td></tr>
-      <tr><td>UMA</td><td>Not evaluated in this release (gated licence).</td></tr>
+      <tr><td>Lattice constant and bulk modulus</td><td>MACE-MPA-0, Orb v3, MatterSim v1 and UMA on 33 materials in five classes: semiconductors, dielectrics, interconnect metals, barriers and silicides, layered materials. Exclusions are reported with their reasons.</td></tr>
+      <tr><td>Thermal expansion, benchmark-wide</td><td>All four models on all 33 materials, 21–22 graded comparisons per model at 300 K and 17–18 over the temperature windows. Orb v3 and UMA were added after v1.1.0, each as a pre-registered test.</td></tr>
+      <tr><td>Thermal-failure study</td><td>MACE, MatterSim and Orb on six selected materials: Si, GaAs, InP, Cu, Ta and monoclinic HfO₂.</td></tr>
+      <tr><td>UMA s-1.2</td><td>All 33 materials, through Meta's <code>fairchem</code> package; used under the FAIR Chemistry License (cite Wood et al., arXiv:2506.23971).</td></tr>
     </tbody>
   </table></div>
   <p style="margin-top:14px">Every experimental reference is audited into a core tier (primary measurements and

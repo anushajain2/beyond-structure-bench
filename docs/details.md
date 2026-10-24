@@ -5,27 +5,29 @@ backticks are relative to the repository root unless they name a file in this fo
 
 ## Findings in detail
 
-Status: lattice constants and bulk moduli are complete for MACE-MPA-0, Orb v3 and MatterSim v1.
-Thermal expansion is complete for all three, Orb v3's since 2026-10-24, after v1.1.0. Orb's run was a pre-registered
-test of the six-case study's explanations ([`preregistration_orb_thermal.md`](preregistration_orb_thermal.md)). UMA is awaiting license access.
+Status: all four models (MACE-MPA-0, Orb v3, MatterSim v1, UMA s-1.2) are complete for every property. Orb v3's thermal
+expansion and UMA were added on 2026-10-24, after v1.1.0, each as a pre-registered test
+([`preregistration_orb_thermal.md`](preregistration_orb_thermal.md), [`preregistration_uma.md`](preregistration_uma.md)).
+The numbered findings below were written for the first three models; where UMA changes one, it says so.
 
 1. **Lattice constants of non-layered chip materials are accurate to under 1 % on average.** The
-   effective linear error of all three models is 0.73–0.80 % against experiment across the 30
+   effective linear error of all four models is 0.72–0.80 % against experiment across the 30
    non-layered materials (worst case: α-quartz, +2.1 to +2.5 %). Against Materials Project DFT they
    agree to 0.07–0.25 %. The systematic +0.6 % offset from experiment is consistent with PBE's known
    overestimate, plus 0.1–0.3 % from comparing 0 K cells with room-temperature measurements.
 2. **Layered 2D materials are where every model fails.** Interlayer spacing is overestimated by
-   10–30 % (c axis of graphite: MACE +18 %, MatterSim +25 %, Orb +30 %), because PBE training data
+   10–30 % (c axis of graphite: MACE +18 %, MatterSim +25 %, Orb +30 %, UMA +41 %), because PBE training data
    lacks van der Waals binding. Their bulk moduli are off by 60–130 %. Orb relaxes MoS₂ into a
    different, sheared stacking.
 3. **Stiffness is the harder property, and the models err in different directions.** Excluding layered
-   materials, mean absolute bulk-modulus error vs experiment is 10.8 % (MACE), 11.9 % (Orb) and
+   materials, mean absolute bulk-modulus error vs experiment is 10.8 % (MACE), 11.2 % (UMA), 11.9 % (Orb) and
    12.6 % (MatterSim). Orb and MatterSim run systematically soft (mean −10.5 % and −11 %) while
    staying close to DFT (5.4 % and 6.4 %); MACE is unbiased on average but scatters more and over-stiffens some
    refractory metals (W +18 %, Mo +17 %, Ti +35 %). **Against experiment this benchmark does
-   not resolve a difference between the three models** for lattice constants or bulk moduli: every
+   not resolve a difference between the first three models** for lattice constants or bulk moduli: every
    pairwise difference's 95 % bootstrap interval includes zero (`results/robustness/pairwise.csv`), and the same holds within every
-   material class (`pairwise_by_class.csv`, Holm-corrected). That is not a test of equivalence: with
+   material class (`pairwise_by_class.csv`, Holm-corrected). The one resolved difference involves UMA: its lattice
+   constants are more accurate than MatterSim's (by 0.08 points overall, and within the metals after correction). That is not a test of equivalence: with
    ~30 materials, differences below about 3–5 points of bulk-modulus error would go undetected.
    Against DFT the differences are resolved:
    MatterSim reproduces PBE most closely, especially for metals and semiconductors, yet is no closer to
@@ -68,28 +70,30 @@ test of the six-case study's explanations ([`preregistration_orb_thermal.md`](pr
    dynamically unstable in both models and are excluded, as are a few results where QHA itself breaks
    down at high temperature (`results/thermal_expansion.csv` gives the reason for each).
 
-| Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 |
-|---|---|---|---|
-| mean abs. error at 300 K (95 % CI) | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | 20.9 % (15–31), n = 21 |
-| mean abs. error over the window (95 % CI) | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | 24.6 % (17–38), n = 17 |
-| within 20 % / 40 % at 300 K | 10 / 17 | 13 / 17 | 12 / 19 |
-| core-tier references only, 300 K | 37.6 % (21–64), n = 18 | 23.4 % (15–38), n = 18 | 19.2 % (13–30), n = 17 |
-| mean absolute error at 300 K, 10⁻⁶ K⁻¹ | 7.8 | 5.2 | 4.4 |
+| Thermal expansion vs experiment (non-layered) | MACE-MPA-0 | MatterSim v1* | Orb v3 | UMA s-1.2* |
+|---|---|---|---|---|
+| mean abs. error at 300 K (95 % CI) | 36.1 % (22–58), n = 22 | 24.2 % (17–37), n = 22 | 20.9 % (15–31), n = 21 | 18.9 % (14–29), n = 22 |
+| mean abs. error over the window (95 % CI) | 35.5 % (23–54), n = 17 | 34.5 % (23–54), n = 18 | 24.6 % (17–38), n = 17 | 24.5 % (17–37), n = 18 |
+| within 20 % / 40 % at 300 K | 10 / 17 | 13 / 17 | 12 / 19 | 17 / 19 |
+| core-tier references only, 300 K | 37.6 % (21–64), n = 18 | 23.4 % (15–38), n = 18 | 19.2 % (13–30), n = 17 | 16.6 % (12–27), n = 18 |
+| mean absolute error at 300 K, 10⁻⁶ K⁻¹ | 7.8 | 5.2 | 4.4 | 4.4 |
 
 Orb v3's Al is not graded at 300 K: it is unstable above 1.015 V0, so its 300 K volume lies outside the fit.
 Paired bootstrap (`results/robustness/pairwise.csv`): Orb is more accurate than MACE at 300 K (p 0.005) and than
-MatterSim over the windows (p 0.02, all references; not significant on core-tier references alone); the other
-pairs are not resolved.
+MatterSim over the windows (p 0.02, all references; not significant on core-tier references alone); UMA is more accurate than MACE at 300 K and than
+MatterSim over the windows (all references); the other pairs are not resolved. \*Official packages, not kUPS.
 
-**Beyond percentage error** (`results/thermal_metrics.csv`, `thermal_mismatch.csv`). Of the 21 results
-within 20 % at 300 K, 9 are off by more than 20 % at the top of their window (Y₂O₃ for all three models,
-quartz near its α–β transition for MACE and Orb, MatterSim's Ru and Mo, Orb's Al₂O₃ and TiSi₂); at high temperature the quasi-harmonic
+**Beyond percentage error** (`results/thermal_metrics.csv`, `thermal_mismatch.csv`). Of the 32 results
+within 20 % at 300 K, 13 are off by more than 20 % at the top of their window (Y₂O₃ for all four models,
+quartz near its α–β transition for MACE, Orb and UMA, Ru for MatterSim and UMA, MatterSim's Mo, Orb's Al₂O₃ and
+TiSi₂, UMA's Ti); at high temperature the quasi-harmonic
 method's own limits add to the model's error, so this cannot be pinned on the models alone. The models get the
-direction of α's change across the window right in 32 of 43 cases (Orb 12 of 14). **Thermal mismatch of device stacks** (`thermal_mismatch.csv`, `thermal_mismatch_summary.csv`). The free
+direction of α's change across the window right in 45 of 58 cases (Orb 12 of 14, UMA 13 of 15). **Thermal mismatch of device stacks** (`thermal_mismatch.csv`, `thermal_mismatch_summary.csv`). The free
 expansion mismatch from 300 K is computed for 16 stacks chosen by device role; 15 have references covering 300–900 K.
 At 900 K each model is within 25 % of the measured mismatch for 3–4 stacks, with median misses of 46 % (MACE),
 53 % (Orb) and 71 % (MatterSim), about 1000–1200 microstrain. MACE and Orb get the sign right for every stack;
-MatterSim gets it wrong for 5 of 15 (W, Mo, Ta, GaN and AlN on Si), because its silicon expands too much. A metal
+MatterSim gets it wrong for 5 of 15 (W, Mo, Ta, GaN and AlN on Si), because its silicon expands too much. UMA,
+whose silicon is within 10 %, gets every sign right and 7 of 15 within 25 % (median miss 29 %, 520 microstrain). A metal
 on silicon compounds both materials' errors: for W, Mo or Ta on Si (measured 600–1900 microstrain), MACE overshoots
 by 270–360 % and Orb by 97–160 %.
 
@@ -215,7 +219,8 @@ pytest -q
 ```
 
 UMA is gated: accept Meta's license at <https://huggingface.co/facebook/UMA> and run
-`hf auth login`. The original NPT-MD route (`chipff thermal`, `notebooks/thermal_expansion_gpu.ipynb`)
+`hf auth login`. On CPU it runs through `fairchem` (`chipff static -m uma-s-1p2`, then `chipff qha -m uma-s-1p2`;
+about 10 min and 30 min on a laptop); kUPS's UMA bridge needs a GPU. The original NPT-MD route (`chipff thermal`, `notebooks/thermal_expansion_gpu.ipynb`)
 is kept for cross-checks; it is not used for the published numbers because of its cost and a bias in
 kUPS's isotropic barostat (`thermal_method.md`, reproducer `scripts/repro_kups_barostat_bias.py`).
 
@@ -282,7 +287,7 @@ notebooks/                    GPU notebook for thermal expansion
   K) and is excluded. For layered solids, PBE itself misses the interlayer binding, so "vs DFT" there
   measures agreement with a flawed reference.
 * **Model versions.** Results apply to the exact model files listed in `src/chipff/models.py`
-  (CuspAI's JAX exports of MACE and Orb; Meta's UMA checkpoint via kUPS's PyTorch bridge; MatterSim
+  (CuspAI's JAX exports of MACE and Orb; Meta's UMA checkpoint through its `fairchem` calculator; MatterSim
   v1 5M through Microsoft's `mattersim` package with ASE's L-BFGS, not kUPS).
 * **Independent project.** Built on kUPS and CuspAI's published model exports; not affiliated with
   or endorsed by CuspAI, Meta, Microsoft, Orbital Materials or the MACE developers.

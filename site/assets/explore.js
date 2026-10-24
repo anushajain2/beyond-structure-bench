@@ -16,7 +16,8 @@
   const STEP = { lattice: 'lattice', bulk_modulus: 'elastic', thermal_expansion: 'thermal_qha' };
   const CSV = { lattice: 'lattice.csv', bulk_modulus: 'bulk_modulus.csv', thermal_expansion: 'thermal_expansion.csv' };
   const ROUTE = { 'mace-mpa-0': 'CuspAI JAX export, run through kUPS', 'orb-v3': 'CuspAI JAX export, run through kUPS',
-    'mattersim-5m-native': "Microsoft's official package (its kUPS export is broken)" };
+    'mattersim-5m-native': "Microsoft's official package (its kUPS export is broken)",
+    'uma-s-1p2': "Meta's fairchem package (kUPS's UMA bridge needs a GPU)" };
   const TAG = 'v' + ev.version;
   const blob = (p) => `${ev.repo}/blob/${TAG}/${p}`;
   const mats = Object.fromEntries(ev.materials.map((m) => [m.id, m]));
@@ -212,7 +213,7 @@
       <p class="def"><strong>${PROPS[prop]}${prop === 'thermal_expansion' ? (cmp === '300K' ? ', 300 K' : ', temperature window') : ''}.</strong> ${def}
         Grades use thresholds fixed before any result was compared: good ≤ ${th.good} %, okay ≤ ${th.okay} %.</p>
       <div class="model-cards">${cards}</div>
-      ${best ? '<p class="muted" style="margin-top:12px">The lowest observed error here describes this one comparison. It is not a recommendation: across the benchmark, against experiment, no difference between the models is resolved for any of the three properties.</p>' : ''}
+      ${best ? '<p class="muted" style="margin-top:12px">The lowest observed error here describes this one comparison. It is not a recommendation: across the benchmark, against experiment, few differences between the models are resolved (Orb v3 and UMA beat MACE-MPA-0 on thermal expansion at 300 K; UMA beats MatterSim on lattice constant; none for bulk modulus).</p>' : ''}
       ${studyPanel}${classPanel}${refPanel}${dataPanel}`;
     document.title = `${uni(m.formula)}, ${PROPS[prop].toLowerCase()} · Explore evidence · BeyondStructure Bench`;
   }

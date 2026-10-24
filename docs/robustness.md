@@ -69,7 +69,10 @@ correlate their signed errors against experiment over the materials both have, w
   PBE's error is about as large as MACE's departure from PBE, so tracking PBE more closely does not
   make a model more accurate here.
 - Thermal expansion: MACE's and Orb's errors at 300 K are correlated (0.72); the other pairs' correlations
-  have wide intervals (table above). The average of
+  have wide intervals (table above).
+- UMA, added later, correlates most with Orb at 300 K (pre-registered test U4 in `preregistration_uma.md`; the
+  bootstrap of the difference crosses zero, so all four may share errors about equally). Its pairs with the
+  other models are in `model_agreement.csv`. The average of
   MACE and MatterSim has a 24.2% error at 300 K, the same as MatterSim alone (36.1% for MACE), and 30.9% over
   the windows against 35.5% and 34.9%. The models' relative disagreement correlates with that average's error
   (0.37 at 300 K, interval −0.11 to 0.77; 0.25 over the window, −0.13 to 0.64). That is an exploratory
@@ -80,8 +83,8 @@ uncertainty from `data/reference_quality.yaml` (stated by the source where it gi
 between sources where they disagree, otherwise the defaults above). Every table in `bootstrap_ci.csv` and
 `pairwise.csv` is computed twice, `subset = all` and `subset = core` (core-tier references only). For
 lattice constant and bulk modulus no difference between the models is resolved in either subset. For thermal
-expansion, Orb v3 is more accurate than MACE-MPA-0 at 300 K in both subsets, and than MatterSim over the windows
-with all references only.
+expansion, Orb v3 and UMA are more accurate than MACE-MPA-0 at 300 K in both subsets, and than MatterSim over the
+windows with all references only. UMA's lattice constants are more accurate than MatterSim's.
 
 **Adiabatic and isothermal bulk moduli** (`adiabatic_sensitivity.csv`). Ultrasonic and Brillouin measurements
 give the adiabatic modulus, static equations of state the isothermal one; the models' static moduli are 0 K
