@@ -2,8 +2,9 @@
 <div class="wrap hero">
   <p class="eyebrow">BeyondStructure Bench · an independent benchmark and study</p>
   <h1>A good crystal structure is not enough</h1>
-  <p class="lead">How reliably do today's open ML force fields predict the structure, stiffness and thermal
-  expansion of materials used in chips, and when they are wrong, what causes it?</p>
+  <p class="lead">Can the AI models that simulate atoms be trusted to predict how chip materials behave when they
+  heat up? Four widely used models are tested on 33 chip materials against laboratory measurements: they get
+  crystal structure almost exactly right, but how much a material grows when heated is often off by tens of percent.</p>
   <p class="finding">MACE-MPA-0 places tantalum's lattice within <strong>0.4 %</strong> of experiment and its
   stiffness within <strong>about 6 %</strong>, yet predicts that it expands <strong>2.8 times</strong> as much as it
   does when heated. The software and the numerics turned out not to be the cause. The model's vibrations change
@@ -13,7 +14,7 @@
     <a class="btn" href="study.html">Read the study</a>
     <a class="btn" href="https://github.com/anushajain2/beyond-structure-bench">Code and data</a>
   </div>
-  <p class="byline">Anusha Jain · results release v1.1.0 · 23 October 2026</p>
+  <p class="byline">Anusha Jain · release v1.1.0, with Orb v3 thermal expansion and UMA added · 24 October 2026</p>
 </div>
 
 <div class="wrap">
@@ -27,20 +28,28 @@
 </div>
 
 <section class="wrap">
-  <h2 class="section-title">Three findings</h2>
-  <p class="section-lead">From four models on 33 materials, compared with sourced experimental values and with DFT,
-  and a separate study of six cases.</p>
+  <h2 class="section-title">What we found</h2>
+  <p class="section-lead">Four AI models (MACE-MPA-0, MatterSim, Orb v3 and Meta's UMA) on 33 chip materials, every
+  prediction compared with laboratory measurements, plus a study of why the worst predictions fail.</p>
   <div class="grid-3">
-    <div class="card"><p class="num">0.7–0.8 %</p><h3>Structure is accurate; the data can't rank the models</h3>
-      <p>Average lattice error for all four models on 30 non-layered materials; bulk-modulus error is 11–13 %.
-      Against experiment, the benchmark resolves almost no difference between the models for either property.</p></div>
-    <div class="card"><p class="num">19–36 %</p><h3>Thermal expansion is where models fail, each in its own places</h3>
-      <p>Average error at 300 K for the four models (UMA and Orb v3 lowest). MACE overshoots refractory metals (tantalum +179 %);
-      MatterSim overshoots semiconductors (silicon +85 %, GaAs +68 %).</p></div>
-    <div class="card"><p class="num">γ = 4.1 vs 1.6</p><h3>The large errors trace to how vibrations change with volume</h3>
-      <p>MACE's Grüneisen parameter for tantalum, against experiment. In six selected cases, backend and numerical
-      checks rule out the workflow, and the errors sit in the models' Grüneisen parameters, sometimes with a too-soft
-      bulk modulus.</p></div>
+    <div class="card"><p class="num">0.7–0.8 %</p><h3>Crystal structure is nearly perfect</h3>
+      <p>Average error in crystal size for all four models; stiffness is off by 11–13 %. On these properties the
+      models are almost indistinguishable.</p></div>
+    <div class="card"><p class="num">19–36 %</p><h3>Heating is where the models fail</h3>
+      <p>Average error in thermal expansion at room temperature (UMA 19 %, Orb v3 21 %, MatterSim 24 %, MACE 36 %).
+      Each model fails badly on different materials: MACE on tantalum (+179 %), MatterSim on silicon (+85 %).</p></div>
+    <div class="card"><p class="num">7 of 15</p><h3>Chip stacks are harder still</h3>
+      <p>Layers that grow by different amounts strain a chip. The best model, UMA, gets that mismatch within 25 % for
+      7 of 15 real stacks; the others for at most 4. MatterSim gets the direction wrong for 5.</p></div>
+    <div class="card"><p class="num">γ = 4.1 vs 1.6</p><h3>The errors trace to how vibrations change with volume</h3>
+      <p>MACE's Grüneisen parameter for tantalum, against experiment. In the worst cases stiffness and heat capacity
+      are right; the models misjudge how their vibrations shift as the crystal expands.</p></div>
+    <div class="card"><p class="num">Mostly their own</p><h3>Not inherited from the training physics</h3>
+      <p>Compared with the DFT method the models learned from, most of the large errors checked are the models' own.
+      Too-soft semiconductors are the exception: they come from DFT itself.</p></div>
+    <div class="card"><p class="num">2 blind tests</p><h3>Predictions written down before the runs</h3>
+      <p>Orb v3 and UMA were run only after predictions about their errors were committed. Some held (accurate
+      silicon gives correct chip-stack directions); some did not, and both are reported.</p></div>
   </div>
 </section>
 

@@ -2,46 +2,94 @@
 
 [![tests](https://github.com/anushajain2/beyond-structure-bench/actions/workflows/ci.yml/badge.svg)](https://github.com/anushajain2/beyond-structure-bench/actions/workflows/ci.yml)
 
-**When a machine-learned force field gets a chip material's crystal structure right, does it also get
-its stiffness and thermal expansion right? And when it doesn't, why?**
+**Can AI models that simulate atoms be trusted to predict how chip materials behave when they heat up?**
 
-BeyondStructure Bench is a benchmark of four machine-learned (ML) force fields: models that predict how
-the atoms in a material push and pull on each other, used as fast stand-ins for quantum-mechanical
-calculations. It tests MACE-MPA-0, Orb v3, MatterSim v1 and Meta's UMA on 33 materials used in chips, from silicon
-and copper to hafnium oxide, and compares every prediction with published lab measurements (and with
-[DFT](#terms-used-here) calculations where they exist). A follow-up study of six cases looks at why the
-worst predictions go wrong.
+Designing chips increasingly relies on computer simulations of materials. A new kind of AI model, called a
+machine-learned force field, can run these simulations thousands of times faster than traditional physics
+calculations. This project checks how good four widely used ones are: MACE-MPA-0, MatterSim, Orb v3 and Meta's UMA.
+It tests them on 33 materials found in chips, from silicon and copper to the oxides used as insulators. For each
+material, each model predicts three things, and every prediction is compared with real laboratory measurements:
 
-**Key findings:**
+* **how big the material's crystal is**, that is, how far apart its atoms sit;
+* **how stiff it is**, or how hard it is to squeeze;
+* **how much it grows when it heats up**, its thermal expansion.
 
-1. **Getting the structure right doesn't mean getting the rest right.** Accuracy falls as the property
-   gets harder: on average the models are off by under 1 % on crystal size, 11–13 % on stiffness and
-   19–36 % on thermal expansion at room temperature. MACE-MPA-0, for example, gets tantalum's crystal size within 0.4 % but
-   overestimates its thermal expansion by 179 %.
-2. **No model is best everywhere.** Each fails on different materials: MACE-MPA-0 on metals such as
-   tantalum, MatterSim on semiconductors such as silicon and gallium arsenide, Orb v3 and UMA on germanium
-   and tantalum. Orb v3 and UMA have the lowest average thermal-expansion errors, but neither is clearly
-   ahead of MatterSim at 300 K. On structure and stiffness, the data can barely tell the four models apart.
-3. **The thermal-expansion errors come from how the models handle vibrations.** In six cases studied in
-   depth, the models misjudge how strongly the atoms' vibrations change as the crystal expands. These
-   cases were picked after the failures were seen, so this explains them rather than proving a general
-   rule.
-4. **Most of those mistakes are the models' own, but not all.** Comparing with the method the models
-   learned from (PBE) shows that MACE's tantalum and GaAs errors and MatterSim's semiconductor errors are
-   the models' own. The too-soft semiconductors, and all of Orb v3's GaAs error, come from PBE itself.
-5. **Chip-stack thermal mismatch is hard to get right.** What strains a chip is the difference in
-   expansion between stacked layers. Across 15 real stacks (metals, silicides, barriers, oxides and GaN on
-   their substrates), three of the four models get the mismatch within 25 % for at most 4 of them and
-   typically miss by about half; UMA, whose silicon is accurate, gets 7. MatterSim gets the direction
-   wrong for 5 of 15, because its silicon expands too much.
+## What we found, in short
 
-Averages leave out layered materials such as graphite, which every model gets wrong.
+1. **The models get the crystal structure almost exactly right,** usually within 1 % of the lab value.
+2. **They are much less accurate about heating.** Their predictions of how much a material grows when heated are
+   typically off by 20–35 %, and for some materials by a factor of two or three. Getting the structure right is no
+   guarantee: one model gets tantalum's crystal size right to within 0.4 %, but predicts that it grows almost three
+   times as much as it really does.
+3. **This matters most where materials meet.** A chip is a stack of layers. When neighbouring layers grow by
+   different amounts, they push and pull on each other, which can bend, crack or peel them.
+   * For 15 real combinations of layers, the best model (UMA) predicts this mismatch to within 25 % for about half
+     of them. The others manage at most 4 of the 15.
+   * One model gets even the direction wrong for a third of them.
+4. **Most of the big mistakes are the AI models' own.** The models learn from a standard physics method (DFT). We
+   ran that method ourselves on some of the same materials and compared. For most of the large errors we could
+   check, the AI model introduced the error rather than inheriting it, so better models could fix them.
+5. **Newer models do better, but none is reliable everywhere.** Orb v3 and UMA are the most accurate about heating
+   on average. Still, every model fails badly on some materials, and different models fail on different ones.
+
+For two of the models we wrote down our predictions about their mistakes before running them. That way the
+conclusions could not be bent to fit the results.
 
 **[Project site](https://anushajain2.github.io/beyond-structure-bench/)** ·
 [Explore the evidence](https://anushajain2.github.io/beyond-structure-bench/explore.html) ·
 [Read the study](https://anushajain2.github.io/beyond-structure-bench/study.html) ·
 [Evaluation design](https://anushajain2.github.io/beyond-structure-bench/design.html) ·
 [Reproduce](https://anushajain2.github.io/beyond-structure-bench/reproduce.html)
+
+## The key findings in more detail
+
+1. **Structure is easy, stiffness is harder and thermal expansion is hardest.** Averaged over the 30 non-layered
+   materials:
+   * lattice constant: 0.7–0.8 % off for all four models;
+   * bulk modulus: 11–13 %;
+   * volumetric thermal expansion at 300 K: MACE-MPA-0 36 %, MatterSim 24 %, Orb v3 21 % and UMA 19 %.
+
+   Accuracy on structure does not predict accuracy on expansion. MACE-MPA-0 puts tantalum's lattice within 0.4 % and
+   its bulk modulus within about 6 %, yet overestimates its thermal expansion by 179 %.
+2. **No model is best everywhere.**
+   * Orb v3 and UMA are significantly more accurate than MACE-MPA-0 at 300 K. The data cannot separate them from
+     each other or from MatterSim.
+   * On structure and stiffness, the four models are nearly indistinguishable.
+   * Each has its own blind spots: MACE-MPA-0 on refractory metals (Ta +179 %, Mo +97 %), MatterSim on
+     semiconductors (Si +85 %, GaAs +68 %), and Orb v3 and UMA on germanium (+52 %, +54 %) and tantalum (+70 %,
+     +45 %).
+3. **The large expansion errors come from how the atoms' vibrations change with volume.** A material's thermal
+   expansion is set mainly by its stiffness and its Grüneisen parameter, which measures how much the vibration
+   frequencies shift as the crystal expands. In the worst cases, heat capacity, volume and often stiffness are right,
+   and the Grüneisen parameter is wrong. Tantalum is the clearest example: three of the four models overshoot its
+   expansion with a roughly correct stiffness, and MACE-MPA-0's Grüneisen parameter is 4.1 against 1.6 from
+   experiment. For some semiconductors, a too-soft bulk modulus adds to the error. The six cases studied in depth
+   were picked after the failures were seen, so they explain those failures rather than prove a general rule.
+4. **Most of those errors are the models' own; the soft semiconductors are inherited.** Matched PBE references, our
+   own for Si and GaAs and published ones for Cu, Ta, Ru, Mo and MgO, separate a model's error from the DFT method's.
+   * The models' own: MACE-MPA-0's Ta and GaAs errors, MatterSim's Si and GaAs errors, and the Ru overshoots, where
+     PBE itself is right.
+   * Inherited: the too-soft semiconductors, since PBE makes Si and GaAs 12–18 % too soft. All of Orb v3's GaAs
+     error comes from this.
+   * MACE-MPA-0's accurate silicon is its own error cancelling an inherited one.
+5. **Chip-stack thermal mismatch is harder than either material alone.** Across 15 device stacks (metals, silicides,
+   barriers, oxides and GaN on their substrates), at 900 K:
+   * MACE-MPA-0, MatterSim and Orb v3 each get the free expansion mismatch within 25 % for at most 4, and typically
+     miss by about half.
+   * UMA gets 7.
+   * MatterSim gets the sign wrong for 5, because its silicon expands too much.
+6. **Two blind tests, with the predictions and decision rules committed before the runs** (Orb v3 and UMA).
+   * Supported:
+     * Orb v3's overshoots in transition metals follow its too-soft bulk modulus.
+     * A model with accurate silicon gets the mismatch signs right.
+     * UMA's errors resemble those of Orb v3, trained on the same data, more than the others'. This one is
+       suggestive, not decisive.
+   * Refuted: that results right at 300 K through cancelling errors degrade at high temperature.
+   * Not confirmed: that where existing models disagree, a new model will also fail.
+
+Averages leave out layered materials such as graphite, which every model gets wrong (layer spacing 18–41 % too
+large). Every number here comes from the committed tables in `results/` and is detailed below and in
+[`docs/details.md`](docs/details.md#findings-in-detail).
 
 ## What it measures
 
@@ -66,12 +114,19 @@ methods are in [`docs/details.md`](docs/details.md#whats-measured).
 * **Thermal expansion against experiment.** Force-field benchmarks mostly test structure and stiffness,
   often against DFT alone. The two closest benchmarks for these kinds of materials,
   [CHIPS-FF](https://arxiv.org/abs/2412.10516) and [UniFFBench](https://arxiv.org/abs/2508.05762), don't
-  report thermal expansion against experiment. This one does, for 22 materials at 300 K with two of the models.
+  report thermal expansion against experiment. This one does, for all four models: 21–22 materials at 300 K
+  and 17–18 over each material's temperature window.
 * **Evidence that accuracy doesn't carry over between properties.** A model can get a crystal's size
   and stiffness right and its thermal expansion badly wrong: MACE-MPA-0 puts tantalum's lattice within
   0.4 % and its bulk modulus within about 6 %, yet overestimates its thermal expansion by 179 %.
 * **An explanation for six of the largest failures**, separating model error from software and
-  numerical artefacts.
+  numerical artefacts, and, with matched PBE references, from errors inherited from the DFT the models learned
+  from.
+* **Blind tests.** Two of the models (Orb v3 and UMA) were run only after predictions about their errors, and the
+  rules for judging them, had been committed ([Orb](docs/preregistration_orb_thermal.md),
+  [UMA](docs/preregistration_uma.md)), so those conclusions were not fitted to the results.
+* **Thermal mismatch of real chip stacks** (16 metal, silicide, barrier, oxide and GaN stacks), the quantity that
+  actually strains a device, not just each material on its own.
 * **Sourced, audited reference data.** Every experimental value comes with its citation and a verbatim
   quote, and is audited into a *core* tier (primary measurements and trusted compilations) or an
   *extended* tier, with its own uncertainty. The 495 values are released as a standalone dataset
@@ -230,6 +285,11 @@ all graded references and for core-tier references only; no conclusion changes b
 * **Bootstrap confidence interval:** an uncertainty range obtained by recomputing a result many times on
   random resamples of the materials. A **paired bootstrap** compares two models on the same resamples to
   see whether the difference between them is real or could be chance ([details](docs/robustness.md)).
+* **Thermal mismatch:** the difference in how much two stacked layers grow between two temperatures, in
+  microstrain (millionths of a length). Mismatch is what builds stress in a chip; this benchmark reports the
+  free mismatch, before geometry and bonding turn it into stress.
+* **Pre-registration (blind test):** writing down predictions and the exact rules for judging them, and
+  committing them, before running the experiment, so the conclusions cannot be adjusted to fit the results.
 
 </details>
 
