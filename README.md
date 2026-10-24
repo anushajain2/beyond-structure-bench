@@ -71,7 +71,8 @@ should not be trusted, without checking, to predict how those materials respond 
 several materials are stacked together.
 
 **Which model should I use for my material?** See [`docs/model_guidance.md`](docs/model_guidance.md): for each of
-the 33 materials, whether each model is reliable, usable or best avoided, and why.
+the 33 materials, whether each model is reliable, usable or best avoided, and why. To add your own model, see
+[`docs/adding_a_model.md`](docs/adding_a_model.md).
 
 To make sure these conclusions were not shaped by hindsight, we ran three blind tests. We wrote down our
 predictions about their mistakes before running them; some held and some did not, and we report both.
