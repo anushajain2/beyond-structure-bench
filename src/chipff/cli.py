@@ -3,6 +3,7 @@
   chipff fetch                      download MP structures + DFT references (needs MP_API_KEY)
   chipff static  [-m MODEL ...]     lattice constants, elastic tensor, EOS (CPU is fine)
   chipff qha     [-m MODEL ...]     thermal expansion, quasi-harmonic (CPU is fine; the published method)
+  chipff axial   [-m MODEL ...]     axial (a, c) thermal expansion of GaN, AlN, Ru, Al2O3 (Grüneisen approximation)
   chipff thermal [-m MODEL ...]     thermal expansion from NPT MD (GPU; cross-check only, see docs/thermal_method.md)
   chipff plan                       print the thermal-expansion temperatures chosen by the rule
   chipff robustness --what static   rerun a subset with one setting changed (CPU, ~10 min per model)
@@ -24,7 +25,7 @@ from chipff.materials import ROOT
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="chipff", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("step", choices=["fetch", "static", "thermal", "qha", "robustness", "plan", "analyze", "report", "all"])
+    ap.add_argument("step", choices=["fetch", "static", "thermal", "qha", "axial", "robustness", "plan", "analyze", "report", "all"])
     ap.add_argument("--what", choices=["static", "md"], help="robustness: which reruns")
     ap.add_argument("-m", "--models", nargs="*", help="model keys (default: all in configs/benchmark.yaml)")
     ap.add_argument("--materials", nargs="*", help="material ids (default: all)")
@@ -68,6 +69,11 @@ def main(argv=None):
                 run_thermal_qha(m, a.materials, force=a.force)
             else:
                 run_thermal_qha_isolated(m, a.materials, force=a.force)
+    if a.step == "axial":
+        from chipff.runner import run_axial_qha
+
+        for m in models:
+            run_axial_qha(m, a.materials, force=a.force)
     if a.step == "robustness":
         from chipff import robustness
 

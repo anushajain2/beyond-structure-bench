@@ -273,6 +273,24 @@ def run_thermal_qha_isolated(model_key: str, materials: list[str] | None = None,
             log.warning("%s %s: QHA process exited with %d", model_key, mid, rc)
 
 
+def run_axial_qha(model_key: str, materials: list[str] | None = None, force=False):
+    """Axial (a, c) thermal expansion of the uniaxial chip materials (see chipff.axial); results go to axial_qha.json."""
+    from chipff.axial import AXIAL_MATERIALS, run_axial
+
+    cfg = config()["thermal_qha"]
+    mats = [m for m in select(materials) if m.id in AXIAL_MATERIALS]
+    relaxed = relaxed_structures(model_key)
+    done = load_raw(model_key, "axial_qha")
+    eng = make_engine(model_key)
+    meta = run_meta(eng)
+    for m in mats:
+        if (m.id in done and not force) or m.id not in relaxed:
+            continue
+        t = time.time()
+        rec = run_axial(eng, m, model_key, relaxed[m.id], cfg)
+        save_raw(model_key, "axial_qha", [rec], {**meta, "wall_s": time.time() - t})
+
+
 def run_thermal_qha(model_key: str, materials: list[str] | None = None, force=False, tag: str = "thermal_qha"):
     """QHA thermal expansion for each material (see chipff.qha); results go to <tag>.json."""
     from chipff.qha import run_qha, to_record

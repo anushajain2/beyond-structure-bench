@@ -67,6 +67,15 @@ def _code_objects(step: str, backend: str) -> list:
                                                                     engine.Engine._md_step_fn, engine.Engine._advance]
         return relax + fcall + [qha.run_qha, qha._forces_batched, qha._supercell_reps, qha._phonopy_atoms, qha._make_phonopy, qha._symmetrized,
                                 runner.run_thermal_qha, runner.thermal_plan]
+    if step == "axial_qha":
+        from chipff import axial, qha, runner
+
+        fcall = [ase_engine.AseEngine.forces] if ase_backend else [engine.Engine.forces, engine.Engine._md_state,
+                                                                    engine.Engine._md_step_fn, engine.Engine._advance]
+        return relax + stress + fcall + [axial.run_axial, axial._strained, axial._phonon_free_energy,
+                                         axial._spacegroup, "DELTA", repr(axial.DELTA), qha._forces_batched,
+                                         qha._supercell_reps, qha._make_phonopy, qha._symmetrized,
+                                         runner.run_axial_qha]
     if step.startswith("thermal"):
         from chipff import runner
 
@@ -95,7 +104,7 @@ def settings_hash(step: str, model_key: str) -> str:
 
     cfg = config()
     sections = {"lattice": ["relax"], "elastic": ["relax", "elastic"], "eos": ["relax", "eos"],
-                "thermal_qha": ["thermal_qha"]}
+                "thermal_qha": ["thermal_qha"], "axial_qha": ["thermal_qha"]}
     keys = sections.get(step, ["thermal"])
     m = get_model(model_key)
     perf = {"max_pairs_per_call", "max_edges_per_batch", "edge_cutoff_A"}  # memory/speed only, not results
@@ -110,7 +119,7 @@ def inputs_hash(step: str, model_key: str, material: str) -> str:
 
     mp = mp_record(material) or {}
     parts = {"mp_structure": _h(mp.get("structure"))}
-    if step in ("elastic", "eos") or step.startswith("thermal"):
+    if step in ("elastic", "eos", "axial_qha") or step.startswith("thermal"):
         lat = load_raw(model_key, "lattice").get(material) or {}
         parts["relaxed_structure"] = _h(lat.get("structure"))
     if step == "thermal_qha":

@@ -1,6 +1,7 @@
 """Run one material's QHA as `chipff qha --no-isolate` does, with low, flat memory (used for Orb v3, 2026-10-23).
 
-    PYTHONPATH=src python scripts/qha_worker_lowmem.py orb-v3 Al2O3 /tmp/qha.lock
+    PYTHONPATH=src python scripts/qha_worker_lowmem.py orb-v3 Al2O3 /tmp/qha.lock           # chipff qha
+    PYTHONPATH=src python scripts/qha_worker_lowmem.py orb-v3 GaN /tmp/qha.lock axial      # chipff axial
 
 See docs/preregistration_orb_thermal.md, Deviations 2-3.
 """
@@ -15,7 +16,9 @@ from chipff import engine, provenance
 from chipff.models import get_model
 
 model, mat, LOCK = sys.argv[1:4]
-CODE = provenance.code_hash(provenance._code_step("thermal_qha"), get_model(model).backend)
+STEP = sys.argv[4] if len(sys.argv) > 4 else "qha"
+CODE = provenance.code_hash(provenance._code_step("axial_qha" if STEP == "axial" else "thermal_qha"),
+                            get_model(model).backend)
 print("code fingerprint", CODE, flush=True)
 
 _save = R.save_raw
@@ -66,4 +69,7 @@ threading.Thread(target=watch, daemon=True).start()
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
 for noisy in ("httpx", "huggingface_hub", "absl", "jax"):
     logging.getLogger(noisy).setLevel(logging.WARNING)
-R.run_thermal_qha(model, [mat], force=True)
+if STEP == "axial":
+    R.run_axial_qha(model, [mat], force=True)
+else:
+    R.run_thermal_qha(model, [mat], force=True)
