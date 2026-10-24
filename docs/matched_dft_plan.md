@@ -1,6 +1,6 @@
 # Model error or PBE error? Matched PBE references for thermal expansion
 
-*Written 2026-10-23. A plan, not a result: only two short timing calibrations have been run (section 5), and nothing in the benchmark code or results was changed.*
+*Written 2026-10-23; our own PBE calculations for Si and GaAs added 2026-10-24 (section 8). The benchmark code and its existing results are unchanged.*
 
 The thermal-failure study ([thermal_failure_study.md](thermal_failure_study.md)) compares each model's
 quasi-harmonic (QHA) thermal expansion with experiment, and traces the large errors to the Grüneisen parameter γ,
@@ -14,12 +14,19 @@ thermal calculations on a small subset to separate the two:
 This page does three things, for Si, Cu, Ta and GaAs. It collects published PBE QHA values and records each source's
 settings (section 2). It puts them next to experiment and the three models (section 3), and says what that changes in
 the study's conclusions (section 4). It then costs running our own PBE QHA on this laptop and recommends what, if
-anything, to run (sections 5 and 6).
+anything, to run (sections 5 and 6). Section 8 reports the PBE calculations that were then run for Si and GaAs.
 
 ## Summary
 
-* **The literature already separates the two errors for Ta, Si and Cu.** For GaAs the only published 300 K PBE-type
-  QHA value probably used PBE+U, so GaAs remains provisional.
+* **The literature separates the two errors for Ta, Si and Cu, and our own matched PBE calculation now does so for
+  GaAs (section 8).** The only published GaAs value probably used PBE+U.
+* **New from our own calculations (section 8):**
+  * **Orb's GaAs error (+25 %) is entirely inherited from PBE.** Its γ and zone-edge modes match PBE's to within 2–10 %.
+  * **MACE's GaAs error and MatterSim's semiconductor errors are their own.** In GaAs, MACE's γ is +68 % over PBE and
+    its TA(L) has the wrong sign: +1.80 against PBE's −1.11. MatterSim's TA modes are 60–80 % too weak against PBE in
+    both Si and GaAs.
+  * **MACE's accurate Si comes from its own too-low γ** (−17 % against PBE) cancelling PBE's inherited soft bulk
+    modulus.
 * **MACE's Ta failure is MACE's own.** PBE QHA overshoots experiment by about 21 % in α_V(300 K)
   ([Gong & Dal Corso 2025](https://doi.org/10.1063/5.0258989)). MACE overshoots PBE by 130 %, and its γ (4.09) is about
   twice PBE's (≈ 1.98). Its K′ (7.7) is about twice PBE's as well (3.5–3.7).
@@ -33,12 +40,14 @@ anything, to run (sections 5 and 6).
   for MatterSim and Orb is therefore mostly PBE's error, with a model share of 1–8 %.
 * **Cu "works" partly by departing from PBE.** PBE overshoots Cu by 11–15 %. All three models fall 2–14 % *below* PBE,
   which puts them closer to experiment than their training functional.
-* **Running our own:** the supercell route that matches `configs/benchmark.yaml` exactly is affordable only for Si
-  (about 4–5 h, calibrated). For Cu and Ta it would take hundreds of hours of laptop CPU each, and published PBE QHA is
-  already better converged than what we could afford. The recommendation (section 6) is a GaAs PBE calculation with
-  density-functional perturbation theory (DFPT): about 3–7 h for γ at 3 volumes, calibrated, or 9–20 h for the full
-  QHA. A Si control adds about 4–5 h. Quantum ESPRESSO is now installed and calibrated (section 5); the production
-  runs have not been started.
+* **Running our own:** done for Si and GaAs (section 8), at about 9 h of laptop CPU. For Cu and Ta it would take
+  hundreds of hours, and published PBE QHA is already better converged.
+  * The benchmark's exact finite-displacement route does **not** work with DFT for Si. With one 0.01 Å displacement,
+    γ comes out at about half the DFPT value, most likely because of SCF noise in the small long-range forces
+    (about 10⁻⁵ Ry/bohr).
+  * The PBE references were therefore computed by DFPT, which samples the same q-points.
+  * The machine-learned models' forces carry far less noise (≤ 4 × 10⁻⁶ eV/Å between runs, study section 2), so this
+    does not undermine the benchmark's own settings.
 
 ## 1. What the models were trained on
 
@@ -184,8 +193,8 @@ experiment. What changes is *whose* error each one is.
 4. **The soft semiconductor bulk moduli are inherited.** The study reads Orb's and MatterSim's K_T, 17–29 % below
    experiment, as a shared model failure. PBE itself is 10 % soft for Si, 19 % for GaAs and 17 % for InP. The models'
    own share is 1–8 % (MACE's GaAs and InP are even stiffer than PBE). Against PBE, Orb's GaAs α (21.5) matches the
-   provisional PBE value (21.6) almost exactly. Its +25 % against experiment would then be essentially PBE's error,
-   pending a U-free check (section 6).
+   provisional PBE value (21.6) almost exactly. Its +25 % against experiment would then be essentially PBE's error;
+   our own U-free PBE calculation confirms this (section 8).
 5. **MACE's Si "right by cancellation" is partly PBE's own cancellation.** PBE already has a γ 10–16 % low and a K 10 %
    soft, and gets α within 2–15 %. MACE's average γ is close to PBE's (−6 to −13 %), but its TA(X) (−2.84) is twice as
    negative as PBE's (−1.5). So the integrated γ is right for partly the wrong mode-level reason. Orb's Si γ (0.32) is
@@ -359,3 +368,91 @@ pre-registered branch; model minus PBE in brackets):
   errors are not PBE's.
 
 No new calculation is recommended for these five. The production plan in section 6 is unchanged.
+
+## 8. Our own PBE calculations for Si and GaAs (run 2026-10-23/24)
+
+**Setup.**
+* Code and pseudopotentials: Quantum ESPRESSO 7.6 with SSSP 1.3.0 PBE efficiency (Si 30/240 Ry; GaAs 70/560 Ry with
+  Ga 3d). No +U.
+* Lattice: PBE's own, from a vc-relax with the same settings. Si a = 5.469 Å and GaAs a = 5.745 Å, within 0.1 % of
+  MP's 5.469 and 5.750.
+* Phonons: DFPT on the 4×4×4 q-grid that the benchmark's 4×4×4 supercell samples, at 0.985 / 1.0 / 1.015 V0, with an
+  8×8×8 k-mesh. A 6×6×6 k-mesh moved the X and L frequencies by 0.2–0.7 %, so 8×8×8 was kept.
+* Force constants: converted with `q2r.x`. For GaAs, the Born charges and dielectric tensor were stripped first, so the
+  force constants carry no LO–TO term, as in the MLIP pipeline.
+* Analysis: γ and the zone-edge mode values are computed by the study's own functions (`gruneisen`,
+  `special_point_gamma` in `scripts/thermal_failure_study.py`), on the same mesh, so they are defined exactly as for the
+  models.
+* Code and data: `scripts/matched_dft.py`, `results/matched_dft/pbe_qe.csv`, and the force constants in
+  `results/matched_dft/phonons/`. Raw QE inputs and outputs are in `~/chipff-dft/` (not in the repository).
+
+**The benchmark's own finite-displacement route failed for Si with DFT.** The full 9-volume QHA was run first,
+exactly as the benchmark runs it: a 128-atom supercell with one 0.01 Å displacement, 2×2×2 k, and SCF to 10⁻¹⁰ Ry.
+It gave γ = 0.21, TA(X) = −2.29 and α_V(300 K) = 6.8. DFPT at the same volumes gives γ = 0.445 and TA(X) = −1.89. A
+separate DFPT calculation directly at X and L reproduces the DFPT values (−1.89, −1.63), so the supercell route is the
+outlier. Its forces on distant atoms are about 10⁻⁵ Ry/bohr, the same size as the SCF error QE reports, and silicon's
+TA modes depend on exactly those long-range force constants. The supercell result is therefore set aside for γ and α. Its K_T(300 K) is kept, because it is set almost
+entirely by the static E(V).
+
+**Results and decomposition.** As in the study, the PBE α_V(300 K) is reconstructed as γ C_V / (K_T V), since only 3
+volumes were computed with DFPT. The models' own reconstructed α is given alongside for a like-for-like comparison.
+
+| | exp | **PBE (ours)** | PBE − exp | MACE-MPA-0 (− PBE) | MatterSim v1 (− PBE) | Orb v3 (− PBE) |
+|---|---|---|---|---|---|---|
+| **Si** γ | 0.46 | **0.445** | −3 % | 0.37 (−17 %) | 0.67 (**+51 %**) | 0.32 (**−28 %**) |
+| Si TA(X) / TA(L) | −1.4 / −1.3 | **−1.89 / −1.63** | more negative | −2.84 / −1.68 (X 50 % more negative) | −0.64 / −0.58 (**66 % / 64 % too weak**) | −2.23 / −1.68 (X 18 % more negative) |
+| Si K_T(300 K), GPa | 98 | 85.5 (static 88.8) | **−13 %** | 87 (+2 %) | 81 (−5 %) | 84 (−2 %) |
+| Si α_V(300 K), reconstructed | 7.85 | **8.4** | +7 % | 7.2 (−14 %) | 13.5 (**+61 %**) | 6.1 (−27 %) |
+| Si α_V(300 K), full QHA | 7.85 | (8.0–9.0 in the literature) | | 7.8 | 14.5 | 7.6 |
+| **GaAs** γ | 0.74 | **0.776** | +5 % | 1.30 (**+68 %**) | 0.92 (+19 %) | 0.79 (+2 %) |
+| GaAs TA(X) / TA(L) | negative | **−1.17 / −1.11** | – | −0.86 / **+1.80** (L has the wrong sign) | −0.22 / −0.42 (**81 % / 62 % too weak**) | −1.06 / −1.03 (−9 % / −7 %) |
+| GaAs TO(Γ) | 1.39 | 1.22 | −12 % | 1.38 | 1.33 | 1.22 (0 %) |
+| GaAs static K, GPa | 75.3 | **61.6** (MP 60.7) | **−18 %** | 64.4 (+5 %) | 55.9 (−9 %) | 58.1 (−6 %) |
+| GaAs α_V(300 K), reconstructed | 17.2 | **≈ 21.6** | **+26 %** | 35.3 (**+63 %**) | 28.3 (**+31 %**) | 22.9 (+6 %) |
+| GaAs α_V(300 K), full QHA | 17.2 | – | | 36.3 | 28.9 | 21.5 |
+
+PBE's K_T(300 K) for GaAs was not computed. It is taken as the static K minus 5 %, the thermal softening the three
+models show at 300 K (4–7 %). The PBE reconstruction gives 21.6, the same as the published AFLOW value (section 2).
+That agreement suggests AFLOW's +U on Ga d mattered little.
+
+**What this establishes.**
+1. **Orb's GaAs error is inherited.**
+   * Orb reproduces PBE's γ (+2 %), its zone-edge TA modes (within 10 %) and its TO(Γ) mode (identical).
+   * Its α_V is within 6 % of PBE's. Its +25 % error against experiment is PBE's, coming through PBE's 18 % soft bulk
+     modulus.
+   * A perfect fit to the training functional would make the same error.
+2. **MACE's GaAs error is its own.**
+   * Its γ is 68 % above PBE's.
+   * Its TA(L) mode has the wrong sign (+1.80 against PBE's −1.11): the mode-level mechanism the study proposed,
+     now confirmed against PBE.
+   * About two thirds of its +111 % error against experiment is its own; the rest (+26 %) is PBE's.
+3. **MatterSim's semiconductor errors are its own.**
+   * Its zone-edge TA modes are 60–80 % weaker than PBE's in both materials.
+   * Its γ is 51 % (Si) and 19 % (GaAs) above PBE.
+   * In Si, PBE itself is within 7 % of experiment, so essentially all of MatterSim's +85 % is its own.
+4. **MACE's accurate Si is a cancellation between its own error and an inherited one.**
+   * PBE's γ is close to experiment (−3 %), but its bulk modulus is 13 % soft, so PBE overshoots α by about 7 %.
+   * MACE's γ is 17 % *below* PBE (its acoustic branches are too negative), which offsets that soft modulus.
+   * Orb's γ is 28 % below PBE, and its Si result (−27 % against PBE in the like-for-like reconstruction) is the
+     weakest of the three. This supports the study's caution about Orb's Si.
+5. **PBE's own semiconductor weakness is the bulk modulus, not γ.**
+   * PBE's γ is within 5 % of experiment for both materials.
+   * Its K is 13 % (Si) to 18 % (GaAs) soft.
+   * PBE's TA(X) in Si (−1.89) is more negative than experiment (−1.4), but the integrated γ still comes out right.
+
+**Limits.**
+* The PBE α values are reconstructions, not full QHA. For the models, this reconstruction is within 2–10 % of the full
+  QHA in these two materials, except Orb's Si (20 %).
+* SSSP pseudopotentials are not MP's VASP PAW potentials. The lattice and static K agree with MP to 0.1 % and 1.5 %.
+* A full PBE QHA would need DFPT at the remaining 6–7 volumes: about 30 min for Si and about 8 h for GaAs at the
+  measured rates (Si: about 3 min per volume; GaAs: about 1.2 h per volume on 4 ranks). It was not run.
+* The supercell finding means a DFT reference for the benchmark's exact route would need larger or ± displacements
+  and tighter SCF, or DFPT as used here.
+
+**Reproduce** (QE in the conda env `qe`; inputs written by the script):
+```
+PYTHONPATH=src .venv/bin/python scripts/matched_dft.py prep          # inputs -> ~/chipff-dft
+scripts/matched_dft_run.sh                                            # GaAs DFPT, Si supercells (about 9 h, 4 ranks)
+# Si DFPT at 0.985 / 1.0 / 1.015 V0: pw.x + ph.x + strip + q2r.x in ~/chipff-dft/si_dfpt/v*/ (about 10 min)
+PYTHONPATH=src .venv/bin/python scripts/matched_dft.py analyze       # -> results/matched_dft/pbe_qe.csv
+```
