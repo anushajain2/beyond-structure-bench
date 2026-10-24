@@ -1,0 +1,359 @@
+{
+ "U1": {
+  "n": 21,
+  "per_material": [
+   {
+    "material": "Al2O3",
+    "spread_3": 0.0046,
+    "uma_abs_log_err": 0.03709561277944137
+   },
+   {
+    "material": "AlN",
+    "spread_3": 0.01547,
+    "uma_abs_log_err": 0.3037128895243086
+   },
+   {
+    "material": "Co",
+    "spread_3": 0.40815,
+    "uma_abs_log_err": 0.4284471845000885
+   },
+   {
+    "material": "CoSi2",
+    "spread_3": 0.14431,
+    "uma_abs_log_err": 0.04200498564507772
+   },
+   {
+    "material": "Cu",
+    "spread_3": 0.03788,
+    "uma_abs_log_err": 0.09158689333144804
+   },
+   {
+    "material": "GaAs",
+    "spread_3": 0.21368,
+    "uma_abs_log_err": 0.43111336148935975
+   },
+   {
+    "material": "GaN",
+    "spread_3": 0.10159,
+    "uma_abs_log_err": 0.13897902728145098
+   },
+   {
+    "material": "Ge",
+    "spread_3": 0.04258,
+    "uma_abs_log_err": 0.4345448312083263
+   },
+   {
+    "material": "MgO",
+    "spread_3": 0.01181,
+    "uma_abs_log_err": 0.1558920199569743
+   },
+   {
+    "material": "Mo",
+    "spread_3": 0.3114,
+    "uma_abs_log_err": 0.07154547748112358
+   },
+   {
+    "material": "Ru",
+    "spread_3": 0.14677,
+    "uma_abs_log_err": 0.040663673720321064
+   },
+   {
+    "material": "Si",
+    "spread_3": 0.29962,
+    "uma_abs_log_err": 0.1178808086542259
+   },
+   {
+    "material": "SiC",
+    "spread_3": 0.01881,
+    "uma_abs_log_err": 0.1834541979898895
+   },
+   {
+    "material": "SiO2_quartz",
+    "spread_3": 0.13275,
+    "uma_abs_log_err": 0.19209314362278768
+   },
+   {
+    "material": "Ta",
+    "spread_3": 0.48293,
+    "uma_abs_log_err": 0.37442153747670287
+   },
+   {
+    "material": "Ti",
+    "spread_3": 0.34229,
+    "uma_abs_log_err": 0.21362648262237
+   },
+   {
+    "material": "TiN",
+    "spread_3": 0.09346,
+    "uma_abs_log_err": 0.08840731887589535
+   },
+   {
+    "material": "TiSi2",
+    "spread_3": 0.04348,
+    "uma_abs_log_err": 0.09525508132227412
+   },
+   {
+    "material": "W",
+    "spread_3": 0.20722,
+    "uma_abs_log_err": 0.06099913991107131
+   },
+   {
+    "material": "WSi2",
+    "spread_3": 0.17202,
+    "uma_abs_log_err": 0.1675078239509057
+   },
+   {
+    "material": "Y2O3",
+    "spread_3": 0.02566,
+    "uma_abs_log_err": 0.11718730268717473
+   }
+  ],
+  "rho": 0.212987012987013,
+  "p": 0.17640823591764082,
+  "p_method": "100000 random permutations, seed 0",
+  "verdict": "inconclusive"
+ },
+ "U2": {
+  "n_graded": 20,
+  "n_error_over_20pct": 5,
+  "n_explained": 2,
+  "fraction_explained": 0.4,
+  "verdict": "inconclusive",
+  "per_material": [
+   {
+    "material": "Si",
+    "err_300K_pct": 12.511,
+    "K_err_pct": -11.03,
+    "error_over_20pct": false,
+    "share_p_over_e": 0.9914332372305598,
+    "explained": false
+   },
+   {
+    "material": "Ge",
+    "err_300K_pct": 54.426,
+    "K_err_pct": -15.222,
+    "error_over_20pct": true,
+    "share_p_over_e": 0.380016281293984,
+    "explained": false
+   },
+   {
+    "material": "SiC",
+    "err_300K_pct": -16.761,
+    "K_err_pct": -15.79,
+    "error_over_20pct": false,
+    "share_p_over_e": -0.936781544544769,
+    "explained": false
+   },
+   {
+    "material": "GaAs",
+    "err_300K_pct": 53.897,
+    "K_err_pct": -20.43,
+    "error_over_20pct": true,
+    "share_p_over_e": 0.5300996652229447,
+    "explained": true
+   },
+   {
+    "material": "GaN",
+    "err_300K_pct": 14.91,
+    "K_err_pct": -18.843,
+    "error_over_20pct": false,
+    "share_p_over_e": 1.5022744065731053,
+    "explained": false
+   },
+   {
+    "material": "AlN",
+    "err_300K_pct": 35.488,
+    "K_err_pct": -9.4949,
+    "error_over_20pct": true,
+    "share_p_over_e": 0.32848122921325584,
+    "explained": false
+   },
+   {
+    "material": "SiO2_quartz",
+    "err_300K_pct": -17.477,
+    "K_err_pct": -16.161,
+    "error_over_20pct": false,
+    "share_p_over_e": -0.9176376087298178,
+    "explained": false
+   },
+   {
+    "material": "Al2O3",
+    "err_300K_pct": -3.6416,
+    "K_err_pct": -8.5656,
+    "error_over_20pct": false,
+    "share_p_over_e": -2.41398925673659,
+    "explained": false
+   },
+   {
+    "material": "Y2O3",
+    "err_300K_pct": 12.433,
+    "K_err_pct": -8.04,
+    "error_over_20pct": false,
+    "share_p_over_e": 0.7152352189285747,
+    "explained": false
+   },
+   {
+    "material": "MgO",
+    "err_300K_pct": 16.87,
+    "K_err_pct": -2.6931,
+    "error_over_20pct": false,
+    "share_p_over_e": 0.17512304107151247,
+    "explained": false
+   },
+   {
+    "material": "Cu",
+    "err_300K_pct": 9.5912,
+    "K_err_pct": 5.899,
+    "error_over_20pct": false,
+    "share_p_over_e": -0.6258059599928822,
+    "explained": false
+   },
+   {
+    "material": "Al",
+    "err_300K_pct": -11.898,
+    "K_err_pct": 35.87,
+    "error_over_20pct": false,
+    "share_p_over_e": 2.419802461533667,
+    "explained": false
+   },
+   {
+    "material": "W",
+    "err_300K_pct": 6.2898,
+    "K_err_pct": 2.207,
+    "error_over_20pct": false,
+    "share_p_over_e": -0.3578736129472335,
+    "explained": false
+   },
+   {
+    "material": "Co",
+    "err_300K_pct": -34.848,
+    "K_err_pct": 33.45,
+    "error_over_20pct": true,
+    "share_p_over_e": 0.6734941908863966,
+    "explained": true
+   },
+   {
+    "material": "Ru",
+    "err_300K_pct": -3.9848,
+    "K_err_pct": 8.2534,
+    "error_over_20pct": false,
+    "share_p_over_e": 1.950256381720199,
+    "explained": false
+   },
+   {
+    "material": "Mo",
+    "err_300K_pct": 7.4167,
+    "K_err_pct": 0.79128,
+    "error_over_20pct": false,
+    "share_p_over_e": -0.11016290963633678,
+    "explained": false
+   },
+   {
+    "material": "Ti",
+    "err_300K_pct": -19.235,
+    "K_err_pct": 26.927,
+    "error_over_20pct": false,
+    "share_p_over_e": 1.116162795601179,
+    "explained": false
+   },
+   {
+    "material": "Ta",
+    "err_300K_pct": 45.415,
+    "K_err_pct": 0.025443,
+    "error_over_20pct": true,
+    "share_p_over_e": -0.0006794417860977752,
+    "explained": false
+   },
+   {
+    "material": "TiN",
+    "err_300K_pct": 9.2433,
+    "K_err_pct": 1.9916,
+    "error_over_20pct": false,
+    "share_p_over_e": -0.2230615204098268,
+    "explained": false
+   },
+   {
+    "material": "TiSi2",
+    "err_300K_pct": -9.0859,
+    "K_err_pct": -0.57583,
+    "error_over_20pct": false,
+    "share_p_over_e": -0.06062608786873387,
+    "explained": false
+   }
+  ]
+ },
+ "U3": {
+  "si_window_err_pct": 10.139,
+  "n_stacks": 5,
+  "n_wrong_sign": 0,
+  "per_stack": [
+   {
+    "pair": "W on Si",
+    "mismatch_model_ue": 569.32,
+    "mismatch_exp_ue": 621.81
+   },
+   {
+    "pair": "Mo on Si",
+    "mismatch_model_ue": 788.74,
+    "mismatch_exp_ue": 960.82
+   },
+   {
+    "pair": "Ta on Si",
+    "mismatch_model_ue": 3378.5,
+    "mismatch_exp_ue": 1901.5
+   },
+   {
+    "pair": "GaN on Si",
+    "mismatch_model_ue": 1471.8,
+    "mismatch_exp_ue": 961.48
+   },
+   {
+    "pair": "AlN on Si",
+    "mismatch_model_ue": 995.33,
+    "mismatch_exp_ue": 684.81
+   }
+  ],
+  "prediction": "Si within 30 %: wrong sign on at most 1",
+  "verdict": "supported"
+ },
+ "U4": {
+  "pearson_log_err": {
+   "MACE": {
+    "r": 0.5919749511452508,
+    "n": 22
+   },
+   "MatterSim": {
+    "r": 0.592827372407538,
+    "n": 22
+   },
+   "Orb": {
+    "r": 0.7742905471975821,
+    "n": 21
+   }
+  },
+  "verdict": "supported"
+ },
+ "descriptive": {
+  "thermal_300K": {
+   "n_common": 21,
+   "mace-mpa-0": 36.53751571428572,
+   "mattersim-5m-native": 24.95025714285714,
+   "orb-v3": 20.863890476190477,
+   "uma-s-1p2": 19.193371428571428
+  },
+  "thermal_window": {
+   "n_common": 16,
+   "mace-mpa-0": 35.929050000000004,
+   "mattersim-5m-native": 36.95473125,
+   "orb-v3": 25.935975,
+   "uma-s-1p2": 26.37624375
+  },
+  "bulk_modulus": {
+   "n_common": 26,
+   "mace-mpa-0": 14.931900000000002,
+   "mattersim-5m-native": 15.356271538461538,
+   "orb-v3": 14.847861153846152,
+   "uma-s-1p2": 12.067448192307694
+  }
+ }
+}

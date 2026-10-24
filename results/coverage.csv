@@ -2,12 +2,16 @@ model,property,materials,computed,graded,model_failure,method_limit,no_experimen
 mace-mpa-0,lattice,33,33,33,0,0,0,False,
 mattersim-5m-native,lattice,33,33,33,0,0,0,False,
 orb-v3,lattice,33,33,30,3,0,0,False,TiO2_rutile (relaxed to a different crystal form); SrTiO3 (relaxed to a different crystal form); MoS2 (relaxed to a different crystal form)
+uma-s-1p2,lattice,33,33,33,0,0,0,False,
 mace-mpa-0,bulk_modulus,33,33,30,1,0,2,False,hBN (elastic tensor not positive definite)
 mattersim-5m-native,bulk_modulus,33,33,29,2,0,2,False,Ti (elastic tensor not positive definite); MoS2 (elastic tensor not positive definite)
 orb-v3,bulk_modulus,33,33,28,3,0,2,False,TiO2_rutile (relaxed to a different crystal form); SrTiO3 (relaxed to a different crystal form); MoS2 (relaxed to a different crystal form)
+uma-s-1p2,bulk_modulus,33,33,30,0,0,2,False,
 mace-mpa-0,thermal_expansion,33,33,17,3,5,8,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)
 mattersim-5m-native,thermal_expansion,33,33,18,2,4,9,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)
 orb-v3,thermal_expansion,33,33,17,2,5,9,False,TiO2_rutile (dynamically unstable); SrTiO3 (relaxed to a different crystal form)
+uma-s-1p2,thermal_expansion,33,33,18,2,4,9,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)
 mace-mpa-0,thermal_expansion_300K,33,33,22,3,3,5,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable); TaN (dynamically unstable)
 mattersim-5m-native,thermal_expansion_300K,33,33,22,2,3,6,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)
 orb-v3,thermal_expansion_300K,33,33,21,2,4,6,False,TiO2_rutile (dynamically unstable); SrTiO3 (relaxed to a different crystal form)
+uma-s-1p2,thermal_expansion_300K,33,33,22,2,3,6,False,TiO2_rutile (dynamically unstable); SrTiO3 (dynamically unstable)

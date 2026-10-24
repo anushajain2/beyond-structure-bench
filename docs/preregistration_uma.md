@@ -106,4 +106,80 @@ None changes the grading rules or thresholds.
 
 ## Results (added after the run)
 
-*Not yet run.*
+Written 2026-10-24, after the run. Nothing above the line was changed. Output of `scripts/prereg_uma_eval.py`, per
+material, is in `results/preregistration_uma.json`.
+
+### Verdicts
+
+| | prediction | result | verdict |
+|---|---|---|---|
+| **U1** | existing models' spread predicts UMA's error | ρ = 0.21, p = 0.18, n = 21 | **inconclusive** |
+| **U2** | UMA's large errors follow its bulk modulus | 2 of 5 explained | **inconclusive** |
+| **U3** | Si within ±30 % → at most 1 sign flip | Si +10.1 %, 0 of 5 flipped | **supported** |
+| **U4** | UMA's errors track Orb's most | r(UMA, Orb) = 0.77 against 0.59 (MACE) and 0.59 (MatterSim) | **supported** |
+
+### The run
+
+* **Steps:** static, then QHA, all 33 materials. All records are current and none was built from a dirty tree.
+* **Time:** the QHA took 30 min with two workers, well under the 1–3 h estimate. UMA keeps crystal symmetry, so
+  its displacement counts are close to MACE's: Si 1, HfO₂ 36, Y₂O₃ 22.
+* **Memory:** peak 6.5 GB (Al₂O₃). No watchdog kill.
+* **Exclusions:**
+  * TiO₂ and SrTiO₃ are dynamically unstable, as for MACE and MatterSim.
+  * MgO fails the volume check over its window, as for every model.
+  * hBN fails the interpolation check. It is layered and not graded anyway.
+
+### What each result says
+
+* **U1, inconclusive.** The Orb test's exploratory signal, three-model spread tracking the error, does not carry
+  over to a new model.
+  * Materials where the old models agree can still be hard. UMA is off by 36 % on AlN, 55 % on Ge and 17 % on
+    MgO, all low-spread materials.
+  * Materials where they disagree can be easy for UMA: Mo, W and Ru are high-spread, and UMA is within 8 %.
+  * So disagreement among existing models is not a reliable warning for a new one.
+* **U2, inconclusive (0.4, between the thresholds).** UMA's bulk modulus is about as accurate as the others', and
+  UMA's large errors mostly do not come from it.
+  * Ta is +45 % with K exact (+0.03 %), the Grüneisen pattern seen for MACE and Orb.
+  * Ge (+54 %) and AlN (+35 %) have K errors that explain only a third of their α errors.
+  * GaAs and Co are explained.
+* **U3, supported.** UMA's silicon is close (+10 % over its window), and it gets the sign of every Si-sensitive
+  stack right, as predicted. That is consistent with mismatch sign errors being a silicon problem, but a single
+  supported branch is weak evidence. The other branch, a model with a bad silicon, was MatterSim's case, which
+  motivated the hypothesis.
+* **U4, supported by the registered rule, but not decisively.** r(UMA, Orb) = 0.77 (n = 21) is higher than UMA's
+  correlation with MACE (0.59) or MatterSim (0.59, n = 22). A bootstrap of the difference was not registered; done
+  now, for information, its 95 % intervals cross zero (−0.19 to 0.60 against MACE, −0.10 to 0.62 against
+  MatterSim). So the two OMat24-trained models share the most error, but this sample cannot rule out that all four
+  share errors about equally.
+
+### Descriptive
+
+Mean absolute error with 95 % CI, and paired bootstrap from `results/robustness/`:
+
+| | MACE-MPA-0 | MatterSim v1 | Orb v3 | UMA s-1.2 |
+|---|---|---|---|---|
+| thermal expansion, 300 K | 36.1 % (n 22) | 24.2 % (n 22) | 20.9 % (n 21) | **18.9 %** (14–29, n 22) |
+| thermal expansion, window | 35.5 % (n 17) | 34.5 % (n 18) | 24.6 % (n 17) | 24.5 % (17–37, n 18) |
+| bulk modulus vs experiment | 10.4 % | 13.4 % | 12.0 % | 11.0 % |
+
+The bulk-modulus row is on the 25 non-layered materials graded for all four. UMA's own bootstrap figure is
+11.2 % (8–16, n 27).
+
+* **Paired comparisons, UMA against each model:**
+  * More accurate than MACE at 300 K (+17 pp) and than MatterSim over the window (+10 pp).
+  * Not separable from Orb on any thermal metric.
+  * On bulk modulus, not separable from any model against experiment, but closer to DFT than every other model.
+* **Shared failure:** Ta is overshot by every model except MatterSim (MACE +179 %, Orb +70 %, UMA +45 %). In each,
+  this happens with a reasonable bulk modulus, which is the Grüneisen failure the six-case study found.
+
+### Deviations
+
+1. **Metadata fix before the run:** `run_meta` assumed every official-package model was MatterSim, so the first
+   static launch failed before computing anything. Fixed in 2932e90; it is not part of any fingerprint.
+2. **Watchdog on the static run:** the first watchdog watched `caffeinate`'s child, not Python. A second watchdog on
+   the Python process covered the whole static run, which peaked at 4.8 GB. The QHA drivers watched the right
+   process.
+3. **No deviation from the registered analysis.** The U4 bootstrap above is additional and labelled as such.
+4. **Descriptive bulk-modulus figure corrected.** The script's descriptive block, which decides nothing, averages
+   bulk modulus over layered materials too, which the benchmark does not grade. The table above uses non-layered
+   materials. The script is left as registered.
