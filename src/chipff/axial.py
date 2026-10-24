@@ -114,7 +114,7 @@ def run_axial(engine, material, model_key: str, relaxed: Atoms, cfg: dict) -> di
     log.info("%s %s: axial alpha_a(300 K) = %.2f, alpha_c = %.2f e-6/K%s", model_key, material.id, at(alpha_a, 300),
              at(alpha_c, 300), "" if all(checks.values()) else f"  CHECK: {[c for c, v in checks.items() if not v]}")
     return {"material": material.id, "model": model_key, "supercell": reps, "delta": DELTA, "spacegroup": sg0,
-            "n_displacements": n_disp, "min_frequency_THz": {f"{m}{s:+d}": v for (m, s), v in fmins.items()},
+            "n_displacements": {f"{m}{s:+d}": v for (m, s), v in n_disp.items()}, "min_frequency_THz": {f"{m}{s:+d}": v for (m, s), v in fmins.items()},
             "stiffness_eV_per_atom": H.tolist(), "checks": checks,
             "alpha_a_300K_1e6": at(alpha_a, 300), "alpha_c_300K_1e6": at(alpha_c, 300),
             "alpha_V_300K_1e6": at(2 * alpha_a + alpha_c, 300),
